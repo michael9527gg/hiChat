@@ -1,0 +1,38 @@
+/*
+  en.strings
+  hiChat
+
+*/
+
+"Me" = "我";
+
+"Close" = "关闭";
+
+"Exit" = "退出";
+
+"Please wait" = "请等待";
+
+"Success" = "成功";
+
+"Failed" = "失败";
+
+"OK" = "好";
+
+"Cancel" = "取消";
+
+"Continue" = "继续";
+
+"Done" = "完成";
+
+"Save" = "保存";
+
+"Edit" = "编辑";
+
+"Delete" = "删除";
+
+"Replace" = "替换";
+
+"Reject" = "拒绝";
+
+"Accept" = "接受";
+

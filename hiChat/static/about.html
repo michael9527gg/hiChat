@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" type="text/css" href="./bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./index.css">
+  <script src="./jquery.slim.min.js"></script>
+  <script src="./index.js"></script>
+  <title>关于</title>
+</head>
+
+<body class="about">
+  <script type="text/javascript">
+  $(document).ready(function() {
+    getVersion(function(data) {
+      $("p.version").html(data.string)
+      if (data.has_new === true) {
+        $("#version-update").show()
+      }
+    })
+
+    getAppName(function(data) {
+      $("#app-name").html(data.name)
+    })
+
+    $("#version-update").hide()
+    $("#version-update").on('click', function(e) {
+      updateVersion(function(data) {
+
+      })
+    })
+  });
+  </script>
+  <header>
+    <img class="appicon" src="./app_icon.png">
+    <h5 id="app-name"></h5>
+    <p class="version"></p>
+    <a class="btn btn-outline-primary check" id="version-update">更新</a>
+  </header>
+
+  <main class="container">
+    <div class="btn-container">
+      <p>
+        开心聊起来
+      </p>
+
+      <div class="help-links">
+<!--        <a href="./manual.html" class="btn btn-link btn-lg btn-block" role="button">使用帮助</a>-->
+      </div>
+    </div>
+  </main>
+
+  <footer>
+      ©️2019 Xinlong Network
+  </footer>
+
+</body>
+
+</html>

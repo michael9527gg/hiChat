@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18D109" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="ContactEntity" representedClassName="ContactEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="account" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="loginid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nickname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="portraitUri" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="refCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sectionKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shengmu" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ConversationSettingEntity" representedClassName="ConversationSettingEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="canMessage" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isSilent" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isTop" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="loginid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="messageError" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="refCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="targetid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="FriendBlackEntity" representedClassName="FriendBlackEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="loginid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nickname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="portraitUri" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="refCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="userid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="FriendRequestEntity" representedClassName="FriendRequestEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="loginid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nickname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="portraitUri" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="refCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updateAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="userid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="GroupEntity" representedClassName="GroupEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="banState" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="creatorId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="groupRole" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="introduce" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="loginid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="maxMemberCount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memberCount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mine" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mineKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="portrait" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="refCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sectionKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shengmu" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sortIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="GroupMemberEntity" representedClassName="GroupMemberEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="groupid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="groupRole" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isgag" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lastLoginAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="loginid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nickname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="portraitUri" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="refCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="role" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sectionKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shengmu" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="NotificationEntity" representedClassName="NotificationEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="alert" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="loginid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="read" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="refCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="UserEntity" representedClassName="UserEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nickname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="portrait" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="refCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ContactEntity" positionX="-63" positionY="-18" width="128" height="240"/>
+        <element name="ConversationSettingEntity" positionX="-36" positionY="144" width="128" height="165"/>
+        <element name="FriendBlackEntity" positionX="-45" positionY="135" width="128" height="135"/>
+        <element name="FriendRequestEntity" positionX="-45" positionY="135" width="128" height="180"/>
+        <element name="GroupEntity" positionX="-54" positionY="81" width="128" height="285"/>
+        <element name="GroupMemberEntity" positionX="-36" positionY="90" width="128" height="270"/>
+        <element name="NotificationEntity" positionX="-45" positionY="135" width="128" height="165"/>
+        <element name="UserEntity" positionX="-63" positionY="72" width="128" height="135"/>
+    </elements>
+</model>

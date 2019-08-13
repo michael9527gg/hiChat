@@ -1,0 +1,38 @@
+/*
+  en.strings
+  hiChat
+
+*/
+
+"Me" = "Me";
+
+"Close" = "Close";
+
+"Exit" = "Exit";
+
+"Please wait" = "Please wait";
+
+"Success" = "Success";
+
+"Failed" = "Failed";
+
+"OK" = "OK";
+
+"Cancel" = "Cancel";
+
+"Continue" = "Continue";
+
+"Done" = "Done";
+
+"Save" = "Save";
+
+"Edit" = "Edit";
+
+"Delete" = "Delete";
+
+"Replace" = "Replace";
+
+"Reject" = "Reject";
+
+"Accept" = "Accept";
+

@@ -1,0 +1,42 @@
+//
+//  PrefixHeader.pch
+//  Xiaofei
+//
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#import <SDWebImage/SDImageCache.h>
+#import <SDWebImage/SDWebImageManager.h>
+#import "UIImageView+WebCache.h"
+#import <RongIMKit/RongIMKit.h>
+#import <Masonry/Masonry.h>
+#import "VICocoaTools.h"
+#import <MJRefresh/MJRefresh.h>
+
+#import "CommonDefs.h"
+
+#import "NSUserDefaults+Kaixin.h"
+#import "YuAlertViewController.h"
+#import "MainNavigationController.h"
+#import "CloudInterface.h"
+#import "AccountManager.h"
+#import "AppDelegate.h"
+#import "UserDataSource.h"
+#import "GroupDataSource.h"
+#import "UserManager.h"
+#import "GroupManager.h"
+#import "RCManager.h"
+#import "ConversationViewController.h"
+#import "ConversationSettingDataSource.h"
+
+#endif //
+
+#endif /* PrefixHeader_pch */
+
