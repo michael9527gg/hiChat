@@ -1,6 +1,0 @@
-framework module Pods_hiChat_enterprise_pub {
-  umbrella header "Pods-hiChat_enterprise_pub-umbrella.h"
-
-  export *
-  module * { export * }
-}

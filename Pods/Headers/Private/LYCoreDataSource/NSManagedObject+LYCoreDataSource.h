@@ -1,1 +1,0 @@
-../../../LYCoreDataSource/LYCoreDataSourceDemo/LYCoreDataSource/NSManagedObject+LYCoreDataSource.h
