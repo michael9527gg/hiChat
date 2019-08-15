@@ -189,12 +189,7 @@ typedef enum : NSUInteger {
     info.nickname = self.nickname;
     info.account = self.account;
     
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     
     [[AccountManager manager] requestMeInfoWithAction:YuCloudDataEdit
                                                  user:[AccountManager manager].loginid
@@ -204,14 +199,14 @@ typedef enum : NSUInteger {
                                                    [[UserManager manager] refreshCurrentUserInfo];
                                                }
                                                
-                                               [MBProgressHUD finishHudWithResult:success
-                                                                              hud:hud
-                                                                        labelText:[info msg]
-                                                                       completion:^{
-                                                                           if (success) {
-                                                                               [self.navigationController popViewControllerAnimated:YES];
-                                                                           }
-                                                                       }];
+                                               [MBProgressHUD finishLoading:hud
+                                                                     result:success
+                                                                       text:[info msg]
+                                                                 completion:^{
+                                                                     if (success) {
+                                                                         [self.navigationController popViewControllerAnimated:YES];
+                                                                     }
+                                                                 }];
                                            }];
 }
 
@@ -291,11 +286,10 @@ typedef enum : NSUInteger {
             NSString *code = [AccountManager manager].accountInfo.invitationCode;
             if (code.length) {
                 [UIPasteboard generalPasteboard].string = code;
-                [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                                    withResult:YES
-                                     labelText:@"邀请码已复制"
-                                     delayHide:YES
-                                    completion:nil];
+                [MBProgressHUD showMessage:@"邀请码已复制"
+                                    onView:APP_DELEGATE_WINDOW
+                                    result:YES
+                                completion:nil];
             }
         }
             break;

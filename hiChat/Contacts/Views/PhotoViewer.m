@@ -169,11 +169,10 @@
                                          metadata:nil
                                   completionBlock:^(NSURL *assetURL, NSError *error) {
                                       dispatch_async(dispatch_get_main_queue(), ^{
-                                          [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                                                              withResult:!error
-                                                               labelText:error?@"保存失败":@"已保存到系统相册"
-                                                               delayHide:YES
-                                                              completion:nil];
+                                          [MBProgressHUD showMessage:error?@"保存失败":@"已保存到系统相册"
+                                                              onView:APP_DELEGATE_WINDOW
+                                                              result:!error
+                                                          completion:nil];
                                       });
                                   }];
     }

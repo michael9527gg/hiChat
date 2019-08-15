@@ -9,7 +9,6 @@
 #ifndef GFCocoaTools_h
 #define GFCocoaTools_h
 
-#import "MBProgressHUD+GF.h"
 #import "NSAttributedString+GF.h"
 #import "NSBundle+GF.h"
 #import "NSDate+GF.h"

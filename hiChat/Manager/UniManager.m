@@ -114,12 +114,10 @@
     NSMutableArray *arr = [NSMutableArray array];
     
     if (self.selectImageUpload) {
-        MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                                 mode:MBProgressHUDModeIndeterminate
-                                                image:nil
-                                              message:@"上传中"
-                                            delayHide:NO
-                                           completion:nil];
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:APP_DELEGATE_WINDOW
+                                                  animated:YES];
+        hud.mode = MBProgressHUDModeDeterminate;
+        hud.label.text = @"上传中";
         
         dispatch_group_t group = dispatch_group_create();
         for (UIImage *item in images) {
@@ -136,7 +134,7 @@
             [[UploadManager manager] uploadData:UIImageJPEGRepresentation(image, .75)
                                         fileExt:@"jpg"
                                        progress:^(NSUInteger completedBytes, NSUInteger totalBytes) {
-                                           
+                                           hud.progress = (CGFloat)completedBytes/(CGFloat)totalBytes;
                                        }
                                      completion:^(BOOL success, NSDictionary * _Nullable info) {
                                          if (success) {
@@ -149,14 +147,14 @@
         }
         
         dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-            [MBProgressHUD finishHudWithResult:arr.count > 0
-                                           hud:hud
-                                     labelText:arr.count > 0?YUCLOUD_STRING_SUCCESS:YUCLOUD_STRING_FAILED
-                                    completion:^{
-                                        if (self.selectImageCompletion) {
-                                            self.selectImageCompletion(arr.count > 0, @{@"images" : arr.copy});
-                                        }
-                                    }];
+            [MBProgressHUD finishLoading:hud
+                                  result:arr.count > 0
+                                    text:nil
+                              completion:^{
+                                  if (self.selectImageCompletion) {
+                                      self.selectImageCompletion(arr.count > 0, @{@"images" : arr.copy});
+                                  }
+                              }];
         });
     }
     else {

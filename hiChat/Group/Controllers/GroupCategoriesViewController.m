@@ -206,13 +206,7 @@
 }
 
 - (void)fetchData {
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
-    hud.label.text = YUCLOUD_STRING_PLEASE_WAIT;
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     [[GroupManager manager] requestAllGroupCategoriesWithCompletion:^(BOOL success, NSDictionary * _Nullable info) {
         if(success) {
             [hud hideAnimated:YES];
@@ -224,10 +218,10 @@
             [self.tableView reloadData];
         }
         else {
-            [MBProgressHUD finishHudWithResult:success
-                                           hud:hud
-                                     labelText:[info msg]
-                                    completion:nil];
+            [MBProgressHUD finishLoading:hud
+                                  result:success
+                                    text:[info msg]
+                              completion:nil];
         }
     }];
 }
@@ -292,12 +286,11 @@
 }
 
 - (void)touchFinish {
-    if(!self.selectSet.count) {
-        [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                            withResult:NO
-                             labelText:@"发送群组不能为空"
-                             delayHide:YES
-                            completion:nil];
+    if(!self.selectSet.count) {    
+        [MBProgressHUD showMessage:@"发送群组不能为空"
+                            onView:APP_DELEGATE_WINDOW
+                            result:NO
+                        completion:nil];
         
         return;
     }

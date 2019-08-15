@@ -70,14 +70,14 @@
                            // 拦截登录失效
                            if([responseObject code] == 1004) {
                                dispatch_async(dispatch_get_main_queue(), ^{
-                                   [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                                                       withResult:NO
-                                                        labelText:[responseObject msg]
-                                                        delayHide:YES
-                                                       completion:^{
-                                                           [[AccountManager manager] processInvalidToken];
-                                                           [[AppDelegate appDelegate] showLoginScreen:NO];
-                                                       }];
+                                   
+                                   [MBProgressHUD showMessage:[responseObject msg]
+                                                       onView:APP_DELEGATE_WINDOW
+                                                       result:NO
+                                                   completion:^{
+                                                       [[AccountManager manager] processInvalidToken];
+                                                       [[AppDelegate appDelegate] showLoginScreen:NO];
+                                                   }];
                                });
                                NSLog(@"login token invalid ！！！");
                            }

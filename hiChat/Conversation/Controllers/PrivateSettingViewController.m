@@ -103,96 +103,82 @@
 }
 
 - (void)addBlackList {
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     [[ContactsManager manager] addBlackListWithFriendid:self.userId
                                              completion:^(BOOL success, NSDictionary * _Nullable info) {
-                                                 if(success) {
-                                                     // 拉黑
-                                                     FriendBlackData *black = [[FriendBlackData alloc] init];
-                                                     black.userid = self.contact.uid;
-                                                     black.nickname = self.contact.nickname;
-                                                     black.portraitUri = self.contact.portraitUri;
-                                                     [[ContactsDataSource sharedClient] addObject:black
-                                                                                       entityName:[FriendBlackEntity entityName]];
-                                                     
-                                                     // 消息能力
-                                                     ConversationSettingData *setting = [ConversationSettingData conversationSettingWithType:ConversationType_PRIVATE
-                                                                                                                                    targetId:self.userId];
-                                                     setting.canMessage = NO;
-                                                     setting.messageError = @"您已将对方列入黑名单";
-                                                     [[ConversationSettingDataSource sharedClient] addObject:setting
-                                                                                                  entityName:[ConversationSettingEntity entityName]];
-                                                 }
-                                                 [MBProgressHUD finishHudWithResult:success
-                                                                                hud:hud
-                                                                          labelText:success?@"拉黑成功":info[@"msg"]
-                                                                         completion:nil];
+                                                 [MBProgressHUD finishLoading:hud
+                                                                       result:success
+                                                                         text:success?@"拉黑成功":info[@"msg"]
+                                                                   completion:^{
+                                                                       if(success) {
+                                                                           // 拉黑
+                                                                           FriendBlackData *black = [[FriendBlackData alloc] init];
+                                                                           black.userid = self.contact.uid;
+                                                                           black.nickname = self.contact.nickname;
+                                                                           black.portraitUri = self.contact.portraitUri;
+                                                                           [[ContactsDataSource sharedClient] addObject:black
+                                                                                                             entityName:[FriendBlackEntity entityName]];
+                                                                           
+                                                                           // 消息能力
+                                                                           ConversationSettingData *setting = [ConversationSettingData conversationSettingWithType:ConversationType_PRIVATE
+                                                                                                                                                          targetId:self.userId];
+                                                                           setting.canMessage = NO;
+                                                                           setting.messageError = @"您已将对方列入黑名单";
+                                                                           [[ConversationSettingDataSource sharedClient] addObject:setting
+                                                                                                                        entityName:[ConversationSettingEntity entityName]];
+                                                                       }
+                                                                   }];
                                              }];
 }
 
 - (void)deleteFromBlackList {
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     [[ContactsManager manager] deleteBlackListWithFriendid:self.userId
                                                 completion:^(BOOL success, NSDictionary * _Nullable info) {
-                                                    if(success) {
-                                                        FriendBlackData *data = [[ContactsDataSource sharedClient] blackWithUserid:self.userId];
-                                                        [[ContactsDataSource sharedClient] deleteObject:data];
-                                                        
-                                                        [[ContactsManager manager] refreshFriendsListWithCompletion:nil];
-                                                        
-                                                        // 消息能力
-                                                        ConversationSettingData *setting = [ConversationSettingData conversationSettingWithType:ConversationType_PRIVATE
-                                                                                                                                       targetId:self.userId];
-                                                        setting.canMessage = YES;
-                                                        [[ConversationSettingDataSource sharedClient] addObject:setting
-                                                                                                     entityName:[ConversationSettingEntity entityName]];
-                                                    }
-                                                    [MBProgressHUD finishHudWithResult:success
-                                                                                   hud:hud
-                                                                             labelText:success?@"取消成功":info[@"msg"]
-                                                                            completion:nil];
+                                                    [MBProgressHUD finishLoading:hud
+                                                                          result:success
+                                                                            text:success?@"取消成功":info[@"msg"]
+                                                                      completion:^{
+                                                                          if(success) {
+                                                                              FriendBlackData *data = [[ContactsDataSource sharedClient] blackWithUserid:self.userId];
+                                                                              [[ContactsDataSource sharedClient] deleteObject:data];
+                                                                              
+                                                                              [[ContactsManager manager] refreshFriendsListWithCompletion:nil];
+                                                                              
+                                                                              // 消息能力
+                                                                              ConversationSettingData *setting = [ConversationSettingData conversationSettingWithType:ConversationType_PRIVATE
+                                                                                                                                                             targetId:self.userId];
+                                                                              setting.canMessage = YES;
+                                                                              [[ConversationSettingDataSource sharedClient] addObject:setting
+                                                                                                                           entityName:[ConversationSettingEntity entityName]];
+                                                                          }
+                                                                      }];
                                                 }];
 }
 
 - (void)deleteFriend {
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     [[ContactsManager manager] deleteFriendWithUserid:self.userId
                                            completion:^(BOOL success, NSDictionary * _Nullable info) {
-                                               if(success) {
-                                                   if(!self.black) {
-                                                       [[ContactsDataSource sharedClient] deleteObject:self.contact];
-                                                   }
-                                                   
-                                                   [[UserManager manager] refreshRCUserInfoCacheWithUserid:self.userId
-                                                                                                  userInfo:nil
-                                                                                                completion:nil];
-                                                   
-                                                   [[RCManager manager] removeConversation:ConversationType_PRIVATE
-                                                                                  targetId:self.userId];
-                                               }
-                                               [MBProgressHUD finishHudWithResult:success
-                                                                              hud:hud
-                                                                        labelText:success?@"删除成功":info[@"msg"]
-                                                                       completion:^{
-                                                                           if(success) {
-                                                                               [self.navigationController popToRootViewControllerAnimated:YES];
-                                                                           }
-                                                                       }];
+                                               [MBProgressHUD finishLoading:hud
+                                                                     result:success
+                                                                       text:success?@"删除成功":info[@"msg"]
+                                                                 completion:^{
+                                                                     if(success) {
+                                                                         if(!self.black) {
+                                                                             [[ContactsDataSource sharedClient] deleteObject:self.contact];
+                                                                         }
+                                                                         
+                                                                         [[UserManager manager] refreshRCUserInfoCacheWithUserid:self.userId
+                                                                                                                        userInfo:nil
+                                                                                                                      completion:nil];
+                                                                         
+                                                                         [[RCManager manager] removeConversation:ConversationType_PRIVATE
+                                                                                                        targetId:self.userId];
+                                                                         
+                                                                         [self.navigationController popToRootViewControllerAnimated:YES];
+                                                                     }
+                                                                 }];
                                            }];
 }
 
@@ -221,11 +207,10 @@
                                                     completion:^(BOOL success, NSDictionary * _Nullable info) {
                                                         dispatch_async(dispatch_get_main_queue(), ^{
                                                             if(!success) {
-                                                                [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                                                                                    withResult:success
-                                                                                     labelText:[info msg]
-                                                                                     delayHide:YES
-                                                                                    completion:nil];
+                                                                [MBProgressHUD showMessage:[info msg]
+                                                                                    onView:APP_DELEGATE_WINDOW
+                                                                                    result:success
+                                                                                completion:nil];
                                                                 
                                                                 swch.on = !swch.on;
                                                             }
@@ -245,11 +230,10 @@
                                                   completion:^(BOOL success, NSDictionary * _Nullable info) {
                                                       dispatch_async(dispatch_get_main_queue(), ^{
                                                           if(!success) {
-                                                              [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                                                                                  withResult:success
-                                                                                   labelText:[info msg]
-                                                                                   delayHide:YES
-                                                                                  completion:nil];
+                                                              [MBProgressHUD showMessage:[info msg]
+                                                                                  onView:APP_DELEGATE_WINDOW
+                                                                                  result:success
+                                                                              completion:nil];
                                                               
                                                               swch.on = !swch.on;
                                                           }
@@ -262,12 +246,7 @@
 
 - (void)clearHistoryMessage {
     RCIMClient *client = [RCIMClient sharedRCIMClient];
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     [client clearRemoteHistoryMessages:ConversationType_PRIVATE
                               targetId:self.userId
                             recordTime:0
@@ -276,10 +255,10 @@
                                                  targetId:self.userId
                                                   success:^{
                                                       dispatch_async(dispatch_get_main_queue(), ^{
-                                                          [MBProgressHUD finishHudWithResult:YES
-                                                                                         hud:hud
-                                                                                   labelText:@"聊天记录已清除"
-                                                                                  completion:nil];
+                                                          [MBProgressHUD showMessage:@"聊天记录已清除"
+                                                                              onView:APP_DELEGATE_WINDOW
+                                                                              result:YES
+                                                                          completion:nil];
                                                       });
                                                       [[NSNotificationCenter defaultCenter] postNotificationName:CONVERSATION_CLEAR_MESSAGE_NOTIFIACTION
                                                                                                           object:nil
@@ -287,18 +266,18 @@
                                                   }
                                                     error:^(RCErrorCode status) {
                                                         dispatch_async(dispatch_get_main_queue(), ^{
-                                                            [MBProgressHUD finishHudWithResult:NO
-                                                                                           hud:hud
-                                                                                     labelText:@"消息记录清除失败"
-                                                                                    completion:nil];
+                                                            [MBProgressHUD showMessage:@"消息记录清除失败"
+                                                                                onView:APP_DELEGATE_WINDOW
+                                                                                result:NO
+                                                                            completion:nil];
                                                         });
                                                     }];
                                } error:^(RCErrorCode status) {
                                    dispatch_async(dispatch_get_main_queue(), ^{
-                                       [MBProgressHUD finishHudWithResult:NO
-                                                                      hud:hud
-                                                                labelText:@"消息记录清除失败"
-                                                               completion:nil];
+                                       [MBProgressHUD showMessage:@"消息记录清除失败"
+                                                           onView:APP_DELEGATE_WINDOW
+                                                           result:NO
+                                                       completion:nil];
                                    });
                                }];
 }

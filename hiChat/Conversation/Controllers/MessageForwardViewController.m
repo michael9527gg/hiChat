@@ -186,13 +186,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
                                          item.targetid = targetid;
                                          item.content = content;
                                          if([[MessageSendManager manager] sendMessage:item]) {
-                                             [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                                                                 withResult:YES
-                                                                  labelText:@"已发送"
-                                                                  delayHide:YES
-                                                                 completion:^{
-                                                                     [self touchCancel];
-                                                                 }];
+                                             [MBProgressHUD showMessage:@"已发送"
+                                                                 onView:APP_DELEGATE_WINDOW
+                                                                 result:YES
+                                                             completion:^{
+                                                                 [self touchCancel];
+                                                             }];
                                          }
                                      }
                                   cancelTitle:YUCLOUD_STRING_CANCEL

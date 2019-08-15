@@ -101,12 +101,7 @@
     if(self.nameField.text.length) {
         [self.view endEditing:YES];
         
-        MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                                 mode:MBProgressHUDModeIndeterminate
-                                                image:nil
-                                              message:YUCLOUD_STRING_PLEASE_WAIT
-                                            delayHide:NO
-                                           completion:nil];
+        MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
         GroupManager *manager = [GroupManager manager];
         [manager createGroupWithName:self.nameField.text
                             portrait:self.portraitUrl
@@ -116,38 +111,35 @@
                                   [manager joinGroupWithGroupId:groupid.stringValue
                                                 groupMemberList:self.contactsArray
                                                      completion:^(BOOL success, NSDictionary * _Nullable info) {
-                                                         [MBProgressHUD finishHudWithResult:success
-                                                                                        hud:hud
-                                                                                  labelText:success ? @"群组创建成功" : @"群组创建失败"
-                                                                                 completion:^{
-                                                                                     [self dismissViewControllerAnimated:YES
-                                                                                                              completion:^{
-                                                                                                                  if(success) {
-                                                                                                                      ConversationViewController *vc = [[ConversationViewController alloc] init];
-                                                                                                                      vc.conversationType = ConversationType_GROUP;
-                                                                                                                      vc.targetId = groupid.stringValue;
-                                                                                                                      vc.title = self.nameField.text;
-                                                                                                                      [[UniManager manager].topNavigationController pushViewController:vc animated:YES];
-                                                                                                                  }
-                                                                                                              }];
-                                                                                 }];
+                                                         [MBProgressHUD finishLoading:hud
+                                                                               result:success
+                                                                                 text:success ? @"群组创建成功" : @"群组创建失败"
+                                                                           completion:^{
+                                                                               [self dismissViewControllerAnimated:YES
+                                                                                                        completion:^{
+                                                                                                            if(success) {
+                                                                                                                ConversationViewController *vc = [[ConversationViewController alloc] init];
+                                                                                                                vc.conversationType = ConversationType_GROUP;
+                                                                                                                vc.targetId = groupid.stringValue;
+                                                                                                                vc.title = self.nameField.text;
+                                                                                                                [[UniManager manager].topNavigationController pushViewController:vc animated:YES];
+                                                                                                            }
+                                                                                                        }];
+                                                                           }];
                                                      }];
                               } else {
-                                  [MBProgressHUD finishHudWithResult:success
-                                                                 hud:hud
-                                                           labelText:info[@"msg"]
-                                                          completion:^{
-                                                              [self dismissViewControllerAnimated:YES
-                                                                                       completion:nil];
-                                                          }];
+                                  [MBProgressHUD finishLoading:hud
+                                                        result:success
+                                                          text:[info msg]
+                                                    completion:^{
+                                                        [self dismissViewControllerAnimated:YES
+                                                                                 completion:nil];
+                                                    }];
                               }
                           }];
     } else {
-        [MBProgressHUD showFinishHudOn:self.view
-                            withResult:NO
-                             labelText:@"请输入群名称"
-                             delayHide:YES
-                            completion:nil];
+        [MBProgressHUD showMessage:@"请输入群名称"
+                            onView:APP_DELEGATE_WINDOW];
     }
 }
 

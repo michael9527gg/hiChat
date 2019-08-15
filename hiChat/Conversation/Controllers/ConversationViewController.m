@@ -408,11 +408,8 @@ typedef enum : NSUInteger {
 - (void)touchCopy {
     RCTextMessage *textMessage = (RCTextMessage *)self.messageModel.content;
     [UIPasteboard generalPasteboard].string = textMessage.content;
-    [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                        withResult:YES
-                         labelText:@"已复制至剪切板"
-                         delayHide:YES
-                        completion:nil];
+    [MBProgressHUD showMessage:@"已复制至剪切板"
+                        onView:self.view];
 }
 
 - (void)touchDelete {
@@ -543,11 +540,10 @@ typedef enum : NSUInteger {
 
 - (RCMessageContent *)willSendMessage:(RCMessageContent *)messageContent {
     if(!self.setting.canMessage) {
-        [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                            withResult:NO
-                             labelText:self.setting.messageError?:@"您不能发送消息"
-                             delayHide:YES
-                            completion:nil];
+        [MBProgressHUD showMessage:self.setting.messageError?:@"您不能发送消息"
+                            onView:APP_DELEGATE_WINDOW
+                            result:NO
+                        completion:nil];
     }
     else if(self.mentionedAll) {
         messageContent.mentionedInfo = self.mentionedAll;
@@ -794,11 +790,10 @@ typedef enum : NSUInteger {
         RCImageMessage *imageMessage = [RCImageMessage messageWithImageData:data];
         
         if([[MessageSendManager manager] detectQRImage:[UIImage imageWithData:data]]) {
-            [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                                withResult:NO
-                                 labelText:@"图片发送失败"
-                                 delayHide:YES
-                                completion:nil];
+            [MBProgressHUD showMessage:@"图片发送失败"
+                                onView:APP_DELEGATE_WINDOW
+                                result:NO
+                            completion:nil];
             
             continue;
         }

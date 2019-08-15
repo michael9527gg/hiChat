@@ -255,11 +255,8 @@
 
 - (void)touchSend {
     if(!self.textView.text.length && !self.imagesArr.count) {
-        [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                            withResult:NO
-                             labelText:@"群发内容不能为空"
-                             delayHide:YES
-                            completion:nil];
+        [MBProgressHUD showMessage:@"群发内容不能为空"
+                            onView:APP_DELEGATE_WINDOW];
         
         return;
     }

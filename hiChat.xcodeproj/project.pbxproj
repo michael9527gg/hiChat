@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04B0045CA815C0293E4D8710 /* Pods_hiChat_enterprise_dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1490D30C5DB4B7F00A3082AE /* Pods_hiChat_enterprise_dev.framework */; };
 		2B046A9321CB6D4D005356CF /* FriendRequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B046A9221CB6D4D005356CF /* FriendRequestCell.m */; };
 		2B046A9621CCABD1005356CF /* GroupAnnounceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B046A9521CCABD1005356CF /* GroupAnnounceViewController.m */; };
 		2B046A9721CCABF6005356CF /* GroupAnnounceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B046A9521CCABD1005356CF /* GroupAnnounceViewController.m */; };
@@ -47,14 +46,6 @@
 		2B52279B2301270800EF941B /* UIDevice+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227162301270800EF941B /* UIDevice+GF.m */; };
 		2B52279C2301270800EF941B /* UIDevice+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227162301270800EF941B /* UIDevice+GF.m */; };
 		2B52279D2301270800EF941B /* UIDevice+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227162301270800EF941B /* UIDevice+GF.m */; };
-		2B5227A22301270800EF941B /* STPopupControllerTransitioningSlideVertical.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227192301270800EF941B /* STPopupControllerTransitioningSlideVertical.m */; };
-		2B5227A32301270800EF941B /* STPopupControllerTransitioningSlideVertical.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227192301270800EF941B /* STPopupControllerTransitioningSlideVertical.m */; };
-		2B5227A42301270800EF941B /* STPopupControllerTransitioningSlideVertical.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227192301270800EF941B /* STPopupControllerTransitioningSlideVertical.m */; };
-		2B5227A52301270800EF941B /* STPopupControllerTransitioningSlideVertical.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227192301270800EF941B /* STPopupControllerTransitioningSlideVertical.m */; };
-		2B5227A62301270800EF941B /* WebViewJavascriptBridgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52271B2301270800EF941B /* WebViewJavascriptBridgeBase.m */; };
-		2B5227A72301270800EF941B /* WebViewJavascriptBridgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52271B2301270800EF941B /* WebViewJavascriptBridgeBase.m */; };
-		2B5227A82301270800EF941B /* WebViewJavascriptBridgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52271B2301270800EF941B /* WebViewJavascriptBridgeBase.m */; };
-		2B5227A92301270800EF941B /* WebViewJavascriptBridgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52271B2301270800EF941B /* WebViewJavascriptBridgeBase.m */; };
 		2B5227AA2301270800EF941B /* NSFileManager+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52271C2301270800EF941B /* NSFileManager+GF.m */; };
 		2B5227AB2301270800EF941B /* NSFileManager+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52271C2301270800EF941B /* NSFileManager+GF.m */; };
 		2B5227AC2301270800EF941B /* NSFileManager+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52271C2301270800EF941B /* NSFileManager+GF.m */; };
@@ -63,26 +54,10 @@
 		2B5227AF2301270800EF941B /* UIBarButtonItem+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227202301270800EF941B /* UIBarButtonItem+GF.m */; };
 		2B5227B02301270800EF941B /* UIBarButtonItem+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227202301270800EF941B /* UIBarButtonItem+GF.m */; };
 		2B5227B12301270800EF941B /* UIBarButtonItem+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227202301270800EF941B /* UIBarButtonItem+GF.m */; };
-		2B5227B22301270800EF941B /* STPopupNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227232301270800EF941B /* STPopupNavigationBar.m */; };
-		2B5227B32301270800EF941B /* STPopupNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227232301270800EF941B /* STPopupNavigationBar.m */; };
-		2B5227B42301270800EF941B /* STPopupNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227232301270800EF941B /* STPopupNavigationBar.m */; };
-		2B5227B52301270800EF941B /* STPopupNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227232301270800EF941B /* STPopupNavigationBar.m */; };
 		2B5227B62301270800EF941B /* NSAttributedString+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227242301270800EF941B /* NSAttributedString+GF.m */; };
 		2B5227B72301270800EF941B /* NSAttributedString+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227242301270800EF941B /* NSAttributedString+GF.m */; };
 		2B5227B82301270800EF941B /* NSAttributedString+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227242301270800EF941B /* NSAttributedString+GF.m */; };
 		2B5227B92301270800EF941B /* NSAttributedString+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227242301270800EF941B /* NSAttributedString+GF.m */; };
-		2B5227C62301270800EF941B /* STPopupLeftBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52272A2301270800EF941B /* STPopupLeftBarItem.m */; };
-		2B5227C72301270800EF941B /* STPopupLeftBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52272A2301270800EF941B /* STPopupLeftBarItem.m */; };
-		2B5227C82301270800EF941B /* STPopupLeftBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52272A2301270800EF941B /* STPopupLeftBarItem.m */; };
-		2B5227C92301270800EF941B /* STPopupLeftBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52272A2301270800EF941B /* STPopupLeftBarItem.m */; };
-		2B5227CA2301270800EF941B /* UIViewController+STPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52272B2301270800EF941B /* UIViewController+STPopup.m */; };
-		2B5227CB2301270800EF941B /* UIViewController+STPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52272B2301270800EF941B /* UIViewController+STPopup.m */; };
-		2B5227CC2301270800EF941B /* UIViewController+STPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52272B2301270800EF941B /* UIViewController+STPopup.m */; };
-		2B5227CD2301270800EF941B /* UIViewController+STPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52272B2301270800EF941B /* UIViewController+STPopup.m */; };
-		2B5227CE2301270800EF941B /* STPopupControllerTransitioningFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52272D2301270800EF941B /* STPopupControllerTransitioningFade.m */; };
-		2B5227CF2301270800EF941B /* STPopupControllerTransitioningFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52272D2301270800EF941B /* STPopupControllerTransitioningFade.m */; };
-		2B5227D02301270800EF941B /* STPopupControllerTransitioningFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52272D2301270800EF941B /* STPopupControllerTransitioningFade.m */; };
-		2B5227D12301270800EF941B /* STPopupControllerTransitioningFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52272D2301270800EF941B /* STPopupControllerTransitioningFade.m */; };
 		2B5227DA2301270800EF941B /* UIView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227332301270800EF941B /* UIView+VI.m */; };
 		2B5227DB2301270800EF941B /* UIView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227332301270800EF941B /* UIView+VI.m */; };
 		2B5227DC2301270800EF941B /* UIView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227332301270800EF941B /* UIView+VI.m */; };
@@ -103,10 +78,6 @@
 		2B5227EF2301270800EF941B /* VIMessageHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273A2301270800EF941B /* VIMessageHUD.m */; };
 		2B5227F02301270800EF941B /* VIMessageHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273A2301270800EF941B /* VIMessageHUD.m */; };
 		2B5227F12301270800EF941B /* VIMessageHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273A2301270800EF941B /* VIMessageHUD.m */; };
-		2B5227FA2301270800EF941B /* STPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273E2301270800EF941B /* STPopupController.m */; };
-		2B5227FB2301270800EF941B /* STPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273E2301270800EF941B /* STPopupController.m */; };
-		2B5227FC2301270800EF941B /* STPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273E2301270800EF941B /* STPopupController.m */; };
-		2B5227FD2301270800EF941B /* STPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273E2301270800EF941B /* STPopupController.m */; };
 		2B5227FE2301270800EF941B /* GFAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273F2301270800EF941B /* GFAlbumViewController.m */; };
 		2B5227FF2301270800EF941B /* GFAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273F2301270800EF941B /* GFAlbumViewController.m */; };
 		2B5228002301270800EF941B /* GFAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273F2301270800EF941B /* GFAlbumViewController.m */; };
@@ -123,10 +94,6 @@
 		2B5228172301270800EF941B /* GFPhotoBrowserNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227482301270800EF941B /* GFPhotoBrowserNavigationController.m */; };
 		2B5228182301270800EF941B /* GFPhotoBrowserNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227482301270800EF941B /* GFPhotoBrowserNavigationController.m */; };
 		2B5228192301270800EF941B /* GFPhotoBrowserNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227482301270800EF941B /* GFPhotoBrowserNavigationController.m */; };
-		2B52281A2301270800EF941B /* MBProgressHUD+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274B2301270800EF941B /* MBProgressHUD+GF.m */; };
-		2B52281B2301270800EF941B /* MBProgressHUD+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274B2301270800EF941B /* MBProgressHUD+GF.m */; };
-		2B52281C2301270800EF941B /* MBProgressHUD+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274B2301270800EF941B /* MBProgressHUD+GF.m */; };
-		2B52281D2301270800EF941B /* MBProgressHUD+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274B2301270800EF941B /* MBProgressHUD+GF.m */; };
 		2B52281E2301270800EF941B /* UIImage+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274C2301270800EF941B /* UIImage+GF.m */; };
 		2B52281F2301270800EF941B /* UIImage+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274C2301270800EF941B /* UIImage+GF.m */; };
 		2B5228202301270800EF941B /* UIImage+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274C2301270800EF941B /* UIImage+GF.m */; };
@@ -135,18 +102,10 @@
 		2B5228232301270800EF941B /* UIImageView+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274D2301270800EF941B /* UIImageView+GF.m */; };
 		2B5228242301270800EF941B /* UIImageView+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274D2301270800EF941B /* UIImageView+GF.m */; };
 		2B5228252301270800EF941B /* UIImageView+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274D2301270800EF941B /* UIImageView+GF.m */; };
-		2B5228262301270800EF941B /* WKWebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274E2301270800EF941B /* WKWebViewJavascriptBridge.m */; };
-		2B5228272301270800EF941B /* WKWebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274E2301270800EF941B /* WKWebViewJavascriptBridge.m */; };
-		2B5228282301270800EF941B /* WKWebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274E2301270800EF941B /* WKWebViewJavascriptBridge.m */; };
-		2B5228292301270800EF941B /* WKWebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274E2301270800EF941B /* WKWebViewJavascriptBridge.m */; };
 		2B52282A2301270800EF941B /* CommonInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274F2301270800EF941B /* CommonInterface.m */; };
 		2B52282B2301270800EF941B /* CommonInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274F2301270800EF941B /* CommonInterface.m */; };
 		2B52282C2301270800EF941B /* CommonInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274F2301270800EF941B /* CommonInterface.m */; };
 		2B52282D2301270800EF941B /* CommonInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274F2301270800EF941B /* CommonInterface.m */; };
-		2B5228322301270800EF941B /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227512301270800EF941B /* WebViewJavascriptBridge.m */; };
-		2B5228332301270800EF941B /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227512301270800EF941B /* WebViewJavascriptBridge.m */; };
-		2B5228342301270800EF941B /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227512301270800EF941B /* WebViewJavascriptBridge.m */; };
-		2B5228352301270800EF941B /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227512301270800EF941B /* WebViewJavascriptBridge.m */; };
 		2B5228362301270800EF941B /* UITableViewHeaderFooterView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227522301270800EF941B /* UITableViewHeaderFooterView+VI.m */; };
 		2B5228372301270800EF941B /* UITableViewHeaderFooterView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227522301270800EF941B /* UITableViewHeaderFooterView+VI.m */; };
 		2B5228382301270800EF941B /* UITableViewHeaderFooterView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227522301270800EF941B /* UITableViewHeaderFooterView+VI.m */; };
@@ -155,10 +114,6 @@
 		2B52283F2301270800EF941B /* UIScreen+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227552301270800EF941B /* UIScreen+GF.m */; };
 		2B5228402301270800EF941B /* UIScreen+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227552301270800EF941B /* UIScreen+GF.m */; };
 		2B5228412301270800EF941B /* UIScreen+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227552301270800EF941B /* UIScreen+GF.m */; };
-		2B5228522301270800EF941B /* UIResponder+STPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52275D2301270800EF941B /* UIResponder+STPopup.m */; };
-		2B5228532301270800EF941B /* UIResponder+STPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52275D2301270800EF941B /* UIResponder+STPopup.m */; };
-		2B5228542301270800EF941B /* UIResponder+STPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52275D2301270800EF941B /* UIResponder+STPopup.m */; };
-		2B5228552301270800EF941B /* UIResponder+STPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52275D2301270800EF941B /* UIResponder+STPopup.m */; };
 		2B5228562301270800EF941B /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52275F2301270800EF941B /* UIView+Shake.m */; };
 		2B5228572301270800EF941B /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52275F2301270800EF941B /* UIView+Shake.m */; };
 		2B5228582301270800EF941B /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52275F2301270800EF941B /* UIView+Shake.m */; };
@@ -231,10 +186,6 @@
 		2B5228AF2301270800EF941B /* UICollectionReusableView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278B2301270800EF941B /* UICollectionReusableView+VI.m */; };
 		2B5228B02301270800EF941B /* UICollectionReusableView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278B2301270800EF941B /* UICollectionReusableView+VI.m */; };
 		2B5228B12301270800EF941B /* UICollectionReusableView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278B2301270800EF941B /* UICollectionReusableView+VI.m */; };
-		2B5228B22301270800EF941B /* WebViewJavascriptBridge_JS.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278C2301270800EF941B /* WebViewJavascriptBridge_JS.m */; };
-		2B5228B32301270800EF941B /* WebViewJavascriptBridge_JS.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278C2301270800EF941B /* WebViewJavascriptBridge_JS.m */; };
-		2B5228B42301270800EF941B /* WebViewJavascriptBridge_JS.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278C2301270800EF941B /* WebViewJavascriptBridge_JS.m */; };
-		2B5228B52301270800EF941B /* WebViewJavascriptBridge_JS.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278C2301270800EF941B /* WebViewJavascriptBridge_JS.m */; };
 		2B5228B62301270800EF941B /* VIPinField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278D2301270800EF941B /* VIPinField.m */; };
 		2B5228B72301270800EF941B /* VIPinField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278D2301270800EF941B /* VIPinField.m */; };
 		2B5228B82301270800EF941B /* VIPinField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278D2301270800EF941B /* VIPinField.m */; };
@@ -660,14 +611,15 @@
 		69DDD08422439E1F00041BF3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69784A9221C38E9000ED2E1A /* Localizable.strings */; };
 		69DDD08522439E1F00041BF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 694C08F321C0D0B900021B54 /* Assets.xcassets */; };
 		69FD7E2321C3BC1B00E994E3 /* TextEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD7E2221C3BC1B00E994E3 /* TextEditCell.m */; };
-		A08805662C22FC95DBC25469 /* Pods_hiChat_app_store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4490FFD112B348ADE984F03F /* Pods_hiChat_app_store.framework */; };
-		B406C1A0633AD7C8CB841712 /* Pods_hiChat_enterprise_pub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B42401EB766085123F16D049 /* Pods_hiChat_enterprise_pub.framework */; };
-		F5E503EDD27D0E834A98A107 /* Pods_hiChat_app_dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54BEB5B2CC9FCCA16A1CE6ED /* Pods_hiChat_app_dev.framework */; };
+		7D09E233B827BF212B488ED2 /* libPods-hiChat_enterprise_pub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EA6EF434E2B55B964C0160 /* libPods-hiChat_enterprise_pub.a */; };
+		D5EA57097455E698507DA6A4 /* libPods-hiChat_enterprise_dev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B32A61620FFDA7B9F656A8 /* libPods-hiChat_enterprise_dev.a */; };
+		DAA8CF3800EE9E7405ACCBBD /* libPods-hiChat_app_dev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A213300FD034069A398C0582 /* libPods-hiChat_app_dev.a */; };
+		EF13A1A676D1913F19C639FA /* libPods-hiChat_app_store.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F0B4E79315F914D4D22536 /* libPods-hiChat_app_store.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		01FF043BCACE69CA57B84D97 /* Pods-hiChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hiChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-hiChat/Pods-hiChat.release.xcconfig"; sourceTree = "<group>"; };
-		1490D30C5DB4B7F00A3082AE /* Pods_hiChat_enterprise_dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hiChat_enterprise_dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		12B32A61620FFDA7B9F656A8 /* libPods-hiChat_enterprise_dev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hiChat_enterprise_dev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E623BD4CE2456E26C93DB66 /* Pods-hiChat_app_store.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hiChat_app_store.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hiChat_app_store/Pods-hiChat_app_store.debug.xcconfig"; sourceTree = "<group>"; };
 		2B046A9121CB6D4D005356CF /* FriendRequestCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendRequestCell.h; sourceTree = "<group>"; };
 		2B046A9221CB6D4D005356CF /* FriendRequestCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendRequestCell.m; sourceTree = "<group>"; };
@@ -717,9 +669,6 @@
 		2B35D9C422B9FC1C00088F76 /* CheckinData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckinData.m; sourceTree = "<group>"; };
 		2B5227162301270800EF941B /* UIDevice+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+GF.m"; sourceTree = "<group>"; };
 		2B5227172301270800EF941B /* NSManagedObject+VICoreDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+VICoreDataSource.h"; sourceTree = "<group>"; };
-		2B5227192301270800EF941B /* STPopupControllerTransitioningSlideVertical.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPopupControllerTransitioningSlideVertical.m; sourceTree = "<group>"; };
-		2B52271A2301270800EF941B /* STPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPopup.h; sourceTree = "<group>"; };
-		2B52271B2301270800EF941B /* WebViewJavascriptBridgeBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridgeBase.m; sourceTree = "<group>"; };
 		2B52271C2301270800EF941B /* NSFileManager+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+GF.m"; sourceTree = "<group>"; };
 		2B52271D2301270800EF941B /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
 		2B52271E2301270800EF941B /* PopoverViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCell.h; sourceTree = "<group>"; };
@@ -727,14 +676,9 @@
 		2B5227202301270800EF941B /* UIBarButtonItem+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+GF.m"; sourceTree = "<group>"; };
 		2B5227212301270800EF941B /* UIView+Shake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Shake.h"; sourceTree = "<group>"; };
 		2B5227222301270800EF941B /* PopoverAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverAction.h; sourceTree = "<group>"; };
-		2B5227232301270800EF941B /* STPopupNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPopupNavigationBar.m; sourceTree = "<group>"; };
 		2B5227242301270800EF941B /* NSAttributedString+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+GF.m"; sourceTree = "<group>"; };
-		2B5227252301270800EF941B /* UIResponder+STPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+STPopup.h"; sourceTree = "<group>"; };
 		2B5227292301270800EF941B /* UICollectionViewCell+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+GF.h"; sourceTree = "<group>"; };
-		2B52272A2301270800EF941B /* STPopupLeftBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPopupLeftBarItem.m; sourceTree = "<group>"; };
-		2B52272B2301270800EF941B /* UIViewController+STPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+STPopup.m"; sourceTree = "<group>"; };
 		2B52272C2301270800EF941B /* UITableViewCell+VI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+VI.h"; sourceTree = "<group>"; };
-		2B52272D2301270800EF941B /* STPopupControllerTransitioningFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPopupControllerTransitioningFade.m; sourceTree = "<group>"; };
 		2B52272E2301270800EF941B /* VIDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIDataSource.h; sourceTree = "<group>"; };
 		2B52272F2301270800EF941B /* GFPhotosDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPhotosDataSource.h; sourceTree = "<group>"; };
 		2B5227312301270800EF941B /* GFPhotoBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPhotoBrowserViewController.h; sourceTree = "<group>"; };
@@ -746,7 +690,6 @@
 		2B5227392301270800EF941B /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		2B52273A2301270800EF941B /* VIMessageHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIMessageHUD.m; sourceTree = "<group>"; };
 		2B52273C2301270800EF941B /* GFPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPhotoCell.h; sourceTree = "<group>"; };
-		2B52273E2301270800EF941B /* STPopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPopupController.m; sourceTree = "<group>"; };
 		2B52273F2301270800EF941B /* GFAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFAlbumViewController.m; sourceTree = "<group>"; };
 		2B5227422301270800EF941B /* NSDateFormatter+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+GF.m"; sourceTree = "<group>"; };
 		2B5227432301270800EF941B /* UIButton+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+GF.h"; sourceTree = "<group>"; };
@@ -756,29 +699,21 @@
 		2B5227482301270800EF941B /* GFPhotoBrowserNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFPhotoBrowserNavigationController.m; sourceTree = "<group>"; };
 		2B5227492301270800EF941B /* VICollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VICollectionView.h; sourceTree = "<group>"; };
 		2B52274A2301270800EF941B /* GFAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFAlbumCell.h; sourceTree = "<group>"; };
-		2B52274B2301270800EF941B /* MBProgressHUD+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+GF.m"; sourceTree = "<group>"; };
 		2B52274C2301270800EF941B /* UIImage+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GF.m"; sourceTree = "<group>"; };
 		2B52274D2301270800EF941B /* UIImageView+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+GF.m"; sourceTree = "<group>"; };
-		2B52274E2301270800EF941B /* WKWebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewJavascriptBridge.m; sourceTree = "<group>"; };
 		2B52274F2301270800EF941B /* CommonInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonInterface.m; sourceTree = "<group>"; };
-		2B5227512301270800EF941B /* WebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge.m; sourceTree = "<group>"; };
 		2B5227522301270800EF941B /* UITableViewHeaderFooterView+VI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+VI.m"; sourceTree = "<group>"; };
 		2B5227532301270800EF941B /* VIPinField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPinField.h; sourceTree = "<group>"; };
 		2B5227552301270800EF941B /* UIScreen+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+GF.m"; sourceTree = "<group>"; };
-		2B5227562301270800EF941B /* WebViewJavascriptBridge_JS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge_JS.h; sourceTree = "<group>"; };
 		2B5227582301270800EF941B /* UICollectionReusableView+VI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionReusableView+VI.h"; sourceTree = "<group>"; };
-		2B52275D2301270800EF941B /* UIResponder+STPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+STPopup.m"; sourceTree = "<group>"; };
 		2B52275E2301270800EF941B /* NSAttributedString+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+GF.h"; sourceTree = "<group>"; };
 		2B52275F2301270800EF941B /* UIView+Shake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shake.m"; sourceTree = "<group>"; };
 		2B5227602301270800EF941B /* PopoverAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverAction.m; sourceTree = "<group>"; };
-		2B5227612301270800EF941B /* STPopupNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPopupNavigationBar.h; sourceTree = "<group>"; };
 		2B5227622301270800EF941B /* UIColor+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GF.m"; sourceTree = "<group>"; };
 		2B5227632301270800EF941B /* UIBarButtonItem+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+GF.h"; sourceTree = "<group>"; };
 		2B5227652301270800EF941B /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
 		2B5227662301270800EF941B /* PopoverViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewCell.m; sourceTree = "<group>"; };
 		2B5227672301270800EF941B /* NSFileManager+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+GF.h"; sourceTree = "<group>"; };
-		2B5227682301270800EF941B /* STPopupControllerTransitioningSlideVertical.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPopupControllerTransitioningSlideVertical.h; sourceTree = "<group>"; };
-		2B5227692301270800EF941B /* WebViewJavascriptBridgeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridgeBase.h; sourceTree = "<group>"; };
 		2B52276A2301270800EF941B /* VICoreDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VICoreDataSource.h; sourceTree = "<group>"; };
 		2B52276B2301270800EF941B /* NSManagedObject+VICoreDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+VICoreDataSource.m"; sourceTree = "<group>"; };
 		2B52276C2301270800EF941B /* UIDevice+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+GF.h"; sourceTree = "<group>"; };
@@ -793,31 +728,23 @@
 		2B5227762301270800EF941B /* VICocoaTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VICocoaTools.h; sourceTree = "<group>"; };
 		2B5227772301270800EF941B /* GFPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPhotoBrowser.h; sourceTree = "<group>"; };
 		2B5227782301270800EF941B /* GFPhotosDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFPhotosDataSource.m; sourceTree = "<group>"; };
-		2B5227792301270800EF941B /* STPopupControllerTransitioningFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPopupControllerTransitioningFade.h; sourceTree = "<group>"; };
 		2B52277A2301270800EF941B /* UITableViewCell+VI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+VI.m"; sourceTree = "<group>"; };
 		2B52277B2301270800EF941B /* VIDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIDataSource.m; sourceTree = "<group>"; };
 		2B52277C2301270800EF941B /* UICollectionViewCell+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+GF.m"; sourceTree = "<group>"; };
-		2B52277D2301270800EF941B /* UIViewController+STPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+STPopup.h"; sourceTree = "<group>"; };
-		2B52277E2301270800EF941B /* STPopupLeftBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPopupLeftBarItem.h; sourceTree = "<group>"; };
 		2B52277F2301270800EF941B /* VITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VITableView.h; sourceTree = "<group>"; };
 		2B5227802301270800EF941B /* NSBundle+GFPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+GFPhotoBrowser.m"; sourceTree = "<group>"; };
 		2B5227832301270800EF941B /* NSString+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GF.m"; sourceTree = "<group>"; };
 		2B5227842301270800EF941B /* UIButton+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+GF.m"; sourceTree = "<group>"; };
 		2B5227852301270800EF941B /* NSDateFormatter+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+GF.h"; sourceTree = "<group>"; };
 		2B5227882301270800EF941B /* GFAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFAlbumViewController.h; sourceTree = "<group>"; };
-		2B5227892301270800EF941B /* STPopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPopupController.h; sourceTree = "<group>"; };
 		2B52278A2301270800EF941B /* GFPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFPhotoCell.m; sourceTree = "<group>"; };
 		2B52278B2301270800EF941B /* UICollectionReusableView+VI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionReusableView+VI.m"; sourceTree = "<group>"; };
-		2B52278C2301270800EF941B /* WebViewJavascriptBridge_JS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge_JS.m; sourceTree = "<group>"; };
 		2B52278D2301270800EF941B /* VIPinField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPinField.m; sourceTree = "<group>"; };
 		2B52278E2301270800EF941B /* UIScreen+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+GF.h"; sourceTree = "<group>"; };
-		2B52278F2301270800EF941B /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
 		2B5227902301270800EF941B /* UITableViewHeaderFooterView+VI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewHeaderFooterView+VI.h"; sourceTree = "<group>"; };
 		2B5227922301270800EF941B /* UIImageView+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+GF.h"; sourceTree = "<group>"; };
-		2B5227932301270800EF941B /* WKWebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewJavascriptBridge.h; sourceTree = "<group>"; };
 		2B5227942301270800EF941B /* CommonInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonInterface.h; sourceTree = "<group>"; };
 		2B5227952301270800EF941B /* GFAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFAlbumCell.m; sourceTree = "<group>"; };
-		2B5227962301270800EF941B /* MBProgressHUD+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+GF.h"; sourceTree = "<group>"; };
 		2B5227972301270800EF941B /* UIImage+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GF.h"; sourceTree = "<group>"; };
 		2B5227982301270800EF941B /* GFPhotoBrowserNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPhotoBrowserNavigationController.h; sourceTree = "<group>"; };
 		2B5227992301270800EF941B /* VICollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VICollectionView.m; sourceTree = "<group>"; };
@@ -893,10 +820,9 @@
 		2BFBFA572232418C0094CB43 /* StaffMessageForwardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffMessageForwardViewController.m; sourceTree = "<group>"; };
 		2BFBFA5A223242920094CB43 /* MessageForwardSearchResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageForwardSearchResultViewController.h; sourceTree = "<group>"; };
 		2BFBFA5B223242920094CB43 /* MessageForwardSearchResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageForwardSearchResultViewController.m; sourceTree = "<group>"; };
+		35F0B4E79315F914D4D22536 /* libPods-hiChat_app_store.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hiChat_app_store.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A478DC6C9FA0652764681CF /* Pods-hiChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hiChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hiChat/Pods-hiChat.debug.xcconfig"; sourceTree = "<group>"; };
 		4046FF5E848DBB52E6747522 /* Pods-hiChat_enterprise_dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hiChat_enterprise_dev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hiChat_enterprise_dev/Pods-hiChat_enterprise_dev.debug.xcconfig"; sourceTree = "<group>"; };
-		4490FFD112B348ADE984F03F /* Pods_hiChat_app_store.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hiChat_app_store.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		54BEB5B2CC9FCCA16A1CE6ED /* Pods_hiChat_app_dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hiChat_app_dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		598660A37433B713E5E406B5 /* Pods-hiChat_app_dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hiChat_app_dev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hiChat_app_dev/Pods-hiChat_app_dev.debug.xcconfig"; sourceTree = "<group>"; };
 		5B7167C665D2C41F012921B0 /* Pods-hiChat_app_dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hiChat_app_dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-hiChat_app_dev/Pods-hiChat_app_dev.release.xcconfig"; sourceTree = "<group>"; };
 		5F8F7356187245C9BDCAE579 /* Pods_hiChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hiChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1009,9 +935,10 @@
 		69FD7E2121C3BC1B00E994E3 /* TextEditCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextEditCell.h; sourceTree = "<group>"; };
 		69FD7E2221C3BC1B00E994E3 /* TextEditCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextEditCell.m; sourceTree = "<group>"; };
 		7E32BAFF54C81AB16CAB032F /* Pods_hiChat_pub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hiChat_pub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		85EA6EF434E2B55B964C0160 /* libPods-hiChat_enterprise_pub.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hiChat_enterprise_pub.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		951D471FD4C14C1B4D6CA295 /* Pods-hiChat_enterprise_dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hiChat_enterprise_dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-hiChat_enterprise_dev/Pods-hiChat_enterprise_dev.release.xcconfig"; sourceTree = "<group>"; };
 		97E3133316504E09F558C743 /* Pods-hiChat_enterprise_pub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hiChat_enterprise_pub.release.xcconfig"; path = "Pods/Target Support Files/Pods-hiChat_enterprise_pub/Pods-hiChat_enterprise_pub.release.xcconfig"; sourceTree = "<group>"; };
-		B42401EB766085123F16D049 /* Pods_hiChat_enterprise_pub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hiChat_enterprise_pub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A213300FD034069A398C0582 /* libPods-hiChat_app_dev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hiChat_app_dev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF519560C3E863365063A106 /* Pods-hiChat_enterprise_pub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hiChat_enterprise_pub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hiChat_enterprise_pub/Pods-hiChat_enterprise_pub.debug.xcconfig"; sourceTree = "<group>"; };
 		E115E5596B43F0E88958BE61 /* Pods-hiChat_app_store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hiChat_app_store.release.xcconfig"; path = "Pods/Target Support Files/Pods-hiChat_app_store/Pods-hiChat_app_store.release.xcconfig"; sourceTree = "<group>"; };
 		F78DCBB583C5F2E6D0F38891 /* Pods-hiChat_pub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hiChat_pub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hiChat_pub/Pods-hiChat_pub.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1023,7 +950,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69C42B6421E093DC00941462 /* Bugly.framework in Frameworks */,
-				04B0045CA815C0293E4D8710 /* Pods_hiChat_enterprise_dev.framework in Frameworks */,
+				D5EA57097455E698507DA6A4 /* libPods-hiChat_enterprise_dev.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1032,7 +959,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69C42B6521E093DC00941462 /* Bugly.framework in Frameworks */,
-				B406C1A0633AD7C8CB841712 /* Pods_hiChat_enterprise_pub.framework in Frameworks */,
+				7D09E233B827BF212B488ED2 /* libPods-hiChat_enterprise_pub.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1041,7 +968,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69A161B72242408600893F06 /* Bugly.framework in Frameworks */,
-				A08805662C22FC95DBC25469 /* Pods_hiChat_app_store.framework in Frameworks */,
+				EF13A1A676D1913F19C639FA /* libPods-hiChat_app_store.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1050,7 +977,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69DDD07922439E1F00041BF3 /* Bugly.framework in Frameworks */,
-				F5E503EDD27D0E834A98A107 /* Pods_hiChat_app_dev.framework in Frameworks */,
+				DAA8CF3800EE9E7405ACCBBD /* libPods-hiChat_app_dev.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1062,10 +989,10 @@
 			children = (
 				5F8F7356187245C9BDCAE579 /* Pods_hiChat.framework */,
 				7E32BAFF54C81AB16CAB032F /* Pods_hiChat_pub.framework */,
-				4490FFD112B348ADE984F03F /* Pods_hiChat_app_store.framework */,
-				54BEB5B2CC9FCCA16A1CE6ED /* Pods_hiChat_app_dev.framework */,
-				1490D30C5DB4B7F00A3082AE /* Pods_hiChat_enterprise_dev.framework */,
-				B42401EB766085123F16D049 /* Pods_hiChat_enterprise_pub.framework */,
+				A213300FD034069A398C0582 /* libPods-hiChat_app_dev.a */,
+				35F0B4E79315F914D4D22536 /* libPods-hiChat_app_store.a */,
+				12B32A61620FFDA7B9F656A8 /* libPods-hiChat_enterprise_dev.a */,
+				85EA6EF434E2B55B964C0160 /* libPods-hiChat_enterprise_pub.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1092,8 +1019,6 @@
 				2B5227782301270800EF941B /* GFPhotosDataSource.m */,
 				2B52276E2301270800EF941B /* KeychainItemWrapper.h */,
 				2B5227392301270800EF941B /* KeychainItemWrapper.m */,
-				2B5227962301270800EF941B /* MBProgressHUD+GF.h */,
-				2B52274B2301270800EF941B /* MBProgressHUD+GF.m */,
 				2B52275E2301270800EF941B /* NSAttributedString+GF.h */,
 				2B5227242301270800EF941B /* NSAttributedString+GF.m */,
 				2B5227712301270800EF941B /* NSBundle+GF.h */,
@@ -1118,17 +1043,6 @@
 				2B5227652301270800EF941B /* PopoverView.m */,
 				2B52271E2301270800EF941B /* PopoverViewCell.h */,
 				2B5227662301270800EF941B /* PopoverViewCell.m */,
-				2B52271A2301270800EF941B /* STPopup.h */,
-				2B5227892301270800EF941B /* STPopupController.h */,
-				2B52273E2301270800EF941B /* STPopupController.m */,
-				2B5227792301270800EF941B /* STPopupControllerTransitioningFade.h */,
-				2B52272D2301270800EF941B /* STPopupControllerTransitioningFade.m */,
-				2B5227682301270800EF941B /* STPopupControllerTransitioningSlideVertical.h */,
-				2B5227192301270800EF941B /* STPopupControllerTransitioningSlideVertical.m */,
-				2B52277E2301270800EF941B /* STPopupLeftBarItem.h */,
-				2B52272A2301270800EF941B /* STPopupLeftBarItem.m */,
-				2B5227612301270800EF941B /* STPopupNavigationBar.h */,
-				2B5227232301270800EF941B /* STPopupNavigationBar.m */,
 				2B5227632301270800EF941B /* UIBarButtonItem+GF.h */,
 				2B5227202301270800EF941B /* UIBarButtonItem+GF.m */,
 				2B5227432301270800EF941B /* UIButton+GF.h */,
@@ -1145,8 +1059,6 @@
 				2B52274C2301270800EF941B /* UIImage+GF.m */,
 				2B5227922301270800EF941B /* UIImageView+GF.h */,
 				2B52274D2301270800EF941B /* UIImageView+GF.m */,
-				2B5227252301270800EF941B /* UIResponder+STPopup.h */,
-				2B52275D2301270800EF941B /* UIResponder+STPopup.m */,
 				2B52278E2301270800EF941B /* UIScreen+GF.h */,
 				2B5227552301270800EF941B /* UIScreen+GF.m */,
 				2B52272C2301270800EF941B /* UITableViewCell+VI.h */,
@@ -1157,8 +1069,6 @@
 				2B52275F2301270800EF941B /* UIView+Shake.m */,
 				2B5227742301270800EF941B /* UIView+VI.h */,
 				2B5227332301270800EF941B /* UIView+VI.m */,
-				2B52277D2301270800EF941B /* UIViewController+STPopup.h */,
-				2B52272B2301270800EF941B /* UIViewController+STPopup.m */,
 				2B5227762301270800EF941B /* VICocoaTools.h */,
 				2B5227492301270800EF941B /* VICollectionView.h */,
 				2B5227992301270800EF941B /* VICollectionView.m */,
@@ -1171,14 +1081,6 @@
 				2B52278D2301270800EF941B /* VIPinField.m */,
 				2B52277F2301270800EF941B /* VITableView.h */,
 				2B5227462301270800EF941B /* VITableView.m */,
-				2B5227562301270800EF941B /* WebViewJavascriptBridge_JS.h */,
-				2B52278C2301270800EF941B /* WebViewJavascriptBridge_JS.m */,
-				2B52278F2301270800EF941B /* WebViewJavascriptBridge.h */,
-				2B5227512301270800EF941B /* WebViewJavascriptBridge.m */,
-				2B5227692301270800EF941B /* WebViewJavascriptBridgeBase.h */,
-				2B52271B2301270800EF941B /* WebViewJavascriptBridgeBase.m */,
-				2B5227932301270800EF941B /* WKWebViewJavascriptBridge.h */,
-				2B52274E2301270800EF941B /* WKWebViewJavascriptBridge.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1340,7 +1242,6 @@
 				694C08E721C0D0B900021B54 /* AppDelegate.h */,
 				694C08E821C0D0B900021B54 /* AppDelegate.m */,
 				694C08F321C0D0B900021B54 /* Assets.xcassets */,
-				2BC63E44220AF1E80094AB58 /* loading_iOS.png */,
 				6951E01421CFA244002D422A /* static */,
 				694C08F821C0D0B900021B54 /* Info.plist */,
 				2BC2787721D36C4D00E7EEB5 /* LaunchScreen.storyboard */,
@@ -1362,6 +1263,7 @@
 		6951E01421CFA244002D422A /* static */ = {
 			isa = PBXGroup;
 			children = (
+				2BC63E44220AF1E80094AB58 /* loading_iOS.png */,
 				6951E01521CFA244002D422A /* about.html */,
 				69A670E721DEFD2800CF861E /* bootstrap.min.css */,
 				69A670E821DEFD2800CF861E /* jquery.slim.min.js */,
@@ -1671,7 +1573,6 @@
 				694C08E121C0D0B900021B54 /* Frameworks */,
 				694C08E221C0D0B900021B54 /* Resources */,
 				039D2CB69C574A33DFFC04AD /* [CP] Copy Pods Resources */,
-				D06715318F300E003BDA8FF6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1691,7 +1592,6 @@
 				698C79AD21CA17EA00F96D88 /* Frameworks */,
 				698C79AF21CA17EA00F96D88 /* Resources */,
 				698C79B321CA17EA00F96D88 /* [CP] Copy Pods Resources */,
-				698C79B421CA17EA00F96D88 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1711,7 +1611,6 @@
 				69A161B62242408600893F06 /* Frameworks */,
 				69A161B92242408600893F06 /* Resources */,
 				69A161C42242408600893F06 /* [CP] Copy Pods Resources */,
-				69A161C52242408600893F06 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1731,7 +1630,6 @@
 				69DDD07822439E1F00041BF3 /* Frameworks */,
 				69DDD07B22439E1F00041BF3 /* Resources */,
 				69DDD08622439E1F00041BF3 /* [CP] Copy Pods Resources */,
-				69DDD08722439E1F00041BF3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1966,23 +1864,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-hiChat_enterprise_pub/Pods-hiChat_enterprise_pub-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		698C79B421CA17EA00F96D88 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-hiChat_enterprise_pub/Pods-hiChat_enterprise_pub-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-hiChat_enterprise_pub/Pods-hiChat_enterprise_pub-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-hiChat_enterprise_pub/Pods-hiChat_enterprise_pub-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		69A161512242408600893F06 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2020,23 +1901,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-hiChat_app_store/Pods-hiChat_app_store-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		69A161C52242408600893F06 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-hiChat_app_store/Pods-hiChat_app_store-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-hiChat_app_store/Pods-hiChat_app_store-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-hiChat_app_store/Pods-hiChat_app_store-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		69DDD01322439E1F00041BF3 /* [CP] Check Pods Manifest.lock */ = {
@@ -2078,40 +1942,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-hiChat_app_dev/Pods-hiChat_app_dev-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		69DDD08722439E1F00041BF3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-hiChat_app_dev/Pods-hiChat_app_dev-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-hiChat_app_dev/Pods-hiChat_app_dev-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-hiChat_app_dev/Pods-hiChat_app_dev-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D06715318F300E003BDA8FF6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-hiChat_enterprise_dev/Pods-hiChat_enterprise_dev-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-hiChat_enterprise_dev/Pods-hiChat_enterprise_dev-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-hiChat_enterprise_dev/Pods-hiChat_enterprise_dev-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -2119,8 +1949,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B5227A22301270800EF941B /* STPopupControllerTransitioningSlideVertical.m in Sources */,
-				2B5227C62301270800EF941B /* STPopupLeftBarItem.m in Sources */,
 				2B52289A2301270800EF941B /* NSString+GF.m in Sources */,
 				69980B5A21C0ED4C00A48CCB /* GuidePageViewController.m in Sources */,
 				2B9C89522226831D00CD7A06 /* NotificationDataSource.m in Sources */,
@@ -2141,10 +1969,8 @@
 				2B31FE8622547AE900CC5BF9 /* UINavigationController+PushPopCrashFix.m in Sources */,
 				2B52286E2301270800EF941B /* NSManagedObject+VICoreDataSource.m in Sources */,
 				2B5228722301270800EF941B /* NSData+GF.m in Sources */,
-				2B5227B22301270800EF941B /* STPopupNavigationBar.m in Sources */,
 				69980B6321C10E7500A48CCB /* ResetPasswordViewController.m in Sources */,
 				69980B2C21C0E88F00A48CCB /* MeViewController.m in Sources */,
-				2B52281A2301270800EF941B /* MBProgressHUD+GF.m in Sources */,
 				2B52288E2301270800EF941B /* NSBundle+GFPhotoBrowser.m in Sources */,
 				2BC2789021D3BDB000E7EEB5 /* ConversationSearchResultViewController.m in Sources */,
 				69980B5721C0ED4C00A48CCB /* StartupPageViewController.m in Sources */,
@@ -2171,7 +1997,6 @@
 				2BCB286C21EF52F1002AB6DB /* MessageForwardCell.m in Sources */,
 				2B5227B62301270800EF941B /* NSAttributedString+GF.m in Sources */,
 				2BAEBF4621C343030055AB13 /* ConversationViewController.m in Sources */,
-				2B5228262301270800EF941B /* WKWebViewJavascriptBridge.m in Sources */,
 				2B5228862301270800EF941B /* VIDataSource.m in Sources */,
 				2B3588F721C624DA00AF117C /* GroupSettingViewController.m in Sources */,
 				69980B2721C0E86F00A48CCB /* ContactsViewController.m in Sources */,
@@ -2181,7 +2006,6 @@
 				2B046A9321CB6D4D005356CF /* FriendRequestCell.m in Sources */,
 				2BFBFA582232418C0094CB43 /* StaffMessageForwardViewController.m in Sources */,
 				2BC2789421D4A3C100E7EEB5 /* ConversationSettingDataSource.m in Sources */,
-				2B5227A62301270800EF941B /* WebViewJavascriptBridgeBase.m in Sources */,
 				2B5228AA2301270800EF941B /* GFPhotoCell.m in Sources */,
 				2B5227EE2301270800EF941B /* VIMessageHUD.m in Sources */,
 				2B35D9C522B9FC1C00088F76 /* CheckinData.m in Sources */,
@@ -2212,12 +2036,10 @@
 				2BC2787521D262A800E7EEB5 /* SettingsBaseTableViewController.m in Sources */,
 				2BC2789821D600B900E7EEB5 /* HistorySearchCell.m in Sources */,
 				6951E02321CFA679002D422A /* ReactiveWebViewController.m in Sources */,
-				2B5227FA2301270800EF941B /* STPopupController.m in Sources */,
 				2B5228122301270800EF941B /* VITableView.m in Sources */,
 				2B52289E2301270800EF941B /* UIButton+GF.m in Sources */,
 				2BFBFA5C223242920094CB43 /* MessageForwardSearchResultViewController.m in Sources */,
 				69A0249E21C27C6A00ABE387 /* MeInfoCell.m in Sources */,
-				2B5228322301270800EF941B /* WebViewJavascriptBridge.m in Sources */,
 				2B10611021C900F800E6F8E6 /* FriendSearchViewController.m in Sources */,
 				2B7066C021C3B6D700E6DD14 /* PrivateUserInfoCell.m in Sources */,
 				694C08FA21C0D0B900021B54 /* main.m in Sources */,
@@ -2230,10 +2052,8 @@
 				2B046A9621CCABD1005356CF /* GroupAnnounceViewController.m in Sources */,
 				2B1060F521C6390900E6F8E6 /* UserManager.m in Sources */,
 				69980B5921C0ED4C00A48CCB /* LoginPageViewController.m in Sources */,
-				2B5228522301270800EF941B /* UIResponder+STPopup.m in Sources */,
 				69980B2421C0E7E400A48CCB /* MainNavigationController.m in Sources */,
 				69BFD49121C22C9F00E15E7F /* ContactsDataSource.m in Sources */,
-				2B5227CE2301270800EF941B /* STPopupControllerTransitioningFade.m in Sources */,
 				2B5227EA2301270800EF941B /* KeychainItemWrapper.m in Sources */,
 				69980B6021C10E4900A48CCB /* SignupViewController.m in Sources */,
 				2B9C894D2226821600CD7A06 /* NotificationDetailViewController.m in Sources */,
@@ -2255,10 +2075,8 @@
 				2B10610121C78B8B00E6F8E6 /* GroupMemberListViewController.m in Sources */,
 				2B5228C22301270800EF941B /* VICollectionView.m in Sources */,
 				2BF5E10F22019AEA00C6D32C /* GroupSelectCell.m in Sources */,
-				2B5228B22301270800EF941B /* WebViewJavascriptBridge_JS.m in Sources */,
 				2B52286A2301270800EF941B /* PopoverViewCell.m in Sources */,
 				2B52281E2301270800EF941B /* UIImage+GF.m in Sources */,
-				2B5227CA2301270800EF941B /* UIViewController+STPopup.m in Sources */,
 				2BE2DFC522291974005FE1DC /* OneKeyAlertViewController.m in Sources */,
 				2B5228222301270800EF941B /* UIImageView+GF.m in Sources */,
 				69980B3D21C0EBAE00A48CCB /* UniManager.m in Sources */,
@@ -2278,8 +2096,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B5227A32301270800EF941B /* STPopupControllerTransitioningSlideVertical.m in Sources */,
-				2B5227C72301270800EF941B /* STPopupLeftBarItem.m in Sources */,
 				2B52289B2301270800EF941B /* NSString+GF.m in Sources */,
 				698C797521CA17EA00F96D88 /* GuidePageViewController.m in Sources */,
 				2B9C89532226831D00CD7A06 /* NotificationDataSource.m in Sources */,
@@ -2300,10 +2116,8 @@
 				2B31FE8722547AE900CC5BF9 /* UINavigationController+PushPopCrashFix.m in Sources */,
 				2B52286F2301270800EF941B /* NSManagedObject+VICoreDataSource.m in Sources */,
 				2B5228732301270800EF941B /* NSData+GF.m in Sources */,
-				2B5227B32301270800EF941B /* STPopupNavigationBar.m in Sources */,
 				698C797921CA17EA00F96D88 /* GroupInfoEditViewController.m in Sources */,
 				698C797A21CA17EA00F96D88 /* MeSettingsViewController.m in Sources */,
-				2B52281B2301270800EF941B /* MBProgressHUD+GF.m in Sources */,
 				2B52288F2301270800EF941B /* NSBundle+GFPhotoBrowser.m in Sources */,
 				2BC2789121D3BDB000E7EEB5 /* ConversationSearchResultViewController.m in Sources */,
 				2BC2789D21D614DD00E7EEB5 /* MessageHistoryViewController.m in Sources */,
@@ -2330,7 +2144,6 @@
 				2BCB286D21EF52F1002AB6DB /* MessageForwardCell.m in Sources */,
 				2B5227B72301270800EF941B /* NSAttributedString+GF.m in Sources */,
 				6951E02621CFA98F002D422A /* FriendRequestCell.m in Sources */,
-				2B5228272301270800EF941B /* WKWebViewJavascriptBridge.m in Sources */,
 				2B5228872301270800EF941B /* VIDataSource.m in Sources */,
 				698C798521CA17EA00F96D88 /* YuTextField.m in Sources */,
 				698C798621CA17EA00F96D88 /* ConversationViewController.m in Sources */,
@@ -2340,7 +2153,6 @@
 				2BC2789521D4A3C100E7EEB5 /* ConversationSettingDataSource.m in Sources */,
 				2BFBFA592232418C0094CB43 /* StaffMessageForwardViewController.m in Sources */,
 				698C798821CA17EA00F96D88 /* ContactsViewController.m in Sources */,
-				2B5227A72301270800EF941B /* WebViewJavascriptBridgeBase.m in Sources */,
 				2B5228AB2301270800EF941B /* GFPhotoCell.m in Sources */,
 				2B5227EF2301270800EF941B /* VIMessageHUD.m in Sources */,
 				2B35D9C622B9FC1C00088F76 /* CheckinData.m in Sources */,
@@ -2371,12 +2183,10 @@
 				2BC2787621D262A800E7EEB5 /* SettingsBaseTableViewController.m in Sources */,
 				2BC2789921D600B900E7EEB5 /* HistorySearchCell.m in Sources */,
 				698C799721CA17EA00F96D88 /* MeInfoCell.m in Sources */,
-				2B5227FB2301270800EF941B /* STPopupController.m in Sources */,
 				2B5228132301270800EF941B /* VITableView.m in Sources */,
 				2B52289F2301270800EF941B /* UIButton+GF.m in Sources */,
 				2BFBFA5D223242920094CB43 /* MessageForwardSearchResultViewController.m in Sources */,
 				698C799821CA17EA00F96D88 /* PrivateUserInfoCell.m in Sources */,
-				2B5228332301270800EF941B /* WebViewJavascriptBridge.m in Sources */,
 				698C799921CA17EA00F96D88 /* main.m in Sources */,
 				698C799A21CA17EA00F96D88 /* GroupListCell.m in Sources */,
 				698C799B21CA17EA00F96D88 /* UserManager.m in Sources */,
@@ -2389,10 +2199,8 @@
 				698C799D21CA17EA00F96D88 /* MainNavigationController.m in Sources */,
 				698C799E21CA17EA00F96D88 /* ContactsDataSource.m in Sources */,
 				698C799F21CA17EA00F96D88 /* SignupViewController.m in Sources */,
-				2B5228532301270800EF941B /* UIResponder+STPopup.m in Sources */,
 				698C79A021CA17EA00F96D88 /* ContactsSelectViewController.m in Sources */,
 				698C79A121CA17EA00F96D88 /* RCDataSource.m in Sources */,
-				2B5227CF2301270800EF941B /* STPopupControllerTransitioningFade.m in Sources */,
 				2B5227EB2301270800EF941B /* KeychainItemWrapper.m in Sources */,
 				698C79A221CA17EA00F96D88 /* FriendsRequestViewController.m in Sources */,
 				2B9C894E2226821600CD7A06 /* NotificationDetailViewController.m in Sources */,
@@ -2414,10 +2222,8 @@
 				2B046A9721CCABF6005356CF /* GroupAnnounceViewController.m in Sources */,
 				2B5228C32301270800EF941B /* VICollectionView.m in Sources */,
 				2BF5E11022019AEA00C6D32C /* GroupSelectCell.m in Sources */,
-				2B5228B32301270800EF941B /* WebViewJavascriptBridge_JS.m in Sources */,
 				2B52286B2301270800EF941B /* PopoverViewCell.m in Sources */,
 				2B52281F2301270800EF941B /* UIImage+GF.m in Sources */,
-				2B5227CB2301270800EF941B /* UIViewController+STPopup.m in Sources */,
 				2BE2DFC622291974005FE1DC /* OneKeyAlertViewController.m in Sources */,
 				2B5228232301270800EF941B /* UIImageView+GF.m in Sources */,
 				6951E02421CFA679002D422A /* ReactiveWebViewController.m in Sources */,
@@ -2437,8 +2243,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B5227A52301270800EF941B /* STPopupControllerTransitioningSlideVertical.m in Sources */,
-				2B5227C92301270800EF941B /* STPopupLeftBarItem.m in Sources */,
 				2B52289D2301270800EF941B /* NSString+GF.m in Sources */,
 				69A161532242408600893F06 /* GuidePageViewController.m in Sources */,
 				69A161542242408600893F06 /* NotificationDataSource.m in Sources */,
@@ -2459,10 +2263,8 @@
 				2B31FE8922547AE900CC5BF9 /* UINavigationController+PushPopCrashFix.m in Sources */,
 				2B5228712301270800EF941B /* NSManagedObject+VICoreDataSource.m in Sources */,
 				2B5228752301270800EF941B /* NSData+GF.m in Sources */,
-				2B5227B52301270800EF941B /* STPopupNavigationBar.m in Sources */,
 				69A1615E2242408600893F06 /* GroupInfoEditViewController.m in Sources */,
 				69A1615F2242408600893F06 /* MeSettingsViewController.m in Sources */,
-				2B52281D2301270800EF941B /* MBProgressHUD+GF.m in Sources */,
 				2B5228912301270800EF941B /* NSBundle+GFPhotoBrowser.m in Sources */,
 				69A161602242408600893F06 /* ConversationSearchResultViewController.m in Sources */,
 				69A161612242408600893F06 /* MessageHistoryViewController.m in Sources */,
@@ -2489,7 +2291,6 @@
 				69A161702242408600893F06 /* MessageForwardCell.m in Sources */,
 				2B5227B92301270800EF941B /* NSAttributedString+GF.m in Sources */,
 				69A161712242408600893F06 /* FriendRequestCell.m in Sources */,
-				2B5228292301270800EF941B /* WKWebViewJavascriptBridge.m in Sources */,
 				2B5228892301270800EF941B /* VIDataSource.m in Sources */,
 				69A161722242408600893F06 /* YuTextField.m in Sources */,
 				69A161732242408600893F06 /* ConversationViewController.m in Sources */,
@@ -2499,7 +2300,6 @@
 				69A161762242408600893F06 /* ConversationSettingDataSource.m in Sources */,
 				69A161772242408600893F06 /* StaffMessageForwardViewController.m in Sources */,
 				69A161782242408600893F06 /* ContactsViewController.m in Sources */,
-				2B5227A92301270800EF941B /* WebViewJavascriptBridgeBase.m in Sources */,
 				2B5228AD2301270800EF941B /* GFPhotoCell.m in Sources */,
 				2B5227F12301270800EF941B /* VIMessageHUD.m in Sources */,
 				2B35D9C822B9FC1C00088F76 /* CheckinData.m in Sources */,
@@ -2530,12 +2330,10 @@
 				69A1618E2242408600893F06 /* SettingsBaseTableViewController.m in Sources */,
 				69A1618F2242408600893F06 /* HistorySearchCell.m in Sources */,
 				69A161902242408600893F06 /* MeInfoCell.m in Sources */,
-				2B5227FD2301270800EF941B /* STPopupController.m in Sources */,
 				2B5228152301270800EF941B /* VITableView.m in Sources */,
 				2B5228A12301270800EF941B /* UIButton+GF.m in Sources */,
 				69A161912242408600893F06 /* MessageForwardSearchResultViewController.m in Sources */,
 				69A161922242408600893F06 /* PrivateUserInfoCell.m in Sources */,
-				2B5228352301270800EF941B /* WebViewJavascriptBridge.m in Sources */,
 				69A161932242408600893F06 /* main.m in Sources */,
 				69A161942242408600893F06 /* GroupListCell.m in Sources */,
 				69A161952242408600893F06 /* UserManager.m in Sources */,
@@ -2548,10 +2346,8 @@
 				69A1619B2242408600893F06 /* MainNavigationController.m in Sources */,
 				69A1619C2242408600893F06 /* ContactsDataSource.m in Sources */,
 				69A1619D2242408600893F06 /* SignupViewController.m in Sources */,
-				2B5228552301270800EF941B /* UIResponder+STPopup.m in Sources */,
 				69A1619E2242408600893F06 /* ContactsSelectViewController.m in Sources */,
 				69A1619F2242408600893F06 /* RCDataSource.m in Sources */,
-				2B5227D12301270800EF941B /* STPopupControllerTransitioningFade.m in Sources */,
 				2B5227ED2301270800EF941B /* KeychainItemWrapper.m in Sources */,
 				69A161A02242408600893F06 /* FriendsRequestViewController.m in Sources */,
 				69A161A12242408600893F06 /* NotificationDetailViewController.m in Sources */,
@@ -2573,10 +2369,8 @@
 				69A161AC2242408600893F06 /* GroupAnnounceViewController.m in Sources */,
 				2B5228C52301270800EF941B /* VICollectionView.m in Sources */,
 				69A161AD2242408600893F06 /* GroupSelectCell.m in Sources */,
-				2B5228B52301270800EF941B /* WebViewJavascriptBridge_JS.m in Sources */,
 				2B52286D2301270800EF941B /* PopoverViewCell.m in Sources */,
 				2B5228212301270800EF941B /* UIImage+GF.m in Sources */,
-				2B5227CD2301270800EF941B /* UIViewController+STPopup.m in Sources */,
 				69A161AE2242408600893F06 /* OneKeyAlertViewController.m in Sources */,
 				2B5228252301270800EF941B /* UIImageView+GF.m in Sources */,
 				69A161AF2242408600893F06 /* ReactiveWebViewController.m in Sources */,
@@ -2596,8 +2390,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B5227A42301270800EF941B /* STPopupControllerTransitioningSlideVertical.m in Sources */,
-				2B5227C82301270800EF941B /* STPopupLeftBarItem.m in Sources */,
 				2B52289C2301270800EF941B /* NSString+GF.m in Sources */,
 				69DDD01522439E1F00041BF3 /* GuidePageViewController.m in Sources */,
 				69DDD01622439E1F00041BF3 /* NotificationDataSource.m in Sources */,
@@ -2618,10 +2410,8 @@
 				2B31FE8822547AE900CC5BF9 /* UINavigationController+PushPopCrashFix.m in Sources */,
 				2B5228702301270800EF941B /* NSManagedObject+VICoreDataSource.m in Sources */,
 				2B5228742301270800EF941B /* NSData+GF.m in Sources */,
-				2B5227B42301270800EF941B /* STPopupNavigationBar.m in Sources */,
 				69DDD02022439E1F00041BF3 /* GroupInfoEditViewController.m in Sources */,
 				69DDD02122439E1F00041BF3 /* MeSettingsViewController.m in Sources */,
-				2B52281C2301270800EF941B /* MBProgressHUD+GF.m in Sources */,
 				2B5228902301270800EF941B /* NSBundle+GFPhotoBrowser.m in Sources */,
 				69DDD02222439E1F00041BF3 /* ConversationSearchResultViewController.m in Sources */,
 				69DDD02322439E1F00041BF3 /* MessageHistoryViewController.m in Sources */,
@@ -2648,7 +2438,6 @@
 				69DDD03222439E1F00041BF3 /* MessageForwardCell.m in Sources */,
 				2B5227B82301270800EF941B /* NSAttributedString+GF.m in Sources */,
 				69DDD03322439E1F00041BF3 /* FriendRequestCell.m in Sources */,
-				2B5228282301270800EF941B /* WKWebViewJavascriptBridge.m in Sources */,
 				2B5228882301270800EF941B /* VIDataSource.m in Sources */,
 				69DDD03422439E1F00041BF3 /* YuTextField.m in Sources */,
 				69DDD03522439E1F00041BF3 /* ConversationViewController.m in Sources */,
@@ -2658,7 +2447,6 @@
 				69DDD03822439E1F00041BF3 /* ConversationSettingDataSource.m in Sources */,
 				69DDD03922439E1F00041BF3 /* StaffMessageForwardViewController.m in Sources */,
 				69DDD03A22439E1F00041BF3 /* ContactsViewController.m in Sources */,
-				2B5227A82301270800EF941B /* WebViewJavascriptBridgeBase.m in Sources */,
 				2B5228AC2301270800EF941B /* GFPhotoCell.m in Sources */,
 				2B5227F02301270800EF941B /* VIMessageHUD.m in Sources */,
 				2B35D9C722B9FC1C00088F76 /* CheckinData.m in Sources */,
@@ -2689,12 +2477,10 @@
 				69DDD05022439E1F00041BF3 /* SettingsBaseTableViewController.m in Sources */,
 				69DDD05122439E1F00041BF3 /* HistorySearchCell.m in Sources */,
 				69DDD05222439E1F00041BF3 /* MeInfoCell.m in Sources */,
-				2B5227FC2301270800EF941B /* STPopupController.m in Sources */,
 				2B5228142301270800EF941B /* VITableView.m in Sources */,
 				2B5228A02301270800EF941B /* UIButton+GF.m in Sources */,
 				69DDD05322439E1F00041BF3 /* MessageForwardSearchResultViewController.m in Sources */,
 				69DDD05422439E1F00041BF3 /* PrivateUserInfoCell.m in Sources */,
-				2B5228342301270800EF941B /* WebViewJavascriptBridge.m in Sources */,
 				69DDD05522439E1F00041BF3 /* main.m in Sources */,
 				69DDD05622439E1F00041BF3 /* GroupListCell.m in Sources */,
 				69DDD05722439E1F00041BF3 /* UserManager.m in Sources */,
@@ -2707,10 +2493,8 @@
 				69DDD05D22439E1F00041BF3 /* MainNavigationController.m in Sources */,
 				69DDD05E22439E1F00041BF3 /* ContactsDataSource.m in Sources */,
 				69DDD05F22439E1F00041BF3 /* SignupViewController.m in Sources */,
-				2B5228542301270800EF941B /* UIResponder+STPopup.m in Sources */,
 				69DDD06022439E1F00041BF3 /* ContactsSelectViewController.m in Sources */,
 				69DDD06122439E1F00041BF3 /* RCDataSource.m in Sources */,
-				2B5227D02301270800EF941B /* STPopupControllerTransitioningFade.m in Sources */,
 				2B5227EC2301270800EF941B /* KeychainItemWrapper.m in Sources */,
 				69DDD06222439E1F00041BF3 /* FriendsRequestViewController.m in Sources */,
 				69DDD06322439E1F00041BF3 /* NotificationDetailViewController.m in Sources */,
@@ -2732,10 +2516,8 @@
 				69DDD06E22439E1F00041BF3 /* GroupAnnounceViewController.m in Sources */,
 				2B5228C42301270800EF941B /* VICollectionView.m in Sources */,
 				69DDD06F22439E1F00041BF3 /* GroupSelectCell.m in Sources */,
-				2B5228B42301270800EF941B /* WebViewJavascriptBridge_JS.m in Sources */,
 				2B52286C2301270800EF941B /* PopoverViewCell.m in Sources */,
 				2B5228202301270800EF941B /* UIImage+GF.m in Sources */,
-				2B5227CC2301270800EF941B /* UIViewController+STPopup.m in Sources */,
 				69DDD07022439E1F00041BF3 /* OneKeyAlertViewController.m in Sources */,
 				2B5228242301270800EF941B /* UIImageView+GF.m in Sources */,
 				69DDD07122439E1F00041BF3 /* ReactiveWebViewController.m in Sources */,

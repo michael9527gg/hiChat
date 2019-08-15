@@ -159,39 +159,29 @@
 }
 
 - (void)dismissGroup {
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     
     [[GroupManager manager] dismissGroupWithGroupid:self.groupId
                                          completion:^(BOOL success, NSDictionary * _Nullable info) {
-                                             [MBProgressHUD finishHudWithResult:success
-                                                                            hud:hud
-                                                                      labelText:info[@"msg"]
-                                                                     completion:^{
-                                                                         if (success) {
-                                                                             GroupData *group = [[GroupDataSource sharedClient] groupWithGroupid:self.groupId];
-                                                                             [[GroupDataSource sharedClient] deleteObject:group];
-                                                                             
-                                                                             [[RCManager manager] removeConversation:ConversationType_GROUP
-                                                                                                            targetId:self.groupId];
-                                                                             
-                                                                             [self.navigationController popToRootViewControllerAnimated:YES];
-                                                                         }
-                                                                     }];
+                                             [MBProgressHUD finishLoading:hud
+                                                                   result:success
+                                                                     text:[info msg]
+                                                               completion:^{
+                                                                   if (success) {
+                                                                       GroupData *group = [[GroupDataSource sharedClient] groupWithGroupid:self.groupId];
+                                                                       [[GroupDataSource sharedClient] deleteObject:group];
+                                                                       
+                                                                       [[RCManager manager] removeConversation:ConversationType_GROUP
+                                                                                                      targetId:self.groupId];
+                                                                       
+                                                                       [self.navigationController popToRootViewControllerAnimated:YES];
+                                                                   }
+                                                               }];
                                          }];
 }
 
 - (void)quitGroup {
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     [[GroupManager manager] quitGroupWithGroupid:self.groupId
                                       completion:^(BOOL success, NSDictionary * _Nullable info) {
                                           if(success) {
@@ -201,10 +191,10 @@
                                               [self.navigationController popToRootViewControllerAnimated:YES];
                                           }
                                           
-                                          [MBProgressHUD finishHudWithResult:success
-                                                                         hud:hud
-                                                                   labelText:info[@"msg"]
-                                                                  completion:nil];
+                                          [MBProgressHUD finishLoading:hud
+                                                                result:success
+                                                                  text:info[@"msg"]
+                                                            completion:nil];
                                       }];
 }
 
@@ -237,11 +227,10 @@
                                                     self.groupInfo = (GroupData *)[info valueForKey:@"data"];
                                                     [self.tableView reloadData];
                                                 } else {
-                                                    [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                                                                        withResult:success
-                                                                         labelText:info[@"msg"]
-                                                                         delayHide:YES
-                                                                        completion:nil];
+                                                    [MBProgressHUD showMessage:info[@"msg"]
+                                                                        onView:APP_DELEGATE_WINDOW
+                                                                        result:success
+                                                                    completion:nil];
                                                 }
                                             }];
 }
@@ -263,11 +252,10 @@
                                                     completion:^(BOOL success, NSDictionary * _Nullable info) {
                                                         dispatch_async(dispatch_get_main_queue(), ^{
                                                             if(!success) {
-                                                                [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                                                                                    withResult:success
-                                                                                     labelText:[info msg]
-                                                                                     delayHide:YES
-                                                                                    completion:nil];
+                                                                [MBProgressHUD showMessage:info[@"msg"]
+                                                                                    onView:APP_DELEGATE_WINDOW
+                                                                                    result:success
+                                                                                completion:nil];
                                                             }
                                                             
                                                             self.isSilent = success?block:!block;
@@ -286,11 +274,10 @@
                                                   completion:^(BOOL success, NSDictionary * _Nullable info) {
                                                       dispatch_async(dispatch_get_main_queue(), ^{
                                                           if(!success) {
-                                                              [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                                                                                  withResult:success
-                                                                                   labelText:[info msg]
-                                                                                   delayHide:YES
-                                                                                  completion:nil];
+                                                              [MBProgressHUD showMessage:info[@"msg"]
+                                                                                  onView:APP_DELEGATE_WINDOW
+                                                                                  result:success
+                                                                              completion:nil];
                                                           }
                                                           self.isTop = success?top:!top;
                                                           [self.tableView reloadData];
@@ -300,12 +287,7 @@
 
 - (void)clearHistoryMessage {
     RCIMClient *client = [RCIMClient sharedRCIMClient];
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     [client clearRemoteHistoryMessages:ConversationType_GROUP
                               targetId:self.groupId
                             recordTime:0
@@ -314,10 +296,10 @@
                                                  targetId:self.groupId
                                                   success:^{
                                                       dispatch_async(dispatch_get_main_queue(), ^{
-                                                          [MBProgressHUD finishHudWithResult:YES
-                                                                                         hud:hud
-                                                                                   labelText:@"聊天记录已清除"
-                                                                                  completion:nil];
+                                                          [MBProgressHUD finishLoading:hud
+                                                                                result:YES
+                                                                                  text:@"聊天记录已清除"
+                                                                            completion:nil];
                                                       });
                                                       [[NSNotificationCenter defaultCenter] postNotificationName:CONVERSATION_CLEAR_MESSAGE_NOTIFIACTION
                                                                                                           object:nil
@@ -325,18 +307,18 @@
                                                   }
                                                     error:^(RCErrorCode status) {
                                                         dispatch_async(dispatch_get_main_queue(), ^{
-                                                            [MBProgressHUD finishHudWithResult:NO
-                                                                                           hud:hud
-                                                                                     labelText:@"消息记录清除失败"
-                                                                                    completion:nil];
+                                                            [MBProgressHUD finishLoading:hud
+                                                                                  result:NO
+                                                                                    text:@"消息记录清除失败"
+                                                                              completion:nil];
                                                         });
                                                     }];
                                } error:^(RCErrorCode status) {
                                    dispatch_async(dispatch_get_main_queue(), ^{
-                                       [MBProgressHUD finishHudWithResult:NO
-                                                                      hud:hud
-                                                                labelText:@"消息记录清除失败"
-                                                               completion:nil];
+                                       [MBProgressHUD finishLoading:hud
+                                                             result:NO
+                                                               text:@"消息记录清除失败"
+                                                         completion:nil];
                                    });
                                }];
 }
@@ -344,13 +326,7 @@
 - (void)updateGroupInfoWithName:(NSString *)groupName
                        portrait:(NSString *)portrait
                    announcement:(NSString *)announcement {
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
-    hud.label.text = YUCLOUD_STRING_PLEASE_WAIT;
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     [[GroupManager manager] editGroupInfoWithGroupid:self.groupId
                                                 name:groupName
                                             portrait:portrait
@@ -375,10 +351,10 @@
                                                   [self.tableView reloadData];
                                               }
                                               
-                                              [MBProgressHUD finishHudWithResult:success
-                                                                             hud:hud
-                                                                       labelText:info[@"msg"]
-                                                                      completion:nil];
+                                              [MBProgressHUD finishLoading:hud
+                                                                    result:success
+                                                                      text:info[@"msg"]
+                                                                completion:nil];
                                           }];
 }
 
@@ -394,11 +370,10 @@
                                                  [[GroupDataSource sharedClient] addObject:self.groupInfo
                                                                                 entityName:[GroupEntity entityName]];
                                              } else {
-                                                 [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                                                                     withResult:success
-                                                                      labelText:[info msg]
-                                                                      delayHide:YES
-                                                                     completion:nil];
+                                                 [MBProgressHUD showMessage:[info msg]
+                                                                     onView:APP_DELEGATE_WINDOW
+                                                                     result:YES
+                                                                 completion:nil];
                                              }
                                              
                                              [self.tableView reloadData];
@@ -734,12 +709,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)selectWithContacts:(NSArray *)contacts
                    purpose:(ContactSelectPurpose)purpose
                  mulSelect:(BOOL)mulSelect {
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     
     [[GroupManager manager] joinGroupWithGroupId:self.groupId
                                  groupMemberList:contacts
@@ -749,22 +719,17 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
                                               [self refreshGroupInfo];
                                           }
                                           
-                                          [MBProgressHUD finishHudWithResult:success
-                                                                         hud:hud
-                                                                   labelText:[info msg]
-                                                                  completion:nil];
+                                          [MBProgressHUD finishLoading:hud
+                                                                result:success
+                                                                  text:[info msg]
+                                                            completion:nil];
                                       }];
 }
 
 #pragma mark - GroupMemberSelectDelegate
 
 - (void)selectWithMembers:(NSArray *)contacts {
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     [[GroupManager manager] kickUsersByGroupId:self.groupId
                                        usersId:contacts
                                     completion:^(BOOL success, NSDictionary * _Nullable info) {
@@ -773,10 +738,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
                                             [self refreshGroupInfo];
                                         }
                                         
-                                        [MBProgressHUD finishHudWithResult:success
-                                                                       hud:hud
-                                                                 labelText:info[@"msg"]
-                                                                completion:nil];
+                                        [MBProgressHUD finishLoading:hud
+                                                              result:success
+                                                                text:[info msg]
+                                                          completion:nil];
                                     }];
 }
 

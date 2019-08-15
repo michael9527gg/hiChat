@@ -162,11 +162,8 @@
         [self.navigationController popViewControllerAnimated:YES];
     } else {
         if(!self.selectArr.count) {
-            [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                                withResult:NO
-                                 labelText:@"发送群组不能为空"
-                                 delayHide:YES
-                                completion:nil];
+            [MBProgressHUD showMessage:@"发送群组不能为空"
+                                onView:APP_DELEGATE_WINDOW];
             
             return;
         }

@@ -1,0 +1,13 @@
+${PODS_ROOT}/Target Support Files/Pods-hiChat_enterprise_pub/Pods-hiChat_enterprise_pub-resources.sh
+${PODS_ROOT}/LYPopupTools/LYPopupTools/LYPopupTools/Resources/LYPopupTools.bundle
+${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle
+${PODS_ROOT}/RongCloudIM/RongCloudIM/RongCloud.bundle
+${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj
+${PODS_ROOT}/RongCloudIM/RongCloudIM/zh-Hans.lproj
+${PODS_ROOT}/RongCloudIM/RongCloudIM/Emoji.plist
+${PODS_ROOT}/RongCloudIM/RongCloudIM/RCColor.plist
+${PODS_ROOT}/RongCloudIM/RongCloudIM/RCConfig.plist
+${PODS_ROOT}/ZBarSDK/iphone/res/zbar-back.png
+${PODS_ROOT}/ZBarSDK/iphone/res/zbar-help.html
+${PODS_ROOT}/ZBarSDK/iphone/res/zbar-helpicons.png
+${PODS_ROOT}/ZBarSDK/iphone/res/zbar-samples.png

@@ -1,0 +1,6 @@
+framework module Pods_hiChat_app_dev {
+  umbrella header "Pods-hiChat_app_dev-umbrella.h"
+
+  export *
+  module * { export * }
+}

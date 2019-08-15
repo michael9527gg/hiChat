@@ -143,13 +143,13 @@ YuTextFieldCommonTarget *textCommonDelegateTarget = nil;
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     [view addSubview:imageView];
 
-    [view mas_makeConstraints:^(MASConstraintMaker *make){
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left);
         make.top.equalTo(self.mas_top);
         make.bottom.equalTo(self.mas_bottom);
-        make.width.equalTo(self.mas_height);
+        make.width.equalTo(@49);
     }];
-
+    
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(view);
     }];
@@ -173,7 +173,7 @@ YuTextFieldCommonTarget *textCommonDelegateTarget = nil;
         make.right.equalTo(self.mas_left);
         make.top.equalTo(self.mas_top);
         make.bottom.equalTo(self.mas_bottom);
-        make.width.equalTo(self.mas_height);
+        make.width.equalTo(@49);
     }];
     
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {

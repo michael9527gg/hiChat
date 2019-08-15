@@ -95,11 +95,8 @@ static NSString *cellIdentifier = @"StaffMessageForwardCell";
 
 - (void)touchSend {
     if(!self.selectedItems.count) {
-        [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                            withResult:NO
-                             labelText:@"请选择发送对象"
-                             delayHide:YES
-                            completion:nil];
+        [MBProgressHUD showMessage:@"请选择发送对象"
+                            onView:APP_DELEGATE_WINDOW];
         return;
     }
     NSString *t1 = [NSString stringWithFormat:@" %ld 位好友", [self selectedContacts].count];

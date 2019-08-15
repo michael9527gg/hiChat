@@ -124,24 +124,19 @@
         return;
     }
     
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     
     [[AccountManager manager] changePassword:newPass1
                                      oldPass:@""
                                   completion:^(BOOL success, NSDictionary * _Nullable info) {
-                                      [MBProgressHUD finishHudWithResult:success
-                                                                     hud:hud
-                                                               labelText:[info msg]
-                                                              completion:^{
-                                                                  if (success) {
-                                                                      [self.navigationController popViewControllerAnimated:YES];
-                                                                  }
-                                                              }];
+                                      [MBProgressHUD finishLoading:hud
+                                                            result:success
+                                                              text:[info msg]
+                                                        completion:^{
+                                                            if (success) {
+                                                                [self.navigationController popViewControllerAnimated:YES];
+                                                            }
+                                                        }];
                                   }];
 }
 

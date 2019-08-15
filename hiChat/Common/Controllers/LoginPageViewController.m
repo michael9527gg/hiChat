@@ -173,12 +173,7 @@
 - (void)touchWeChatLogin {
     [[AccountManager manager] showWechatAuthWithCompletion:^(BOOL success, NSDictionary * _Nullable info) {
         if (success) {
-            MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                                     mode:MBProgressHUDModeIndeterminate
-                                                    image:nil
-                                                  message:YUCLOUD_STRING_PLEASE_WAIT
-                                                delayHide:NO
-                                               completion:nil];
+            MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
             
             [[AccountManager manager] loginWithPhone:nil
                                                 pass:nil
@@ -186,12 +181,12 @@
                                                 code:info[@"code"]
                                           completion:^(BOOL success, NSDictionary * _Nullable info) {
                                               if (success) {
-                                                  [MBProgressHUD finishHudWithResult:success
-                                                                                 hud:hud
-                                                                           labelText:[info msg]
-                                                                          completion:^{
-                                                                              [self.delegate loginSuccess];
-                                                                          }];
+                                                  [MBProgressHUD finishLoading:hud
+                                                                        result:success
+                                                                          text:[info msg]
+                                                                    completion:^{
+                                                                        [self.delegate loginSuccess];
+                                                                    }];
                                               }
                                               else {
                                                   NSNumber *code = info[@"code"];
@@ -217,10 +212,10 @@
                                                   }
                                                   else {
                                                       // 未知错误
-                                                      [MBProgressHUD finishHudWithResult:success
-                                                                                     hud:hud
-                                                                               labelText:[info msg]
-                                                                              completion:nil];
+                                                      [MBProgressHUD finishLoading:hud
+                                                                            result:success
+                                                                              text:[info msg]
+                                                                        completion:nil];
                                                   }
                                               }
                                           }];
@@ -291,12 +286,7 @@
     
     [NSUserDefaults saveLastPassLoginDate:[NSDate date]];
     
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     
     [[AccountManager manager] loginWithPhone:phone
                                         pass:pass
@@ -304,12 +294,12 @@
                                         code:nil
                                   completion:^(BOOL success, NSDictionary * _Nullable info) {
                                       if (success) {
-                                          [MBProgressHUD finishHudWithResult:success
-                                                                         hud:hud
-                                                                   labelText:info[@"msg"]
-                                                                  completion:^{
-                                                                      [self.delegate loginSuccess];
-                                                                  }];
+                                          [MBProgressHUD finishLoading:hud
+                                                                result:success
+                                                                  text:[info msg]
+                                                            completion:^{
+                                                                [self.delegate loginSuccess];
+                                                            }];
                                       }
                                       else if (info.code == 666) {
                                           // 需要两步验证
@@ -345,10 +335,10 @@
                                           }];
                                       }
                                       else {
-                                          [MBProgressHUD finishHudWithResult:success
-                                                                         hud:hud
-                                                                   labelText:info[@"msg"]
-                                                                  completion:nil];
+                                          [MBProgressHUD finishLoading:hud
+                                                                result:success
+                                                                  text:[info msg]
+                                                            completion:nil];
                                       }
                                   }];
 }
@@ -379,29 +369,24 @@
 - (void)authViewController:(TSAuthViewController *)viewController didFinishWithText:(NSString *)text {
     if (text.length == 6) {
         // 开始校验
-        MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                                 mode:MBProgressHUDModeIndeterminate
-                                                image:nil
-                                              message:YUCLOUD_STRING_PLEASE_WAIT
-                                            delayHide:NO
-                                           completion:nil];
+        MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
         
         [[AccountManager manager] twoStepVerify:self.auth2stepToken
                                            code:text
                                      completion:^(BOOL success, NSDictionary * _Nullable info) {
-                                         [MBProgressHUD finishHudWithResult:success
-                                                                        hud:hud
-                                                                  labelText:info[@"msg"]
-                                                                 completion:^{
-                                                                     if (success) {
-                                                                         [viewController hidePopup:YES completion:^{
-                                                                             [self.delegate loginSuccess];
-                                                                         }];
-                                                                     }
-                                                                     else {
-                                                                         [viewController hidePopup:YES completion:nil];
-                                                                     }
-                                                                 }];
+                                         [MBProgressHUD finishLoading:hud
+                                                               result:success
+                                                                 text:[info msg]
+                                                           completion:^{
+                                                               if (success) {
+                                                                   [viewController hidePopup:YES completion:^{
+                                                                       [self.delegate loginSuccess];
+                                                                   }];
+                                                               }
+                                                               else {
+                                                                   [viewController hidePopup:YES completion:nil];
+                                                               }
+                                                           }];
                                      }];
     }
     else {

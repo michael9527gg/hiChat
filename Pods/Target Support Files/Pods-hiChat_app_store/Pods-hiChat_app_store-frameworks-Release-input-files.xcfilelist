@@ -1,0 +1,13 @@
+${PODS_ROOT}/Target Support Files/Pods-hiChat_app_store/Pods-hiChat_app_store-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
+${BUILT_PRODUCTS_DIR}/AliyunOSSiOS/AliyunOSSiOS.framework
+${BUILT_PRODUCTS_DIR}/LBXScan/LBXScan.framework
+${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework
+${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework
+${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
+${BUILT_PRODUCTS_DIR}/NYXImagesKit/NYXImagesKit.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/STPopup/STPopup.framework
+${BUILT_PRODUCTS_DIR}/WebViewJavascriptBridge/WebViewJavascriptBridge.framework
+${BUILT_PRODUCTS_DIR}/ZBarSDK/ZBarSDK.framework
+${BUILT_PRODUCTS_DIR}/ZXingObjC/ZXingObjC.framework

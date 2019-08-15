@@ -440,11 +440,10 @@
             NSInteger tt = [NSDate date].timeIntervalSince1970 - frontDate.timeIntervalSince1970;
             NSLog(@"Message send interval : %ld", tt);
             if(tt < interval) {
-                [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                                    withResult:NO
-                                     labelText:@"您发送的太快了，请稍后再试"
-                                     delayHide:YES
-                                    completion:nil];
+                [MBProgressHUD showMessage:@"您发送的太快了，请稍后再试"
+                                    onView:APP_DELEGATE_WINDOW
+                                    result:NO
+                                completion:nil];
                 
                 return YES;
             } else {

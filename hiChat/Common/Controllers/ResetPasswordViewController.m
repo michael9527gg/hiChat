@@ -247,42 +247,30 @@
         return;
     }
     
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:@"发送验证码中..."
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW message:@"发送验证码中..."];
     
     [[AccountManager manager] requestSmsWithPhone:phone
                                            reason:@"repassword"
                                        completion:^(BOOL success, NSDictionary * _Nullable info) {
-                                           if (success) {
-                                               NSDictionary *result = info[@"result"];
-                                               self.codeView.text = YUCLOUD_VALIDATE_STRING(result[@"code"]);
-                                               [MBProgressHUD finishHudWithResult:success
-                                                                              hud:hud
-                                                                        labelText:success?@"验证码已发送":[info msg]
-                                                                       completion:^{
-                                                                           if (success) {
-                                                                               self.timeCount = 60;
-                                                                               
-                                                                               self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0
-                                                                                                                             target:self
-                                                                                                                           selector:@selector(timeCountAction)
-                                                                                                                           userInfo:nil
-                                                                                                                            repeats:YES];
-                                                                               
-                                                                               [self.codeView becomeFirstResponder];
-                                                                           }
-                                                                       }];
-                                           }
-                                           else {
-                                               [MBProgressHUD finishHudWithResult:NO
-                                                                              hud:hud
-                                                                        labelText:info[@"msg"]
-                                                                       completion:nil];
-                                           }
+                                           [MBProgressHUD finishLoading:hud
+                                                                 result:success
+                                                                   text:success?@"验证码已发送":[info msg]
+                                                             completion:^{
+                                                                 if (success) {
+                                                                     NSDictionary *result = info[@"result"];
+                                                                     self.codeView.text = YUCLOUD_VALIDATE_STRING(result[@"code"]);
+                                                                     
+                                                                     self.timeCount = 60;
+                                                                     
+                                                                     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                                                                                   target:self
+                                                                                                                 selector:@selector(timeCountAction)
+                                                                                                                 userInfo:nil
+                                                                                                                  repeats:YES];
+                                                                     
+                                                                     [self.codeView becomeFirstResponder];
+                                                                 }
+                                                             }];
                                        }];
     
 }
@@ -347,25 +335,20 @@
         return;
     }
     
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     
     [[AccountManager manager] resetPassword:self.phoneView.text
                                        pass:self.passView1.text
                                        code:self.codeView.text
                                  completion:^(BOOL success, NSDictionary * _Nullable info) {
-                                     [MBProgressHUD finishHudWithResult:success
-                                                                    hud:hud
-                                                              labelText:info[@"msg"]
-                                                             completion:^{
-                                                                 if (success) {
-                                                                     [self.delegate showLogin:nil];
-                                                                 }
-                                                             }];
+                                     [MBProgressHUD finishLoading:hud
+                                                           result:success
+                                                             text:info[@"msg"]
+                                                       completion:^{
+                                                           if (success) {
+                                                               [self.delegate showLogin:nil];
+                                                           }
+                                                       }];
                                  }];
 }
 

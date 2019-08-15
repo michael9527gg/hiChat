@@ -142,12 +142,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)deleteFromBlackList:(NSString *)userid {
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     [[ContactsManager manager] deleteBlackListWithFriendid:userid
                                                 completion:^(BOOL success, NSDictionary * _Nullable info) {
                                                     if(success) {
@@ -164,10 +159,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
                                                         
                                                         self.isModified = YES;
                                                     }
-                                                    [MBProgressHUD finishHudWithResult:success
-                                                                                   hud:hud
-                                                                             labelText:success?@"取消成功":info[@"msg"]
-                                                                            completion:nil];
+                                                    
+                                                    [MBProgressHUD finishLoading:hud
+                                                                          result:success
+                                                                            text:success?@"取消成功":info[@"msg"]
+                                                                      completion:nil];
                                                 }];
 }
 

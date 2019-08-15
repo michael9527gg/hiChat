@@ -177,19 +177,18 @@ typedef enum : NSUInteger {
 }
 
 - (void)touchCheckin {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:APP_DELEGATE_WINDOW
-                                              animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW message:@"签到中..."];
     [[AccountManager manager] requestCheckinWithAction:YuCloudDataAdd
                                                 taskId:self.checkinData.uid
                                             completion:^(BOOL success, NSDictionary * _Nullable info) {
-                                                [MBProgressHUD finishHudWithResult:success
-                                                                               hud:hud
-                                                                         labelText:[info msg]
-                                                                        completion:^{
-                                                                            if(success) {
-                                                                                [self touchClose];
-                                                                            }
-                                                                        }];
+                                                [MBProgressHUD finishLoading:hud
+                                                                      result:success
+                                                                        text:[info msg]
+                                                                  completion:^{
+                                                                      if(success) {
+                                                                          [self touchClose];
+                                                                      }
+                                                                  }];
                                             }];
 }
 

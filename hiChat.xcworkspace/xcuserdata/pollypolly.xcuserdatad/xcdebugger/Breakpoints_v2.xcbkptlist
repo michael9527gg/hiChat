@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
+   uuid = "7E258D9D-A09E-4C7E-9EF5-812B86A100FF"
    type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "8FC41B0D-2945-4443-AF48-59EB25B61F99"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "hiChat/Conversation/Controllers/ConversationViewController.m"
-            timestampString = "586761886.9564281"
+            timestampString = "587562839.310168"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "673"
-            endingLineNumber = "673"
+            startingLineNumber = "669"
+            endingLineNumber = "669"
             landmarkName = "-didTapMessageCell:"
             landmarkType = "7">
          </BreakpointContent>

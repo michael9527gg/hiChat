@@ -50,11 +50,8 @@
 
 - (void)touchSave {
     if(!self.textView.text.length) {
-        [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                            withResult:NO
-                             labelText:@"公告内容不能为空"
-                             delayHide:YES
-                            completion:nil];
+        [MBProgressHUD showMessage:@"公告内容不能为空"
+                            onView:APP_DELEGATE_WINDOW];
         
         return;
     }

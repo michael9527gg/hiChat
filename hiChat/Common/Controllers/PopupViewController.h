@@ -29,7 +29,6 @@ NS_ASSUME_NONNULL_BEGIN
        afterDelay:(NSTimeInterval)delay
        completion:(nullable void (^)(void))completion;
 
-
 @end
 
 NS_ASSUME_NONNULL_END

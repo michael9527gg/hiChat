@@ -2,35 +2,24 @@ project 'hiChat.xcodeproj'
 
 platform :ios, '8.0'
 inhibit_all_warnings!
-use_frameworks!
 
 def pods
   pod 'AFNetworking'
-  pod 'RongCloudIM/IMKit'#, '2.9.15'
+  pod 'SDWebImage'
   pod 'Masonry'
   pod 'MJRefresh'
-#  pod 'STPopup',                    :git => 'https://github.com/kevin0571/STPopup.git'
-  pod 'AliyunOSSiOS'
   pod 'WechatOpenSDK'
+  pod 'WebViewJavascriptBridge'
+  pod 'RongCloudIM/IMKit'
+  pod 'AliyunOSSiOS'
+  
+  pod 'LYCoreDataSource'
+  pod 'LYPopupTools'
+  
+  pod 'NYXImagesKit'
   pod 'ZXingObjC'
   pod 'LBXScan/LBXZBar'
-  pod 'SDWebImage'
-  pod 'MBProgressHUD'
-  pod 'NYXImagesKit'
-
-#  pod 'WebViewJavascriptBridge',    :git => 'git@github.com:golverine/WebViewJavascriptBridge.git'
-#  pod 'VICoreDataSource',           :git => 'git@github.com:golverine/VICoreDataSource.git'
-#  pod 'VIPhotoBrowser',             :git => 'git@github.com:golverine/VIPhotoBrowser.git'
-#  pod 'VICocoaTools',               :git => 'git@github.com:golverine/VICocoaTools.git'
-#  pod 'NYXImagesKit',               :git => 'git@github.com:golverine/NYXImagesKit.git'
-#  pod 'GFPopover',                  :git => 'git@github.com:golverine/GFPopover.git'
-
-#  pod 'WebViewJavascriptBridge',    :path => '../github/WebViewJavascriptBridge'
-#  pod 'VICoreDataSource',           :path => '../../../../github/VICoreDataSource'
-#  pod 'VIPhotoBrowser',             :path => '../github/VIPhotoBrowser'
-#  pod 'VICocoaTools',               :path => '../../../../github/VICocoaTools'
-#  pod 'NYXImagesKit',               :path => '../github/NYXImagesKit'
-
+  pod 'STPopup'
 end
 
 target 'hiChat_enterprise_dev' do

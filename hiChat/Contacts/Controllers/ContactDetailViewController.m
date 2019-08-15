@@ -194,11 +194,10 @@
                                                      self.platformName = self.user.platformName;
                                                      [self.tableView reloadData];
                                                  } else {
-                                                     [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                                                                         withResult:success
-                                                                          labelText:[info msg]
-                                                                          delayHide:YES
-                                                                         completion:nil];
+                                                     [MBProgressHUD showMessage:[info msg]
+                                                                         onView:APP_DELEGATE_WINDOW
+                                                                         result:success
+                                                                     completion:nil];
                                                  }
                                              }];
     }
@@ -252,12 +251,7 @@
 }
 
 - (void)addGagWithMinute:(NSInteger)minute {
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     [[GroupManager manager] addGagForGroup:self.groupid
                                    userids:@[self.member.userid]
                                     minute:minute
@@ -270,20 +264,15 @@
                                         [self refreshBannedBtn];
                                     }
                                     
-                                    [MBProgressHUD finishHudWithResult:success
-                                                                   hud:hud
-                                                             labelText:info[@"msg"]
-                                                            completion:nil];
+                                    [MBProgressHUD finishLoading:hud
+                                                          result:success
+                                                            text:[info msg]
+                                                      completion:nil];
                                 }];
 }
 
 - (void)cancelGag {
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     [[GroupManager manager] removeGagFromGroup:self.groupid
                                        userids:@[self.member.userid]
                                     completion:^(BOOL success, NSDictionary * _Nullable info) {
@@ -294,10 +283,10 @@
                                             
                                             [self refreshBannedBtn];
                                         }
-                                        [MBProgressHUD finishHudWithResult:success
-                                                                       hud:hud
-                                                                 labelText:info[@"msg"]
-                                                                completion:nil];
+                                        [MBProgressHUD finishLoading:hud
+                                                              result:success
+                                                                text:[info msg]
+                                                          completion:nil];
                                     }];
 }
 
@@ -326,12 +315,7 @@
 }
 
 - (void)deleteFriend {
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     [[ContactsManager manager] deleteFriendWithUserid:self.userid
                                            completion:^(BOOL success, NSDictionary * _Nullable info) {
                                                if(success) {
@@ -345,24 +329,19 @@
                                                    [[RCManager manager] removeConversation:ConversationType_PRIVATE
                                                                                   targetId:self.userid];
                                                }
-                                               [MBProgressHUD finishHudWithResult:success
-                                                                              hud:hud
-                                                                        labelText:success?@"删除成功":info[@"msg"]
-                                                                       completion:^{
-                                                                           if(success) {
-                                                                               [self.navigationController popViewControllerAnimated:YES];
-                                                                           }
-                                                                       }];
+                                               [MBProgressHUD finishLoading:hud
+                                                                     result:success
+                                                                       text:success?@"删除成功":info[@"msg"]
+                                                                 completion:^{
+                                                                     if(success) {
+                                                                         [self.navigationController popViewControllerAnimated:YES];
+                                                                     }
+                                                                 }];
                                            }];
 }
 
 - (void)addBlackList {
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     [[ContactsManager manager] addBlackListWithFriendid:self.userid
                                              completion:^(BOOL success, NSDictionary * _Nullable info) {
                                                  if(success) {
@@ -381,20 +360,16 @@
                                                      [[ConversationSettingDataSource sharedClient] addObject:setting
                                                                                                   entityName:[ConversationSettingEntity entityName]];
                                                  }
-                                                 [MBProgressHUD finishHudWithResult:success
-                                                                                hud:hud
-                                                                          labelText:success?@"拉黑成功":info[@"msg"]
-                                                                         completion:nil];
+                                                 
+                                                 [MBProgressHUD finishLoading:hud
+                                                                       result:success
+                                                                         text:success?@"拉黑成功":info[@"msg"]
+                                                                   completion:nil];
                                              }];
 }
 
 - (void)deleteFromBlackList {
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     [[ContactsManager manager] deleteBlackListWithFriendid:self.userid
                                                 completion:^(BOOL success, NSDictionary * _Nullable info) {
                                                     if(success) {
@@ -410,10 +385,11 @@
 
                                                         
                                                     }
-                                                    [MBProgressHUD finishHudWithResult:success
-                                                                                   hud:hud
-                                                                             labelText:success?@"取消成功":info[@"msg"]
-                                                                            completion:nil];
+                                                    
+                                                    [MBProgressHUD finishLoading:hud
+                                                                          result:success
+                                                                            text:success?@"取消成功":info[@"msg"]
+                                                                      completion:nil];
                                                 }];
 }
 
@@ -471,12 +447,7 @@
 }
 
 - (void)changeAdmin {
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     [[GroupManager manager] editGroupAdminRoleWithGroupid:self.groupid
                                                   userids:@[self.member.userid]
                                                      role:self.member.isAdmin?@1:@0
@@ -492,10 +463,11 @@
                                                        
                                                        [self refreshAdminBtn];
                                                    }
-                                                   [MBProgressHUD finishHudWithResult:success
-                                                                                  hud:hud
-                                                                            labelText:info[@"msg"]
-                                                                           completion:nil];
+                                                   
+                                                   [MBProgressHUD finishLoading:hud
+                                                                         result:success
+                                                                           text:info[@"msg"]
+                                                                     completion:nil];
                                                }];
 }
 
@@ -505,35 +477,26 @@
                                               targetId:self.userid
                                                  title:self.contact.name];
     } else {
-        MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                                 mode:MBProgressHUDModeIndeterminate
-                                                image:nil
-                                              message:YUCLOUD_STRING_PLEASE_WAIT
-                                            delayHide:NO
-                                           completion:nil];
+        MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
         
         [[ContactsManager manager] addFriendByUserid:self.userid
                                           completion:^(BOOL success, NSDictionary * _Nullable info) {
                                               if(success) {
                                                   [self.navigationController popViewControllerAnimated:YES];
                                               }
-                                              [MBProgressHUD finishHudWithResult:success
-                                                                             hud:hud
-                                                                       labelText:info[@"msg"]
-                                                                      completion:^{
-                                                                          [self.navigationController popViewControllerAnimated:YES];
-                                                                      }];
+                                              
+                                              [MBProgressHUD finishLoading:hud
+                                                                    result:success
+                                                                      text:info[@"msg"]
+                                                                completion:^{
+                                                                    [self.navigationController popViewControllerAnimated:YES];
+                                                                }];
                                           }];
     }
 }
 
 - (void)updateDisplayName:(NSString *)displayName {
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     [[ContactsManager manager] updateFriendDisplayNameByUserid:self.userid
                                                    displayName:displayName
                                                     completion:^(BOOL success, NSDictionary * _Nullable info) {
@@ -559,10 +522,12 @@
                                                                                                               userInfo:@{@"userid" : userInfo.userId,
                                                                                                                          @"displayName" : displayName}];
                                                         } else {
-                                                            [MBProgressHUD finishHudWithResult:success
-                                                                                           hud:hud
-                                                                                     labelText:info[@"msg"]
-                                                                                    completion:nil];
+                                                            [MBProgressHUD finishLoading:hud
+                                                                                  result:success
+                                                                                    text:info[@"msg"]
+                                                                              completion:^{
+                                                                                  
+                                                                              }];
                                                         }
                                                     }];
 }

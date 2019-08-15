@@ -238,18 +238,18 @@ typedef enum : NSUInteger {
     [[AccountManager manager] requestCheckinWithAction:YuCloudDataAdd
                                                 taskId:self.checkinData.uid
                                             completion:^(BOOL success, NSDictionary * _Nullable info) {
-                                                [MBProgressHUD finishHudWithResult:success
-                                                                               hud:hud
-                                                                         labelText:[info msg]
-                                                                        completion:^{
-                                                                            if(success) {
-                                                                                NSDictionary *result = [info valueForKey:@"result"];
-                                                                                self.checkinData = [CheckinData checkinWithDic:result];
-                                                                                self.checkinData.checkinToday = YES;
-                                                                                [self refreshCheckinWithCheckinToday:self.checkinData.checkinToday
-                                                                                                                days:self.checkinData.checkinDays];
-                                                                            }
-                                                                        }];
+                                                [MBProgressHUD finishLoading:hud
+                                                                      result:success
+                                                                        text:[info msg]
+                                                                  completion:^{
+                                                                      if(success) {
+                                                                          NSDictionary *result = [info valueForKey:@"result"];
+                                                                          self.checkinData = [CheckinData checkinWithDic:result];
+                                                                          self.checkinData.checkinToday = YES;
+                                                                          [self refreshCheckinWithCheckinToday:self.checkinData.checkinToday
+                                                                                                          days:self.checkinData.checkinDays];
+                                                                      }
+                                                                  }];
                                             }];
 }
 

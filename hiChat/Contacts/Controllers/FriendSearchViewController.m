@@ -36,12 +36,7 @@
     _searchText = searchText.copy;
     
     if(searchText.length) {
-        MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                                 mode:MBProgressHUDModeIndeterminate
-                                                image:nil
-                                              message:YUCLOUD_STRING_PLEASE_WAIT
-                                            delayHide:NO
-                                           completion:nil];
+        MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
         
         [[ContactsManager manager] searchUserWithPhone:searchText
                                             completion:^(BOOL success, NSDictionary * _Nullable info) {
@@ -53,10 +48,10 @@
                                                     [self.dataSource addObject:user];
                                                     [self.tableView reloadData];
                                                 } else {
-                                                    [MBProgressHUD finishHudWithResult:success
-                                                                                   hud:hud
-                                                                             labelText:info[@"msg"]
-                                                                            completion:nil];
+                                                    [MBProgressHUD finishLoading:hud
+                                                                          result:success
+                                                                            text:[info msg]
+                                                                      completion:nil];
                                                 }
                                             }];
     } else {
@@ -95,11 +90,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UserData *user = self.dataSource[indexPath.row];
     if([user.uid isEqualToString:YUCLOUD_ACCOUNT_USERID]) {
-        [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                            withResult:NO
-                             labelText:@"您不能添加自己到通讯录"
-                             delayHide:YES
-                            completion:nil];
+        [MBProgressHUD showMessage:@"您不能添加自己到通讯录"
+                            onView:APP_DELEGATE_WINDOW
+                            result:NO
+                        completion:nil];
         
         return;
     }

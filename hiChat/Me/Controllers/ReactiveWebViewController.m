@@ -8,6 +8,7 @@
 
 #import "ReactiveWebViewController.h"
 #import "VersionView.h"
+#import <WKWebViewJavascriptBridge.h>
 
 @interface ReactiveWebViewController ()
 
@@ -22,7 +23,6 @@
     
     [WKWebViewJavascriptBridge enableLogging];
     self.bridge = [WKWebViewJavascriptBridge bridgeForWebView:self.webView];
-    [self.bridge setupInstance:self.webView];
     [self.bridge setWebViewDelegate:self];
     [self registerWebHandlers];
 }

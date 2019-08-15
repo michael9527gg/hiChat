@@ -67,24 +67,19 @@ typedef enum : NSUInteger {
                                viewController:self
                                       okTitle:YUCLOUD_STRING_OK
                                      okAction:^(UIAlertAction * _Nonnull action) {
-                                         MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                                                                  mode:MBProgressHUDModeIndeterminate
-                                                                                 image:nil
-                                                                               message:YUCLOUD_STRING_PLEASE_WAIT
-                                                                             delayHide:NO
-                                                                            completion:nil];
+                                         MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
                                          
                                          [[AccountManager manager] logoutWithCompletion:^(BOOL success, NSDictionary * _Nullable info) {
                                              if (success) {
                                                  [NSUserDefaults saveToken:nil];
                                              }
                                              
-                                             [MBProgressHUD finishHudWithResult:success
-                                                                            hud:hud
-                                                                      labelText:[info msg]
-                                                                     completion:^{
-                                                                         [[AppDelegate appDelegate] showLoginScreen:NO];
-                                                                     }];
+                                             [MBProgressHUD finishLoading:hud
+                                                                   result:success
+                                                                     text:[info msg]
+                                                               completion:^{
+                                                                   [[AppDelegate appDelegate] showLoginScreen:NO];
+                                                               }];
                                          }];
                                      }
                                   cancelTitle:YUCLOUD_STRING_CANCEL
@@ -148,11 +143,10 @@ typedef enum : NSUInteger {
             
         case SettingsClearCache:
             [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
-                [MBProgressHUD showFinishHudOn:APP_DELEGATE_WINDOW
-                                    withResult:YES
-                                     labelText:@"清除缓存成功"
-                                     delayHide:YES
-                                    completion:nil];
+                [MBProgressHUD showMessage:@"清除缓存成功"
+                                    onView:APP_DELEGATE_WINDOW
+                                    result:YES
+                                completion:nil];
             }];
             break;
             

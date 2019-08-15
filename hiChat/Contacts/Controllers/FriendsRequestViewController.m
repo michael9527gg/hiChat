@@ -124,37 +124,33 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)processFriendRequestWithUserid:(NSString *)userid
                                 accept:(BOOL)accept
                                   cell:(nonnull FriendRequestCell *)cell {
-    MBProgressHUD *hud = [MBProgressHUD showHudOn:APP_DELEGATE_WINDOW
-                                             mode:MBProgressHUDModeIndeterminate
-                                            image:nil
-                                          message:YUCLOUD_STRING_PLEASE_WAIT
-                                        delayHide:NO
-                                       completion:nil];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
     
     [[ContactsManager manager] processFriendRequestWithUserid:userid
                                                        accept:accept
                                                    completion:^(BOOL success, NSDictionary * _Nullable info) {
                                                        if(success) {
-                                                           [MBProgressHUD finishHudWithResult:YES
-                                                                                          hud:hud
-                                                                                    labelText:[info msg]
-                                                                                   completion:^{
-                                                                                       [self refreshFriendRequestList];
-                                                                                       
-                                                                                       if(accept) {
-                                                                                           [[ContactsManager manager] refreshFriendsListWithCompletion:nil];
-                                                                                           
-                                                                                           [[RCManager manager] startConversationWithType:ConversationType_PRIVATE
-                                                                                                                                 targetId:userid
-                                                                                                                                    title:cell.data.name];
-                                                                                       }
-                                                                                   }];
+                                                           [MBProgressHUD finishLoading:hud
+                                                                                 result:success
+                                                                                   text:[info msg]
+                                                                             completion:^{
+                                                                                 [self refreshFriendRequestList];
+                                                                                 
+                                                                                 if(accept) {
+                                                                                     [[ContactsManager manager] refreshFriendsListWithCompletion:nil];
+                                                                                     
+                                                                                     [[RCManager manager] startConversationWithType:ConversationType_PRIVATE
+                                                                                                                           targetId:userid
+                                                                                                                              title:cell.data.name];
+                                                                                 }
+                                                                             }];
                                                        }
                                                        else {
-                                                           [MBProgressHUD finishHudWithResult:success
-                                                                                          hud:hud
-                                                                                    labelText:@"操作失败，稍后再试"
-                                                                                   completion:nil];
+                                                           [MBProgressHUD finishLoading:hud
+                                                                                 result:success
+                                                                                   text:@"操作失败，稍后再试"
+                                                                             completion:^{
+                                                                             }];
                                                        }
                                                    }];
 }
