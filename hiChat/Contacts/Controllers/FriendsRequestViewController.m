@@ -10,10 +10,10 @@
 #import "ContactsManager.h"
 #import "FriendRequestCell.h"
 
-@interface FriendsRequestViewController () < VIDataSourceDelegate, FriendRequestCellDelegate >
+@interface FriendsRequestViewController () < LYDataSourceDelegate, FriendRequestCellDelegate >
 
 @property (nonatomic, weak)   ContactsDataSource         *dataSource;
-@property (nonatomic, copy)   NSString                   *dataKey;
+@property (nonatomic, strong)   NSFetchedResultsController                   *fetchedResultsController;
 
 @end
 
@@ -44,14 +44,13 @@
 }
 
 - (void)registerDataBase {
-    self.dataSource = [ContactsDataSource sharedClient];
-    self.dataKey = NSStringFromClass(self.class);
-    [self.dataSource registerDelegate:self
-                               entity:[FriendRequestEntity entityName]
-                            predicate:[NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID]
-                      sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"updateAt" ascending:YES]]
-                   sectionNameKeyPath:nil
-                                  key:self.dataKey];
+    self.dataSource = [ContactsDataSource sharedInstance];
+    
+    self.fetchedResultsController = [self.dataSource addDelegate:self
+                                                          entity:[FriendRequestEntity entityName]
+                                                       predicate:[NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID]
+                                                 sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"updateAt" ascending:YES]]
+                                              sectionNameKeyPath:nil];
     
     [self.tableView reloadData];
 }
@@ -76,11 +75,11 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.dataSource numberOfSectionsForKey:self.dataKey];
+    return [self.dataSource numberOfSections:self.fetchedResultsController];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger num = [self.dataSource numberOfItemsForKey:self.dataKey inSection:section];
+    NSInteger num = [self.dataSource numberOfItems:self.fetchedResultsController inSection:section];
     
     if(!num) {
         tableView.backgroundView = [self emptyViewWithTitle:@"暂无好友请求"];
@@ -104,7 +103,7 @@
   willDisplayCell:(FriendRequestCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath {
     FriendRequsetData *data = [self.dataSource requestAtIndexPath:indexPath
-                                                      forKey:self.dataKey];
+                                                       controller:self.fetchedResultsController];
     cell.delegate = self;
     cell.data = data;
 }
@@ -113,9 +112,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-#pragma mark - VIDataSourceDelegate
+#pragma mark - LYDataSourceDelegate
 
-- (void)dataSource:(id<VIDataSource>)dataSource didChangeContentForKey:(NSString *)key {
+- (void)didChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView reloadData];
 }
 

@@ -9,13 +9,13 @@
 #import "MessageForwardSearchResultViewController.h"
 #import "MessageForwardCell.h"
 
-@interface MessageForwardSearchResultViewController() < VIDataSourceDelegate >
+@interface MessageForwardSearchResultViewController() < LYDataSourceDelegate >
 
 @property (nonatomic, weak)   ContactsDataSource      *contactsDataSource;
-@property (nonatomic, copy)   NSString                *contactsDataKey;
+@property (nonatomic, strong) NSFetchedResultsController                *contactsResultsController;
 
 @property (nonatomic, weak)   GroupDataSource         *groupDataSource;
-@property (nonatomic, copy)   NSString                *groupDataKey;
+@property (nonatomic, strong) NSFetchedResultsController                *groupsResultsController;
 
 @end
 
@@ -33,11 +33,9 @@
     [self.tableView registerClass:[MessageForwardCell class]
            forCellReuseIdentifier:[MessageForwardCell reuseIdentifier]];
     
-    self.contactsDataSource = [ContactsDataSource sharedClient];
-    self.contactsDataKey= NSStringFromClass(self.class);
+    self.contactsDataSource = [ContactsDataSource sharedInstance];
     
-    self.groupDataSource = [GroupDataSource sharedClient];
-    self.groupDataKey = NSStringFromClass(self.class);
+    self.groupDataSource = [GroupDataSource sharedInstance];
 }
 
 - (void)setSearchText:(NSString *)searchText {
@@ -56,21 +54,19 @@
         predicate = [NSPredicate predicateWithFormat:@"(displayName CONTAINS[cd] %@ || nickname CONTAINS[cd] %@ || shengmu CONTAINS[cd] %@ || phone CONTAINS[cd] %@) && loginid == %@", keywords, keywords, keywords, keywords, YUCLOUD_ACCOUNT_USERID];
     }
     
-    [self.contactsDataSource registerDelegate:self
-                                       entity:[ContactEntity entityName]
-                                    predicate:predicate
-                              sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
-                           sectionNameKeyPath:nil
-                                          key:self.contactsDataKey];
+    self.contactsResultsController = [self.contactsDataSource addDelegate:self
+                                                                   entity:[ContactEntity entityName]
+                                                                predicate:predicate
+                                                          sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
+                                                       sectionNameKeyPath:nil];
 }
 
 - (void)searchGroupWithText:(NSString *)keywords {
-    [self.groupDataSource registerDelegate:self
-                                    entity:[GroupEntity entityName]
-                                 predicate:[NSPredicate predicateWithFormat:@"loginid == %@ && name CONTAINS[cd] %@", YUCLOUD_ACCOUNT_USERID, keywords]
-                           sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
-                        sectionNameKeyPath:nil
-                                       key:self.groupDataKey];
+    self.groupsResultsController = [self.groupDataSource addDelegate:self
+                                                              entity:[GroupEntity entityName]
+                                                           predicate:[NSPredicate predicateWithFormat:@"loginid == %@ && name CONTAINS[cd] %@", YUCLOUD_ACCOUNT_USERID, keywords]
+                                                     sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
+                                                  sectionNameKeyPath:nil];
 }
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource
@@ -81,10 +77,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if(section == 0) {
-        return [self.contactsDataSource numberOfItemsForKey:self.contactsDataKey inSection:section];
+        return [self.contactsDataSource numberOfItems:self.contactsResultsController inSection:section];
     }
     
-    return [self.groupDataSource numberOfItemsForKey:self.groupDataKey inSection:0];
+    return [self.groupDataSource numberOfItems:self.groupsResultsController inSection:0];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -96,8 +92,7 @@
   willDisplayCell:(MessageForwardCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
-        ContactData *contact = [self.contactsDataSource contactAtIndexPath:indexPath
-                                                                    forKey:self.contactsDataKey];
+        ContactData *contact = [self.contactsDataSource contactAtIndexPath:indexPath controller:self.contactsResultsController];
         [cell setName:contact.name
              portrail:contact.portraitUri
                  type:@"我的好友"];
@@ -106,7 +101,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     GroupData *group = [self.groupDataSource groupAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row
                                                                                  inSection:0]
-                                                       forKey:self.groupDataKey];
+                                                   controller:self.groupsResultsController];
     [cell setName:group.name
          portrail:group.portrait
              type:@"群聊"];
@@ -122,11 +117,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     id data = nil;
     if(indexPath.section == 0) {
         data = [self.contactsDataSource contactAtIndexPath:indexPath
-                                                    forKey:self.contactsDataKey];
+                                                controller:self.contactsResultsController];
     } else {
         data = [self.groupDataSource groupAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row
                                                                          inSection:0]
-                                               forKey:self.groupDataKey];
+                                           controller:self.groupsResultsController];
     }
     
     if(self.delegate) {
@@ -134,9 +129,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     }
 }
 
-#pragma mark - VIDataSourceDelegate
+#pragma mark - LYDataSourceDelegate
 
-- (void)dataSource:(id<VIDataSource>)dataSource didChangeContentForKey:(NSString *)key {
+- (void)didChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView reloadData];
 }
 

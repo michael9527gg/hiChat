@@ -395,12 +395,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView reloadData];
 }
 
-#pragma mark - VIDataSourceDelegate
-
-- (void)dataSource:(id<VIDataSource>)dataSource didChangeContentForKey:(NSString *)key {
-    [self.tableView reloadData];
-}
-
 #pragma mark - RCConversationSettingTableViewHeaderDelegate
 
 - (void)userChooseAllCategory:(NSInteger)section choose:(BOOL)choose {

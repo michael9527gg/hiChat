@@ -76,12 +76,12 @@ static NSString *cellIdentifier = @"StaffMessageForwardCell";
     NSMutableArray *mulArr = [NSMutableArray arrayWithArray:array];
     for(RCConversation *conversation in array) {
         if(conversation.conversationType == ConversationType_PRIVATE) {
-            ContactData *contact = [[ContactsDataSource sharedClient] contactWithUserid:conversation.targetId];
+            ContactData *contact = [[ContactsDataSource sharedInstance] contactWithUserid:conversation.targetId];
             if(!contact) {
                 [mulArr removeObject:conversation];
             }
         } else if (conversation.conversationType == ConversationType_GROUP) {
-            GroupData *group = [[GroupDataSource sharedClient] groupWithGroupid:conversation.targetId];
+            GroupData *group = [[GroupDataSource sharedInstance] groupWithGroupid:conversation.targetId];
             if(!group) {
                 [mulArr removeObject:conversation];
             }
@@ -250,9 +250,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         RCConversation *conversation = self.dataSource[indexPath.row];
         
         if(conversation.conversationType == ConversationType_PRIVATE) {
-            cCell.data = [[ContactsDataSource sharedClient] contactWithUserid:conversation.targetId];
+            cCell.data = [[ContactsDataSource sharedInstance] contactWithUserid:conversation.targetId];
         } else if (conversation.conversationType == ConversationType_GROUP) {
-            cCell.data = [[GroupDataSource sharedClient] groupWithGroupid:conversation.targetId];
+            cCell.data = [[GroupDataSource sharedInstance] groupWithGroupid:conversation.targetId];
         }
         
         cCell.status = [self selectStatusForItem:[MesssageItem itemWithConversationType:conversation.conversationType

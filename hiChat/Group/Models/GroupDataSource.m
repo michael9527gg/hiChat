@@ -87,58 +87,36 @@
 
 @implementation GroupDataSource
 
-+ (instancetype)sharedClient {
++ (instancetype)sharedInstance {
     static dispatch_once_t onceToken;
-    static GroupDataSource *client = nil;
+    static GroupDataSource *instance = nil;
     dispatch_once(&onceToken, ^{
-        client = [[GroupDataSource alloc] initWithManagedObjectContext:[AppDelegate appDelegate].managedObjectContext
-                                                           coordinator:[AppDelegate appDelegate].persistentStoreCoordinator];
+        instance = [[GroupDataSource alloc] initWithPrivateContext:[[LYCoreDataManager manager] newPrivateContext]];
     });
     
-    return client;
+    return instance;
 }
 
-- (BOOL)hasChinesePrefix:(NSString *)str {
-    int utfCode = 0;
-    void *buffer = &utfCode;
-    NSRange range = NSMakeRange(0, 1);
-    BOOL b = [str getBytes:buffer
-                 maxLength:2
-                usedLength:NULL
-                  encoding:NSUTF16LittleEndianStringEncoding
-                   options:NSStringEncodingConversionExternalRepresentation
-                     range:range
-            remainingRange:NULL];
-    if (b && (utfCode >= 0x4e00 && utfCode <= 0x9fa5)) {
-        return YES;
+- (NSString *)entityNameForObject:(id)object {
+    if([object isKindOfClass:[GroupData class]]) {
+        return [GroupEntity entityName];
+    } else if([object isKindOfClass:[GroupMemberData class]]) {
+        return [GroupMemberEntity entityName];
     }
     
-    return NO;
+    return nil;
 }
 
-- (BOOL)hasEnglishPrefix:(NSString *)str {
-    NSString *regular = @"^[A-Za-z].+$";
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regular];
-    
-    if ([predicate evaluateWithObject:str]) {
-        return YES;
-    }
-    
-    return NO;
-}
-
-- (NSManagedObject *)onAddObject:(id)object
-            managedObjectContext:(NSManagedObjectContext *)managedObjectContex {
-    
+- (NSManagedObject *)onAddObject:(id)object {
     if([object isKindOfClass:[GroupData class]]) {
         GroupData *data = (GroupData *)object;
         NSFetchRequest *request = [GroupEntity fetchRequest];
         request.predicate = [NSPredicate predicateWithFormat:@"uid == %@ && loginid == %@", data.uid, YUCLOUD_ACCOUNT_USERID];
         
-        GroupEntity *item = [managedObjectContex executeFetchRequest:request error:nil].firstObject;
+        GroupEntity *item = [self.privateContext executeFetchRequest:request error:nil].firstObject;
         if (!item) {
             item = [NSEntityDescription insertNewObjectForEntityForName:[GroupEntity entityName]
-                                                 inManagedObjectContext:managedObjectContex];
+                                                 inManagedObjectContext:self.privateContext];
             item.uid = data.uid;
             item.loginid = YUCLOUD_ACCOUNT_USERID;
         }
@@ -191,10 +169,10 @@
         NSFetchRequest *request = [GroupMemberEntity fetchRequest];
         request.predicate = [NSPredicate predicateWithFormat:@"groupid == %@ && userid == %@ && loginid == %@", data.groupid, data.userid, YUCLOUD_ACCOUNT_USERID];
         
-        GroupMemberEntity *item = [managedObjectContex executeFetchRequest:request error:nil].firstObject;
+        GroupMemberEntity *item = [self.privateContext executeFetchRequest:request error:nil].firstObject;
         if (!item) {
             item = [NSEntityDescription insertNewObjectForEntityForName:[GroupMemberEntity entityName]
-                                                 inManagedObjectContext:managedObjectContex];
+                                                 inManagedObjectContext:self.privateContext];
             item.groupid = data.groupid;
             item.userid = data.userid;
             item.loginid = YUCLOUD_ACCOUNT_USERID;
@@ -203,7 +181,7 @@
         NSString *name = data.nickname;
         NSFetchRequest *contactRequest = [ContactEntity fetchRequest];
         contactRequest.predicate = [NSPredicate predicateWithFormat:@"uid == %@ && loginid == %@", data.userid, YUCLOUD_ACCOUNT_USERID];
-        ContactEntity *contact = [managedObjectContex executeFetchRequest:contactRequest error:nil].firstObject;
+        ContactEntity *contact = [self.privateContext executeFetchRequest:contactRequest error:nil].firstObject;
         // 群组成员不一定是好友，name要先初始化为昵称
         if(contact && contact.displayName.length) {
             name = contact.displayName;
@@ -247,16 +225,16 @@
     return nil;
 }
 
-- (void)onDeleteObject:(id)object managedObjectContext:(NSManagedObjectContext *)managedObjectContex {
+- (void)onDeleteObject:(id)object {
     if ([object isKindOfClass:[GroupData class]]) {
         GroupData *data = (GroupData *)object;
         
         NSFetchRequest *request = [GroupEntity fetchRequest];
         request.predicate = [NSPredicate predicateWithFormat:@"uid == %@ && loginid == %@", data.uid, YUCLOUD_ACCOUNT_USERID];
         
-        GroupEntity *item = [[managedObjectContex executeFetchRequest:request error:nil] firstObject];
+        GroupEntity *item = [[self.privateContext executeFetchRequest:request error:nil] firstObject];
         if (item && !item.isDeleted) {
-            [managedObjectContex deleteObject:item];
+            [self.privateContext deleteObject:item];
         }
     }
 }
@@ -285,18 +263,19 @@
     NSFetchRequest *request = [GroupEntity fetchRequest];
     request.predicate = [NSPredicate predicateWithFormat:@"uid == %@ && loginid == %@", groupid, YUCLOUD_ACCOUNT_USERID];
     
-    GroupEntity *item = [self.managedObjectContext executeFetchRequest:request error:nil].firstObject;
+    GroupEntity *item = [self.privateContext executeFetchRequest:request error:nil].firstObject;
     
     return [self groupForEntity:item];
 }
 
-- (GroupData *)groupAtIndexPath:(NSIndexPath *)indexPath forKey:(NSString *)key {
-    GroupEntity *entity = [self objectAtIndexPath:indexPath forKey:key];
+- (GroupData *)groupAtIndexPath:(NSIndexPath *)indexPath controller:(nonnull NSFetchedResultsController *)controller {
+    GroupEntity *entity = [self objectAtIndexPath:indexPath controller:controller];
+    
     return [self groupForEntity:entity];
 }
 
-- (NSArray *)allGroupsForKey:(NSString *)key {
-    NSArray *array = [self allObjectsForKey:key];
+- (NSArray *)allGroups:(NSFetchedResultsController *)controller {
+    NSArray *array = [self allObjects:controller];
     NSMutableArray *mulArr = [NSMutableArray arrayWithCapacity:array.count];
     for(GroupEntity *entity in array) {
         [mulArr addObject:[self groupForEntity:entity]];
@@ -308,7 +287,7 @@
 - (NSArray *)allGroups {
     NSFetchRequest *request = [GroupEntity fetchRequest];
     request.predicate = [NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID];
-    NSArray *array = [self.managedObjectContext executeFetchRequest:request error:nil];
+    NSArray *array = [self.privateContext executeFetchRequest:request error:nil];
     
     NSMutableArray *mulArr = [NSMutableArray arrayWithCapacity:array.count];
     for(GroupEntity *item in array) {
@@ -344,14 +323,14 @@
     NSFetchRequest *request = [GroupMemberEntity fetchRequest];
     request.predicate = [NSPredicate predicateWithFormat:@"groupid == %@ && userid == %@ && loginid == %@", groupid, memberid, YUCLOUD_ACCOUNT_USERID];
     
-    GroupMemberEntity *entity = [self.managedObjectContext executeFetchRequest:request error:nil].firstObject;
+    GroupMemberEntity *entity = [self.privateContext executeFetchRequest:request error:nil].firstObject;
     
     return [self groupMemberForEntity:entity];
 }
 
 - (GroupMemberData *)groupMemberAtIndexPath:(NSIndexPath *)indexPath
-                                     forKey:(NSString *)key {
-    GroupMemberEntity *entity = [self objectAtIndexPath:indexPath forKey:key];
+                                 controller:(nonnull NSFetchedResultsController *)controller {
+    GroupMemberEntity *entity = [self objectAtIndexPath:indexPath controller:controller];
     return [self groupMemberForEntity:entity];
 }
 
@@ -359,7 +338,7 @@
     NSFetchRequest *request = [GroupMemberEntity fetchRequest];
     request.predicate = [NSPredicate predicateWithFormat:@"groupid == %@ && loginid == %@", groupid, YUCLOUD_ACCOUNT_USERID];
     
-    NSArray *array = [self.managedObjectContext executeFetchRequest:request error:nil];
+    NSArray *array = [self.privateContext executeFetchRequest:request error:nil];
     NSMutableArray *mulArr = [NSMutableArray arrayWithCapacity:array.count];
     
     for(GroupMemberEntity *entity in array) {
@@ -369,8 +348,8 @@
     return mulArr;
 }
 
-- (NSArray *)allGroupMembersForKey:(NSString *)key {
-    NSArray *array = [self allObjectsForKey:key];
+- (NSArray *)allGroupMembers:(NSFetchedResultsController *)controller {
+    NSArray *array = [self allObjects:controller];
     NSMutableArray *mulArr = [NSMutableArray arrayWithCapacity:array.count];
     for(GroupMemberEntity *entity in array) {
         [mulArr addObject:[self groupMemberForEntity:entity]];
@@ -383,7 +362,7 @@
     NSFetchRequest *request = [GroupMemberEntity fetchRequest];
     request.predicate = [NSPredicate predicateWithFormat:@"groupid == %@ && groupRole == %@ && loginid == %@", groupid, @"2", YUCLOUD_ACCOUNT_USERID];
     
-    GroupMemberEntity *entity = [self.managedObjectContext executeFetchRequest:request error:nil].firstObject;
+    GroupMemberEntity *entity = [self.privateContext executeFetchRequest:request error:nil].firstObject;
     
     return [self groupMemberForEntity:entity];
 }
@@ -392,7 +371,7 @@
     NSFetchRequest *request = [GroupMemberEntity fetchRequest];
     request.predicate = [NSPredicate predicateWithFormat:@"groupid == %@ && groupRole == %@ && loginid == %@", groupid, @"1", YUCLOUD_ACCOUNT_USERID];
     
-    NSArray *array = [self.managedObjectContext executeFetchRequest:request error:nil];
+    NSArray *array = [self.privateContext executeFetchRequest:request error:nil];
     NSMutableArray *mulArr = [NSMutableArray arrayWithCapacity:array.count];
     
     for(GroupMemberEntity *entity in array) {
@@ -400,6 +379,35 @@
     }
     
     return mulArr;
+}
+
+- (BOOL)hasChinesePrefix:(NSString *)str {
+    int utfCode = 0;
+    void *buffer = &utfCode;
+    NSRange range = NSMakeRange(0, 1);
+    BOOL b = [str getBytes:buffer
+                 maxLength:2
+                usedLength:NULL
+                  encoding:NSUTF16LittleEndianStringEncoding
+                   options:NSStringEncodingConversionExternalRepresentation
+                     range:range
+            remainingRange:NULL];
+    if (b && (utfCode >= 0x4e00 && utfCode <= 0x9fa5)) {
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (BOOL)hasEnglishPrefix:(NSString *)str {
+    NSString *regular = @"^[A-Za-z].+$";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regular];
+    
+    if ([predicate evaluateWithObject:str]) {
+        return YES;
+    }
+    
+    return NO;
 }
 
 @end

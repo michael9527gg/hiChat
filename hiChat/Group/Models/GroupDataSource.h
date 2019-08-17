@@ -52,14 +52,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface GroupDataSource : VIDataSource
+@interface GroupDataSource : LYDataSource
 
 - (GroupData *)groupWithGroupid:(NSString *)groupid;
 
 - (GroupData *)groupAtIndexPath:(NSIndexPath *)indexPath
-                         forKey:(NSString *)key;
+                     controller:(NSFetchedResultsController *)controller;
 
-- (NSArray *)allGroupsForKey:(NSString *)key;
+- (NSArray *)allGroups:(NSFetchedResultsController *)controller;
 
 - (NSArray *)allGroups;
 
@@ -67,11 +67,11 @@ NS_ASSUME_NONNULL_BEGIN
                                   groupid:(NSString *)groupid;;
 
 - (GroupMemberData *)groupMemberAtIndexPath:(NSIndexPath *)indexPath
-                                     forKey:(NSString *)key;
+                                 controller:(NSFetchedResultsController *)controller;
 
 - (NSArray *)allGroupMembersForGroupid:(NSString *)groupid;
 
-- (NSArray *)allGroupMembersForKey:(NSString *)key;
+- (NSArray *)allGroupMembers:(NSFetchedResultsController *)controller;
 
 - (GroupMemberData *)groupLordForGroupid:(NSString *)groupid;;
 

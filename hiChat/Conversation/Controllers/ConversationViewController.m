@@ -30,13 +30,13 @@ typedef enum : NSUInteger {
     GroupRoleMember,
 } GroupRole;
 
-@interface ConversationViewController () < VIDataSourceDelegate, GroupMemberSelectDelegate, RCTextViewDelegate, RCChatSessionInputBarControlDelegate >
+@interface ConversationViewController () < LYDataSourceDelegate, GroupMemberSelectDelegate, RCTextViewDelegate, RCChatSessionInputBarControlDelegate >
 
 @property (nonatomic, strong)   ConversationSettingData *setting;
 @property (nonatomic, strong)   RCMessageModel          *messageModel;
 
 @property (nonatomic, weak)     GroupDataSource         *dataSource;
-@property (nonatomic, copy)     NSString                *dataKey;
+@property (nonatomic, strong)   NSFetchedResultsController  *fetchedResultsController;
 
 @property (nonatomic, strong)   RCMentionedInfo         *mentionedAll;
 @property (nonatomic, strong)   NSMutableDictionary     *gifImages;
@@ -209,20 +209,19 @@ typedef enum : NSUInteger {
 }
 
 - (void)registerDataBase {
-    self.dataSource = [GroupDataSource sharedClient];
-    self.dataKey = NSStringFromClass(self.class);
-    [self.dataSource registerDelegate:self
-                               entity:[GroupMemberEntity entityName]
-                            predicate:[NSPredicate predicateWithFormat:@"groupid == %@", self.targetId]
-                      sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"groupRole" ascending:NO],
-                                        [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
-                   sectionNameKeyPath:nil
-                                  key:self.dataKey];
+    self.dataSource = [GroupDataSource sharedInstance];
+    NSSortDescriptor *sort1 = [NSSortDescriptor sortDescriptorWithKey:@"groupRole" ascending:NO];
+    NSSortDescriptor *sort2 = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    self.fetchedResultsController = [self.dataSource addDelegate:self
+                                                          entity:[GroupMemberEntity entityName]
+                                                       predicate:[NSPredicate predicateWithFormat:@"groupid == %@", self.targetId]
+                                                 sortDescriptors:@[sort1, sort2]
+                                              sectionNameKeyPath:nil];
 }
 
 - (GroupRole)groupRoleForUserid:(NSString *)userid {
-    GroupMemberData *member = [[GroupDataSource sharedClient] groupMemberWithUserd:userid
-                                                                           groupid:self.targetId];
+    GroupMemberData *member = [[GroupDataSource sharedInstance] groupMemberWithUserd:userid
+                                                                             groupid:self.targetId];
     if(member.isLord) {
         return GroupRoleLord;
     } else if(member.isAdmin) {
@@ -309,8 +308,7 @@ typedef enum : NSUInteger {
                                                            // 没有网络不作处理
                                                            if(success || [code isEqual:@1019]) {
                                                                self.setting.messageError = [info msg];
-                                                               [[ConversationSettingDataSource sharedClient] addObject:self.setting
-                                                                                                            entityName:[ConversationSettingEntity entityName]];
+                                                               [[ConversationSettingDataSource sharedInstance] addObject:self.setting];
                                                            }
                                                        }];
 }
@@ -343,9 +341,9 @@ typedef enum : NSUInteger {
                                      NSString *reason = YUCLOUD_VALIDATE_STRING([info valueForKey:@"reason"]);
                                      if(!success && [reason isEqualToString:@"noRelation"]) {
                                          // 确定好友关系不存在，先从本地数据库删除，然后刷新融云用户信息缓存（因为融云的用户信息缓存是优先使用的好友信息）
-                                         ContactData *contact = [[ContactsDataSource sharedClient] contactWithUserid:self.targetId];
+                                         ContactData *contact = [[ContactsDataSource sharedInstance] contactWithUserid:self.targetId];
                                          if(contact) {
-                                             [[ContactsDataSource sharedClient] deleteObject:contact];
+                                             [[ContactsDataSource sharedInstance] deleteObject:contact];
                                          }
                                          [[UserManager manager] refreshRCUserInfoCacheWithUserid:self.targetId
                                                                                         userInfo:nil
@@ -555,7 +553,7 @@ typedef enum : NSUInteger {
         // 替换@的用户显示信息: 备注->昵称
         NSString *content = textMessage.content;
         for(NSString *userid in messageContent.mentionedInfo.userIdList) {
-            ContactData *contact = [[ContactsDataSource sharedClient] contactWithUserid:userid];
+            ContactData *contact = [[ContactsDataSource sharedInstance] contactWithUserid:userid];
             if(contact.displayName) {
                 content = [content stringByReplacingOccurrencesOfString:contact.displayName
                                                              withString:contact.nickname];
@@ -740,9 +738,9 @@ typedef enum : NSUInteger {
     }
 }
 
-#pragma mark - VIDataSourceDelegate
+#pragma mark - LYDataSourceDelegate
 
-- (void)dataSource:(id<VIDataSource>)dataSource didChangeContentForKey:(NSString *)key {
+- (void)didChangeContent:(NSFetchedResultsController *)controller {
     [self.conversationMessageCollectionView reloadData];
 }
 
@@ -750,7 +748,7 @@ typedef enum : NSUInteger {
 
 - (void)selectWithMembers:(NSArray *)contacts {
     if(contacts) {
-        GroupMemberData *data = [[GroupDataSource sharedClient] groupMemberWithUserd:contacts.firstObject
+        GroupMemberData *data = [[GroupDataSource sharedInstance] groupMemberWithUserd:contacts.firstObject
                                                                              groupid:self.targetId];
         RCUserInfo *userInfo = [[RCUserInfo alloc] initWithUserId:data.userid
                                                              name:data.nickname

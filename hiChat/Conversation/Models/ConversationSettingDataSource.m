@@ -12,7 +12,7 @@
 
 + (instancetype)conversationSettingWithType:(RCConversationType)conversationType
                                    targetId:(NSString *)targetId {
-    ConversationSettingData *data = [[ConversationSettingDataSource sharedClient] settingWithType:conversationType
+    ConversationSettingData *data = [[ConversationSettingDataSource sharedInstance] settingWithType:conversationType
                                                                                          targetId:targetId];
     
     return data?:[[self alloc] initWithType:conversationType
@@ -36,25 +36,24 @@
 
 @implementation ConversationSettingDataSource
 
-+ (instancetype)sharedClient {
++ (instancetype)sharedInstance {
     static dispatch_once_t onceToken;
-    static ConversationSettingDataSource *client = nil;
+    static ConversationSettingDataSource *instance = nil;
     dispatch_once(&onceToken, ^{
-        client = [[ConversationSettingDataSource alloc] initWithManagedObjectContext:[AppDelegate appDelegate].managedObjectContext
-                                                                         coordinator:[AppDelegate appDelegate].persistentStoreCoordinator];
+        instance = [[ConversationSettingDataSource alloc] initWithPrivateContext:[[LYCoreDataManager manager] newPrivateContext]];
     });
     
-    return client;
+    return instance;
 }
 
 - (void)initializeSettings {
     // 给所有会话都默认初始化一份配置
-    NSArray *contacts = [[ContactsDataSource sharedClient] allContacts];
-    NSArray *groups = [[GroupDataSource sharedClient] allGroups];
+    NSArray *contacts = [[ContactsDataSource sharedInstance] allContacts];
+    NSArray *groups = [[GroupDataSource sharedInstance] allGroups];
     
     NSMutableArray *mulArr = [NSMutableArray array];
     for(ContactData *contact in contacts) {
-        ConversationSettingData *data = [[ConversationSettingDataSource sharedClient] settingWithType:ConversationType_PRIVATE
+        ConversationSettingData *data = [[ConversationSettingDataSource sharedInstance] settingWithType:ConversationType_PRIVATE
                                                                                              targetId:contact.uid];
         if(!data) {
             data = [[ConversationSettingData alloc] initWithType:ConversationType_PRIVATE
@@ -64,7 +63,7 @@
     }
     
     for(GroupData *group in groups) {
-        ConversationSettingData *data = [[ConversationSettingDataSource sharedClient] settingWithType:ConversationType_GROUP
+        ConversationSettingData *data = [[ConversationSettingDataSource sharedInstance] settingWithType:ConversationType_GROUP
                                                                                              targetId:group.uid];
         if(!data) {
             data = [[ConversationSettingData alloc] initWithType:ConversationType_GROUP
@@ -73,24 +72,27 @@
         }
     }
     
-    [[ConversationSettingDataSource sharedClient] addObjects:mulArr
-                                                  entityName:[ConversationSettingEntity entityName]
-                                                     syncAll:NO
-                                               syncPredicate:nil];
+    [[ConversationSettingDataSource sharedInstance] addObjects:mulArr];
 }
 
-- (NSManagedObject *)onAddObject:(id)object
-            managedObjectContext:(NSManagedObjectContext *)managedObjectContex {
+- (NSString *)entityNameForObject:(id)object {
+    if([object isKindOfClass:[ConversationSettingData class]]) {
+        return [ConversationSettingEntity entityName];
+    }
     
+    return nil;
+}
+
+- (NSManagedObject *)onAddObject:(id)object {
     if([object isKindOfClass:[ConversationSettingData class]]) {
         ConversationSettingData *data = (ConversationSettingData *)object;
         NSFetchRequest *request = [ConversationSettingEntity fetchRequest];
         request.predicate = [NSPredicate predicateWithFormat:@"loginid == %@ && type == %ld && targetid == %@", YUCLOUD_ACCOUNT_USERID, data.conversationType, data.targetId];
         
-        ConversationSettingEntity *item = [managedObjectContex executeFetchRequest:request error:nil].firstObject;
+        ConversationSettingEntity *item = [self.privateContext executeFetchRequest:request error:nil].firstObject;
         if (!item) {
             item = [NSEntityDescription insertNewObjectForEntityForName:[ConversationSettingEntity entityName]
-                                                 inManagedObjectContext:managedObjectContex];
+                                                 inManagedObjectContext:self.privateContext];
             item.type = data.conversationType;
             item.targetid = data.targetId;
             item.loginid = YUCLOUD_ACCOUNT_USERID;
@@ -127,7 +129,7 @@
     NSFetchRequest *request = [ConversationSettingEntity fetchRequest];
     request.predicate = [NSPredicate predicateWithFormat:@"loginid == %@ && type == %ld && targetid == %@", YUCLOUD_ACCOUNT_USERID, conversationType, targetId];
     
-    ConversationSettingEntity *item = [self.managedObjectContext executeFetchRequest:request error:nil].firstObject;
+    ConversationSettingEntity *item = [self.privateContext executeFetchRequest:request error:nil].firstObject;
     
     return [self settingForEntity:item];
 }
@@ -136,7 +138,7 @@
     NSFetchRequest *request = [ConversationSettingEntity fetchRequest];
     request.predicate = [NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID];
     
-    NSArray *items = [self.managedObjectContext executeFetchRequest:request error:nil];
+    NSArray *items = [self.privateContext executeFetchRequest:request error:nil];
     NSMutableArray *mulArr = [NSMutableArray arrayWithCapacity:items.count];
     
     for(ConversationSettingEntity *item in items) {

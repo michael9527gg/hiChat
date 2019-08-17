@@ -28,10 +28,10 @@
 - (instancetype)initWithUserId:(NSString *)userId {
     if(self = [self initWithStyle:UITableViewStylePlain]) {
         self.userId = userId;
-        ContactData *contact = [[ContactsDataSource sharedClient] contactWithUserid:self.userId];
+        ContactData *contact = [[ContactsDataSource sharedInstance] contactWithUserid:self.userId];
         if(!contact) {
             // 说明被拉黑了
-            self.black = [[ContactsDataSource sharedClient] blackWithUserid:self.userId];
+            self.black = [[ContactsDataSource sharedInstance] blackWithUserid:self.userId];
         }
         
         self.contact = contact;
@@ -84,7 +84,7 @@
     [alert addAction:delete];
     
     UIAlertAction *black = nil;
-    FriendBlackData *data = [[ContactsDataSource sharedClient] blackWithUserid:self.userId];
+    FriendBlackData *data = [[ContactsDataSource sharedInstance] blackWithUserid:self.userId];
     if(data) {
         black = [UIAlertAction actionWithTitle:@"取消拉黑"
                                          style:UIAlertActionStyleDefault
@@ -116,16 +116,14 @@
                                                                            black.userid = self.contact.uid;
                                                                            black.nickname = self.contact.nickname;
                                                                            black.portraitUri = self.contact.portraitUri;
-                                                                           [[ContactsDataSource sharedClient] addObject:black
-                                                                                                             entityName:[FriendBlackEntity entityName]];
+                                                                           [[ContactsDataSource sharedInstance] addObject:black];
                                                                            
                                                                            // 消息能力
                                                                            ConversationSettingData *setting = [ConversationSettingData conversationSettingWithType:ConversationType_PRIVATE
                                                                                                                                                           targetId:self.userId];
                                                                            setting.canMessage = NO;
                                                                            setting.messageError = @"您已将对方列入黑名单";
-                                                                           [[ConversationSettingDataSource sharedClient] addObject:setting
-                                                                                                                        entityName:[ConversationSettingEntity entityName]];
+                                                                           [[ConversationSettingDataSource sharedInstance] addObject:setting];
                                                                        }
                                                                    }];
                                              }];
@@ -140,8 +138,8 @@
                                                                             text:success?@"取消成功":info[@"msg"]
                                                                       completion:^{
                                                                           if(success) {
-                                                                              FriendBlackData *data = [[ContactsDataSource sharedClient] blackWithUserid:self.userId];
-                                                                              [[ContactsDataSource sharedClient] deleteObject:data];
+                                                                              FriendBlackData *data = [[ContactsDataSource sharedInstance] blackWithUserid:self.userId];
+                                                                              [[ContactsDataSource sharedInstance] deleteObject:data];
                                                                               
                                                                               [[ContactsManager manager] refreshFriendsListWithCompletion:nil];
                                                                               
@@ -149,8 +147,7 @@
                                                                               ConversationSettingData *setting = [ConversationSettingData conversationSettingWithType:ConversationType_PRIVATE
                                                                                                                                                              targetId:self.userId];
                                                                               setting.canMessage = YES;
-                                                                              [[ConversationSettingDataSource sharedClient] addObject:setting
-                                                                                                                           entityName:[ConversationSettingEntity entityName]];
+                                                                              [[ConversationSettingDataSource sharedInstance] addObject:setting];
                                                                           }
                                                                       }];
                                                 }];
@@ -166,7 +163,7 @@
                                                                  completion:^{
                                                                      if(success) {
                                                                          if(!self.black) {
-                                                                             [[ContactsDataSource sharedClient] deleteObject:self.contact];
+                                                                             [[ContactsDataSource sharedInstance] deleteObject:self.contact];
                                                                          }
                                                                          
                                                                          [[UserManager manager] refreshRCUserInfoCacheWithUserid:self.userId
@@ -255,10 +252,10 @@
                                                  targetId:self.userId
                                                   success:^{
                                                       dispatch_async(dispatch_get_main_queue(), ^{
-                                                          [MBProgressHUD showMessage:@"聊天记录已清除"
-                                                                              onView:APP_DELEGATE_WINDOW
-                                                                              result:YES
-                                                                          completion:nil];
+                                                          [MBProgressHUD finishLoading:hud
+                                                                                result:YES
+                                                                                  text:@"聊天记录已清除"
+                                                                            completion:nil];
                                                       });
                                                       [[NSNotificationCenter defaultCenter] postNotificationName:CONVERSATION_CLEAR_MESSAGE_NOTIFIACTION
                                                                                                           object:nil
@@ -266,18 +263,18 @@
                                                   }
                                                     error:^(RCErrorCode status) {
                                                         dispatch_async(dispatch_get_main_queue(), ^{
-                                                            [MBProgressHUD showMessage:@"消息记录清除失败"
-                                                                                onView:APP_DELEGATE_WINDOW
-                                                                                result:NO
-                                                                            completion:nil];
+                                                            [MBProgressHUD finishLoading:hud
+                                                                                  result:NO
+                                                                                    text:@"消息记录清除失败"
+                                                                              completion:nil];
                                                         });
                                                     }];
                                } error:^(RCErrorCode status) {
                                    dispatch_async(dispatch_get_main_queue(), ^{
-                                       [MBProgressHUD showMessage:@"消息记录清除失败"
-                                                           onView:APP_DELEGATE_WINDOW
-                                                           result:NO
-                                                       completion:nil];
+                                       [MBProgressHUD finishLoading:hud
+                                                             result:NO
+                                                               text:@"消息记录清除失败"
+                                                         completion:nil];
                                    });
                                }];
 }

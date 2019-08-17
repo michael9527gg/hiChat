@@ -10,12 +10,12 @@
 #import "GroupMemberListCell.h"
 #import "ContactDetailViewController.h"
 
-@interface GroupMemberListViewController () < VIDataSourceDelegate, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate >
+@interface GroupMemberListViewController () < LYDataSourceDelegate, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate >
 
 @property (nonatomic, strong) UITableView             *tableView;
 
 @property (nonatomic, weak)   GroupDataSource         *dataSource;
-@property (nonatomic, copy)   NSString                *dataKey;
+@property (nonatomic, strong)   NSFetchedResultsController                *fetchedResultsController;
 
 @property (nonatomic, strong) NSMutableArray          *adminDataSource;
 @property (nonatomic, assign) BOOL                    isSearching;
@@ -63,7 +63,7 @@
 }
 
 - (NSArray *)refreshSectionKeys {
-    NSArray *contacts = [[GroupDataSource sharedClient] allGroupMembersForKey:self.dataKey];
+    NSArray *contacts = [[GroupDataSource sharedInstance] allGroupMembers:self.fetchedResultsController];
     NSMutableArray *mulArr = [NSMutableArray arrayWithCapacity:contacts.count];
     
     for(GroupMemberData *contact in contacts) {
@@ -86,18 +86,16 @@
 }
 
 - (void)registerDataBase {
-    self.dataSource = [GroupDataSource sharedClient];
-    self.dataKey = NSStringFromClass(self.class);
-    [self.dataSource registerDelegate:self
-                               entity:[GroupMemberEntity entityName]
-                            predicate:[NSPredicate predicateWithFormat:@"groupid == %@ && groupRole == %@", self.groupid, @"0"]
-                      sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
-                                        [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
-                   sectionNameKeyPath:@"sectionKey"
-                                  key:self.dataKey];
+    self.dataSource = [GroupDataSource sharedInstance];
+    self.fetchedResultsController = [self.dataSource addDelegate:self
+                                                          entity:[GroupMemberEntity entityName]
+                                                       predicate:[NSPredicate predicateWithFormat:@"groupid == %@ && groupRole == %@", self.groupid, @"0"]
+                                                 sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
+                                                                                                                                                                                                                                  [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
+                                              sectionNameKeyPath:@"sectionKey"];
     
-    GroupMemberData *lord = [[GroupDataSource sharedClient] groupLordForGroupid:self.groupid];
-    NSArray *admins = [[GroupDataSource sharedClient] groupAdminsForGroupid:self.groupid];
+    GroupMemberData *lord = [[GroupDataSource sharedInstance] groupLordForGroupid:self.groupid];
+    NSArray *admins = [[GroupDataSource sharedInstance] groupAdminsForGroupid:self.groupid];
     if(lord) {
         self.adminDataSource = [NSMutableArray arrayWithObject:lord];
         [self.adminDataSource addObjectsFromArray:admins];
@@ -110,36 +108,33 @@
     if(keywords.length) {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(name CONTAINS %@ || shengmu CONTAINS %@) && groupid == %@", keywords, keywords, self.groupid];
         // 群组或者管理员可以使用手机号查询
-        GroupMemberData *curMember = [[GroupDataSource sharedClient] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
+        GroupMemberData *curMember = [[GroupDataSource sharedInstance] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
                                                                                   groupid:self.groupid];
         if(curMember.isLord || curMember.isAdmin) {
             predicate = [NSPredicate predicateWithFormat:@"(name CONTAINS %@ || shengmu CONTAINS %@ || phone CONTAINS %@) && groupid == %@", keywords, keywords, keywords, self.groupid];
         }
         
-        [self.dataSource registerDelegate:self
-                                   entity:[ContactEntity entityName]
-                                predicate:predicate
-                          sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
-                                            [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
-                       sectionNameKeyPath:@"sectionKey"
-                                      key:self.dataKey];
+        self.fetchedResultsController = [self.dataSource addDelegate:self
+                                                              entity:[ContactEntity entityName]
+                                                           predicate:predicate
+                                                     sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
+                                                                       [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
+                                                  sectionNameKeyPath:@"sectionKey"];
     } else {
         if(self.isSearching) {
-            [self.dataSource registerDelegate:self
-                                       entity:[GroupMemberEntity entityName]
-                                    predicate:[NSPredicate predicateWithFormat:@"groupid == %@", self.groupid]
-                              sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
-                                                [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
-                           sectionNameKeyPath:@"sectionKey"
-                                          key:self.dataKey];
+            self.fetchedResultsController = [self.dataSource addDelegate:self
+                                                                  entity:[GroupMemberEntity entityName]
+                                                               predicate:[NSPredicate predicateWithFormat:@"groupid == %@", self.groupid]
+                                                         sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
+                                                                           [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
+                                                      sectionNameKeyPath:@"sectionKey"];
         } else {
-            [self.dataSource registerDelegate:self
-                                       entity:[GroupMemberEntity entityName]
-                                    predicate:[NSPredicate predicateWithFormat:@"groupid == %@ && groupRole == %@", self.groupid, @"0"]
-                              sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
-                                                [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
-                           sectionNameKeyPath:@"sectionKey"
-                                          key:self.dataKey];
+            self.fetchedResultsController = [self.dataSource addDelegate:self
+                                                                  entity:[GroupMemberEntity entityName]
+                                                               predicate:[NSPredicate predicateWithFormat:@"groupid == %@ && groupRole == %@", self.groupid, @"0"]
+                                                         sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
+                                                                           [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
+                                                      sectionNameKeyPath:@"sectionKey"];
         }
     }
     
@@ -150,9 +145,9 @@
     
 }
 
-#pragma mark - VIDataSourceDelegate
+#pragma mark - LYDataSourceDelegate
 
-- (void)dataSource:(id<VIDataSource>)dataSource didChangeContentForKey:(NSString *)key {
+- (void)didChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView reloadData];
 }
 
@@ -160,14 +155,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if(self.isSearching) {
-        return [self.dataSource numberOfSectionsForKey:self.dataKey];
+        return [self.dataSource numberOfSections:self.fetchedResultsController];
     }
-    return [self.dataSource numberOfSectionsForKey:self.dataKey] + MIN(self.adminDataSource.count, 2);
+    return [self.dataSource numberOfSections:self.fetchedResultsController] + MIN(self.adminDataSource.count, 2);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if(self.isSearching) {
-        return [self.dataSource numberOfItemsForKey:self.dataKey
+        return [self.dataSource numberOfItems:self.fetchedResultsController
                                           inSection:section];
     }
     
@@ -178,8 +173,8 @@
         return self.adminDataSource.count-1;
     }
     
-    return [self.dataSource numberOfItemsForKey:self.dataKey
-                                      inSection:section-MIN(self.adminDataSource.count, 2)];
+    return [self.dataSource numberOfItems:self.fetchedResultsController
+                                inSection:section-MIN(self.adminDataSource.count, 2)];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -190,7 +185,7 @@
     if(self.isSearching) {
         GroupMemberData *data = [self.dataSource groupMemberAtIndexPath:[NSIndexPath indexPathForRow:0
                                                                                            inSection:section]
-                                                                 forKey:self.dataKey];
+                                                                 controller:self.fetchedResultsController];
         return data.sectionKey;
     }
     
@@ -203,7 +198,7 @@
     
     GroupMemberData *data = [self.dataSource groupMemberAtIndexPath:[NSIndexPath indexPathForRow:0
                                                                                        inSection:section-MIN(self.adminDataSource.count, 2)]
-                                                             forKey:self.dataKey];
+                                                             controller:self.fetchedResultsController];
     return data.sectionKey;
 }
 
@@ -221,7 +216,7 @@
 forRowAtIndexPath:(NSIndexPath *)indexPath {
     if(self.isSearching) {
         cell.data = [self.dataSource groupMemberAtIndexPath:indexPath
-                                                     forKey:self.dataKey];
+                                                 controller:self.fetchedResultsController];
         return;
     }
     
@@ -240,7 +235,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     cell.data = [self.dataSource groupMemberAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row
                                                                            inSection:indexPath.section-MIN(self.adminDataSource.count, 2)]
-                                                 forKey:self.dataKey];
+                                                 controller:self.fetchedResultsController];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -250,7 +245,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if(self.isSearching) {
         member = [self.dataSource groupMemberAtIndexPath:indexPath
-                                                  forKey:self.dataKey];
+                                              controller:self.fetchedResultsController];
     } else {
         if(indexPath.section == 0) {
             member = (GroupMemberData *)self.adminDataSource.firstObject;
@@ -261,7 +256,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         else {
             member = [self.dataSource groupMemberAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row
                                                                                 inSection:indexPath.section-MIN(self.adminDataSource.count, 2)]
-                                                      forKey:self.dataKey];
+                                                      controller:self.fetchedResultsController];
         }
     }
     

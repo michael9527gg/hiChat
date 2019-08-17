@@ -204,7 +204,7 @@
                                                     GroupMemberData *groupMember = [GroupMemberData groupMemberWithGroupid:groupId
                                                                                                                        dic:dic];
                                                     [mulArr addObject:groupMember];
-                                                    ContactData *contact = [[ContactsDataSource sharedClient] contactWithUserid:groupMember.userid];
+                                                    ContactData *contact = [[ContactsDataSource sharedInstance] contactWithUserid:groupMember.userid];
                                                     
                                                     // 强刷融云用户信息缓存
                                                     RCUserInfo *userInfo = [[RCUserInfo alloc] init];
@@ -215,10 +215,8 @@
                                                                                  withUserId:groupMember.userid];
                                                 }
                                                 
-                                                [[GroupDataSource sharedClient] addObjects:mulArr
-                                                                                entityName:[GroupMemberEntity entityName]
-                                                                                   syncAll:NO
-                                                                             syncPredicate:[NSPredicate predicateWithFormat:@"groupid == %@", groupId]];
+                                                [[GroupDataSource sharedInstance] addObjects:mulArr
+                                                                               syncPredicate:[NSPredicate predicateWithFormat:@"groupid == %@", groupId]];
                                                 
                                                 if (completion) {
                                                     completion(YES, @{@"data" : mulArr});
@@ -251,12 +249,13 @@
                                                 NSDictionary *dic = responseObject[@"result"];
                                                 
                                                 GroupData *group = [GroupData groupWithDic:dic];
-                                                GroupData *oldData = [[GroupDataSource sharedClient] groupWithGroupid:groupId];
+                                                GroupData *oldData = [[GroupDataSource sharedInstance] groupWithGroupid:groupId];
                                                 if(oldData) {
                                                     group.sortIndex = oldData.sortIndex;
                                                 }
-                                                [[GroupDataSource sharedClient] addObject:group
-                                                                               entityName:[GroupEntity entityName]];
+                                                
+                                                [[GroupDataSource sharedInstance] addObject:group];
+                                                
                                                 if (completion) {
                                                     completion(YES, @{@"data" : group});
                                                 }
@@ -294,10 +293,10 @@
                                                     data.sortIndex = [groups indexOfObject:dic];
                                                     [mulArr addObject:data];
                                                 }
-                                                [[GroupDataSource sharedClient] addObjects:mulArr
-                                                                                entityName:[GroupEntity entityName]
-                                                                                   syncAll:YES
-                                                                             syncPredicate:nil];
+                                                
+                                                [[GroupDataSource sharedInstance] addObjects:mulArr
+                                                                               syncPredicate:nil];
+                                                
                                                 if (completion) {
                                                     completion(YES, @{@"data" : mulArr});
                                                 }

@@ -49,27 +49,34 @@
 
 @implementation NotificationDataSource
 
-+ (instancetype)sharedClient {
++ (instancetype)sharedInstance {
     static dispatch_once_t onceToken;
-    static NotificationDataSource *client = nil;
+    static NotificationDataSource *instance = nil;
     dispatch_once(&onceToken, ^{
-        client = [[NotificationDataSource alloc] initWithManagedObjectContext:[AppDelegate appDelegate].managedObjectContext
-                                                                  coordinator:[AppDelegate appDelegate].persistentStoreCoordinator];
+        instance = [[NotificationDataSource alloc] initWithPrivateContext:[[LYCoreDataManager manager] newPrivateContext]];
     });
     
-    return client;
+    return instance;
 }
 
-- (NSManagedObject *)onAddObject:(id)object managedObjectContext:(NSManagedObjectContext *)managedObjectContex {
+- (NSString *)entityNameForObject:(id)object {
+    if([object isKindOfClass:[NotificationData class]]) {
+        return [NotificationEntity entityName];
+    }
+    
+    return nil;
+}
+
+- (NSManagedObject *)onAddObject:(id)object {
     if([object isKindOfClass:[NotificationData class]]) {
         NotificationData *data = (NotificationData *)object;
         NSFetchRequest *request = [NotificationEntity fetchRequest];
         request.predicate = [NSPredicate predicateWithFormat:@"uid == %@ && loginid == %@", data.uid, YUCLOUD_ACCOUNT_USERID];
         
-        NotificationEntity *item = [managedObjectContex executeFetchRequest:request error:nil].firstObject;
+        NotificationEntity *item = [self.privateContext executeFetchRequest:request error:nil].firstObject;
         if (!item) {
             item = [NSEntityDescription insertNewObjectForEntityForName:[NotificationEntity entityName]
-                                                 inManagedObjectContext:managedObjectContex];
+                                                 inManagedObjectContext:self.privateContext];
             item.loginid = YUCLOUD_ACCOUNT_USERID;
             item.uid = data.uid;
         }
@@ -86,22 +93,24 @@
     return nil;
 }
 
-- (void)onDeleteObject:(id)object managedObjectContext:(NSManagedObjectContext *)managedObjectContex {
+- (void)onDeleteObject:(id)object {
     if ([object isKindOfClass:[NotificationData class]]) {
         NotificationData *data = (NotificationData *)object;
         
         NSFetchRequest *request = [NotificationEntity fetchRequest];
         request.predicate = [NSPredicate predicateWithFormat:@"uid == %@ && loginid == %@", data.uid, YUCLOUD_ACCOUNT_USERID];
         
-        NotificationEntity *item = [[managedObjectContex executeFetchRequest:request error:nil] firstObject];
+        NotificationEntity *item = [[self.privateContext executeFetchRequest:request error:nil] firstObject];
         if (item && !item.isDeleted) {
-            [managedObjectContex deleteObject:item];
+            [self.privateContext deleteObject:item];
         }
     }
 }
 
-- (NotificationData *)notificationAtIndexPath:(NSIndexPath *)indexPath forKey:(NSString *)key {
-    NotificationEntity *item = [self objectAtIndexPath:indexPath forKey:key];
+- (NotificationData *)notificationAtIndexPath:(NSIndexPath *)indexPath
+                                   controller:(nonnull NSFetchedResultsController *)controller {
+    NotificationEntity *item = [self objectAtIndexPath:indexPath controller:controller];
+    
     return [self notificationForEntity:item];
 }
 
@@ -122,7 +131,7 @@
 - (NotificationData *)notificationWithUid:(NSString *)uid {
     NSFetchRequest *request = [NotificationEntity fetchRequest];
     request.predicate = [NSPredicate predicateWithFormat:@"uid == %@ && loginid == %@", uid, YUCLOUD_ACCOUNT_USERID];
-    NotificationEntity *item = [self.managedObjectContext executeFetchRequest:request error:nil].firstObject;
+    NotificationEntity *item = [self.privateContext executeFetchRequest:request error:nil].firstObject;
     
     return [self notificationForEntity:item];
 }
@@ -130,7 +139,7 @@
 - (NSInteger)unReadNotificationsCount {
     NSFetchRequest *request = [NotificationEntity fetchRequest];
     request.predicate = [NSPredicate predicateWithFormat:@"read == NO && loginid == %@", YUCLOUD_ACCOUNT_USERID];
-    NSArray *array = [self.managedObjectContext executeFetchRequest:request error:nil];
+    NSArray *array = [self.privateContext executeFetchRequest:request error:nil];
     
     return array.count;
 }
@@ -138,7 +147,7 @@
 - (void)clearAllNotifications {
     NSFetchRequest *request = [NotificationEntity fetchRequest];
     request.predicate = [NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID];
-    NSArray *array = [self.managedObjectContext executeFetchRequest:request error:nil];
+    NSArray *array = [self.privateContext executeFetchRequest:request error:nil];
     
     for(NotificationEntity *entity in array) {
         [self deleteObject:[self notificationForEntity:entity]];

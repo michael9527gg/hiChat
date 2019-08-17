@@ -17,7 +17,7 @@
 #import "MessageHistoryViewController.h"
 #import "MessageSendManager.h"
 
-@interface GroupSettingViewController () < UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, VIDataSourceDelegate, ContactsSelectDelegate, GroupMemberSelectDelegate, GroupAnnounceControllerDelegate >
+@interface GroupSettingViewController () < UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, LYDataSourceDelegate, ContactsSelectDelegate, GroupMemberSelectDelegate, GroupAnnounceControllerDelegate >
 
 @property (nonatomic, copy)   NSString            *groupId;
 @property (nonatomic, strong) GroupData           *groupInfo;
@@ -27,7 +27,7 @@
 
 @property (nonatomic, strong) UICollectionView    *membersView;
 @property (nonatomic, weak)   GroupDataSource     *dataSource;
-@property (nonatomic, copy)   NSString            *dataKey;
+@property (nonatomic, strong)   NSFetchedResultsController            *fetchedResultsController;
 
 @end
 
@@ -38,9 +38,9 @@
         self.groupId = groupId;
         
         // 数据库读取群组信息
-        self.groupInfo = [[GroupDataSource sharedClient] groupWithGroupid:self.groupId];
+        self.groupInfo = [[GroupDataSource sharedInstance] groupWithGroupid:self.groupId];
         
-        self.currentMember = [[GroupDataSource sharedClient] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
+        self.currentMember = [[GroupDataSource sharedInstance] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
                                                                           groupid:self.groupId];
         
         // 查询当前会话置顶状态
@@ -105,15 +105,14 @@
 }
 
 - (void)registerDataBase {
-    self.dataSource = [GroupDataSource sharedClient];
-    self.dataKey = NSStringFromClass(self.class);
-    [self.dataSource registerDelegate:self
-                               entity:[GroupMemberEntity entityName]
-                            predicate:[NSPredicate predicateWithFormat:@"groupid == %@", self.groupId]
-                      sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"groupRole" ascending:NO],
-                                        [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
-                   sectionNameKeyPath:nil
-                                  key:self.dataKey];
+    self.dataSource = [GroupDataSource sharedInstance];
+    
+    self.fetchedResultsController = [self.dataSource addDelegate:self
+                                                          entity:[GroupMemberEntity entityName]
+                                                       predicate:[NSPredicate predicateWithFormat:@"groupid == %@", self.groupId]
+                                                 sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"groupRole" ascending:NO],
+                                                                                                                                                                                                         [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
+                                              sectionNameKeyPath:nil];
     
     [self refreshMembersView];
 }
@@ -168,8 +167,8 @@
                                                                      text:[info msg]
                                                                completion:^{
                                                                    if (success) {
-                                                                       GroupData *group = [[GroupDataSource sharedClient] groupWithGroupid:self.groupId];
-                                                                       [[GroupDataSource sharedClient] deleteObject:group];
+                                                                       GroupData *group = [[GroupDataSource sharedInstance] groupWithGroupid:self.groupId];
+                                                                       [[GroupDataSource sharedInstance] deleteObject:group];
                                                                        
                                                                        [[RCManager manager] removeConversation:ConversationType_GROUP
                                                                                                       targetId:self.groupId];
@@ -208,14 +207,14 @@
 }
 
 - (void)checkConversationIsTop {
-    ConversationSettingData *data = [[ConversationSettingDataSource sharedClient] settingWithType:ConversationType_GROUP
+    ConversationSettingData *data = [[ConversationSettingDataSource sharedInstance] settingWithType:ConversationType_GROUP
                                                                                          targetId:self.groupId];
     
     self.isTop = data.isTop;
 }
 
 - (void)checkConversationNotificationStatus {
-    ConversationSettingData *data = [[ConversationSettingDataSource sharedClient] settingWithType:ConversationType_GROUP
+    ConversationSettingData *data = [[ConversationSettingDataSource sharedInstance] settingWithType:ConversationType_GROUP
                                                                                          targetId:self.groupId];
     self.isSilent = data.isSilent;
 }
@@ -345,8 +344,7 @@
                                                   if(portrait) {
                                                       self.groupInfo.portrait = portrait;
                                                   }
-                                                  [[GroupDataSource sharedClient] addObject:self.groupInfo
-                                                                                 entityName:[GroupEntity entityName]];
+                                                  [[GroupDataSource sharedInstance] addObject:self.groupInfo];
                                                   
                                                   [self.tableView reloadData];
                                               }
@@ -367,8 +365,7 @@
                                          dispatch_async(dispatch_get_main_queue(), ^{
                                              if(success) {
                                                  self.groupInfo.banState = @(ban).stringValue;
-                                                 [[GroupDataSource sharedClient] addObject:self.groupInfo
-                                                                                entityName:[GroupEntity entityName]];
+                                                 [[GroupDataSource sharedInstance] addObject:self.groupInfo];
                                              } else {
                                                  [MBProgressHUD showMessage:[info msg]
                                                                      onView:APP_DELEGATE_WINDOW
@@ -394,7 +391,7 @@
         case 1:
             return 4;
         case 2: {
-            GroupMemberData *member = [[GroupDataSource sharedClient] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
+            GroupMemberData *member = [[GroupDataSource sharedInstance] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
                                                                                    groupid:self.groupId];
             if(member.isLord || member.isAdmin) {
                 return 4;
@@ -527,7 +524,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if(indexPath.section == 1 && indexPath.row == 0) {
-        GroupMemberData *curMember = [[GroupDataSource sharedClient] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
+        GroupMemberData *curMember = [[GroupDataSource sharedInstance] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
                                                                                   groupid:self.groupId];
         if(curMember.isLord || curMember.isAdmin) {
             [[UniManager manager] selectImageWithLimit:1
@@ -546,7 +543,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         }
     }
     else if(indexPath.section == 1 && indexPath.row == 1) {
-        GroupMemberData *curMember = [[GroupDataSource sharedClient] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
+        GroupMemberData *curMember = [[GroupDataSource sharedInstance] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
                                                                                   groupid:self.groupId];
         if(curMember.isLord || curMember.isAdmin) {
             [[UniManager manager] startTextEdit:self.groupInfo.name
@@ -562,7 +559,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         }
     }
     else if(indexPath.section == 1 && indexPath.row == 2) {
-        GroupMemberData *member = [[GroupDataSource sharedClient] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
+        GroupMemberData *member = [[GroupDataSource sharedInstance] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
                                                                                groupid:self.groupId];
         GroupAnnounceViewController *vc = [[GroupAnnounceViewController alloc] init];
         vc.isAdmin = (member.isAdmin || member.isLord);
@@ -608,13 +605,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 #pragma mark - UICollectionViewDataSource, UICollectionViewDelegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSInteger num = [self.dataSource numberOfItemsForKey:self.dataKey inSection:section];
+    NSInteger num = [self.dataSource numberOfItems:self.fetchedResultsController inSection:section];
     if(!num) {
         return num;
     }
     
     if(!self.currentMember) {
-        self.currentMember = [[GroupDataSource sharedClient] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
+        self.currentMember = [[GroupDataSource sharedInstance] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
                                                                           groupid:self.groupId];
     }
     
@@ -643,11 +640,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
             cell.functionImage = [UIImage imageNamed:@"ic_add_member"];
         } else {
             cell.groupMember = [self.dataSource groupMemberAtIndexPath:indexPath
-                                                                forKey:self.dataKey];
+                                                            controller:self.fetchedResultsController];
         }
     } else {
         cell.groupMember = [self.dataSource groupMemberAtIndexPath:indexPath
-                                                            forKey:self.dataKey];
+                                                        controller:self.fetchedResultsController];
     }
 }
 
@@ -683,14 +680,15 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
                              completion:nil];
         }
         else {
-            GroupMemberData *data = [self.dataSource groupMemberAtIndexPath:indexPath forKey:self.dataKey];
+            GroupMemberData *data = [self.dataSource groupMemberAtIndexPath:indexPath controller:self.fetchedResultsController];
             ContactDetailViewController *vc = [[ContactDetailViewController alloc] initWithUserid:data.userid
                                                                                      user:nil
                                                                                   groupid:self.groupId];
             [self.navigationController pushViewController:vc animated:YES];
         }
     } else {
-        GroupMemberData *data = [self.dataSource groupMemberAtIndexPath:indexPath forKey:self.dataKey];
+        GroupMemberData *data = [self.dataSource groupMemberAtIndexPath:indexPath
+                                                             controller:self.fetchedResultsController];
         ContactDetailViewController *vc = [[ContactDetailViewController alloc] initWithUserid:data.userid
                                                                                  user:nil
                                                                               groupid:self.groupId];
@@ -698,9 +696,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     }
 }
 
-#pragma mark - VIDataSourceDelegate
+#pragma mark - LYDataSourceDelegate
 
-- (void)dataSource:(id<VIDataSource>)dataSource didChangeContentForKey:(NSString *)key {
+- (void)didChangeContent:(NSFetchedResultsController *)controller {
     [self refreshMembersView];
 }
 

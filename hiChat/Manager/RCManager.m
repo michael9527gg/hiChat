@@ -61,7 +61,7 @@
 // 群组和联系人信息都拿到后才能同步会话免打扰和置顶状态，否则数据库可能找不到会话目标
 - (void)refreshTopAndNotificationListWithCompletion:(CommonBlock)completion {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [[ConversationSettingDataSource sharedClient] initializeSettings];
+        [[ConversationSettingDataSource sharedInstance] initializeSettings];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self requestTopOrNotificationList:ConversationSettingTypeTop
                                     completion:^(BOOL success, NSDictionary * _Nullable info) {
@@ -93,7 +93,7 @@
                                         success:^(NSURLSessionDataTask *task, id  _Nullable responseObject) {
                                             if ([responseObject success]) {
                                                 NSArray *results = responseObject[@"result"];
-                                                NSArray *settings = [[ConversationSettingDataSource sharedClient] allSettings];
+                                                NSArray *settings = [[ConversationSettingDataSource sharedInstance] allSettings];
 
                                                 for(ConversationSettingData *data in settings) {
                                                     if(type == ConversationSettingTypeNotification) {
@@ -129,10 +129,7 @@
                                                 }
 
                                                 // 同步我们的本地数据库
-                                                [[ConversationSettingDataSource sharedClient] addObjects:settings
-                                                                                              entityName:[ConversationSettingEntity entityName]
-                                                                                                 syncAll:YES
-                                                                                           syncPredicate:nil];
+                                                [[ConversationSettingDataSource sharedInstance] addObjects:settings syncPredicate:nil];
 
                                                 if (completion) {
                                                     completion(YES, nil);
@@ -167,7 +164,8 @@
                                                                                              success:^(RCConversationNotificationStatus nStatus) {
                                                                                                  ConversationSettingData *data = [ConversationSettingData conversationSettingWithType:conversationType targetId:targetid];
                                                                                                  data.isSilent = block;
-                                                                                                 [[ConversationSettingDataSource sharedClient] addObject:data entityName:[ConversationSettingEntity entityName]];
+                                                                                                 
+                                                                                                 [[ConversationSettingDataSource sharedInstance] addObject:data];
 
                                                                                                  if (completion) {
                                                                                                      completion(YES, info);
@@ -203,8 +201,7 @@
                                     ConversationSettingData *data = [ConversationSettingData conversationSettingWithType:conversationType
                                                                                                                 targetId:targetid];
                                     data.isTop = top;
-                                    [[ConversationSettingDataSource sharedClient] addObject:data
-                                                                                 entityName:[ConversationSettingEntity entityName]];
+                                    [[ConversationSettingDataSource sharedInstance] addObject:data];
                                     if (completion) {
                                         completion(YES, info);
                                     }

@@ -33,171 +33,85 @@
 		2B31C70921D9DFCF000DC34B /* OnkeyTextEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B31C70721D9DFCF000DC34B /* OnkeyTextEditView.m */; };
 		2B31FE8622547AE900CC5BF9 /* UINavigationController+PushPopCrashFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B31FE8522547AE900CC5BF9 /* UINavigationController+PushPopCrashFix.m */; };
 		2B31FE8722547AE900CC5BF9 /* UINavigationController+PushPopCrashFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B31FE8522547AE900CC5BF9 /* UINavigationController+PushPopCrashFix.m */; };
-		2B31FE8822547AE900CC5BF9 /* UINavigationController+PushPopCrashFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B31FE8522547AE900CC5BF9 /* UINavigationController+PushPopCrashFix.m */; };
-		2B31FE8922547AE900CC5BF9 /* UINavigationController+PushPopCrashFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B31FE8522547AE900CC5BF9 /* UINavigationController+PushPopCrashFix.m */; };
 		2B3588F121C61EB000AF117C /* UserDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3588F021C61EB000AF117C /* UserDataSource.m */; };
 		2B3588F421C620CE00AF117C /* GroupDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3588F321C620CE00AF117C /* GroupDataSource.m */; };
 		2B3588F721C624DA00AF117C /* GroupSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3588F621C624DA00AF117C /* GroupSettingViewController.m */; };
 		2B35D9C522B9FC1C00088F76 /* CheckinData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B35D9C422B9FC1C00088F76 /* CheckinData.m */; };
 		2B35D9C622B9FC1C00088F76 /* CheckinData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B35D9C422B9FC1C00088F76 /* CheckinData.m */; };
-		2B35D9C722B9FC1C00088F76 /* CheckinData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B35D9C422B9FC1C00088F76 /* CheckinData.m */; };
-		2B35D9C822B9FC1C00088F76 /* CheckinData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B35D9C422B9FC1C00088F76 /* CheckinData.m */; };
 		2B52279A2301270800EF941B /* UIDevice+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227162301270800EF941B /* UIDevice+GF.m */; };
 		2B52279B2301270800EF941B /* UIDevice+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227162301270800EF941B /* UIDevice+GF.m */; };
-		2B52279C2301270800EF941B /* UIDevice+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227162301270800EF941B /* UIDevice+GF.m */; };
-		2B52279D2301270800EF941B /* UIDevice+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227162301270800EF941B /* UIDevice+GF.m */; };
 		2B5227AA2301270800EF941B /* NSFileManager+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52271C2301270800EF941B /* NSFileManager+GF.m */; };
 		2B5227AB2301270800EF941B /* NSFileManager+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52271C2301270800EF941B /* NSFileManager+GF.m */; };
-		2B5227AC2301270800EF941B /* NSFileManager+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52271C2301270800EF941B /* NSFileManager+GF.m */; };
-		2B5227AD2301270800EF941B /* NSFileManager+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52271C2301270800EF941B /* NSFileManager+GF.m */; };
 		2B5227AE2301270800EF941B /* UIBarButtonItem+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227202301270800EF941B /* UIBarButtonItem+GF.m */; };
 		2B5227AF2301270800EF941B /* UIBarButtonItem+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227202301270800EF941B /* UIBarButtonItem+GF.m */; };
-		2B5227B02301270800EF941B /* UIBarButtonItem+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227202301270800EF941B /* UIBarButtonItem+GF.m */; };
-		2B5227B12301270800EF941B /* UIBarButtonItem+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227202301270800EF941B /* UIBarButtonItem+GF.m */; };
 		2B5227B62301270800EF941B /* NSAttributedString+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227242301270800EF941B /* NSAttributedString+GF.m */; };
 		2B5227B72301270800EF941B /* NSAttributedString+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227242301270800EF941B /* NSAttributedString+GF.m */; };
-		2B5227B82301270800EF941B /* NSAttributedString+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227242301270800EF941B /* NSAttributedString+GF.m */; };
-		2B5227B92301270800EF941B /* NSAttributedString+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227242301270800EF941B /* NSAttributedString+GF.m */; };
 		2B5227DA2301270800EF941B /* UIView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227332301270800EF941B /* UIView+VI.m */; };
 		2B5227DB2301270800EF941B /* UIView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227332301270800EF941B /* UIView+VI.m */; };
-		2B5227DC2301270800EF941B /* UIView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227332301270800EF941B /* UIView+VI.m */; };
-		2B5227DD2301270800EF941B /* UIView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227332301270800EF941B /* UIView+VI.m */; };
 		2B5227DE2301270800EF941B /* NSDate+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227342301270800EF941B /* NSDate+GF.m */; };
 		2B5227DF2301270800EF941B /* NSDate+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227342301270800EF941B /* NSDate+GF.m */; };
-		2B5227E02301270800EF941B /* NSDate+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227342301270800EF941B /* NSDate+GF.m */; };
-		2B5227E12301270800EF941B /* NSDate+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227342301270800EF941B /* NSDate+GF.m */; };
 		2B5227E22301270800EF941B /* NSBundle+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227352301270800EF941B /* NSBundle+GF.m */; };
 		2B5227E32301270800EF941B /* NSBundle+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227352301270800EF941B /* NSBundle+GF.m */; };
-		2B5227E42301270800EF941B /* NSBundle+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227352301270800EF941B /* NSBundle+GF.m */; };
-		2B5227E52301270800EF941B /* NSBundle+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227352301270800EF941B /* NSBundle+GF.m */; };
 		2B5227EA2301270800EF941B /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227392301270800EF941B /* KeychainItemWrapper.m */; };
 		2B5227EB2301270800EF941B /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227392301270800EF941B /* KeychainItemWrapper.m */; };
-		2B5227EC2301270800EF941B /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227392301270800EF941B /* KeychainItemWrapper.m */; };
-		2B5227ED2301270800EF941B /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227392301270800EF941B /* KeychainItemWrapper.m */; };
 		2B5227EE2301270800EF941B /* VIMessageHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273A2301270800EF941B /* VIMessageHUD.m */; };
 		2B5227EF2301270800EF941B /* VIMessageHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273A2301270800EF941B /* VIMessageHUD.m */; };
-		2B5227F02301270800EF941B /* VIMessageHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273A2301270800EF941B /* VIMessageHUD.m */; };
-		2B5227F12301270800EF941B /* VIMessageHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273A2301270800EF941B /* VIMessageHUD.m */; };
 		2B5227FE2301270800EF941B /* GFAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273F2301270800EF941B /* GFAlbumViewController.m */; };
 		2B5227FF2301270800EF941B /* GFAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273F2301270800EF941B /* GFAlbumViewController.m */; };
-		2B5228002301270800EF941B /* GFAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273F2301270800EF941B /* GFAlbumViewController.m */; };
-		2B5228012301270800EF941B /* GFAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273F2301270800EF941B /* GFAlbumViewController.m */; };
 		2B52280A2301270800EF941B /* NSDateFormatter+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227422301270800EF941B /* NSDateFormatter+GF.m */; };
 		2B52280B2301270800EF941B /* NSDateFormatter+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227422301270800EF941B /* NSDateFormatter+GF.m */; };
-		2B52280C2301270800EF941B /* NSDateFormatter+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227422301270800EF941B /* NSDateFormatter+GF.m */; };
-		2B52280D2301270800EF941B /* NSDateFormatter+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227422301270800EF941B /* NSDateFormatter+GF.m */; };
 		2B5228122301270800EF941B /* VITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227462301270800EF941B /* VITableView.m */; };
 		2B5228132301270800EF941B /* VITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227462301270800EF941B /* VITableView.m */; };
-		2B5228142301270800EF941B /* VITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227462301270800EF941B /* VITableView.m */; };
-		2B5228152301270800EF941B /* VITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227462301270800EF941B /* VITableView.m */; };
 		2B5228162301270800EF941B /* GFPhotoBrowserNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227482301270800EF941B /* GFPhotoBrowserNavigationController.m */; };
 		2B5228172301270800EF941B /* GFPhotoBrowserNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227482301270800EF941B /* GFPhotoBrowserNavigationController.m */; };
-		2B5228182301270800EF941B /* GFPhotoBrowserNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227482301270800EF941B /* GFPhotoBrowserNavigationController.m */; };
-		2B5228192301270800EF941B /* GFPhotoBrowserNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227482301270800EF941B /* GFPhotoBrowserNavigationController.m */; };
 		2B52281E2301270800EF941B /* UIImage+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274C2301270800EF941B /* UIImage+GF.m */; };
 		2B52281F2301270800EF941B /* UIImage+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274C2301270800EF941B /* UIImage+GF.m */; };
-		2B5228202301270800EF941B /* UIImage+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274C2301270800EF941B /* UIImage+GF.m */; };
-		2B5228212301270800EF941B /* UIImage+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274C2301270800EF941B /* UIImage+GF.m */; };
 		2B5228222301270800EF941B /* UIImageView+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274D2301270800EF941B /* UIImageView+GF.m */; };
 		2B5228232301270800EF941B /* UIImageView+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274D2301270800EF941B /* UIImageView+GF.m */; };
-		2B5228242301270800EF941B /* UIImageView+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274D2301270800EF941B /* UIImageView+GF.m */; };
-		2B5228252301270800EF941B /* UIImageView+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274D2301270800EF941B /* UIImageView+GF.m */; };
 		2B52282A2301270800EF941B /* CommonInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274F2301270800EF941B /* CommonInterface.m */; };
 		2B52282B2301270800EF941B /* CommonInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274F2301270800EF941B /* CommonInterface.m */; };
-		2B52282C2301270800EF941B /* CommonInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274F2301270800EF941B /* CommonInterface.m */; };
-		2B52282D2301270800EF941B /* CommonInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274F2301270800EF941B /* CommonInterface.m */; };
 		2B5228362301270800EF941B /* UITableViewHeaderFooterView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227522301270800EF941B /* UITableViewHeaderFooterView+VI.m */; };
 		2B5228372301270800EF941B /* UITableViewHeaderFooterView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227522301270800EF941B /* UITableViewHeaderFooterView+VI.m */; };
-		2B5228382301270800EF941B /* UITableViewHeaderFooterView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227522301270800EF941B /* UITableViewHeaderFooterView+VI.m */; };
-		2B5228392301270800EF941B /* UITableViewHeaderFooterView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227522301270800EF941B /* UITableViewHeaderFooterView+VI.m */; };
 		2B52283E2301270800EF941B /* UIScreen+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227552301270800EF941B /* UIScreen+GF.m */; };
 		2B52283F2301270800EF941B /* UIScreen+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227552301270800EF941B /* UIScreen+GF.m */; };
-		2B5228402301270800EF941B /* UIScreen+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227552301270800EF941B /* UIScreen+GF.m */; };
-		2B5228412301270800EF941B /* UIScreen+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227552301270800EF941B /* UIScreen+GF.m */; };
 		2B5228562301270800EF941B /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52275F2301270800EF941B /* UIView+Shake.m */; };
 		2B5228572301270800EF941B /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52275F2301270800EF941B /* UIView+Shake.m */; };
-		2B5228582301270800EF941B /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52275F2301270800EF941B /* UIView+Shake.m */; };
-		2B5228592301270800EF941B /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52275F2301270800EF941B /* UIView+Shake.m */; };
 		2B52285A2301270800EF941B /* PopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227602301270800EF941B /* PopoverAction.m */; };
 		2B52285B2301270800EF941B /* PopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227602301270800EF941B /* PopoverAction.m */; };
-		2B52285C2301270800EF941B /* PopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227602301270800EF941B /* PopoverAction.m */; };
-		2B52285D2301270800EF941B /* PopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227602301270800EF941B /* PopoverAction.m */; };
 		2B52285E2301270800EF941B /* UIColor+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227622301270800EF941B /* UIColor+GF.m */; };
 		2B52285F2301270800EF941B /* UIColor+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227622301270800EF941B /* UIColor+GF.m */; };
-		2B5228602301270800EF941B /* UIColor+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227622301270800EF941B /* UIColor+GF.m */; };
-		2B5228612301270800EF941B /* UIColor+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227622301270800EF941B /* UIColor+GF.m */; };
 		2B5228662301270800EF941B /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227652301270800EF941B /* PopoverView.m */; };
 		2B5228672301270800EF941B /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227652301270800EF941B /* PopoverView.m */; };
-		2B5228682301270800EF941B /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227652301270800EF941B /* PopoverView.m */; };
-		2B5228692301270800EF941B /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227652301270800EF941B /* PopoverView.m */; };
 		2B52286A2301270800EF941B /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227662301270800EF941B /* PopoverViewCell.m */; };
 		2B52286B2301270800EF941B /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227662301270800EF941B /* PopoverViewCell.m */; };
-		2B52286C2301270800EF941B /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227662301270800EF941B /* PopoverViewCell.m */; };
-		2B52286D2301270800EF941B /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227662301270800EF941B /* PopoverViewCell.m */; };
-		2B52286E2301270800EF941B /* NSManagedObject+VICoreDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52276B2301270800EF941B /* NSManagedObject+VICoreDataSource.m */; };
-		2B52286F2301270800EF941B /* NSManagedObject+VICoreDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52276B2301270800EF941B /* NSManagedObject+VICoreDataSource.m */; };
-		2B5228702301270800EF941B /* NSManagedObject+VICoreDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52276B2301270800EF941B /* NSManagedObject+VICoreDataSource.m */; };
-		2B5228712301270800EF941B /* NSManagedObject+VICoreDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52276B2301270800EF941B /* NSManagedObject+VICoreDataSource.m */; };
 		2B5228722301270800EF941B /* NSData+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227722301270800EF941B /* NSData+GF.m */; };
 		2B5228732301270800EF941B /* NSData+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227722301270800EF941B /* NSData+GF.m */; };
-		2B5228742301270800EF941B /* NSData+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227722301270800EF941B /* NSData+GF.m */; };
-		2B5228752301270800EF941B /* NSData+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227722301270800EF941B /* NSData+GF.m */; };
 		2B5228762301270800EF941B /* GFPhotoCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227732301270800EF941B /* GFPhotoCropViewController.m */; };
 		2B5228772301270800EF941B /* GFPhotoCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227732301270800EF941B /* GFPhotoCropViewController.m */; };
-		2B5228782301270800EF941B /* GFPhotoCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227732301270800EF941B /* GFPhotoCropViewController.m */; };
-		2B5228792301270800EF941B /* GFPhotoCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227732301270800EF941B /* GFPhotoCropViewController.m */; };
 		2B52287A2301270800EF941B /* GFPhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227752301270800EF941B /* GFPhotoBrowserViewController.m */; };
 		2B52287B2301270800EF941B /* GFPhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227752301270800EF941B /* GFPhotoBrowserViewController.m */; };
-		2B52287C2301270800EF941B /* GFPhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227752301270800EF941B /* GFPhotoBrowserViewController.m */; };
-		2B52287D2301270800EF941B /* GFPhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227752301270800EF941B /* GFPhotoBrowserViewController.m */; };
 		2B52287E2301270800EF941B /* GFPhotosDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227782301270800EF941B /* GFPhotosDataSource.m */; };
 		2B52287F2301270800EF941B /* GFPhotosDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227782301270800EF941B /* GFPhotosDataSource.m */; };
-		2B5228802301270800EF941B /* GFPhotosDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227782301270800EF941B /* GFPhotosDataSource.m */; };
-		2B5228812301270800EF941B /* GFPhotosDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227782301270800EF941B /* GFPhotosDataSource.m */; };
 		2B5228822301270800EF941B /* UITableViewCell+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52277A2301270800EF941B /* UITableViewCell+VI.m */; };
 		2B5228832301270800EF941B /* UITableViewCell+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52277A2301270800EF941B /* UITableViewCell+VI.m */; };
-		2B5228842301270800EF941B /* UITableViewCell+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52277A2301270800EF941B /* UITableViewCell+VI.m */; };
-		2B5228852301270800EF941B /* UITableViewCell+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52277A2301270800EF941B /* UITableViewCell+VI.m */; };
-		2B5228862301270800EF941B /* VIDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52277B2301270800EF941B /* VIDataSource.m */; };
-		2B5228872301270800EF941B /* VIDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52277B2301270800EF941B /* VIDataSource.m */; };
-		2B5228882301270800EF941B /* VIDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52277B2301270800EF941B /* VIDataSource.m */; };
-		2B5228892301270800EF941B /* VIDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52277B2301270800EF941B /* VIDataSource.m */; };
 		2B52288A2301270800EF941B /* UICollectionViewCell+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52277C2301270800EF941B /* UICollectionViewCell+GF.m */; };
 		2B52288B2301270800EF941B /* UICollectionViewCell+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52277C2301270800EF941B /* UICollectionViewCell+GF.m */; };
-		2B52288C2301270800EF941B /* UICollectionViewCell+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52277C2301270800EF941B /* UICollectionViewCell+GF.m */; };
-		2B52288D2301270800EF941B /* UICollectionViewCell+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52277C2301270800EF941B /* UICollectionViewCell+GF.m */; };
 		2B52288E2301270800EF941B /* NSBundle+GFPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227802301270800EF941B /* NSBundle+GFPhotoBrowser.m */; };
 		2B52288F2301270800EF941B /* NSBundle+GFPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227802301270800EF941B /* NSBundle+GFPhotoBrowser.m */; };
-		2B5228902301270800EF941B /* NSBundle+GFPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227802301270800EF941B /* NSBundle+GFPhotoBrowser.m */; };
-		2B5228912301270800EF941B /* NSBundle+GFPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227802301270800EF941B /* NSBundle+GFPhotoBrowser.m */; };
 		2B52289A2301270800EF941B /* NSString+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227832301270800EF941B /* NSString+GF.m */; };
 		2B52289B2301270800EF941B /* NSString+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227832301270800EF941B /* NSString+GF.m */; };
-		2B52289C2301270800EF941B /* NSString+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227832301270800EF941B /* NSString+GF.m */; };
-		2B52289D2301270800EF941B /* NSString+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227832301270800EF941B /* NSString+GF.m */; };
 		2B52289E2301270800EF941B /* UIButton+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227842301270800EF941B /* UIButton+GF.m */; };
 		2B52289F2301270800EF941B /* UIButton+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227842301270800EF941B /* UIButton+GF.m */; };
-		2B5228A02301270800EF941B /* UIButton+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227842301270800EF941B /* UIButton+GF.m */; };
-		2B5228A12301270800EF941B /* UIButton+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227842301270800EF941B /* UIButton+GF.m */; };
 		2B5228AA2301270800EF941B /* GFPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278A2301270800EF941B /* GFPhotoCell.m */; };
 		2B5228AB2301270800EF941B /* GFPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278A2301270800EF941B /* GFPhotoCell.m */; };
-		2B5228AC2301270800EF941B /* GFPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278A2301270800EF941B /* GFPhotoCell.m */; };
-		2B5228AD2301270800EF941B /* GFPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278A2301270800EF941B /* GFPhotoCell.m */; };
 		2B5228AE2301270800EF941B /* UICollectionReusableView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278B2301270800EF941B /* UICollectionReusableView+VI.m */; };
 		2B5228AF2301270800EF941B /* UICollectionReusableView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278B2301270800EF941B /* UICollectionReusableView+VI.m */; };
-		2B5228B02301270800EF941B /* UICollectionReusableView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278B2301270800EF941B /* UICollectionReusableView+VI.m */; };
-		2B5228B12301270800EF941B /* UICollectionReusableView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278B2301270800EF941B /* UICollectionReusableView+VI.m */; };
 		2B5228B62301270800EF941B /* VIPinField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278D2301270800EF941B /* VIPinField.m */; };
 		2B5228B72301270800EF941B /* VIPinField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278D2301270800EF941B /* VIPinField.m */; };
-		2B5228B82301270800EF941B /* VIPinField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278D2301270800EF941B /* VIPinField.m */; };
-		2B5228B92301270800EF941B /* VIPinField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278D2301270800EF941B /* VIPinField.m */; };
 		2B5228BE2301270800EF941B /* GFAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227952301270800EF941B /* GFAlbumCell.m */; };
 		2B5228BF2301270800EF941B /* GFAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227952301270800EF941B /* GFAlbumCell.m */; };
-		2B5228C02301270800EF941B /* GFAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227952301270800EF941B /* GFAlbumCell.m */; };
-		2B5228C12301270800EF941B /* GFAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227952301270800EF941B /* GFAlbumCell.m */; };
 		2B5228C22301270800EF941B /* VICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227992301270800EF941B /* VICollectionView.m */; };
 		2B5228C32301270800EF941B /* VICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227992301270800EF941B /* VICollectionView.m */; };
-		2B5228C42301270800EF941B /* VICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227992301270800EF941B /* VICollectionView.m */; };
-		2B5228C52301270800EF941B /* VICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227992301270800EF941B /* VICollectionView.m */; };
 		2B65993B21DDB8060078C904 /* MessageSendManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B65993A21DDB8060078C904 /* MessageSendManager.m */; };
 		2B65993C21DDB8060078C904 /* MessageSendManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B65993A21DDB8060078C904 /* MessageSendManager.m */; };
 		2B7066A521C351FB00E6DD14 /* GroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7066A421C351FB00E6DD14 /* GroupManager.m */; };
@@ -379,116 +293,6 @@
 		69A024A421C28B4500ABE387 /* MeSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A024A321C28B4500ABE387 /* MeSettingsViewController.m */; };
 		69A024AA21C28C1A00ABE387 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A024A921C28C1A00ABE387 /* WebViewController.m */; };
 		69A024B021C34CA000ABE387 /* InfoDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A024AF21C34CA000ABE387 /* InfoDetailCell.m */; };
-		69A161532242408600893F06 /* GuidePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B5121C0ED4B00A48CCB /* GuidePageViewController.m */; };
-		69A161542242408600893F06 /* NotificationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9C89512226831D00CD7A06 /* NotificationDataSource.m */; };
-		69A161552242408600893F06 /* ContactDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B046A9921CDCE91005356CF /* ContactDetailCell.m */; };
-		69A161562242408600893F06 /* TextEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD7E2221C3BC1B00E994E3 /* TextEditCell.m */; };
-		69A161572242408600893F06 /* MeAboutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CCEB5E21D09D3400CF8A43 /* MeAboutCell.m */; };
-		69A161582242408600893F06 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 69BFD48A21C22BDB00E15E7F /* Model.xcdatamodeld */; };
-		69A161592242408600893F06 /* AFDataResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B6421C1272600A48CCB /* AFDataResponseSerializer.m */; };
-		69A1615A2242408600893F06 /* FriendBlackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2787021D2506300E7EEB5 /* FriendBlackListViewController.m */; };
-		69A1615B2242408600893F06 /* FriendSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B10610F21C900F800E6F8E6 /* FriendSearchViewController.m */; };
-		69A1615C2242408600893F06 /* TSAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695BB02821F59D5E0009D0C1 /* TSAuthViewController.m */; };
-		69A1615D2242408600893F06 /* NotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC21FB4223E76410025E015 /* NotificationView.m */; };
-		69A1615E2242408600893F06 /* GroupInfoEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7066C821C507C100E6DD14 /* GroupInfoEditViewController.m */; };
-		69A1615F2242408600893F06 /* MeSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A024A321C28B4500ABE387 /* MeSettingsViewController.m */; };
-		69A161602242408600893F06 /* ConversationSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2788F21D3BDB000E7EEB5 /* ConversationSearchResultViewController.m */; };
-		69A161612242408600893F06 /* MessageHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2789B21D614DD00E7EEB5 /* MessageHistoryViewController.m */; };
-		69A161622242408600893F06 /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B6221C10E7500A48CCB /* ResetPasswordViewController.m */; };
-		69A161632242408600893F06 /* GroupOnekeyEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2787F21D399AA00E7EEB5 /* GroupOnekeyEditViewController.m */; };
-		69A161642242408600893F06 /* FillInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B046AA121D09C32005356CF /* FillInfoViewController.m */; };
-		69A161652242408600893F06 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B2B21C0E88F00A48CCB /* MeViewController.m */; };
-		69A161662242408600893F06 /* StartupPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B4B21C0ED4B00A48CCB /* StartupPageViewController.m */; };
-		69A161672242408600893F06 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B4D21C0ED4B00A48CCB /* GuideViewController.m */; };
-		69A161682242408600893F06 /* GroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7066A421C351FB00E6DD14 /* GroupManager.m */; };
-		69A161692242408600893F06 /* PopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695BB02321F59D290009D0C1 /* PopupViewController.m */; };
-		69A1616A2242408600893F06 /* CloudInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B1921C0E60A00A48CCB /* CloudInterface.m */; };
-		69A1616B2242408600893F06 /* RCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2788721D3AE3A00E7EEB5 /* RCManager.m */; };
-		69A1616C2242408600893F06 /* GroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B10610621C8C1D100E6F8E6 /* GroupListViewController.m */; };
-		69A1616D2242408600893F06 /* NotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9C8944222670EB00CD7A06 /* NotificationCell.m */; };
-		69A1616E2242408600893F06 /* InfoDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A024AF21C34CA000ABE387 /* InfoDetailCell.m */; };
-		69A1616F2242408600893F06 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A024A921C28C1A00ABE387 /* WebViewController.m */; };
-		69A161702242408600893F06 /* MessageForwardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB286B21EF52F1002AB6DB /* MessageForwardCell.m */; };
-		69A161712242408600893F06 /* FriendRequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B046A9221CB6D4D005356CF /* FriendRequestCell.m */; };
-		69A161722242408600893F06 /* YuTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B5421C0ED4B00A48CCB /* YuTextField.m */; };
-		69A161732242408600893F06 /* ConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BAEBF4521C343030055AB13 /* ConversationViewController.m */; };
-		69A161742242408600893F06 /* GroupSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2787B21D389E600E7EEB5 /* GroupSelectViewController.m */; };
-		69A161752242408600893F06 /* GroupSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3588F621C624DA00AF117C /* GroupSettingViewController.m */; };
-		69A161762242408600893F06 /* ConversationSettingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2789321D4A3C100E7EEB5 /* ConversationSettingDataSource.m */; };
-		69A161772242408600893F06 /* StaffMessageForwardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BFBFA572232418C0094CB43 /* StaffMessageForwardViewController.m */; };
-		69A161782242408600893F06 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B2621C0E86F00A48CCB /* ContactsViewController.m */; };
-		69A161792242408600893F06 /* AFPlainTextResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B6521C1272600A48CCB /* AFPlainTextResponseSerializer.m */; };
-		69A1617A2242408600893F06 /* MessageSendManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B65993A21DDB8060078C904 /* MessageSendManager.m */; };
-		69A1617B2242408600893F06 /* GroupCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF5E10A220175E700C6D32C /* GroupCategoriesViewController.m */; };
-		69A1617C2242408600893F06 /* MeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A024A021C28AF400ABE387 /* MeInfoViewController.m */; };
-		69A1617D2242408600893F06 /* TextEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69784A8A21C376C400ED2E1A /* TextEditViewController.m */; };
-		69A1617E2242408600893F06 /* YuAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B4921C0ED4B00A48CCB /* YuAlertViewController.m */; };
-		69A1617F2242408600893F06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 694C08E821C0D0B900021B54 /* AppDelegate.m */; };
-		69A161802242408600893F06 /* UserDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3588F021C61EB000AF117C /* UserDataSource.m */; };
-		69A161812242408600893F06 /* MeSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC63E3B220AE2070094AB58 /* MeSettingCell.m */; };
-		69A161822242408600893F06 /* ContactSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69784A9021C3852700ED2E1A /* ContactSelectCell.m */; };
-		69A161832242408600893F06 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B2021C0E7BF00A48CCB /* MainTabBarController.m */; };
-		69A161842242408600893F06 /* GroupMemberSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1060FA21C7887B00E6F8E6 /* GroupMemberSelectViewController.m */; };
-		69A161852242408600893F06 /* GroupDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3588F321C620CE00AF117C /* GroupDataSource.m */; };
-		69A161862242408600893F06 /* OnekeyImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B31C70321D9C013000DC34B /* OnekeyImageCell.m */; };
-		69A161872242408600893F06 /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A0249921C26E6D00ABE387 /* ContactCell.m */; };
-		69A161882242408600893F06 /* NotificationCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9C894022266F9500CD7A06 /* NotificationCenterViewController.m */; };
-		69A161892242408600893F06 /* UserSelectHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1060FD21C7892100E6F8E6 /* UserSelectHeader.m */; };
-		69A1618A2242408600893F06 /* ContactsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BFD49321C22E1C00E15E7F /* ContactsManager.m */; };
-		69A1618B2242408600893F06 /* MePrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2786C21D24C3E00E7EEB5 /* MePrivacyViewController.m */; };
-		69A1618C2242408600893F06 /* PrivateSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7066BC21C3ABB800E6DD14 /* PrivateSettingViewController.m */; };
-		69A1618D2242408600893F06 /* NSDate+HiChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9C894822267D5B00CD7A06 /* NSDate+HiChat.m */; };
-		69A1618E2242408600893F06 /* SettingsBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2787321D262A800E7EEB5 /* SettingsBaseTableViewController.m */; };
-		69A1618F2242408600893F06 /* HistorySearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2789721D600B900E7EEB5 /* HistorySearchCell.m */; };
-		69A161902242408600893F06 /* MeInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A0249D21C27C6A00ABE387 /* MeInfoCell.m */; };
-		69A161912242408600893F06 /* MessageForwardSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BFBFA5B223242920094CB43 /* MessageForwardSearchResultViewController.m */; };
-		69A161922242408600893F06 /* PrivateUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7066BF21C3B6D700E6DD14 /* PrivateUserInfoCell.m */; };
-		69A161932242408600893F06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 694C08F921C0D0B900021B54 /* main.m */; };
-		69A161942242408600893F06 /* GroupListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B10610921C8C21A00E6F8E6 /* GroupListCell.m */; };
-		69A161952242408600893F06 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1060F421C6390900E6F8E6 /* UserManager.m */; };
-		69A161962242408600893F06 /* OnkeyTextEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B31C70721D9DFCF000DC34B /* OnkeyTextEditView.m */; };
-		69A161972242408600893F06 /* RCCustomMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6936868821CC93CA003BBF66 /* RCCustomMessage.m */; };
-		69A161982242408600893F06 /* PhotoViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0F6B7121F72DD3008E6A5F /* PhotoViewer.m */; };
-		69A161992242408600893F06 /* LoginPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B5021C0ED4B00A48CCB /* LoginPageViewController.m */; };
-		69A1619A2242408600893F06 /* MessageForwardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB286721EEFB64002AB6DB /* MessageForwardViewController.m */; };
-		69A1619B2242408600893F06 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B2321C0E7E400A48CCB /* MainNavigationController.m */; };
-		69A1619C2242408600893F06 /* ContactsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BFD49021C22C9F00E15E7F /* ContactsDataSource.m */; };
-		69A1619D2242408600893F06 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B5F21C10E4900A48CCB /* SignupViewController.m */; };
-		69A1619E2242408600893F06 /* ContactsSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69784A8D21C384A300ED2E1A /* ContactsSelectViewController.m */; };
-		69A1619F2242408600893F06 /* RCDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BAEBF4221C264DC0055AB13 /* RCDataSource.m */; };
-		69A161A02242408600893F06 /* FriendsRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B10610C21C8D85100E6F8E6 /* FriendsRequestViewController.m */; };
-		69A161A12242408600893F06 /* NotificationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9C894C2226821600CD7A06 /* NotificationDetailViewController.m */; };
-		69A161A22242408600893F06 /* PasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 691F761021C4A3A700FD5AFA /* PasswordViewController.m */; };
-		69A161A32242408600893F06 /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B3F21C0EC3300A48CCB /* AccountManager.m */; };
-		69A161A42242408600893F06 /* GroupMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1060F721C740E900E6F8E6 /* GroupMemberCell.m */; };
-		69A161A52242408600893F06 /* UploadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6936868C21CCA91D003BBF66 /* UploadManager.m */; };
-		69A161A62242408600893F06 /* ConversationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 694C08EB21C0D0B900021B54 /* ConversationListViewController.m */; };
-		69A161A72242408600893F06 /* VideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC278A321D7590D00E7EEB5 /* VideoPlayerView.m */; };
-		69A161A82242408600893F06 /* ContactDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B10611221CA118F00E6F8E6 /* ContactDetailViewController.m */; };
-		69A161A92242408600893F06 /* VersionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2788B21D3BD6B00E7EEB5 /* VersionView.m */; };
-		69A161AA2242408600893F06 /* GroupMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B10610021C78B8B00E6F8E6 /* GroupMemberListViewController.m */; };
-		69A161AB2242408600893F06 /* UniManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B3C21C0EBAE00A48CCB /* UniManager.m */; };
-		69A161AC2242408600893F06 /* GroupAnnounceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B046A9521CCABD1005356CF /* GroupAnnounceViewController.m */; };
-		69A161AD2242408600893F06 /* GroupSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF5E10E22019AEA00C6D32C /* GroupSelectCell.m */; };
-		69A161AE2242408600893F06 /* OneKeyAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2DFC422291974005FE1DC /* OneKeyAlertViewController.m */; };
-		69A161AF2242408600893F06 /* ReactiveWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6951E02221CFA679002D422A /* ReactiveWebViewController.m */; };
-		69A161B02242408600893F06 /* BaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B1421C0E27400A48CCB /* BaseManager.m */; };
-		69A161B12242408600893F06 /* InfoPortraitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69784A8721C3522200ED2E1A /* InfoPortraitCell.m */; };
-		69A161B22242408600893F06 /* NSUserDefaults+Kaixin.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B4621C0ED4B00A48CCB /* NSUserDefaults+Kaixin.m */; };
-		69A161B32242408600893F06 /* UIImage+HiChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF5E10621FDCFAA00C6D32C /* UIImage+HiChat.m */; };
-		69A161B42242408600893F06 /* GroupIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2789F21D6616400E7EEB5 /* GroupIconCell.m */; };
-		69A161B52242408600893F06 /* GroupMemberListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B10610321C7900200E6F8E6 /* GroupMemberListCell.m */; };
-		69A161B72242408600893F06 /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C42B6321E093DB00941462 /* Bugly.framework */; };
-		69A161BA2242408600893F06 /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = 69A670E721DEFD2800CF861E /* bootstrap.min.css */; };
-		69A161BB2242408600893F06 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 6951E01621CFA244002D422A /* index.js */; };
-		69A161BC2242408600893F06 /* loading_iOS.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BC63E44220AF1E80094AB58 /* loading_iOS.png */; };
-		69A161BD2242408600893F06 /* jquery.slim.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 69A670E821DEFD2800CF861E /* jquery.slim.min.js */; };
-		69A161BE2242408600893F06 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 6951E01521CFA244002D422A /* about.html */; };
-		69A161BF2242408600893F06 /* index.css in Resources */ = {isa = PBXBuildFile; fileRef = 6951E01721CFA244002D422A /* index.css */; };
-		69A161C02242408600893F06 /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6951E01E21CFA5D0002D422A /* app_icon.png */; };
-		69A161C12242408600893F06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BC2787721D36C4D00E7EEB5 /* LaunchScreen.storyboard */; };
-		69A161C22242408600893F06 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69784A9221C38E9000ED2E1A /* Localizable.strings */; };
-		69A161C32242408600893F06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 694C08F321C0D0B900021B54 /* Assets.xcassets */; };
 		69A670E921DEFD2800CF861E /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = 69A670E721DEFD2800CF861E /* bootstrap.min.css */; };
 		69A670EA21DEFD2800CF861E /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = 69A670E721DEFD2800CF861E /* bootstrap.min.css */; };
 		69A670EB21DEFD2800CF861E /* jquery.slim.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 69A670E821DEFD2800CF861E /* jquery.slim.min.js */; };
@@ -500,121 +304,9 @@
 		69C42B6521E093DC00941462 /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C42B6321E093DB00941462 /* Bugly.framework */; };
 		69CCEB5F21D09D3400CF8A43 /* MeAboutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CCEB5E21D09D3400CF8A43 /* MeAboutCell.m */; };
 		69CCEB6021D09D3400CF8A43 /* MeAboutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CCEB5E21D09D3400CF8A43 /* MeAboutCell.m */; };
-		69DDD01522439E1F00041BF3 /* GuidePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B5121C0ED4B00A48CCB /* GuidePageViewController.m */; };
-		69DDD01622439E1F00041BF3 /* NotificationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9C89512226831D00CD7A06 /* NotificationDataSource.m */; };
-		69DDD01722439E1F00041BF3 /* ContactDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B046A9921CDCE91005356CF /* ContactDetailCell.m */; };
-		69DDD01822439E1F00041BF3 /* TextEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD7E2221C3BC1B00E994E3 /* TextEditCell.m */; };
-		69DDD01922439E1F00041BF3 /* MeAboutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CCEB5E21D09D3400CF8A43 /* MeAboutCell.m */; };
-		69DDD01A22439E1F00041BF3 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 69BFD48A21C22BDB00E15E7F /* Model.xcdatamodeld */; };
-		69DDD01B22439E1F00041BF3 /* AFDataResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B6421C1272600A48CCB /* AFDataResponseSerializer.m */; };
-		69DDD01C22439E1F00041BF3 /* FriendBlackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2787021D2506300E7EEB5 /* FriendBlackListViewController.m */; };
-		69DDD01D22439E1F00041BF3 /* FriendSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B10610F21C900F800E6F8E6 /* FriendSearchViewController.m */; };
-		69DDD01E22439E1F00041BF3 /* TSAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695BB02821F59D5E0009D0C1 /* TSAuthViewController.m */; };
-		69DDD01F22439E1F00041BF3 /* NotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC21FB4223E76410025E015 /* NotificationView.m */; };
-		69DDD02022439E1F00041BF3 /* GroupInfoEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7066C821C507C100E6DD14 /* GroupInfoEditViewController.m */; };
-		69DDD02122439E1F00041BF3 /* MeSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A024A321C28B4500ABE387 /* MeSettingsViewController.m */; };
-		69DDD02222439E1F00041BF3 /* ConversationSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2788F21D3BDB000E7EEB5 /* ConversationSearchResultViewController.m */; };
-		69DDD02322439E1F00041BF3 /* MessageHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2789B21D614DD00E7EEB5 /* MessageHistoryViewController.m */; };
-		69DDD02422439E1F00041BF3 /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B6221C10E7500A48CCB /* ResetPasswordViewController.m */; };
-		69DDD02522439E1F00041BF3 /* GroupOnekeyEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2787F21D399AA00E7EEB5 /* GroupOnekeyEditViewController.m */; };
-		69DDD02622439E1F00041BF3 /* FillInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B046AA121D09C32005356CF /* FillInfoViewController.m */; };
-		69DDD02722439E1F00041BF3 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B2B21C0E88F00A48CCB /* MeViewController.m */; };
-		69DDD02822439E1F00041BF3 /* StartupPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B4B21C0ED4B00A48CCB /* StartupPageViewController.m */; };
-		69DDD02922439E1F00041BF3 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B4D21C0ED4B00A48CCB /* GuideViewController.m */; };
-		69DDD02A22439E1F00041BF3 /* GroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7066A421C351FB00E6DD14 /* GroupManager.m */; };
-		69DDD02B22439E1F00041BF3 /* PopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695BB02321F59D290009D0C1 /* PopupViewController.m */; };
-		69DDD02C22439E1F00041BF3 /* CloudInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B1921C0E60A00A48CCB /* CloudInterface.m */; };
-		69DDD02D22439E1F00041BF3 /* RCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2788721D3AE3A00E7EEB5 /* RCManager.m */; };
-		69DDD02E22439E1F00041BF3 /* GroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B10610621C8C1D100E6F8E6 /* GroupListViewController.m */; };
-		69DDD02F22439E1F00041BF3 /* NotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9C8944222670EB00CD7A06 /* NotificationCell.m */; };
-		69DDD03022439E1F00041BF3 /* InfoDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A024AF21C34CA000ABE387 /* InfoDetailCell.m */; };
-		69DDD03122439E1F00041BF3 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A024A921C28C1A00ABE387 /* WebViewController.m */; };
-		69DDD03222439E1F00041BF3 /* MessageForwardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB286B21EF52F1002AB6DB /* MessageForwardCell.m */; };
-		69DDD03322439E1F00041BF3 /* FriendRequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B046A9221CB6D4D005356CF /* FriendRequestCell.m */; };
-		69DDD03422439E1F00041BF3 /* YuTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B5421C0ED4B00A48CCB /* YuTextField.m */; };
-		69DDD03522439E1F00041BF3 /* ConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BAEBF4521C343030055AB13 /* ConversationViewController.m */; };
-		69DDD03622439E1F00041BF3 /* GroupSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2787B21D389E600E7EEB5 /* GroupSelectViewController.m */; };
-		69DDD03722439E1F00041BF3 /* GroupSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3588F621C624DA00AF117C /* GroupSettingViewController.m */; };
-		69DDD03822439E1F00041BF3 /* ConversationSettingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2789321D4A3C100E7EEB5 /* ConversationSettingDataSource.m */; };
-		69DDD03922439E1F00041BF3 /* StaffMessageForwardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BFBFA572232418C0094CB43 /* StaffMessageForwardViewController.m */; };
-		69DDD03A22439E1F00041BF3 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B2621C0E86F00A48CCB /* ContactsViewController.m */; };
-		69DDD03B22439E1F00041BF3 /* AFPlainTextResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B6521C1272600A48CCB /* AFPlainTextResponseSerializer.m */; };
-		69DDD03C22439E1F00041BF3 /* MessageSendManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B65993A21DDB8060078C904 /* MessageSendManager.m */; };
-		69DDD03D22439E1F00041BF3 /* GroupCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF5E10A220175E700C6D32C /* GroupCategoriesViewController.m */; };
-		69DDD03E22439E1F00041BF3 /* MeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A024A021C28AF400ABE387 /* MeInfoViewController.m */; };
-		69DDD03F22439E1F00041BF3 /* TextEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69784A8A21C376C400ED2E1A /* TextEditViewController.m */; };
-		69DDD04022439E1F00041BF3 /* YuAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B4921C0ED4B00A48CCB /* YuAlertViewController.m */; };
-		69DDD04122439E1F00041BF3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 694C08E821C0D0B900021B54 /* AppDelegate.m */; };
-		69DDD04222439E1F00041BF3 /* UserDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3588F021C61EB000AF117C /* UserDataSource.m */; };
-		69DDD04322439E1F00041BF3 /* MeSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC63E3B220AE2070094AB58 /* MeSettingCell.m */; };
-		69DDD04422439E1F00041BF3 /* ContactSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69784A9021C3852700ED2E1A /* ContactSelectCell.m */; };
-		69DDD04522439E1F00041BF3 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B2021C0E7BF00A48CCB /* MainTabBarController.m */; };
-		69DDD04622439E1F00041BF3 /* GroupMemberSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1060FA21C7887B00E6F8E6 /* GroupMemberSelectViewController.m */; };
-		69DDD04722439E1F00041BF3 /* GroupDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3588F321C620CE00AF117C /* GroupDataSource.m */; };
-		69DDD04822439E1F00041BF3 /* OnekeyImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B31C70321D9C013000DC34B /* OnekeyImageCell.m */; };
-		69DDD04922439E1F00041BF3 /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A0249921C26E6D00ABE387 /* ContactCell.m */; };
-		69DDD04A22439E1F00041BF3 /* NotificationCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9C894022266F9500CD7A06 /* NotificationCenterViewController.m */; };
-		69DDD04B22439E1F00041BF3 /* UserSelectHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1060FD21C7892100E6F8E6 /* UserSelectHeader.m */; };
-		69DDD04C22439E1F00041BF3 /* ContactsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BFD49321C22E1C00E15E7F /* ContactsManager.m */; };
-		69DDD04D22439E1F00041BF3 /* MePrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2786C21D24C3E00E7EEB5 /* MePrivacyViewController.m */; };
-		69DDD04E22439E1F00041BF3 /* PrivateSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7066BC21C3ABB800E6DD14 /* PrivateSettingViewController.m */; };
-		69DDD04F22439E1F00041BF3 /* NSDate+HiChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9C894822267D5B00CD7A06 /* NSDate+HiChat.m */; };
-		69DDD05022439E1F00041BF3 /* SettingsBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2787321D262A800E7EEB5 /* SettingsBaseTableViewController.m */; };
-		69DDD05122439E1F00041BF3 /* HistorySearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2789721D600B900E7EEB5 /* HistorySearchCell.m */; };
-		69DDD05222439E1F00041BF3 /* MeInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A0249D21C27C6A00ABE387 /* MeInfoCell.m */; };
-		69DDD05322439E1F00041BF3 /* MessageForwardSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BFBFA5B223242920094CB43 /* MessageForwardSearchResultViewController.m */; };
-		69DDD05422439E1F00041BF3 /* PrivateUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7066BF21C3B6D700E6DD14 /* PrivateUserInfoCell.m */; };
-		69DDD05522439E1F00041BF3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 694C08F921C0D0B900021B54 /* main.m */; };
-		69DDD05622439E1F00041BF3 /* GroupListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B10610921C8C21A00E6F8E6 /* GroupListCell.m */; };
-		69DDD05722439E1F00041BF3 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1060F421C6390900E6F8E6 /* UserManager.m */; };
-		69DDD05822439E1F00041BF3 /* OnkeyTextEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B31C70721D9DFCF000DC34B /* OnkeyTextEditView.m */; };
-		69DDD05922439E1F00041BF3 /* RCCustomMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6936868821CC93CA003BBF66 /* RCCustomMessage.m */; };
-		69DDD05A22439E1F00041BF3 /* PhotoViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0F6B7121F72DD3008E6A5F /* PhotoViewer.m */; };
-		69DDD05B22439E1F00041BF3 /* LoginPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B5021C0ED4B00A48CCB /* LoginPageViewController.m */; };
-		69DDD05C22439E1F00041BF3 /* MessageForwardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB286721EEFB64002AB6DB /* MessageForwardViewController.m */; };
-		69DDD05D22439E1F00041BF3 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B2321C0E7E400A48CCB /* MainNavigationController.m */; };
-		69DDD05E22439E1F00041BF3 /* ContactsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BFD49021C22C9F00E15E7F /* ContactsDataSource.m */; };
-		69DDD05F22439E1F00041BF3 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B5F21C10E4900A48CCB /* SignupViewController.m */; };
-		69DDD06022439E1F00041BF3 /* ContactsSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69784A8D21C384A300ED2E1A /* ContactsSelectViewController.m */; };
-		69DDD06122439E1F00041BF3 /* RCDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BAEBF4221C264DC0055AB13 /* RCDataSource.m */; };
-		69DDD06222439E1F00041BF3 /* FriendsRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B10610C21C8D85100E6F8E6 /* FriendsRequestViewController.m */; };
-		69DDD06322439E1F00041BF3 /* NotificationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9C894C2226821600CD7A06 /* NotificationDetailViewController.m */; };
-		69DDD06422439E1F00041BF3 /* PasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 691F761021C4A3A700FD5AFA /* PasswordViewController.m */; };
-		69DDD06522439E1F00041BF3 /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B3F21C0EC3300A48CCB /* AccountManager.m */; };
-		69DDD06622439E1F00041BF3 /* GroupMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1060F721C740E900E6F8E6 /* GroupMemberCell.m */; };
-		69DDD06722439E1F00041BF3 /* UploadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6936868C21CCA91D003BBF66 /* UploadManager.m */; };
-		69DDD06822439E1F00041BF3 /* ConversationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 694C08EB21C0D0B900021B54 /* ConversationListViewController.m */; };
-		69DDD06922439E1F00041BF3 /* VideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC278A321D7590D00E7EEB5 /* VideoPlayerView.m */; };
-		69DDD06A22439E1F00041BF3 /* ContactDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B10611221CA118F00E6F8E6 /* ContactDetailViewController.m */; };
-		69DDD06B22439E1F00041BF3 /* VersionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2788B21D3BD6B00E7EEB5 /* VersionView.m */; };
-		69DDD06C22439E1F00041BF3 /* GroupMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B10610021C78B8B00E6F8E6 /* GroupMemberListViewController.m */; };
-		69DDD06D22439E1F00041BF3 /* UniManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B3C21C0EBAE00A48CCB /* UniManager.m */; };
-		69DDD06E22439E1F00041BF3 /* GroupAnnounceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B046A9521CCABD1005356CF /* GroupAnnounceViewController.m */; };
-		69DDD06F22439E1F00041BF3 /* GroupSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF5E10E22019AEA00C6D32C /* GroupSelectCell.m */; };
-		69DDD07022439E1F00041BF3 /* OneKeyAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2DFC422291974005FE1DC /* OneKeyAlertViewController.m */; };
-		69DDD07122439E1F00041BF3 /* ReactiveWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6951E02221CFA679002D422A /* ReactiveWebViewController.m */; };
-		69DDD07222439E1F00041BF3 /* BaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B1421C0E27400A48CCB /* BaseManager.m */; };
-		69DDD07322439E1F00041BF3 /* InfoPortraitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69784A8721C3522200ED2E1A /* InfoPortraitCell.m */; };
-		69DDD07422439E1F00041BF3 /* NSUserDefaults+Kaixin.m in Sources */ = {isa = PBXBuildFile; fileRef = 69980B4621C0ED4B00A48CCB /* NSUserDefaults+Kaixin.m */; };
-		69DDD07522439E1F00041BF3 /* UIImage+HiChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF5E10621FDCFAA00C6D32C /* UIImage+HiChat.m */; };
-		69DDD07622439E1F00041BF3 /* GroupIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2789F21D6616400E7EEB5 /* GroupIconCell.m */; };
-		69DDD07722439E1F00041BF3 /* GroupMemberListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B10610321C7900200E6F8E6 /* GroupMemberListCell.m */; };
-		69DDD07922439E1F00041BF3 /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C42B6321E093DB00941462 /* Bugly.framework */; };
-		69DDD07C22439E1F00041BF3 /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = 69A670E721DEFD2800CF861E /* bootstrap.min.css */; };
-		69DDD07D22439E1F00041BF3 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 6951E01621CFA244002D422A /* index.js */; };
-		69DDD07E22439E1F00041BF3 /* loading_iOS.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BC63E44220AF1E80094AB58 /* loading_iOS.png */; };
-		69DDD07F22439E1F00041BF3 /* jquery.slim.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 69A670E821DEFD2800CF861E /* jquery.slim.min.js */; };
-		69DDD08022439E1F00041BF3 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 6951E01521CFA244002D422A /* about.html */; };
-		69DDD08122439E1F00041BF3 /* index.css in Resources */ = {isa = PBXBuildFile; fileRef = 6951E01721CFA244002D422A /* index.css */; };
-		69DDD08222439E1F00041BF3 /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6951E01E21CFA5D0002D422A /* app_icon.png */; };
-		69DDD08322439E1F00041BF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BC2787721D36C4D00E7EEB5 /* LaunchScreen.storyboard */; };
-		69DDD08422439E1F00041BF3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69784A9221C38E9000ED2E1A /* Localizable.strings */; };
-		69DDD08522439E1F00041BF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 694C08F321C0D0B900021B54 /* Assets.xcassets */; };
 		69FD7E2321C3BC1B00E994E3 /* TextEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD7E2221C3BC1B00E994E3 /* TextEditCell.m */; };
 		7D09E233B827BF212B488ED2 /* libPods-hiChat_enterprise_pub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EA6EF434E2B55B964C0160 /* libPods-hiChat_enterprise_pub.a */; };
 		D5EA57097455E698507DA6A4 /* libPods-hiChat_enterprise_dev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B32A61620FFDA7B9F656A8 /* libPods-hiChat_enterprise_dev.a */; };
-		DAA8CF3800EE9E7405ACCBBD /* libPods-hiChat_app_dev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A213300FD034069A398C0582 /* libPods-hiChat_app_dev.a */; };
-		EF13A1A676D1913F19C639FA /* libPods-hiChat_app_store.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F0B4E79315F914D4D22536 /* libPods-hiChat_app_store.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -668,7 +360,6 @@
 		2B35D9C322B9FC1C00088F76 /* CheckinData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckinData.h; sourceTree = "<group>"; };
 		2B35D9C422B9FC1C00088F76 /* CheckinData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckinData.m; sourceTree = "<group>"; };
 		2B5227162301270800EF941B /* UIDevice+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+GF.m"; sourceTree = "<group>"; };
-		2B5227172301270800EF941B /* NSManagedObject+VICoreDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+VICoreDataSource.h"; sourceTree = "<group>"; };
 		2B52271C2301270800EF941B /* NSFileManager+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+GF.m"; sourceTree = "<group>"; };
 		2B52271D2301270800EF941B /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
 		2B52271E2301270800EF941B /* PopoverViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCell.h; sourceTree = "<group>"; };
@@ -679,7 +370,6 @@
 		2B5227242301270800EF941B /* NSAttributedString+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+GF.m"; sourceTree = "<group>"; };
 		2B5227292301270800EF941B /* UICollectionViewCell+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+GF.h"; sourceTree = "<group>"; };
 		2B52272C2301270800EF941B /* UITableViewCell+VI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+VI.h"; sourceTree = "<group>"; };
-		2B52272E2301270800EF941B /* VIDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIDataSource.h; sourceTree = "<group>"; };
 		2B52272F2301270800EF941B /* GFPhotosDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPhotosDataSource.h; sourceTree = "<group>"; };
 		2B5227312301270800EF941B /* GFPhotoBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPhotoBrowserViewController.h; sourceTree = "<group>"; };
 		2B5227332301270800EF941B /* UIView+VI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+VI.m"; sourceTree = "<group>"; };
@@ -714,8 +404,6 @@
 		2B5227652301270800EF941B /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
 		2B5227662301270800EF941B /* PopoverViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewCell.m; sourceTree = "<group>"; };
 		2B5227672301270800EF941B /* NSFileManager+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+GF.h"; sourceTree = "<group>"; };
-		2B52276A2301270800EF941B /* VICoreDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VICoreDataSource.h; sourceTree = "<group>"; };
-		2B52276B2301270800EF941B /* NSManagedObject+VICoreDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+VICoreDataSource.m"; sourceTree = "<group>"; };
 		2B52276C2301270800EF941B /* UIDevice+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+GF.h"; sourceTree = "<group>"; };
 		2B52276D2301270800EF941B /* VIMessageHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIMessageHUD.h; sourceTree = "<group>"; };
 		2B52276E2301270800EF941B /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
@@ -729,7 +417,6 @@
 		2B5227772301270800EF941B /* GFPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPhotoBrowser.h; sourceTree = "<group>"; };
 		2B5227782301270800EF941B /* GFPhotosDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFPhotosDataSource.m; sourceTree = "<group>"; };
 		2B52277A2301270800EF941B /* UITableViewCell+VI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+VI.m"; sourceTree = "<group>"; };
-		2B52277B2301270800EF941B /* VIDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIDataSource.m; sourceTree = "<group>"; };
 		2B52277C2301270800EF941B /* UICollectionViewCell+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+GF.m"; sourceTree = "<group>"; };
 		2B52277F2301270800EF941B /* VITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VITableView.h; sourceTree = "<group>"; };
 		2B5227802301270800EF941B /* NSBundle+GFPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+GFPhotoBrowser.m"; sourceTree = "<group>"; };
@@ -917,7 +604,6 @@
 		69A024A921C28C1A00ABE387 /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		69A024AE21C34CA000ABE387 /* InfoDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoDetailCell.h; sourceTree = "<group>"; };
 		69A024AF21C34CA000ABE387 /* InfoDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoDetailCell.m; sourceTree = "<group>"; };
-		69A161C92242408600893F06 /* hiChat_app_store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hiChat_app_store.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69A161CB224244FB00893F06 /* info_app_store.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info_app_store.plist; sourceTree = "<group>"; };
 		69A161CC22425C5300893F06 /* hiChat_app_store.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = hiChat_app_store.entitlements; sourceTree = "<group>"; };
 		69A670E721DEFD2800CF861E /* bootstrap.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = bootstrap.min.css; sourceTree = "<group>"; };
@@ -930,7 +616,6 @@
 		69C42B6321E093DB00941462 /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugly.framework; sourceTree = "<group>"; };
 		69CCEB5D21D09D3400CF8A43 /* MeAboutCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeAboutCell.h; sourceTree = "<group>"; };
 		69CCEB5E21D09D3400CF8A43 /* MeAboutCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeAboutCell.m; sourceTree = "<group>"; };
-		69DDD08B22439E1F00041BF3 /* hiChat_app_dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hiChat_app_dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69DDD08D22439F4C00041BF3 /* hiChat_app_dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = hiChat_app_dev.plist; sourceTree = "<group>"; };
 		69FD7E2121C3BC1B00E994E3 /* TextEditCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextEditCell.h; sourceTree = "<group>"; };
 		69FD7E2221C3BC1B00E994E3 /* TextEditCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextEditCell.m; sourceTree = "<group>"; };
@@ -960,24 +645,6 @@
 			files = (
 				69C42B6521E093DC00941462 /* Bugly.framework in Frameworks */,
 				7D09E233B827BF212B488ED2 /* libPods-hiChat_enterprise_pub.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		69A161B62242408600893F06 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				69A161B72242408600893F06 /* Bugly.framework in Frameworks */,
-				EF13A1A676D1913F19C639FA /* libPods-hiChat_app_store.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		69DDD07822439E1F00041BF3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				69DDD07922439E1F00041BF3 /* Bugly.framework in Frameworks */,
-				DAA8CF3800EE9E7405ACCBBD /* libPods-hiChat_app_dev.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1033,8 +700,6 @@
 				2B5227422301270800EF941B /* NSDateFormatter+GF.m */,
 				2B5227672301270800EF941B /* NSFileManager+GF.h */,
 				2B52271C2301270800EF941B /* NSFileManager+GF.m */,
-				2B5227172301270800EF941B /* NSManagedObject+VICoreDataSource.h */,
-				2B52276B2301270800EF941B /* NSManagedObject+VICoreDataSource.m */,
 				2B5227452301270800EF941B /* NSString+GF.h */,
 				2B5227832301270800EF941B /* NSString+GF.m */,
 				2B5227222301270800EF941B /* PopoverAction.h */,
@@ -1072,9 +737,6 @@
 				2B5227762301270800EF941B /* VICocoaTools.h */,
 				2B5227492301270800EF941B /* VICollectionView.h */,
 				2B5227992301270800EF941B /* VICollectionView.m */,
-				2B52276A2301270800EF941B /* VICoreDataSource.h */,
-				2B52272E2301270800EF941B /* VIDataSource.h */,
-				2B52277B2301270800EF941B /* VIDataSource.m */,
 				2B52276D2301270800EF941B /* VIMessageHUD.h */,
 				2B52273A2301270800EF941B /* VIMessageHUD.m */,
 				2B5227532301270800EF941B /* VIPinField.h */,
@@ -1221,8 +883,6 @@
 			children = (
 				694C08E421C0D0B900021B54 /* hiChat_enterprise_dev.app */,
 				698C79B821CA17EA00F96D88 /* hiChat_enterprise_pub.app */,
-				69A161C92242408600893F06 /* hiChat_app_store.app */,
-				69DDD08B22439E1F00041BF3 /* hiChat_app_dev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1602,44 +1262,6 @@
 			productReference = 698C79B821CA17EA00F96D88 /* hiChat_enterprise_pub.app */;
 			productType = "com.apple.product-type.application";
 		};
-		69A161502242408600893F06 /* hiChat_app_store */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 69A161C62242408600893F06 /* Build configuration list for PBXNativeTarget "hiChat_app_store" */;
-			buildPhases = (
-				69A161512242408600893F06 /* [CP] Check Pods Manifest.lock */,
-				69A161522242408600893F06 /* Sources */,
-				69A161B62242408600893F06 /* Frameworks */,
-				69A161B92242408600893F06 /* Resources */,
-				69A161C42242408600893F06 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = hiChat_app_store;
-			productName = hiChat;
-			productReference = 69A161C92242408600893F06 /* hiChat_app_store.app */;
-			productType = "com.apple.product-type.application";
-		};
-		69DDD01222439E1F00041BF3 /* hiChat_app_dev */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 69DDD08822439E1F00041BF3 /* Build configuration list for PBXNativeTarget "hiChat_app_dev" */;
-			buildPhases = (
-				69DDD01322439E1F00041BF3 /* [CP] Check Pods Manifest.lock */,
-				69DDD01422439E1F00041BF3 /* Sources */,
-				69DDD07822439E1F00041BF3 /* Frameworks */,
-				69DDD07B22439E1F00041BF3 /* Resources */,
-				69DDD08622439E1F00041BF3 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = hiChat_app_dev;
-			productName = hiChat;
-			productReference = 69DDD08B22439E1F00041BF3 /* hiChat_app_dev.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1679,16 +1301,6 @@
 							};
 						};
 					};
-					69A161502242408600893F06 = {
-						SystemCapabilities = {
-							com.apple.Push = {
-								enabled = 1;
-							};
-							com.apple.iCloud = {
-								enabled = 1;
-							};
-						};
-					};
 				};
 			};
 			buildConfigurationList = 694C08DF21C0D0B900021B54 /* Build configuration list for PBXProject "hiChat" */;
@@ -1708,8 +1320,6 @@
 			targets = (
 				694C08E321C0D0B900021B54 /* hiChat_enterprise_dev */,
 				698C797221CA17EA00F96D88 /* hiChat_enterprise_pub */,
-				69DDD01222439E1F00041BF3 /* hiChat_app_dev */,
-				69A161502242408600893F06 /* hiChat_app_store */,
 			);
 		};
 /* End PBXProject section */
@@ -1746,40 +1356,6 @@
 				2BC2787921D36C4D00E7EEB5 /* LaunchScreen.storyboard in Resources */,
 				698C79B121CA17EA00F96D88 /* Localizable.strings in Resources */,
 				698C79B221CA17EA00F96D88 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		69A161B92242408600893F06 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				69A161BA2242408600893F06 /* bootstrap.min.css in Resources */,
-				69A161BB2242408600893F06 /* index.js in Resources */,
-				69A161BC2242408600893F06 /* loading_iOS.png in Resources */,
-				69A161BD2242408600893F06 /* jquery.slim.min.js in Resources */,
-				69A161BE2242408600893F06 /* about.html in Resources */,
-				69A161BF2242408600893F06 /* index.css in Resources */,
-				69A161C02242408600893F06 /* app_icon.png in Resources */,
-				69A161C12242408600893F06 /* LaunchScreen.storyboard in Resources */,
-				69A161C22242408600893F06 /* Localizable.strings in Resources */,
-				69A161C32242408600893F06 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		69DDD07B22439E1F00041BF3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				69DDD07C22439E1F00041BF3 /* bootstrap.min.css in Resources */,
-				69DDD07D22439E1F00041BF3 /* index.js in Resources */,
-				69DDD07E22439E1F00041BF3 /* loading_iOS.png in Resources */,
-				69DDD07F22439E1F00041BF3 /* jquery.slim.min.js in Resources */,
-				69DDD08022439E1F00041BF3 /* about.html in Resources */,
-				69DDD08122439E1F00041BF3 /* index.css in Resources */,
-				69DDD08222439E1F00041BF3 /* app_icon.png in Resources */,
-				69DDD08322439E1F00041BF3 /* LaunchScreen.storyboard in Resources */,
-				69DDD08422439E1F00041BF3 /* Localizable.strings in Resources */,
-				69DDD08522439E1F00041BF3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1864,84 +1440,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-hiChat_enterprise_pub/Pods-hiChat_enterprise_pub-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		69A161512242408600893F06 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-hiChat_app_store-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		69A161C42242408600893F06 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-hiChat_app_store/Pods-hiChat_app_store-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-hiChat_app_store/Pods-hiChat_app_store-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-hiChat_app_store/Pods-hiChat_app_store-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		69DDD01322439E1F00041BF3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-hiChat_app_dev-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		69DDD08622439E1F00041BF3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-hiChat_app_dev/Pods-hiChat_app_dev-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-hiChat_app_dev/Pods-hiChat_app_dev-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-hiChat_app_dev/Pods-hiChat_app_dev-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1967,7 +1465,6 @@
 				2BC21FB5223E76410025E015 /* NotificationView.m in Sources */,
 				2B5228662301270800EF941B /* PopoverView.m in Sources */,
 				2B31FE8622547AE900CC5BF9 /* UINavigationController+PushPopCrashFix.m in Sources */,
-				2B52286E2301270800EF941B /* NSManagedObject+VICoreDataSource.m in Sources */,
 				2B5228722301270800EF941B /* NSData+GF.m in Sources */,
 				69980B6321C10E7500A48CCB /* ResetPasswordViewController.m in Sources */,
 				69980B2C21C0E88F00A48CCB /* MeViewController.m in Sources */,
@@ -1997,7 +1494,6 @@
 				2BCB286C21EF52F1002AB6DB /* MessageForwardCell.m in Sources */,
 				2B5227B62301270800EF941B /* NSAttributedString+GF.m in Sources */,
 				2BAEBF4621C343030055AB13 /* ConversationViewController.m in Sources */,
-				2B5228862301270800EF941B /* VIDataSource.m in Sources */,
 				2B3588F721C624DA00AF117C /* GroupSettingViewController.m in Sources */,
 				69980B2721C0E86F00A48CCB /* ContactsViewController.m in Sources */,
 				69980B6921C1272700A48CCB /* AFPlainTextResponseSerializer.m in Sources */,
@@ -2114,7 +1610,6 @@
 				2BC21FB6223E76410025E015 /* NotificationView.m in Sources */,
 				2B5228672301270800EF941B /* PopoverView.m in Sources */,
 				2B31FE8722547AE900CC5BF9 /* UINavigationController+PushPopCrashFix.m in Sources */,
-				2B52286F2301270800EF941B /* NSManagedObject+VICoreDataSource.m in Sources */,
 				2B5228732301270800EF941B /* NSData+GF.m in Sources */,
 				698C797921CA17EA00F96D88 /* GroupInfoEditViewController.m in Sources */,
 				698C797A21CA17EA00F96D88 /* MeSettingsViewController.m in Sources */,
@@ -2144,7 +1639,6 @@
 				2BCB286D21EF52F1002AB6DB /* MessageForwardCell.m in Sources */,
 				2B5227B72301270800EF941B /* NSAttributedString+GF.m in Sources */,
 				6951E02621CFA98F002D422A /* FriendRequestCell.m in Sources */,
-				2B5228872301270800EF941B /* VIDataSource.m in Sources */,
 				698C798521CA17EA00F96D88 /* YuTextField.m in Sources */,
 				698C798621CA17EA00F96D88 /* ConversationViewController.m in Sources */,
 				2BC2787D21D389E600E7EEB5 /* GroupSelectViewController.m in Sources */,
@@ -2239,300 +1733,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		69A161522242408600893F06 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2B52289D2301270800EF941B /* NSString+GF.m in Sources */,
-				69A161532242408600893F06 /* GuidePageViewController.m in Sources */,
-				69A161542242408600893F06 /* NotificationDataSource.m in Sources */,
-				2B5228612301270800EF941B /* UIColor+GF.m in Sources */,
-				69A161552242408600893F06 /* ContactDetailCell.m in Sources */,
-				69A161562242408600893F06 /* TextEditCell.m in Sources */,
-				69A161572242408600893F06 /* MeAboutCell.m in Sources */,
-				69A161582242408600893F06 /* Model.xcdatamodeld in Sources */,
-				69A161592242408600893F06 /* AFDataResponseSerializer.m in Sources */,
-				2B5228812301270800EF941B /* GFPhotosDataSource.m in Sources */,
-				2B5227DD2301270800EF941B /* UIView+VI.m in Sources */,
-				69A1615A2242408600893F06 /* FriendBlackListViewController.m in Sources */,
-				69A1615B2242408600893F06 /* FriendSearchViewController.m in Sources */,
-				2B5228192301270800EF941B /* GFPhotoBrowserNavigationController.m in Sources */,
-				69A1615C2242408600893F06 /* TSAuthViewController.m in Sources */,
-				69A1615D2242408600893F06 /* NotificationView.m in Sources */,
-				2B5228692301270800EF941B /* PopoverView.m in Sources */,
-				2B31FE8922547AE900CC5BF9 /* UINavigationController+PushPopCrashFix.m in Sources */,
-				2B5228712301270800EF941B /* NSManagedObject+VICoreDataSource.m in Sources */,
-				2B5228752301270800EF941B /* NSData+GF.m in Sources */,
-				69A1615E2242408600893F06 /* GroupInfoEditViewController.m in Sources */,
-				69A1615F2242408600893F06 /* MeSettingsViewController.m in Sources */,
-				2B5228912301270800EF941B /* NSBundle+GFPhotoBrowser.m in Sources */,
-				69A161602242408600893F06 /* ConversationSearchResultViewController.m in Sources */,
-				69A161612242408600893F06 /* MessageHistoryViewController.m in Sources */,
-				2B52285D2301270800EF941B /* PopoverAction.m in Sources */,
-				2B52287D2301270800EF941B /* GFPhotoBrowserViewController.m in Sources */,
-				69A161622242408600893F06 /* ResetPasswordViewController.m in Sources */,
-				69A161632242408600893F06 /* GroupOnekeyEditViewController.m in Sources */,
-				69A161642242408600893F06 /* FillInfoViewController.m in Sources */,
-				69A161652242408600893F06 /* MeViewController.m in Sources */,
-				2B52288D2301270800EF941B /* UICollectionViewCell+GF.m in Sources */,
-				69A161662242408600893F06 /* StartupPageViewController.m in Sources */,
-				69A161672242408600893F06 /* GuideViewController.m in Sources */,
-				69A161682242408600893F06 /* GroupManager.m in Sources */,
-				69A161692242408600893F06 /* PopupViewController.m in Sources */,
-				69A1616A2242408600893F06 /* CloudInterface.m in Sources */,
-				2B52282D2301270800EF941B /* CommonInterface.m in Sources */,
-				69A1616B2242408600893F06 /* RCManager.m in Sources */,
-				2B5227AD2301270800EF941B /* NSFileManager+GF.m in Sources */,
-				69A1616C2242408600893F06 /* GroupListViewController.m in Sources */,
-				69A1616D2242408600893F06 /* NotificationCell.m in Sources */,
-				69A1616E2242408600893F06 /* InfoDetailCell.m in Sources */,
-				2B5228392301270800EF941B /* UITableViewHeaderFooterView+VI.m in Sources */,
-				69A1616F2242408600893F06 /* WebViewController.m in Sources */,
-				69A161702242408600893F06 /* MessageForwardCell.m in Sources */,
-				2B5227B92301270800EF941B /* NSAttributedString+GF.m in Sources */,
-				69A161712242408600893F06 /* FriendRequestCell.m in Sources */,
-				2B5228892301270800EF941B /* VIDataSource.m in Sources */,
-				69A161722242408600893F06 /* YuTextField.m in Sources */,
-				69A161732242408600893F06 /* ConversationViewController.m in Sources */,
-				69A161742242408600893F06 /* GroupSelectViewController.m in Sources */,
-				2B5228B92301270800EF941B /* VIPinField.m in Sources */,
-				69A161752242408600893F06 /* GroupSettingViewController.m in Sources */,
-				69A161762242408600893F06 /* ConversationSettingDataSource.m in Sources */,
-				69A161772242408600893F06 /* StaffMessageForwardViewController.m in Sources */,
-				69A161782242408600893F06 /* ContactsViewController.m in Sources */,
-				2B5228AD2301270800EF941B /* GFPhotoCell.m in Sources */,
-				2B5227F12301270800EF941B /* VIMessageHUD.m in Sources */,
-				2B35D9C822B9FC1C00088F76 /* CheckinData.m in Sources */,
-				69A161792242408600893F06 /* AFPlainTextResponseSerializer.m in Sources */,
-				69A1617A2242408600893F06 /* MessageSendManager.m in Sources */,
-				69A1617B2242408600893F06 /* GroupCategoriesViewController.m in Sources */,
-				2B5228592301270800EF941B /* UIView+Shake.m in Sources */,
-				69A1617C2242408600893F06 /* MeInfoViewController.m in Sources */,
-				69A1617D2242408600893F06 /* TextEditViewController.m in Sources */,
-				69A1617E2242408600893F06 /* YuAlertViewController.m in Sources */,
-				69A1617F2242408600893F06 /* AppDelegate.m in Sources */,
-				69A161802242408600893F06 /* UserDataSource.m in Sources */,
-				69A161812242408600893F06 /* MeSettingCell.m in Sources */,
-				69A161822242408600893F06 /* ContactSelectCell.m in Sources */,
-				69A161832242408600893F06 /* MainTabBarController.m in Sources */,
-				69A161842242408600893F06 /* GroupMemberSelectViewController.m in Sources */,
-				2B5228412301270800EF941B /* UIScreen+GF.m in Sources */,
-				69A161852242408600893F06 /* GroupDataSource.m in Sources */,
-				2B5228852301270800EF941B /* UITableViewCell+VI.m in Sources */,
-				69A161862242408600893F06 /* OnekeyImageCell.m in Sources */,
-				69A161872242408600893F06 /* ContactCell.m in Sources */,
-				69A161882242408600893F06 /* NotificationCenterViewController.m in Sources */,
-				69A161892242408600893F06 /* UserSelectHeader.m in Sources */,
-				69A1618A2242408600893F06 /* ContactsManager.m in Sources */,
-				69A1618B2242408600893F06 /* MePrivacyViewController.m in Sources */,
-				69A1618C2242408600893F06 /* PrivateSettingViewController.m in Sources */,
-				69A1618D2242408600893F06 /* NSDate+HiChat.m in Sources */,
-				69A1618E2242408600893F06 /* SettingsBaseTableViewController.m in Sources */,
-				69A1618F2242408600893F06 /* HistorySearchCell.m in Sources */,
-				69A161902242408600893F06 /* MeInfoCell.m in Sources */,
-				2B5228152301270800EF941B /* VITableView.m in Sources */,
-				2B5228A12301270800EF941B /* UIButton+GF.m in Sources */,
-				69A161912242408600893F06 /* MessageForwardSearchResultViewController.m in Sources */,
-				69A161922242408600893F06 /* PrivateUserInfoCell.m in Sources */,
-				69A161932242408600893F06 /* main.m in Sources */,
-				69A161942242408600893F06 /* GroupListCell.m in Sources */,
-				69A161952242408600893F06 /* UserManager.m in Sources */,
-				69A161962242408600893F06 /* OnkeyTextEditView.m in Sources */,
-				69A161972242408600893F06 /* RCCustomMessage.m in Sources */,
-				69A161982242408600893F06 /* PhotoViewer.m in Sources */,
-				69A161992242408600893F06 /* LoginPageViewController.m in Sources */,
-				69A1619A2242408600893F06 /* MessageForwardViewController.m in Sources */,
-				2B5228012301270800EF941B /* GFAlbumViewController.m in Sources */,
-				69A1619B2242408600893F06 /* MainNavigationController.m in Sources */,
-				69A1619C2242408600893F06 /* ContactsDataSource.m in Sources */,
-				69A1619D2242408600893F06 /* SignupViewController.m in Sources */,
-				69A1619E2242408600893F06 /* ContactsSelectViewController.m in Sources */,
-				69A1619F2242408600893F06 /* RCDataSource.m in Sources */,
-				2B5227ED2301270800EF941B /* KeychainItemWrapper.m in Sources */,
-				69A161A02242408600893F06 /* FriendsRequestViewController.m in Sources */,
-				69A161A12242408600893F06 /* NotificationDetailViewController.m in Sources */,
-				69A161A22242408600893F06 /* PasswordViewController.m in Sources */,
-				69A161A32242408600893F06 /* AccountManager.m in Sources */,
-				69A161A42242408600893F06 /* GroupMemberCell.m in Sources */,
-				2B52279D2301270800EF941B /* UIDevice+GF.m in Sources */,
-				2B5227E52301270800EF941B /* NSBundle+GF.m in Sources */,
-				69A161A52242408600893F06 /* UploadManager.m in Sources */,
-				2B5228B12301270800EF941B /* UICollectionReusableView+VI.m in Sources */,
-				2B5228C12301270800EF941B /* GFAlbumCell.m in Sources */,
-				69A161A62242408600893F06 /* ConversationListViewController.m in Sources */,
-				69A161A72242408600893F06 /* VideoPlayerView.m in Sources */,
-				69A161A82242408600893F06 /* ContactDetailViewController.m in Sources */,
-				69A161A92242408600893F06 /* VersionView.m in Sources */,
-				69A161AA2242408600893F06 /* GroupMemberListViewController.m in Sources */,
-				69A161AB2242408600893F06 /* UniManager.m in Sources */,
-				2B5227E12301270800EF941B /* NSDate+GF.m in Sources */,
-				69A161AC2242408600893F06 /* GroupAnnounceViewController.m in Sources */,
-				2B5228C52301270800EF941B /* VICollectionView.m in Sources */,
-				69A161AD2242408600893F06 /* GroupSelectCell.m in Sources */,
-				2B52286D2301270800EF941B /* PopoverViewCell.m in Sources */,
-				2B5228212301270800EF941B /* UIImage+GF.m in Sources */,
-				69A161AE2242408600893F06 /* OneKeyAlertViewController.m in Sources */,
-				2B5228252301270800EF941B /* UIImageView+GF.m in Sources */,
-				69A161AF2242408600893F06 /* ReactiveWebViewController.m in Sources */,
-				69A161B02242408600893F06 /* BaseManager.m in Sources */,
-				69A161B12242408600893F06 /* InfoPortraitCell.m in Sources */,
-				2B52280D2301270800EF941B /* NSDateFormatter+GF.m in Sources */,
-				2B5227B12301270800EF941B /* UIBarButtonItem+GF.m in Sources */,
-				2B5228792301270800EF941B /* GFPhotoCropViewController.m in Sources */,
-				69A161B22242408600893F06 /* NSUserDefaults+Kaixin.m in Sources */,
-				69A161B32242408600893F06 /* UIImage+HiChat.m in Sources */,
-				69A161B42242408600893F06 /* GroupIconCell.m in Sources */,
-				69A161B52242408600893F06 /* GroupMemberListCell.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		69DDD01422439E1F00041BF3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2B52289C2301270800EF941B /* NSString+GF.m in Sources */,
-				69DDD01522439E1F00041BF3 /* GuidePageViewController.m in Sources */,
-				69DDD01622439E1F00041BF3 /* NotificationDataSource.m in Sources */,
-				2B5228602301270800EF941B /* UIColor+GF.m in Sources */,
-				69DDD01722439E1F00041BF3 /* ContactDetailCell.m in Sources */,
-				69DDD01822439E1F00041BF3 /* TextEditCell.m in Sources */,
-				69DDD01922439E1F00041BF3 /* MeAboutCell.m in Sources */,
-				69DDD01A22439E1F00041BF3 /* Model.xcdatamodeld in Sources */,
-				69DDD01B22439E1F00041BF3 /* AFDataResponseSerializer.m in Sources */,
-				2B5228802301270800EF941B /* GFPhotosDataSource.m in Sources */,
-				2B5227DC2301270800EF941B /* UIView+VI.m in Sources */,
-				69DDD01C22439E1F00041BF3 /* FriendBlackListViewController.m in Sources */,
-				69DDD01D22439E1F00041BF3 /* FriendSearchViewController.m in Sources */,
-				2B5228182301270800EF941B /* GFPhotoBrowserNavigationController.m in Sources */,
-				69DDD01E22439E1F00041BF3 /* TSAuthViewController.m in Sources */,
-				69DDD01F22439E1F00041BF3 /* NotificationView.m in Sources */,
-				2B5228682301270800EF941B /* PopoverView.m in Sources */,
-				2B31FE8822547AE900CC5BF9 /* UINavigationController+PushPopCrashFix.m in Sources */,
-				2B5228702301270800EF941B /* NSManagedObject+VICoreDataSource.m in Sources */,
-				2B5228742301270800EF941B /* NSData+GF.m in Sources */,
-				69DDD02022439E1F00041BF3 /* GroupInfoEditViewController.m in Sources */,
-				69DDD02122439E1F00041BF3 /* MeSettingsViewController.m in Sources */,
-				2B5228902301270800EF941B /* NSBundle+GFPhotoBrowser.m in Sources */,
-				69DDD02222439E1F00041BF3 /* ConversationSearchResultViewController.m in Sources */,
-				69DDD02322439E1F00041BF3 /* MessageHistoryViewController.m in Sources */,
-				2B52285C2301270800EF941B /* PopoverAction.m in Sources */,
-				2B52287C2301270800EF941B /* GFPhotoBrowserViewController.m in Sources */,
-				69DDD02422439E1F00041BF3 /* ResetPasswordViewController.m in Sources */,
-				69DDD02522439E1F00041BF3 /* GroupOnekeyEditViewController.m in Sources */,
-				69DDD02622439E1F00041BF3 /* FillInfoViewController.m in Sources */,
-				69DDD02722439E1F00041BF3 /* MeViewController.m in Sources */,
-				2B52288C2301270800EF941B /* UICollectionViewCell+GF.m in Sources */,
-				69DDD02822439E1F00041BF3 /* StartupPageViewController.m in Sources */,
-				69DDD02922439E1F00041BF3 /* GuideViewController.m in Sources */,
-				69DDD02A22439E1F00041BF3 /* GroupManager.m in Sources */,
-				69DDD02B22439E1F00041BF3 /* PopupViewController.m in Sources */,
-				69DDD02C22439E1F00041BF3 /* CloudInterface.m in Sources */,
-				2B52282C2301270800EF941B /* CommonInterface.m in Sources */,
-				69DDD02D22439E1F00041BF3 /* RCManager.m in Sources */,
-				2B5227AC2301270800EF941B /* NSFileManager+GF.m in Sources */,
-				69DDD02E22439E1F00041BF3 /* GroupListViewController.m in Sources */,
-				69DDD02F22439E1F00041BF3 /* NotificationCell.m in Sources */,
-				69DDD03022439E1F00041BF3 /* InfoDetailCell.m in Sources */,
-				2B5228382301270800EF941B /* UITableViewHeaderFooterView+VI.m in Sources */,
-				69DDD03122439E1F00041BF3 /* WebViewController.m in Sources */,
-				69DDD03222439E1F00041BF3 /* MessageForwardCell.m in Sources */,
-				2B5227B82301270800EF941B /* NSAttributedString+GF.m in Sources */,
-				69DDD03322439E1F00041BF3 /* FriendRequestCell.m in Sources */,
-				2B5228882301270800EF941B /* VIDataSource.m in Sources */,
-				69DDD03422439E1F00041BF3 /* YuTextField.m in Sources */,
-				69DDD03522439E1F00041BF3 /* ConversationViewController.m in Sources */,
-				69DDD03622439E1F00041BF3 /* GroupSelectViewController.m in Sources */,
-				2B5228B82301270800EF941B /* VIPinField.m in Sources */,
-				69DDD03722439E1F00041BF3 /* GroupSettingViewController.m in Sources */,
-				69DDD03822439E1F00041BF3 /* ConversationSettingDataSource.m in Sources */,
-				69DDD03922439E1F00041BF3 /* StaffMessageForwardViewController.m in Sources */,
-				69DDD03A22439E1F00041BF3 /* ContactsViewController.m in Sources */,
-				2B5228AC2301270800EF941B /* GFPhotoCell.m in Sources */,
-				2B5227F02301270800EF941B /* VIMessageHUD.m in Sources */,
-				2B35D9C722B9FC1C00088F76 /* CheckinData.m in Sources */,
-				69DDD03B22439E1F00041BF3 /* AFPlainTextResponseSerializer.m in Sources */,
-				69DDD03C22439E1F00041BF3 /* MessageSendManager.m in Sources */,
-				69DDD03D22439E1F00041BF3 /* GroupCategoriesViewController.m in Sources */,
-				2B5228582301270800EF941B /* UIView+Shake.m in Sources */,
-				69DDD03E22439E1F00041BF3 /* MeInfoViewController.m in Sources */,
-				69DDD03F22439E1F00041BF3 /* TextEditViewController.m in Sources */,
-				69DDD04022439E1F00041BF3 /* YuAlertViewController.m in Sources */,
-				69DDD04122439E1F00041BF3 /* AppDelegate.m in Sources */,
-				69DDD04222439E1F00041BF3 /* UserDataSource.m in Sources */,
-				69DDD04322439E1F00041BF3 /* MeSettingCell.m in Sources */,
-				69DDD04422439E1F00041BF3 /* ContactSelectCell.m in Sources */,
-				69DDD04522439E1F00041BF3 /* MainTabBarController.m in Sources */,
-				69DDD04622439E1F00041BF3 /* GroupMemberSelectViewController.m in Sources */,
-				2B5228402301270800EF941B /* UIScreen+GF.m in Sources */,
-				69DDD04722439E1F00041BF3 /* GroupDataSource.m in Sources */,
-				2B5228842301270800EF941B /* UITableViewCell+VI.m in Sources */,
-				69DDD04822439E1F00041BF3 /* OnekeyImageCell.m in Sources */,
-				69DDD04922439E1F00041BF3 /* ContactCell.m in Sources */,
-				69DDD04A22439E1F00041BF3 /* NotificationCenterViewController.m in Sources */,
-				69DDD04B22439E1F00041BF3 /* UserSelectHeader.m in Sources */,
-				69DDD04C22439E1F00041BF3 /* ContactsManager.m in Sources */,
-				69DDD04D22439E1F00041BF3 /* MePrivacyViewController.m in Sources */,
-				69DDD04E22439E1F00041BF3 /* PrivateSettingViewController.m in Sources */,
-				69DDD04F22439E1F00041BF3 /* NSDate+HiChat.m in Sources */,
-				69DDD05022439E1F00041BF3 /* SettingsBaseTableViewController.m in Sources */,
-				69DDD05122439E1F00041BF3 /* HistorySearchCell.m in Sources */,
-				69DDD05222439E1F00041BF3 /* MeInfoCell.m in Sources */,
-				2B5228142301270800EF941B /* VITableView.m in Sources */,
-				2B5228A02301270800EF941B /* UIButton+GF.m in Sources */,
-				69DDD05322439E1F00041BF3 /* MessageForwardSearchResultViewController.m in Sources */,
-				69DDD05422439E1F00041BF3 /* PrivateUserInfoCell.m in Sources */,
-				69DDD05522439E1F00041BF3 /* main.m in Sources */,
-				69DDD05622439E1F00041BF3 /* GroupListCell.m in Sources */,
-				69DDD05722439E1F00041BF3 /* UserManager.m in Sources */,
-				69DDD05822439E1F00041BF3 /* OnkeyTextEditView.m in Sources */,
-				69DDD05922439E1F00041BF3 /* RCCustomMessage.m in Sources */,
-				69DDD05A22439E1F00041BF3 /* PhotoViewer.m in Sources */,
-				69DDD05B22439E1F00041BF3 /* LoginPageViewController.m in Sources */,
-				69DDD05C22439E1F00041BF3 /* MessageForwardViewController.m in Sources */,
-				2B5228002301270800EF941B /* GFAlbumViewController.m in Sources */,
-				69DDD05D22439E1F00041BF3 /* MainNavigationController.m in Sources */,
-				69DDD05E22439E1F00041BF3 /* ContactsDataSource.m in Sources */,
-				69DDD05F22439E1F00041BF3 /* SignupViewController.m in Sources */,
-				69DDD06022439E1F00041BF3 /* ContactsSelectViewController.m in Sources */,
-				69DDD06122439E1F00041BF3 /* RCDataSource.m in Sources */,
-				2B5227EC2301270800EF941B /* KeychainItemWrapper.m in Sources */,
-				69DDD06222439E1F00041BF3 /* FriendsRequestViewController.m in Sources */,
-				69DDD06322439E1F00041BF3 /* NotificationDetailViewController.m in Sources */,
-				69DDD06422439E1F00041BF3 /* PasswordViewController.m in Sources */,
-				69DDD06522439E1F00041BF3 /* AccountManager.m in Sources */,
-				69DDD06622439E1F00041BF3 /* GroupMemberCell.m in Sources */,
-				2B52279C2301270800EF941B /* UIDevice+GF.m in Sources */,
-				2B5227E42301270800EF941B /* NSBundle+GF.m in Sources */,
-				69DDD06722439E1F00041BF3 /* UploadManager.m in Sources */,
-				2B5228B02301270800EF941B /* UICollectionReusableView+VI.m in Sources */,
-				2B5228C02301270800EF941B /* GFAlbumCell.m in Sources */,
-				69DDD06822439E1F00041BF3 /* ConversationListViewController.m in Sources */,
-				69DDD06922439E1F00041BF3 /* VideoPlayerView.m in Sources */,
-				69DDD06A22439E1F00041BF3 /* ContactDetailViewController.m in Sources */,
-				69DDD06B22439E1F00041BF3 /* VersionView.m in Sources */,
-				69DDD06C22439E1F00041BF3 /* GroupMemberListViewController.m in Sources */,
-				69DDD06D22439E1F00041BF3 /* UniManager.m in Sources */,
-				2B5227E02301270800EF941B /* NSDate+GF.m in Sources */,
-				69DDD06E22439E1F00041BF3 /* GroupAnnounceViewController.m in Sources */,
-				2B5228C42301270800EF941B /* VICollectionView.m in Sources */,
-				69DDD06F22439E1F00041BF3 /* GroupSelectCell.m in Sources */,
-				2B52286C2301270800EF941B /* PopoverViewCell.m in Sources */,
-				2B5228202301270800EF941B /* UIImage+GF.m in Sources */,
-				69DDD07022439E1F00041BF3 /* OneKeyAlertViewController.m in Sources */,
-				2B5228242301270800EF941B /* UIImageView+GF.m in Sources */,
-				69DDD07122439E1F00041BF3 /* ReactiveWebViewController.m in Sources */,
-				69DDD07222439E1F00041BF3 /* BaseManager.m in Sources */,
-				69DDD07322439E1F00041BF3 /* InfoPortraitCell.m in Sources */,
-				2B52280C2301270800EF941B /* NSDateFormatter+GF.m in Sources */,
-				2B5227B02301270800EF941B /* UIBarButtonItem+GF.m in Sources */,
-				2B5228782301270800EF941B /* GFPhotoCropViewController.m in Sources */,
-				69DDD07422439E1F00041BF3 /* NSUserDefaults+Kaixin.m in Sources */,
-				69DDD07522439E1F00041BF3 /* UIImage+HiChat.m in Sources */,
-				69DDD07622439E1F00041BF3 /* GroupIconCell.m in Sources */,
-				69DDD07722439E1F00041BF3 /* GroupMemberListCell.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -2591,8 +1791,8 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
 					"$(inherited)",
+					"DEBUG=1",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -2679,7 +1879,6 @@
 				GCC_PREFIX_HEADER = "$(PROJECT_NAME)/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
-					"COCOAPODS=1",
 					"ENV_DEV=1",
 				);
 				INFOPLIST_FILE = hiChat/Info.plist;
@@ -2711,7 +1910,6 @@
 				GCC_PREFIX_HEADER = "$(PROJECT_NAME)/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
-					"COCOAPODS=1",
 					"ENV_DEV=1",
 				);
 				INFOPLIST_FILE = hiChat/Info.plist;
@@ -2780,136 +1978,6 @@
 			};
 			name = Release;
 		};
-		69A161C72242408600893F06 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E623BD4CE2456E26C93DB66 /* Pods-hiChat_app_store.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_NAME)/hiChat_app_store.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 94JSZURUYS;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/hiChat/Third-party",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(PROJECT_NAME)/PrefixHeader.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"COCOAPODS=1",
-					"APP_STORE=1",
-				);
-				INFOPLIST_FILE = "$(SRCROOT)/hiChat/info_app_store.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xinlong.kaixinliao;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		69A161C82242408600893F06 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E115E5596B43F0E88958BE61 /* Pods-hiChat_app_store.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_NAME)/hiChat_app_store.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 94JSZURUYS;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/hiChat/Third-party",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(PROJECT_NAME)/PrefixHeader.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"COCOAPODS=1",
-					"APP_STORE=1",
-				);
-				INFOPLIST_FILE = "$(SRCROOT)/hiChat/info_app_store.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xinlong.kaixinliao;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		69DDD08922439E1F00041BF3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 598660A37433B713E5E406B5 /* Pods-hiChat_app_dev.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_NAME)/hiChat_app_store.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 94JSZURUYS;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/hiChat/Third-party",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(PROJECT_NAME)/PrefixHeader.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"COCOAPODS=1",
-					"APP_STORE=1",
-					"ENV_DEV=1",
-				);
-				INFOPLIST_FILE = "$(SRCROOT)/hiChat/hiChat_app_dev.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xinlong.kaixinliao;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		69DDD08A22439E1F00041BF3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7167C665D2C41F012921B0 /* Pods-hiChat_app_dev.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "$(PROJECT_NAME)/hiChat_app_store.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 94JSZURUYS;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/hiChat/Third-party",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(PROJECT_NAME)/PrefixHeader.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"COCOAPODS=1",
-					"APP_STORE=1",
-					"ENV_DEV=1",
-				);
-				INFOPLIST_FILE = "$(SRCROOT)/hiChat/hiChat_app_dev.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xinlong.kaixinliao;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2936,24 +2004,6 @@
 			buildConfigurations = (
 				698C79B621CA17EA00F96D88 /* Debug */,
 				698C79B721CA17EA00F96D88 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		69A161C62242408600893F06 /* Build configuration list for PBXNativeTarget "hiChat_app_store" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				69A161C72242408600893F06 /* Debug */,
-				69A161C82242408600893F06 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		69DDD08822439E1F00041BF3 /* Build configuration list for PBXNativeTarget "hiChat_app_dev" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				69DDD08922439E1F00041BF3 /* Debug */,
-				69DDD08A22439E1F00041BF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

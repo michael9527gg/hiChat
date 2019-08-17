@@ -6,8 +6,6 @@
 //  Copyright © 2019 HiChat Org. All rights reserved.
 //
 
-#import "VICocoaTools.h"
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NotificationData : NSObject
@@ -23,10 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface NotificationDataSource : VIDataSource
+@interface NotificationDataSource : LYDataSource
 
 - (NotificationData *)notificationAtIndexPath:(NSIndexPath *)indexPath
-                                       forKey:(NSString *)key;
+                                   controller:(NSFetchedResultsController *)controller;
 
 - (NotificationData *)notificationWithUid:(NSString *)uid;
 

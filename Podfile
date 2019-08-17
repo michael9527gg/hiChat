@@ -10,7 +10,7 @@ def pods
   pod 'MJRefresh'
   pod 'WechatOpenSDK'
   pod 'WebViewJavascriptBridge'
-  pod 'RongCloudIM/IMKit'
+  pod 'RongCloudIM/IMKit', '~> 2.9.18'
   pod 'AliyunOSSiOS'
   
   pod 'LYCoreDataSource'
@@ -27,14 +27,6 @@ target 'hiChat_enterprise_dev' do
 end
 
 target 'hiChat_enterprise_pub' do
-  pods
-end
-
-target 'hiChat_app_dev' do
-  pods
-end
-
-target 'hiChat_app_store' do
   pods
 end
 

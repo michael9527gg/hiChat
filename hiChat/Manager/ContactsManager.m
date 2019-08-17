@@ -59,10 +59,8 @@
                                                     }
                                                 }
                                                 
-                                                [[ContactsDataSource sharedClient] addObjects:arr
-                                                                                   entityName:[ContactEntity entityName]
-                                                                                      syncAll:YES
-                                                                                syncPredicate:nil];
+                                                [[ContactsDataSource sharedInstance] addObjects:arr
+                                                                                  syncPredicate:nil];
                                                 
                                                 if (completion) {
                                                     completion(YES, nil);
@@ -102,10 +100,8 @@
                                                         [mulArr addObject:data];
                                                     }
                                                 }
-                                                [[ContactsDataSource sharedClient] addObjects:mulArr
-                                                                                   entityName:[FriendRequestEntity entityName]
-                                                                                      syncAll:YES
-                                                                                syncPredicate:nil];
+                                                [[ContactsDataSource sharedInstance] addObjects:mulArr
+                                                                                  syncPredicate:nil];
                                                 if (completion) {
                                                     completion(YES, nil);
                                                 }
@@ -393,10 +389,8 @@
                                                     FriendBlackData *data = [FriendBlackData friendBlackWithDic:dic];
                                                     [mulArr addObject:data];
                                                 }
-                                                [[ContactsDataSource sharedClient] addObjects:mulArr
-                                                                                   entityName:[FriendBlackEntity entityName]
-                                                                                      syncAll:YES
-                                                                                syncPredicate:nil];
+                                                [[ContactsDataSource sharedInstance] addObjects:mulArr
+                                                                                  syncPredicate:nil];
                                                 if (completion) {
                                                     completion(YES, nil);
                                                 }

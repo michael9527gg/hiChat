@@ -6,7 +6,6 @@
 //  Copyright © 2018年 HiChat Org. All rights reserved.
 //
 
-#import "VICocoaTools.h"
 #import "Model+CoreDataModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -27,6 +26,8 @@ typedef enum : NSUInteger {
 
 + (instancetype)friendBlackWithDic:(NSDictionary *)dic;
 
++ (FriendBlackData *)blackForEntity:(FriendBlackEntity *)entity;
+
 @end
 
 @interface FriendRequsetData : NSObject
@@ -42,6 +43,8 @@ typedef enum : NSUInteger {
 @property (nonnull, readonly) NSString          *name;
 
 + (instancetype)friendRequsetWithDic:(NSDictionary *)dic;
+
++ (FriendRequsetData *)requestForEntity:(FriendRequestEntity *)entity;
 
 @end
 
@@ -64,30 +67,30 @@ typedef enum : NSUInteger {
 
 + (instancetype)contactFromData:(NSDictionary *)data;
 
-+ (instancetype)contactFromEntity:(ContactEntity *)item;
++ (instancetype)contactForEntity:(ContactEntity *)item;
 
 @end
 
-@interface ContactsDataSource : VIDataSource
+@interface ContactsDataSource : LYDataSource
 
 - (NSArray *)allContacts;
 
-- (NSArray *)allContactsForKey:(NSString *)key;
+- (NSArray *)allContactsForController:(NSFetchedResultsController *)controller;
 
 - (ContactData *)contactAtIndexPath:(NSIndexPath *)indexPath
-                             forKey:(NSString *)key;
+                         controller:(NSFetchedResultsController *)controller;
 
 - (ContactData *)contactWithUserid:(NSString *)userid;
 
 - (FriendRequsetData *)requestWithUserid:(NSString *)userid;
 
 - (FriendRequsetData *)requestAtIndexPath:(NSIndexPath *)indexPath
-                                   forKey:(NSString *)key;
+                               controller:(NSFetchedResultsController *)controller;
 
 - (BOOL)isFriendForUserid:(NSString *)userid;
 
 - (FriendBlackData *)blackAtIndexPath:(NSIndexPath *)indexPath
-                               forKey:(NSString *)key;
+                           controller:(NSFetchedResultsController *)controller;
 
 - (FriendBlackData *)blackWithUserid:(NSString *)userid;
 

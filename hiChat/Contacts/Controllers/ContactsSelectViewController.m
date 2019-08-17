@@ -12,13 +12,13 @@
 #import "GroupOnekeyEditViewController.h"
 #import "ContactSelectCell.h"
 
-@interface ContactsSelectViewController () < VIDataSourceDelegate, UITableViewDataSource, UITableViewDelegate, UserSelectHeaderDelegate >
+@interface ContactsSelectViewController () < LYDataSourceDelegate, UITableViewDataSource, UITableViewDelegate, UserSelectHeaderDelegate >
 
 @property (nonatomic, strong) UITableView             *tableView;
 @property (nonatomic, strong) UserSelectHeader        *header;
 
 @property (nonatomic, weak)   ContactsDataSource      *dataSource;
-@property (nonatomic, copy)   NSString                *dataKey;
+@property (nonatomic, strong)   NSFetchedResultsController                *fetchedResultsController;
 
 @property (nonatomic, strong) NSMutableArray          *selectedResult;
 @property (nonatomic, strong) NSMutableArray          *groupMembers;
@@ -40,7 +40,7 @@
         self.delegate = delegate;
         self.groupid = groupid;
         if(self.purpose == ContactSelectPurposeInviteGroupMember) {
-            NSArray *array = [[GroupDataSource sharedClient] allGroupMembersForGroupid:groupid];
+            NSArray *array = [[GroupDataSource sharedInstance] allGroupMembersForGroupid:groupid];
             self.groupMembers = [NSMutableArray arrayWithCapacity:array.count];
             for(GroupMemberData *member in array) {
                 [self.groupMembers addObject:member.userid];
@@ -132,15 +132,13 @@
     
     self.tableView.tableFooterView = [UIView new];
     
-    self.dataSource = [ContactsDataSource sharedClient];
-    self.dataKey = NSStringFromClass(self.class);
-    [self.dataSource registerDelegate:self
-                               entity:[ContactEntity entityName]
-                            predicate:[NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID]
-                      sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
-                                        [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
-                   sectionNameKeyPath:@"sectionKey"
-                                  key:self.dataKey];
+    self.dataSource = [ContactsDataSource sharedInstance];
+    
+    self.fetchedResultsController = [self.dataSource addDelegate:self
+                                                          entity:[ContactEntity entityName]
+                                                       predicate:[NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID] sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
+                                                                                                                                                                                                               [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
+                                              sectionNameKeyPath:@"sectionKey"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -162,7 +160,7 @@
 }
 
 - (NSArray *)refreshSectionKeys {
-    NSArray *contacts = [[ContactsDataSource sharedClient] allContactsForKey:self.dataKey];
+    NSArray *contacts = [[ContactsDataSource sharedInstance] allContactsForController:self.fetchedResultsController];
     NSMutableArray *mulArr = [NSMutableArray arrayWithCapacity:contacts.count];
     
     for(ContactData *contact in contacts) {
@@ -189,21 +187,20 @@
     }
     
     if(keywords.length) {
-        [self.dataSource registerDelegate:self
-                                   entity:[ContactEntity entityName]
-                                predicate:predicate
-                          sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
-                                            [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
-                       sectionNameKeyPath:@"sectionKey"
-                                      key:self.dataKey];
-    } else {
-        [self.dataSource registerDelegate:self
-                                   entity:[ContactEntity entityName]
-                                predicate:[NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID]
-                          sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
-                                            [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
-                       sectionNameKeyPath:@"sectionKey"
-                                      key:self.dataKey];
+        self.fetchedResultsController = [self.dataSource addDelegate:self
+                                                              entity:[ContactEntity entityName]
+                                                           predicate:predicate
+                                                     sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
+                                                                       [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
+                                                  sectionNameKeyPath:@"sectionKey"];
+    }
+    else {
+        self.fetchedResultsController = [self.dataSource addDelegate:self
+                                                              entity:[ContactEntity entityName]
+                                                           predicate:[NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID]
+                                                     sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
+                                                                       [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
+                                                  sectionNameKeyPath:@"sectionKey"];
     }
     
     [self.tableView reloadData];
@@ -284,25 +281,25 @@
     }
 }
 
-#pragma mark - VIDataSourceDelegate
+#pragma mark - LYDataSourceDelegate
 
-- (void)dataSource:(id<VIDataSource>)dataSource didChangeContentForKey:(NSString *)key {
+- (void)didChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.dataSource numberOfSectionsForKey:self.dataKey];
+    return [self.dataSource numberOfSections:self.fetchedResultsController];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.dataSource numberOfItemsForKey:self.dataKey inSection:section];
+    return [self.dataSource numberOfItems:self.fetchedResultsController inSection:section];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     ContactData *data = [self.dataSource contactAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]
-                                                     forKey:self.dataKey];
+                                                 controller:self.fetchedResultsController];
     return data.sectionKey;
 }
 
@@ -321,7 +318,7 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(ContactSelectCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     ContactData *contact = [self.dataSource contactAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]
-                                                     forKey:self.dataKey];
+                                                    controller:self.fetchedResultsController];
     cell.data = contact;
     cell.status = [self statusForUserid:contact.uid];
 }
@@ -374,7 +371,7 @@
 
 - (void)userChooseSelectAll:(BOOL)selectAll {
     if(selectAll) {
-        NSArray *contacts = [[ContactsDataSource sharedClient] allContacts];
+        NSArray *contacts = [[ContactsDataSource sharedInstance] allContacts];
         
         [self.selectedResult removeAllObjects];
         

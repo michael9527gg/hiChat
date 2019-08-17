@@ -26,13 +26,13 @@ typedef enum : NSUInteger {
     MenuTypeCount
 } MenuType;
 
-@interface ConversationListViewController () < PopoverDatasource, PopoverDelegate, UISearchResultsUpdating, ConversationResultDelegate, VIDataSourceDelegate >
+@interface ConversationListViewController () < PopoverDatasource, PopoverDelegate, UISearchResultsUpdating, ConversationResultDelegate, LYDataSourceDelegate >
 
 @property (nonatomic, strong) STPopupController                         *alertVC;
 @property (nonatomic, strong) UISearchController                        *searchController;
 @property (nonatomic, strong) ConversationSearchResultViewController    *resultsController;
-@property (nonatomic, weak)   ConversationSettingDataSource             *dataSource;
-@property (nonatomic, copy)   NSString                                  *dataKey;
+@property (nonatomic, strong) ConversationSettingDataSource             *dataSource;
+@property (nonatomic, strong) NSFetchedResultsController                *conversationSettingResultsController;
 
 @property (nonatomic, copy)   NSArray                       *menuData;
 @property (nonatomic, strong) UIView                        *checkinView;
@@ -201,14 +201,13 @@ typedef enum : NSUInteger {
 }
 
 - (void)registerDataBase {
-    self.dataSource = [ConversationSettingDataSource sharedClient];
-    self.dataKey = NSStringFromClass(self.class);
-    [self.dataSource registerDelegate:self
-                               entity:[ConversationSettingEntity entityName]
-                            predicate:[NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID]
-                      sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"type" ascending:YES]]
-                   sectionNameKeyPath:nil
-                                  key:self.dataKey];
+    self.dataSource = [ConversationSettingDataSource sharedInstance];
+    
+    [self.dataSource addDelegate:self
+                          entity:[ConversationSettingEntity entityName]
+                       predicate:[NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID]
+                 sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"type" ascending:YES]]
+              sectionNameKeyPath:nil];
 }
 
 - (void)refreshHome {
@@ -375,7 +374,7 @@ typedef enum : NSUInteger {
                    purpose:(ContactSelectPurpose)purpose
                  mulSelect:(BOOL)mulSelect {
     if(purpose == ContactSelectPurposeStartChat) {
-        ContactData *contact = [[ContactsDataSource sharedClient] contactWithUserid:contacts.firstObject];
+        ContactData *contact = [[ContactsDataSource sharedInstance] contactWithUserid:contacts.firstObject];
         [[RCManager manager] startConversationWithType:ConversationType_PRIVATE
                                               targetId:contact.uid
                                                  title:contact.name];
@@ -388,9 +387,9 @@ typedef enum : NSUInteger {
     self.resultsController.searchText = searchController.searchBar.text;
 }
 
-#pragma mark - VIDataSourceDelegate
+#pragma mark - LYDataSourceDelegate
 
-- (void)dataSource:(id<VIDataSource>)dataSource didChangeContentForKey:(NSString *)key {
+- (void)didChangeContent:(NSFetchedResultsController *)controller {
     [self refreshConversationTableViewIfNeeded];
 }
 

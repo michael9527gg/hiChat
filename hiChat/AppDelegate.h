@@ -19,14 +19,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-- (NSURL *)applicationDocumentsDirectory;
-
-- (NSURL *)applicationCacheDirectory;
-
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator;
-
-- (NSManagedObjectContext *)managedObjectContext;
-
 - (void)showLoginScreen:(BOOL)withStartup;
 
 @end

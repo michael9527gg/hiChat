@@ -19,7 +19,7 @@ typedef enum : NSUInteger {
     ResultShowTypeGroup
 } ResultShowType;
 
-@interface ConversationSearchResultViewController () < UITableViewDataSource, UITableViewDelegate, VIDataSourceDelegate >
+@interface ConversationSearchResultViewController () < UITableViewDataSource, UITableViewDelegate, LYDataSourceDelegate >
 
 @property (nonatomic, strong) UITableView        *tableView;
 @property (nonatomic, strong) NSMutableArray     *topBtnArray;
@@ -28,10 +28,10 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) NSArray<RCSearchConversationResult *>            *historyDataSource;
 
 @property (nonatomic, weak)   ContactsDataSource      *contactsDataSource;
-@property (nonatomic, copy)   NSString                *contactsDataKey;
+@property (nonatomic, strong) NSFetchedResultsController                *contactsResultsController;
 
 @property (nonatomic, weak)   GroupDataSource         *groupDataSource;
-@property (nonatomic, copy)   NSString                *groupDataKey;
+@property (nonatomic, strong) NSFetchedResultsController                *groupsResultsController;
 
 @end
 
@@ -145,11 +145,9 @@ typedef enum : NSUInteger {
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    self.contactsDataSource = [ContactsDataSource sharedClient];
-    self.contactsDataKey= NSStringFromClass(self.class);
+    self.contactsDataSource = [ContactsDataSource sharedInstance];
     
-    self.groupDataSource = [GroupDataSource sharedClient];
-    self.groupDataKey = NSStringFromClass(self.class);
+    self.groupDataSource = [GroupDataSource sharedInstance];
 }
 
 - (void)setSearchText:(NSString *)searchText {
@@ -177,21 +175,19 @@ typedef enum : NSUInteger {
         predicate = [NSPredicate predicateWithFormat:@"(displayName CONTAINS[cd] %@ || nickname CONTAINS[cd] %@ || shengmu CONTAINS[cd] %@ || phone CONTAINS[cd] %@) && loginid == %@", keywords, keywords, keywords, keywords, YUCLOUD_ACCOUNT_USERID];
     }
     
-    [self.contactsDataSource registerDelegate:self
-                                       entity:[ContactEntity entityName]
-                                    predicate:predicate
-                              sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
-                           sectionNameKeyPath:nil
-                                          key:self.contactsDataKey];
+    self.contactsResultsController = [self.contactsDataSource addDelegate:self
+                                                                   entity:[ContactEntity entityName]
+                                                                predicate:predicate
+                                                          sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
+                                                       sectionNameKeyPath:nil];
 }
 
 - (void)searchGroupWithText:(NSString *)keywords {
-    [self.groupDataSource registerDelegate:self
-                                    entity:[GroupEntity entityName]
-                                 predicate:[NSPredicate predicateWithFormat:@"loginid == %@ && name CONTAINS[cd] %@", YUCLOUD_ACCOUNT_USERID, keywords]
-                           sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
-                        sectionNameKeyPath:nil
-                                       key:self.groupDataKey];
+    self.groupsResultsController = [self.groupDataSource addDelegate:self
+                                                              entity:[GroupEntity entityName]
+                                                           predicate:[NSPredicate predicateWithFormat:@"loginid == %@ && name CONTAINS[cd] %@", YUCLOUD_ACCOUNT_USERID, keywords]
+                                                     sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
+                                                  sectionNameKeyPath:nil];
 }
 
 - (void)btnAction:(UIButton *)button {
@@ -253,11 +249,11 @@ typedef enum : NSUInteger {
         }
             break;
         case ResultShowTypeContact: {
-            num = [self.contactsDataSource numberOfItemsForKey:self.contactsDataKey inSection:section];
+            num = [self.contactsDataSource numberOfItems:self.contactsResultsController inSection:section];
         }
             break;
         case ResultShowTypeGroup: {
-            num = [self.groupDataSource numberOfItemsForKey:self.groupDataKey inSection:section];
+            num = [self.groupDataSource numberOfItems:self.groupsResultsController inSection:section];
         }
             break;
         default:
@@ -306,7 +302,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         case ResultShowTypeContact: {
             ContactCell *cCell = (ContactCell *)cell;
             ContactData *contact = [self.contactsDataSource contactAtIndexPath:indexPath
-                                                                        forKey:self.contactsDataKey];
+                                                                    controller:self.contactsResultsController];
             
             cCell.portraitUri = [contact.portraitUri ossUrlStringRoundWithSize:LIST_ICON_SIZE];
             cCell.string = contact.name;
@@ -316,7 +312,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         case ResultShowTypeGroup: {
             GroupListCell *gCell = (GroupListCell *)cell;
             GroupData *group = [self.groupDataSource groupAtIndexPath:indexPath
-                                                               forKey:self.groupDataKey];
+                                                           controller:self.groupsResultsController];
             gCell.data = group;
         }
             break;
@@ -344,7 +340,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
             break;
         case ResultShowTypeContact: {
             ContactData *contact = [self.contactsDataSource contactAtIndexPath:indexPath
-                                                                        forKey:self.contactsDataKey];
+                                                                    controller:self.contactsResultsController];
             ContactDetailViewController *vc = [[ContactDetailViewController alloc] initWithUserid:contact.uid
                                                                                      user:nil
                                                                                   groupid:nil];
@@ -353,7 +349,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
             break;
         case ResultShowTypeGroup: {
             GroupData *group = [self.groupDataSource groupAtIndexPath:indexPath
-                                                               forKey:self.groupDataKey];
+                                                           controller:self.groupsResultsController];
             [[RCManager manager] startConversationWithType:ConversationType_GROUP
                                                   targetId:group.uid
                                                      title:group.name];
@@ -365,9 +361,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     }
 }
 
-#pragma mark - VIDataSourceDelegate
+#pragma mark - LYDataSourceDelegate
 
-- (void)dataSource:(id<VIDataSource>)dataSource didChangeContentForKey:(NSString *)key {
+- (void)didChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView reloadData];
 }
 

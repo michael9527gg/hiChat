@@ -32,8 +32,7 @@
     [self.view addSubview:textView];
     
     self.data.read = YES;
-    [[NotificationDataSource sharedClient] addObject:self.data
-                                          entityName:[NotificationEntity entityName]];
+    [[NotificationDataSource sharedInstance] addObject:self.data];
 }
 
 #pragma mark - UITextViewDelegate

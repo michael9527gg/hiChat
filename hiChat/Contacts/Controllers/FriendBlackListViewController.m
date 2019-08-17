@@ -10,10 +10,10 @@
 #import "ContactDetailCell.h"
 #import "ConversationSettingDataSource.h"
 
-@interface FriendBlackListViewController () < VIDataSourceDelegate >
+@interface FriendBlackListViewController () < LYDataSourceDelegate >
 
 @property (nonatomic, weak)   ContactsDataSource         *dataSource;
-@property (nonatomic, copy)   NSString                   *dataKey;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @property (nonatomic, assign) BOOL                       isModified;
 
@@ -48,14 +48,13 @@
 }
 
 - (void)registerDataBase {
-    self.dataSource = [ContactsDataSource sharedClient];
-    self.dataKey = NSStringFromClass(self.class);
-    [self.dataSource registerDelegate:self
-                               entity:[FriendBlackEntity entityName]
-                            predicate:[NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID]
-                      sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"updatedAt" ascending:YES]]
-                   sectionNameKeyPath:nil
-                                  key:self.dataKey];
+    self.dataSource = [ContactsDataSource sharedInstance];
+    
+    self.fetchedResultsController = [self.dataSource addDelegate:self
+                                                          entity:[FriendBlackEntity entityName]
+                                                       predicate:[NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID]
+                                                 sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"updatedAt" ascending:YES]]
+                                              sectionNameKeyPath:nil];
     
     [self.tableView reloadData];
 }
@@ -85,11 +84,11 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.dataSource numberOfSectionsForKey:self.dataKey];
+    return [self.dataSource numberOfSections:self.fetchedResultsController];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger num = [self.dataSource numberOfItemsForKey:self.dataKey inSection:section];
+    NSInteger num = [self.dataSource numberOfItems:self.fetchedResultsController inSection:section];
     
     if(!num) {
         tableView.backgroundView = [self emptyViewWithTitle:@"暂无被拉黑的好友"];
@@ -113,7 +112,7 @@
   willDisplayCell:(ContactDetailCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath {
     FriendBlackData *data = [self.dataSource blackAtIndexPath:indexPath
-                                                       forKey:self.dataKey];
+                                                   controller:self.fetchedResultsController];
     [cell setNickname:data.nickname
           displayName:nil
              portrait:data.portraitUri
@@ -134,7 +133,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
                                                                     handler:^(UITableViewRowAction * _Nonnull action,
                                                                               NSIndexPath * _Nonnull indexPath) {
                                                                         FriendBlackData *data = [self.dataSource blackAtIndexPath:indexPath
-                                                                                                                           forKey:self.dataKey];
+                                                                                                                           controller:self.fetchedResultsController];
                                                                         [self deleteFromBlackList:data.userid];
                                                                     }];
     
@@ -146,15 +145,14 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     [[ContactsManager manager] deleteBlackListWithFriendid:userid
                                                 completion:^(BOOL success, NSDictionary * _Nullable info) {
                                                     if(success) {
-                                                        FriendBlackData *data = [[ContactsDataSource sharedClient] blackWithUserid:userid];
-                                                        [[ContactsDataSource sharedClient] deleteObject:data];
+                                                        FriendBlackData *data = [[ContactsDataSource sharedInstance] blackWithUserid:userid];
+                                                        [[ContactsDataSource sharedInstance] deleteObject:data];
                                                         
                                                         // 消息能力
                                                         ConversationSettingData *setting = [ConversationSettingData conversationSettingWithType:ConversationType_PRIVATE
                                                                                                                                        targetId:userid];
                                                         setting.canMessage = YES;
-                                                        [[ConversationSettingDataSource sharedClient] addObject:setting
-                                                                                                     entityName:[ConversationSettingEntity entityName]];
+                                                        [[ConversationSettingDataSource sharedInstance] addObject:setting];
                                                         
                                                         
                                                         self.isModified = YES;
@@ -167,9 +165,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
                                                 }];
 }
 
-#pragma mark - VIDataSourceDelegate
+#pragma mark - LYDataSourceDelegate
 
-- (void)dataSource:(id<VIDataSource>)dataSource didChangeContentForKey:(NSString *)key {
+- (void)didChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView reloadData];
 }
 

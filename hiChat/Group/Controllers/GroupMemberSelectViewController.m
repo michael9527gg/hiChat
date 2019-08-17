@@ -9,13 +9,13 @@
 #import "GroupMemberSelectViewController.h"
 #import "ContactSelectCell.h"
 
-@interface GroupMemberSelectViewController () < UITableViewDataSource, UITableViewDelegate, UserSelectHeaderDelegate, VIDataSourceDelegate >
+@interface GroupMemberSelectViewController () < UITableViewDataSource, UITableViewDelegate, UserSelectHeaderDelegate, LYDataSourceDelegate >
 
 @property (nonatomic, strong) UITableView             *tableView;
 @property (nonatomic, strong) UserSelectHeader        *header;
 
 @property (nonatomic, weak)   GroupDataSource         *dataSource;
-@property (nonatomic, copy)   NSString                *dataKey;
+@property (nonatomic, strong)   NSFetchedResultsController                *fetchedResultsController;
 
 @property (nonatomic, strong) NSMutableArray          *selectedMembers;
 
@@ -96,7 +96,7 @@
     
     // 顶部视图属性配置
     if(!self.allowMulSelect) {
-        GroupMemberData *member = [[GroupDataSource sharedClient] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
+        GroupMemberData *member = [[GroupDataSource sharedInstance] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
                                                                                groupid:self.groupid];
         if(!member.isLord && !member.isAdmin) {
             self.header.showMentionAll = NO;
@@ -113,19 +113,18 @@
 }
 
 - (void)registerDatabase {
-    self.dataSource = [GroupDataSource sharedClient];
-    self.dataKey = NSStringFromClass(self.class);
-    [self.dataSource registerDelegate:self
-                               entity:[GroupMemberEntity entityName]
-                            predicate:[NSPredicate predicateWithFormat:@"groupid == %@", self.groupid]
-                      sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
-                                        [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
-                   sectionNameKeyPath:@"sectionKey"
-                                  key:self.dataKey];
+    self.dataSource = [GroupDataSource sharedInstance];
+    
+    self.fetchedResultsController = [self.dataSource addDelegate:self
+                                                          entity:[GroupMemberEntity entityName]
+                                                       predicate:[NSPredicate predicateWithFormat:@"groupid == %@", self.groupid]
+                                                 sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
+                                                                                                                                                                                                         [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
+                                              sectionNameKeyPath:@"sectionKey"];
 }
 
 - (NSArray *)refreshSectionKeys {
-    NSArray *contacts = [[GroupDataSource sharedClient] allGroupMembersForKey:self.dataKey];
+    NSArray *contacts = [[GroupDataSource sharedInstance] allGroupMembers:self.fetchedResultsController];
     NSMutableArray *mulArr = [NSMutableArray arrayWithCapacity:contacts.count];
     
     for(GroupMemberData *contact in contacts) {
@@ -146,26 +145,25 @@
     if(keywords.length) {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(name CONTAINS %@ || shengmu CONTAINS %@) && groupid == %@", keywords, keywords, self.groupid];
         // 群组或者管理员可以使用手机号查询
-        GroupMemberData *curMember = [[GroupDataSource sharedClient] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
+        GroupMemberData *curMember = [[GroupDataSource sharedInstance] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
                                                                                   groupid:self.groupid];
         if(curMember.isLord || curMember.isAdmin) {
             predicate = [NSPredicate predicateWithFormat:@"(name CONTAINS %@ || shengmu CONTAINS %@ || phone CONTAINS %@) && groupid == %@", keywords, keywords, keywords, self.groupid];
         }
-        [self.dataSource registerDelegate:self
-                                   entity:[GroupMemberEntity entityName]
-                                predicate:predicate
-                          sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
-                                            [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
-                       sectionNameKeyPath:@"sectionKey"
-                                      key:self.dataKey];
+        
+        self.fetchedResultsController = [self.dataSource addDelegate:self
+                                                              entity:[GroupMemberEntity entityName]
+                                                           predicate:predicate
+                                                     sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
+                                                                       [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
+                                                  sectionNameKeyPath:@"sectionKey"];
     } else {
-        [self.dataSource registerDelegate:self
-                                   entity:[GroupMemberEntity entityName]
-                                predicate:[NSPredicate predicateWithFormat:@"groupid == %@", self.groupid]
-                          sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
-                                            [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
-                       sectionNameKeyPath:@"sectionKey"
-                                      key:self.dataKey];
+        self.fetchedResultsController = [self.dataSource addDelegate:self
+                                                              entity:[GroupMemberEntity entityName]
+                                                           predicate:[NSPredicate predicateWithFormat:@"groupid == %@", self.groupid]
+                                                     sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
+                                                                       [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]
+                                                  sectionNameKeyPath:@"sectionKey"];
     }
     
     [self.tableView reloadData];
@@ -191,25 +189,25 @@
     }
 }
 
-#pragma mark - VIDataSourceDelegate
+#pragma mark - LYDataSourceDelegate
 
-- (void)dataSource:(id<VIDataSource>)dataSource didChangeContentForKey:(NSString *)key {
+- (void)didChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.dataSource numberOfSectionsForKey:self.dataKey];
+    return [self.dataSource numberOfSections:self.fetchedResultsController];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.dataSource numberOfItemsForKey:self.dataKey inSection:section];
+    return [self.dataSource numberOfItems:self.fetchedResultsController inSection:section];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     GroupMemberData *data = [self.dataSource groupMemberAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]
-                                                             forKey:self.dataKey];
+                                                         controller:self.fetchedResultsController];
     return data.sectionKey;
 }
 
@@ -228,12 +226,12 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(ContactSelectCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     GroupMemberData *member = [self.dataSource groupMemberAtIndexPath:indexPath
-                                                               forKey:self.dataKey];
+                                                           controller:self.fetchedResultsController];
     cell.data = member;
     
     if(self.allowMulSelect) {
         SelectCellStatus status;
-        GroupData *group = [[GroupDataSource sharedClient] groupWithGroupid:self.groupid];
+        GroupData *group = [[GroupDataSource sharedInstance] groupWithGroupid:self.groupid];
         // 群主和自己不能删除
         if([group.creatorid isEqualToString:member.userid] ||
            [member.userid isEqualToString:YUCLOUD_ACCOUNT_USERID]) {
@@ -284,7 +282,7 @@
     else {
         if(cell.status != SelectCellStatusNotEnable) {
             GroupMemberData *member = [self.dataSource groupMemberAtIndexPath:indexPath
-                                                                       forKey:self.dataKey];
+                                                                   controller:self.fetchedResultsController];
             if(self.delegate) {
                 [self.delegate selectWithMembers:@[member.userid]];
             }
@@ -302,8 +300,8 @@
 
 - (void)userChooseSelectAll:(BOOL)selectAll {
     if(selectAll) {
-        NSArray *members = [[GroupDataSource sharedClient] allGroupMembersForGroupid:self.groupid];
-        GroupData *group = [[GroupDataSource sharedClient] groupWithGroupid:self.groupid];
+        NSArray *members = [[GroupDataSource sharedInstance] allGroupMembersForGroupid:self.groupid];
+        GroupData *group = [[GroupDataSource sharedInstance] groupWithGroupid:self.groupid];
         
         [self.selectedMembers removeAllObjects];
         

@@ -43,7 +43,7 @@
                                                     
                                                     UserData *user = [UserData userWithDic:result];
                                                     // 这里涉及到好友备注的问题
-                                                    ContactData *contact = [[ContactsDataSource sharedClient] contactWithUserid:user.uid];
+                                                    ContactData *contact = [[ContactsDataSource sharedInstance] contactWithUserid:user.uid];
                                                     if(contact) {
                                                         user.displayName = contact.displayName;
                                                     }

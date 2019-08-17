@@ -63,7 +63,7 @@
             return completion(userInfo);
         }
         
-        ContactData *data = [[ContactsDataSource sharedClient] contactWithUserid:userid];
+        ContactData *data = [[ContactsDataSource sharedInstance] contactWithUserid:userid];
         if(data) {
             RCUserInfo *userInfo = [[RCUserInfo alloc] initWithUserId:data.uid
                                                                  name:data.name
@@ -82,7 +82,7 @@
                                                              UserData *user = [info valueForKey:@"data"];
                                                              
                                                              NSString *name = user.name;
-                                                             ContactData *contact = [[ContactsDataSource sharedClient] contactWithUserid:user.uid];
+                                                             ContactData *contact = [[ContactsDataSource sharedInstance] contactWithUserid:user.uid];
                                                              if(contact) {
                                                                  name = contact.name;
                                                              }
@@ -112,7 +112,7 @@
         if(!groupid.length) return;
         
         // 优先用缓存
-        GroupData *data = [[GroupDataSource sharedClient] groupWithGroupid:groupid];
+        GroupData *data = [[GroupDataSource sharedInstance] groupWithGroupid:groupid];
         
         if(data) {
             RCGroup *groupInfo = [[RCGroup alloc] initWithGroupId:data.uid

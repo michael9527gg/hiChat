@@ -20,6 +20,7 @@
 #import "VICocoaTools.h"
 #import <MJRefresh/MJRefresh.h>
 #import <LYPopupTools.h>
+#import <LYCoreDataSource.h>
 
 #import "CommonDefs.h"
 

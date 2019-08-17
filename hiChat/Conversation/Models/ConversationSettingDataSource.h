@@ -6,8 +6,6 @@
 //  Copyright © 2018 HiChat Org. All rights reserved.
 //
 
-#import "VICocoaTools.h"
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ConversationSettingData : NSObject
@@ -25,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface ConversationSettingDataSource : VIDataSource
+@interface ConversationSettingDataSource : LYDataSource
 
 - (void)initializeSettings;
 

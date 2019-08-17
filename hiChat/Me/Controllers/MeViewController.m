@@ -22,7 +22,7 @@ typedef enum : NSUInteger {
     MeAbout
 } MeItemType;
 
-@interface MeViewController () < VIDataSourceDelegate >
+@interface MeViewController () < LYDataSourceDelegate >
 
 @property (nonatomic, strong) RCMessageBubbleTipView *bubbleView;
 @property (nonatomic, assign) BOOL        versionNew;
@@ -34,7 +34,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) CheckinData *checkinData;
 
 @property (nonatomic, weak)   NotificationDataSource      *dataSource;
-@property (nonatomic, copy)   NSString                    *dataKey;
+@property (nonatomic, strong) NSFetchedResultsController  *fetchedResultsController;
 
 @end
 
@@ -42,14 +42,13 @@ typedef enum : NSUInteger {
 
 - (instancetype)init {
     if(self = [super init]) {
-        self.dataSource = [NotificationDataSource sharedClient];
-        self.dataKey = NSStringFromClass(self.class);
-        [self.dataSource registerDelegate:self
-                                   entity:[NotificationEntity entityName]
-                                predicate:[NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID]
-                          sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"time" ascending:NO]]
-                       sectionNameKeyPath:nil
-                                      key:self.dataKey];
+        self.dataSource = [NotificationDataSource sharedInstance];
+        
+        self.fetchedResultsController = [self.dataSource addDelegate:self
+                                                              entity:[NotificationEntity entityName]
+                                                           predicate:[NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID]
+                                                     sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"time" ascending:NO]]
+                                                  sectionNameKeyPath:nil];
     }
     
     return self;
@@ -254,7 +253,7 @@ typedef enum : NSUInteger {
 }
 
 - (void)updateBadgeValue {
-    NSInteger count = [[NotificationDataSource sharedClient] unReadNotificationsCount];
+    NSInteger count = [[NotificationDataSource sharedInstance] unReadNotificationsCount];
     [self.bubbleView setBubbleTipNumber:@(count).intValue];
     
     UIViewController *desController = self.tabBarController.viewControllers.lastObject;
@@ -383,9 +382,9 @@ typedef enum : NSUInteger {
     }
 }
 
-#pragma mark - VIDataSourceDelegate
+#pragma mark - LYDataSourceDelegate
 
-- (void)dataSource:(id<VIDataSource>)dataSource didChangeContentForKey:(NSString *)key {
+- (void)didChangeContent:(NSFetchedResultsController *)controller {
     [self updateBadgeValue];
 }
 

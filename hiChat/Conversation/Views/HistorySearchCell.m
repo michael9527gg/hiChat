@@ -59,11 +59,11 @@
         RCSearchConversationResult *result = (RCSearchConversationResult *)data;
         RCConversation *conversation = result.conversation;
         if(conversation.conversationType == ConversationType_PRIVATE) {
-            ContactData *contact = [[ContactsDataSource sharedClient] contactWithUserid:conversation.targetId];
+            ContactData *contact = [[ContactsDataSource sharedInstance] contactWithUserid:conversation.targetId];
             portrait = contact.portraitUri;
             name = contact.name;
         } else if(conversation.conversationType == ConversationType_GROUP) {
-            GroupData *group = [[GroupDataSource sharedClient] groupWithGroupid:conversation.targetId];
+            GroupData *group = [[GroupDataSource sharedInstance] groupWithGroupid:conversation.targetId];
             portrait = group.portrait;
             name = group.name;
         }
@@ -80,11 +80,11 @@
         RCTextMessage *textContent = (RCTextMessage *)message.content;
         
         if(message.conversationType == ConversationType_PRIVATE) {
-            ContactData *contact = [[ContactsDataSource sharedClient] contactWithUserid:message.targetId];
+            ContactData *contact = [[ContactsDataSource sharedInstance] contactWithUserid:message.targetId];
             portrait = contact.portraitUri;
             name = contact.name;
         } else if(message.conversationType == ConversationType_GROUP) {
-            GroupData *group = [[GroupDataSource sharedClient] groupWithGroupid:message.targetId];
+            GroupData *group = [[GroupDataSource sharedInstance] groupWithGroupid:message.targetId];
             portrait = group.portrait;
             name = group.name;
         }

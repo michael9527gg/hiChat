@@ -34,6 +34,5 @@
 #import "NSFileManager+GF.h"
 #import "VIMessageHUD.h"
 #import "CommonInterface.h"
-#import "VIDataSource.h"
 
 #endif /* GFCocoaTools_h */

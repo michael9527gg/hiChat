@@ -22,8 +22,7 @@
 #import <sqlite3.h>
 #import "NotificationView.h"
 
-NSString *databaseKey       = @"1030";
-NSString *defaultStartupKey = @"80808";
+NSString *defaultStartupKey = @"1000";
 
 @interface AppDelegate () < GuideViewDelegate, RCIMConnectionStatusDelegate, RCIMReceiveMessageDelegate, UITabBarControllerDelegate >
 
@@ -42,43 +41,53 @@ NSString *defaultStartupKey = @"80808";
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
 #if !defined(DEBUG) && !defined(ENV_DEV)
     [self setupBugly];
 #endif //
+    
+    [self initCoreDataStack];
+    
+    [self initRongCloud];
+    
+    [self initTheme];
+    
+    [self addObservers];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    [self themeInit];
-    
-    sqlite3_config(SQLITE_CONFIG_SERIALIZED);
-    
-    [self initDataSource];
-    
-    // 先展示中间画面
     [self showLoginScreen:YES];
-    
-    [[AccountManager manager] addObserver:self
-                               forKeyPath:ACCOUNT_STATUS_KEYPATH
-                                  options:NSKeyValueObservingOptionNew
-                                  context:nil];
-    
-    [self rongCloudInit];
     
     return YES;
 }
 
-- (void)initDataSource {
-    [ContactsDataSource sharedClient];
-    [UserDataSource sharedClient];
-    [GroupDataSource sharedClient];
-    [ConversationSettingDataSource sharedClient];
-    [NotificationDataSource sharedClient];
+- (void)initCoreDataStack {
+    sqlite3_config(SQLITE_CONFIG_SERIALIZED);
+    
+    NSString *MOM, *sqlite, *databaseKey;
+#ifdef ENV_DEV
+    MOM = @"Model";
+    sqlite = @"dev.sqlite";
+    databaseKey = @"1000";
+#else
+    MOM = @"Model";
+    sqlite = @"pub.sqlite";
+    databaseKey = @"1000";
+#endif
+    [[LYCoreDataManager manager] initCoreDataStackWithMOM:MOM
+                                                   sqlite:sqlite
+                                              databaseKey:databaseKey];
 }
 
-- (void)themeInit {
+- (void)addObservers {
+    [[AccountManager manager] addObserver:self
+                               forKeyPath:ACCOUNT_STATUS_KEYPATH
+                                  options:NSKeyValueObservingOptionNew
+                                  context:nil];
+}
+
+- (void)initTheme {
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
     if (@available(iOS 9.0, *)) {
         [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UINavigationBar class]]] setTintColor:[UIColor whiteColor]];
@@ -102,7 +111,7 @@ NSString *defaultStartupKey = @"80808";
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
-- (void)rongCloudInit {
+- (void)initRongCloud {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didReceiveMessageNotification:)
                                                  name:RCKitDispatchMessageNotification
@@ -116,9 +125,9 @@ NSString *defaultStartupKey = @"80808";
     
     [RCIM sharedRCIM].receiveMessageDelegate = self;
     
-    [RCIM sharedRCIM].enableTypingStatus = YES;
+    [RCIM sharedRCIM].enableTypingStatus = NO;
     
-    [RCIM sharedRCIM].enableSyncReadStatus = YES;
+    [RCIM sharedRCIM].enableSyncReadStatus = NO;
     
     [RCIM sharedRCIM].enableMessageMentioned = YES;
     
@@ -132,7 +141,7 @@ NSString *defaultStartupKey = @"80808";
     
     [RCIM sharedRCIM].groupMemberDataSource = RCCDataSource;
     
-    [RCIMClient sharedRCIMClient].logLevel = RC_Log_Level_Error;
+    [RCIMClient sharedRCIMClient].logLevel = RC_Log_Level_None;
     
     NSLog(@"RCIMClient version: %@", [[RCIMClient sharedRCIMClient] getSDKVersion]);
 }
@@ -143,7 +152,6 @@ NSString *defaultStartupKey = @"80808";
                        context:(void *)context {
     if ([keyPath isEqualToString:ACCOUNT_STATUS_KEYPATH]) {
         if ([[AccountManager manager] isServerSignin]) {
-            
             [[ContactsManager manager] requestFriendBlackListWithCompletion:nil];
             
             UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge |
@@ -158,6 +166,8 @@ NSString *defaultStartupKey = @"80808";
             }
             
             self.rcAccountInitFlag = NO;
+            
+            NSLog(@"------- %@", [AccountManager manager].rcToken);
             
             [[RCIM sharedRCIM] connectWithToken:[AccountManager manager].rcToken
                                         success:^(NSString *userId) {
@@ -257,7 +267,7 @@ NSString *defaultStartupKey = @"80808";
     if (status != ConnectionStatus_SignUp) {
         int unreadMsgCount = [[RCIMClient sharedRCIMClient] getUnreadCount:@[@(ConversationType_PRIVATE),
                                                                              @(ConversationType_GROUP)]];
-        NSInteger unreadNotificationCount = [[NotificationDataSource sharedClient] unReadNotificationsCount];
+        NSInteger unreadNotificationCount = [[NotificationDataSource sharedInstance] unReadNotificationsCount];
         application.applicationIconBadgeNumber = unreadMsgCount + unreadNotificationCount;
     }
 }
@@ -401,7 +411,7 @@ NSString *defaultStartupKey = @"80808";
 - (void)onRCIMReceiveMessage:(RCMessage *)message left:(int)left {
     NSTimeInterval interval = [[NSDate date] timeIntervalSince1970] - message.sentTime / 1000;
     NSString *string = [self.formatter shortTimeStringFromTimeInterval:interval];
-    
+
     NSLog(@"New msg, type: %lu, sender: %@, targetId: %@, objectName: %@, left: %d, %@ 前发送的消息", (unsigned long)message.conversationType, message.senderUserId, message.targetId, message.objectName, left, string);
 
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -415,12 +425,11 @@ NSString *defaultStartupKey = @"80808";
                 if (!uid.length) {
                     return;
                 }
-                ContactData *contact = [[ContactsDataSource sharedClient] contactWithUserid:uid];
+                ContactData *contact = [[ContactsDataSource sharedInstance] contactWithUserid:uid];
                 if (contact) {
                     contact.nickname = data[@"nickname"];
                     contact.portraitUri = data[@"portraitUri"];
-                    [[ContactsDataSource sharedClient] addObject:contact
-                                                      entityName:[ContactEntity entityName]];
+                    [[ContactsDataSource sharedInstance] addObject:contact];
 
                     RCUserInfo *userInfo = [[RCUserInfo alloc] initWithUserId:contact.uid
                                                                          name:contact.name
@@ -468,12 +477,11 @@ NSString *defaultStartupKey = @"80808";
                                                                       userInfo:@{@"groupid": groupid,
                                                                                  @"userids": mulArr}];
                     for(NSString *userid in mulArr) {
-                        GroupMemberData *member = [[GroupDataSource sharedClient] groupMemberWithUserd:userid
+                        GroupMemberData *member = [[GroupDataSource sharedInstance] groupMemberWithUserd:userid
                                                                                                groupid:groupid];
                         if(member) {
                             member.isgag = [custom.operation isEqualToString:@"GroupsAddGagUser"];
-                            [[GroupDataSource sharedClient] addObject:member
-                                                           entityName:[GroupMemberEntity entityName]];
+                            [[GroupDataSource sharedInstance] addObject:member];
                         }
                     }
                 }
@@ -492,10 +500,10 @@ NSString *defaultStartupKey = @"80808";
                     return;
                 }
                 NSString *displayName = data[@"displayname"];
-                ContactData *contact = [[ContactsDataSource sharedClient] contactWithUserid:friendid];
+                ContactData *contact = [[ContactsDataSource sharedInstance] contactWithUserid:friendid];
                 if(contact) {
                     contact.displayName = displayName;
-                    [[ContactsDataSource sharedClient] addObject:contact entityName:[ContactEntity entityName]];
+                    [[ContactsDataSource sharedInstance] addObject:contact];
                     RCUserInfo *userInfo = [[RCUserInfo alloc] initWithUserId:contact.uid
                                                                          name:contact.name
                                                                      portrait:contact.portraitUri];
@@ -514,9 +522,9 @@ NSString *defaultStartupKey = @"80808";
                 if(!userid.length) {
                     return;
                 }
-                ContactData *contact = [[ContactsDataSource sharedClient] contactWithUserid:userid];
+                ContactData *contact = [[ContactsDataSource sharedInstance] contactWithUserid:userid];
                 if(contact) {
-                    [[ContactsDataSource sharedClient] deleteObject:contact];
+                    [[ContactsDataSource sharedInstance] deleteObject:contact];
                 }
                 [[NSNotificationCenter defaultCenter] postNotificationName:CONTACT_UPDATE_FRIEND_NOTIFICATION
                                                                     object:nil
@@ -526,11 +534,10 @@ NSString *defaultStartupKey = @"80808";
                 NSString *groupId = YUCLOUD_VALIDATE_STRING(data[@"groupId"]);
                 NSNumber *stat = YUCLOUD_VALIDATE_NUMBER(data[@"stat"]);
 
-                GroupData *data = [[GroupDataSource sharedClient] groupWithGroupid:groupId];
+                GroupData *data = [[GroupDataSource sharedInstance] groupWithGroupid:groupId];
                 if(data) {
                     data.banState = stat.stringValue;
-                    [[GroupDataSource sharedClient] addObject:data
-                                                   entityName:[GroupEntity entityName]];
+                    [[GroupDataSource sharedInstance] addObject:data];
                 }
             }
             else if([custom.operation isEqualToString:@"AppNotification"]) {
@@ -540,8 +547,7 @@ NSString *defaultStartupKey = @"80808";
                         [NotificationView show:notification];
                     });
                 }
-                [[NotificationDataSource sharedClient] addObject:notification
-                                                      entityName:[NotificationEntity entityName]];
+                [[NotificationDataSource sharedInstance] addObject:notification];
             }
             else if ([custom.operation isEqualToString:@"KickOut"]) {
                 NSDate *lastPassLoginDate = [NSUserDefaults lastPassLoginDate];
@@ -589,9 +595,9 @@ NSString *defaultStartupKey = @"80808";
                 }
                 if([gnMessage.operatorUserId isEqualToString:YUCLOUD_ACCOUNT_USERID] &&
                    [gnMessage.operation isEqualToString:@"Quit"]) {
-                    GroupData *group = [[GroupDataSource sharedClient] groupWithGroupid:groupId];
+                    GroupData *group = [[GroupDataSource sharedInstance] groupWithGroupid:groupId];
                     if(group) {
-                        [[GroupDataSource sharedClient] deleteObject:group];
+                        [[GroupDataSource sharedInstance] deleteObject:group];
                     }
                 }
             }
@@ -659,69 +665,10 @@ NSString *defaultStartupKey = @"80808";
         dispatch_async(dispatch_get_main_queue(),^{
             int unreadMsgCount = [[RCIMClient sharedRCIMClient] getUnreadCount:@[@(ConversationType_PRIVATE),
                                                                                  @(ConversationType_GROUP)]];
-            NSInteger unreadNotificationCount = [[NotificationDataSource sharedClient] unReadNotificationsCount];
+            NSInteger unreadNotificationCount = [[NotificationDataSource sharedInstance] unReadNotificationsCount];
             [UIApplication sharedApplication].applicationIconBadgeNumber = unreadMsgCount + unreadNotificationCount;
         });
     }
-}
-
-#pragma mark - Core Data
-
-- (NSURL *)storeUrl {
-#if ENV_DEV
-    NSURL *url = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"data_dev.sqlite"];
-#else
-    NSURL *url = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"data.sqlite"];
-#endif
-    
-    NSLog(@"Data base location: %@", url);
-    return url;
-}
-
-- (NSManagedObjectContext *)managedObjectContext {
-    if (_managedObjectContext) {
-        return _managedObjectContext;
-    }
-    
-    _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    _managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator;
-    
-    return _managedObjectContext;
-}
-
-- (NSManagedObjectModel *)managedObjectModel {
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Model" withExtension:@"momd"];
-    return [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-}
-
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-    if (!_persistentStoreCoordinator) {
-        NSManagedObjectModel *model = [self managedObjectModel];
-        NSDictionary *hashs = model.entityVersionHashesByName;
-        NSUInteger hash = 0;
-        for (NSData *item in hashs.objectEnumerator) {
-            NSString *md5 = [item MD5];
-            hash += md5.hash;
-        }
-        
-        hash += databaseKey.hash;
-        
-        if ([NSUserDefaults databaseHash] != hash) {
-            [[NSFileManager defaultManager] removeItemAtURL:[self storeUrl] error:nil];
-            [NSUserDefaults saveDatabaseHash:hash];
-        }
-        
-        _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
-        NSError *error;
-        if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[self storeUrl] options:nil error:&error]) {
-            if (error != nil) {
-                NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-                abort();
-            }
-        }
-    }
-    
-    return _persistentStoreCoordinator;
 }
 
 #pragma mark - UITabBarControllerDelegate

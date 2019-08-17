@@ -43,27 +43,34 @@
 
 @implementation UserDataSource
 
-+ (instancetype)sharedClient {
++ (instancetype)sharedInstance {
     static dispatch_once_t onceToken;
-    static UserDataSource *client = nil;
+    static UserDataSource *instance = nil;
     dispatch_once(&onceToken, ^{
-        client = [[UserDataSource alloc] initWithManagedObjectContext:[AppDelegate appDelegate].managedObjectContext
-                                                          coordinator:[AppDelegate appDelegate].persistentStoreCoordinator];
+        instance = [[UserDataSource alloc] initWithPrivateContext:[[LYCoreDataManager manager] newPrivateContext]];
     });
     
-    return client;
+    return instance;
 }
 
-- (NSManagedObject *)onAddObject:(id)object managedObjectContext:(NSManagedObjectContext *)managedObjectContex {
+- (NSString *)entityNameForObject:(id)object {
+    if([object isKindOfClass:[UserData class]]) {
+        return [UserEntity entityName];
+    }
+    
+    return nil;
+}
+
+- (NSManagedObject *)onAddObject:(id)object {
     if ([object isKindOfClass:[UserData class]]) {
         UserData *data = (UserData *)object;
         NSFetchRequest *request = [UserEntity fetchRequest];
         request.predicate = [NSPredicate predicateWithFormat:@"uid == %@", data.uid];
         
-        UserEntity *item = [managedObjectContex executeFetchRequest:request error:nil].firstObject;
+        UserEntity *item = [self.privateContext executeFetchRequest:request error:nil].firstObject;
         if (!item) {
             item = [NSEntityDescription insertNewObjectForEntityForName:[UserEntity entityName]
-                                                 inManagedObjectContext:managedObjectContex];
+                                                 inManagedObjectContext:self.privateContext];
             item.uid = data.uid;
         }
         

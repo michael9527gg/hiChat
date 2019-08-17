@@ -350,12 +350,12 @@
             gCell.iconView.image = [[UIImage imageNamed:@"ic_contacts_more"] imageMaskedWithColor:[UIColor grayColor]];
         } else {
             if(self.onekeyEditType == OnekeyEditTypeContact) {
-                ContactData *contact = [[ContactsDataSource sharedClient] contactWithUserid:self.data[indexPath.item]];
+                ContactData *contact = [[ContactsDataSource sharedInstance] contactWithUserid:self.data[indexPath.item]];
                 [gCell.iconView sd_setImageWithURL:[NSURL URLWithString:[contact.portraitUri ossUrlStringRoundWithSize:LIST_ICON_SIZE]]
                                   placeholderImage:[UIImage imageNamed:@"ic_contacts_placeholder"]
                                          completed:nil];
             } else {
-                GroupData *group = [[GroupDataSource sharedClient] groupWithGroupid:self.data[indexPath.item]];
+                GroupData *group = [[GroupDataSource sharedInstance] groupWithGroupid:self.data[indexPath.item]];
                 [gCell.iconView sd_setImageWithURL:[NSURL URLWithString:[group.portrait ossUrlStringRoundWithSize:LIST_ICON_SIZE]]
                                   placeholderImage:[UIImage imageNamed:@"ic_group_placeholder"]
                                          completed:nil];

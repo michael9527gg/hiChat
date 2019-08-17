@@ -78,12 +78,12 @@
     NSMutableArray *mulArr = [NSMutableArray arrayWithArray:array];
     for(RCConversation *conversation in array) {
         if(conversation.conversationType == ConversationType_PRIVATE) {
-            ContactData *contact = [[ContactsDataSource sharedClient] contactWithUserid:conversation.targetId];
+            ContactData *contact = [[ContactsDataSource sharedInstance] contactWithUserid:conversation.targetId];
             if(!contact) {
                 [mulArr removeObject:conversation];
             }
         } else if (conversation.conversationType == ConversationType_GROUP) {
-            GroupData *group = [[GroupDataSource sharedClient] groupWithGroupid:conversation.targetId];
+            GroupData *group = [[GroupDataSource sharedInstance] groupWithGroupid:conversation.targetId];
             if(!group) {
                 [mulArr removeObject:conversation];
             }
@@ -141,11 +141,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         RCConversation *conversation = self.dataSource[indexPath.row];
         
         if(conversation.conversationType == ConversationType_PRIVATE) {
-            ContactData *contact = [[ContactsDataSource sharedClient] contactWithUserid:conversation.targetId];
+            ContactData *contact = [[ContactsDataSource sharedInstance] contactWithUserid:conversation.targetId];
             cCell.portraitUri = contact.portraitUri;
             cCell.string = contact.name;
         } else if (conversation.conversationType == ConversationType_GROUP) {
-            GroupData *group = [[GroupDataSource sharedClient] groupWithGroupid:conversation.targetId];
+            GroupData *group = [[GroupDataSource sharedInstance] groupWithGroupid:conversation.targetId];
             cCell.portraitUri = group.portrait;
             cCell.string = group.name;
         }
@@ -218,10 +218,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         RCConversation *conversation = self.dataSource[indexPath.row];
         NSString *targetName = nil;
         if(conversation.conversationType == ConversationType_PRIVATE) {
-            ContactData *contact = [[ContactsDataSource sharedClient] contactWithUserid:conversation.targetId];
+            ContactData *contact = [[ContactsDataSource sharedInstance] contactWithUserid:conversation.targetId];
             targetName = contact.name;
         } else if (conversation.conversationType == ConversationType_GROUP) {
-            GroupData *group = [[GroupDataSource sharedClient] groupWithGroupid:conversation.targetId];
+            GroupData *group = [[GroupDataSource sharedInstance] groupWithGroupid:conversation.targetId];
             targetName = group.name;
         }
         
@@ -238,7 +238,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
                    purpose:(ContactSelectPurpose)purpose
                  mulSelect:(BOOL)mulSelect {
     NSString *contactId = contacts.firstObject;
-    ContactData *contact = [[ContactsDataSource sharedClient] contactWithUserid:contactId];
+    ContactData *contact = [[ContactsDataSource sharedInstance] contactWithUserid:contactId];
     [self alertSendMessageForTargetid:contactId
                      conversationType:ConversationType_PRIVATE
                            targetName:contact.name
@@ -250,7 +250,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)selectWithGroups:(NSArray *)groups
                  purpose:(GroupSelectPurpose)purpose {
     NSString *groupId = groups.firstObject;
-    GroupData *group = [[GroupDataSource sharedClient] groupWithGroupid:groupId];
+    GroupData *group = [[GroupDataSource sharedInstance] groupWithGroupid:groupId];
     [self alertSendMessageForTargetid:groupId
                      conversationType:ConversationType_GROUP
                            targetName:group.name

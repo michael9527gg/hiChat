@@ -11,11 +11,11 @@
 #import "NotificationDataSource.h"
 #import "NotificationCell.h"
 
-@interface NotificationCenterViewController () < UITableViewDataSource, UITableViewDelegate, VIDataSourceDelegate >
+@interface NotificationCenterViewController () < UITableViewDataSource, UITableViewDelegate, LYDataSourceDelegate >
 
 @property (nonatomic, strong) UITableView                 *tableView;
 @property (nonatomic, weak)   NotificationDataSource      *dataSource;
-@property (nonatomic, copy)   NSString                    *dataKey;
+@property (nonatomic, strong)   NSFetchedResultsController                    *fetchedResultsController;
 
 @end
 
@@ -54,14 +54,12 @@
                                                                              target:self
                                                                              action:@selector(touchMore)];
     
-    self.dataSource = [NotificationDataSource sharedClient];
-    self.dataKey = NSStringFromClass(self.class);
-    [self.dataSource registerDelegate:self
-                               entity:[NotificationEntity entityName]
-                            predicate:[NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID]
-                      sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"time" ascending:NO]]
-                   sectionNameKeyPath:nil
-                                  key:self.dataKey];
+    self.dataSource = [NotificationDataSource sharedInstance];
+    self.fetchedResultsController = [self.dataSource addDelegate:self
+                                                          entity:[NotificationEntity entityName]
+                                                       predicate:[NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID]
+                                                 sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"time" ascending:NO]]
+                                              sectionNameKeyPath:nil];
 }
 
 - (void)touchMore {
@@ -76,7 +74,7 @@
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"清空"
                                                  style:UIAlertActionStyleDestructive
                                                handler:^(UIAlertAction * _Nonnull action) {
-                                                   [[NotificationDataSource sharedClient] clearAllNotifications];
+                                                   [[NotificationDataSource sharedInstance] clearAllNotifications];
                                                }];
     [alert addAction:ok];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消"
@@ -105,7 +103,8 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger num = [self.dataSource numberOfItemsForKey:self.dataKey inSection:section];
+    NSInteger num = [self.dataSource numberOfItems:self.fetchedResultsController
+                                         inSection:section];
     
     if(!num) {
         tableView.backgroundView = [self emptyViewWithTitle:@"暂无系统通知"];
@@ -129,7 +128,7 @@
   willDisplayCell:(NotificationCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath {
     cell.data = [self.dataSource notificationAtIndexPath:indexPath
-                                                  forKey:self.dataKey];
+                                              controller:self.fetchedResultsController];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -137,13 +136,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NotificationDetailViewController *detailVC = [[NotificationDetailViewController alloc] init];
     detailVC.data = [self.dataSource notificationAtIndexPath:indexPath
-                                                      forKey:self.dataKey];
+                                                  controller:self.fetchedResultsController];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
-#pragma mark - VIDataSourceDelegate
+#pragma mark - LYDataSourceDelegate
 
-- (void)dataSource:(id<VIDataSource>)dataSource didChangeContentForKey:(NSString *)key {
+- (void)didChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView reloadData];
 }
 

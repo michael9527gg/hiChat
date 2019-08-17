@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface UserDataSource : VIDataSource
+@interface UserDataSource : LYDataSource
 
 @end
 

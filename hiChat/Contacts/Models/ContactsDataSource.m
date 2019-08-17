@@ -31,6 +31,18 @@
     return self;
 }
 
++ (FriendBlackData *)blackForEntity:(FriendBlackEntity *)entity {
+    if(!entity) return nil;
+    
+    FriendBlackData *black = [[FriendBlackData alloc] init];
+    black.userid = entity.userid;
+    black.nickname = entity.nickname;
+    black.portraitUri = entity.portraitUri;
+    black.updatedAt = entity.updatedAt;
+    
+    return black;
+}
+
 @end
 
 @implementation FriendRequsetData
@@ -63,6 +75,22 @@
     return self;
 }
 
++ (FriendRequsetData *)requestForEntity:(FriendRequestEntity *)entity {
+    if(!entity) return nil;
+    
+    FriendRequsetData *data = [[FriendRequsetData alloc] init];
+    
+    data.userid = entity.userid;
+    data.nickname = entity.nickname;
+    data.displayName = entity.displayName;
+    data.portraitUri = entity.portraitUri;
+    data.updatedAt = entity.updateAt;
+    data.message = entity.message;
+    data.status = entity.status;
+    
+    return data;
+}
+
 - (NSString *)name {
     if (self.displayName && self.displayName.length) {
         return self.displayName;
@@ -83,7 +111,7 @@
     return [[self alloc] initWithData:data];
 }
 
-+ (instancetype)contactFromEntity:(ContactEntity *)item {
++ (instancetype)contactForEntity:(ContactEntity *)item {
     return [[self alloc] initWithEntity:item];
 }
 
@@ -114,7 +142,6 @@
         self.message = entity.message;
         self.phone = entity.phone;
         self.portraitUri = entity.portraitUri;
-        
         self.sectionKey = entity.sectionKey;
     }
     
@@ -146,56 +173,38 @@
 
 @implementation ContactsDataSource
 
-+ (instancetype)sharedClient {
++ (instancetype)sharedInstance {
     static dispatch_once_t onceToken;
-    static ContactsDataSource *client = nil;
+    static ContactsDataSource *instance = nil;
     dispatch_once(&onceToken, ^{
-        client = [[ContactsDataSource alloc] initWithManagedObjectContext:[AppDelegate appDelegate].managedObjectContext
-                                                              coordinator:[AppDelegate appDelegate].persistentStoreCoordinator];
+        instance = [[ContactsDataSource alloc] initWithPrivateContext:[[LYCoreDataManager manager] newPrivateContext]];
     });
     
-    return client;
+    return instance;
 }
 
-- (BOOL)hasChinesePrefix:(NSString *)str {
-    int utfCode = 0;
-    void *buffer = &utfCode;
-    NSRange range = NSMakeRange(0, 1);
-    BOOL b = [str getBytes:buffer
-                 maxLength:2
-                usedLength:NULL
-                  encoding:NSUTF16LittleEndianStringEncoding
-                   options:NSStringEncodingConversionExternalRepresentation
-                     range:range
-            remainingRange:NULL];
-    if (b && (utfCode >= 0x4e00 && utfCode <= 0x9fa5)) {
-        return YES;
+- (NSString *)entityNameForObject:(id)object {
+    if([object isKindOfClass:[ContactData class]]) {
+        return [ContactEntity entityName];
+    } else if([object isKindOfClass:[FriendRequsetData class]]) {
+        return [FriendRequestEntity entityName];
+    } else if([object isKindOfClass:[FriendBlackData class]]) {
+        return [FriendBlackEntity entityName];
     }
     
-    return NO;
+    return nil;
 }
 
-- (BOOL)hasEnglishPrefix:(NSString *)str {
-    NSString *regular = @"^[A-Za-z].+$";
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regular];
-    
-    if ([predicate evaluateWithObject:str]) {
-        return YES;
-    }
-    
-    return NO;
-}
-
-- (NSManagedObject *)onAddObject:(id)object managedObjectContext:(NSManagedObjectContext *)managedObjectContex {
+- (NSManagedObject *)onAddObject:(id)object {
     if ([object isKindOfClass:[ContactData class]]) {
         ContactData *data = (ContactData *)object;
         NSFetchRequest *request = [ContactEntity fetchRequest];
         request.predicate = [NSPredicate predicateWithFormat:@"uid == %@ && loginid == %@", data.uid, YUCLOUD_ACCOUNT_USERID];
         
-        ContactEntity *item = [managedObjectContex executeFetchRequest:request error:nil].firstObject;
+        ContactEntity *item = [self.privateContext executeFetchRequest:request error:nil].firstObject;
         if (!item) {
             item = [NSEntityDescription insertNewObjectForEntityForName:[ContactEntity entityName]
-                                                 inManagedObjectContext:managedObjectContex];
+                                                 inManagedObjectContext:self.privateContext];
             item.loginid = YUCLOUD_ACCOUNT_USERID;
         }
         
@@ -232,15 +241,14 @@
         
         return item;
     } else if([object isKindOfClass:[FriendRequsetData class]]) {
-        
         FriendRequsetData *data = (FriendRequsetData *)object;
         NSFetchRequest *request = [FriendRequestEntity fetchRequest];
         request.predicate = [NSPredicate predicateWithFormat:@"userid == %@ && loginid == %@", data.userid, YUCLOUD_ACCOUNT_USERID];
         
-        FriendRequestEntity *item = [managedObjectContex executeFetchRequest:request error:nil].firstObject;
+        FriendRequestEntity *item = [self.privateContext executeFetchRequest:request error:nil].firstObject;
         if (!item) {
             item = [NSEntityDescription insertNewObjectForEntityForName:[FriendRequestEntity entityName]
-                                                 inManagedObjectContext:managedObjectContex];
+                                                 inManagedObjectContext:self.privateContext];
             item.loginid = YUCLOUD_ACCOUNT_USERID;
             item.userid = data.userid;
         }
@@ -258,10 +266,10 @@
         NSFetchRequest *request = [FriendBlackEntity fetchRequest];
         request.predicate = [NSPredicate predicateWithFormat:@"userid == %@ && loginid == %@", data.userid, YUCLOUD_ACCOUNT_USERID];
         
-        FriendBlackEntity *item = [managedObjectContex executeFetchRequest:request error:nil].firstObject;
+        FriendBlackEntity *item = [self.privateContext executeFetchRequest:request error:nil].firstObject;
         if (!item) {
             item = [NSEntityDescription insertNewObjectForEntityForName:[FriendBlackEntity entityName]
-                                                 inManagedObjectContext:managedObjectContex];
+                                                 inManagedObjectContext:self.privateContext];
             item.loginid = YUCLOUD_ACCOUNT_USERID;
             item.userid = data.userid;
         }
@@ -277,16 +285,16 @@
     }
 }
 
-- (void)onDeleteObject:(id)object managedObjectContext:(NSManagedObjectContext *)managedObjectContex {
+- (void)onDeleteObject:(id)object {
     if ([object isKindOfClass:[ContactData class]]) {
         ContactData *contact = (ContactData *)object;
         
         NSFetchRequest *request = [ContactEntity fetchRequest];
         request.predicate = [NSPredicate predicateWithFormat:@"uid == %@ && loginid == %@", contact.uid, YUCLOUD_ACCOUNT_USERID];
         
-        ContactEntity *item = [[managedObjectContex executeFetchRequest:request error:nil] firstObject];
+        ContactEntity *item = [[self.privateContext executeFetchRequest:request error:nil] firstObject];
         if (item && !item.isDeleted) {
-            [managedObjectContex deleteObject:item];
+            [self.privateContext deleteObject:item];
         }
     } else if([object isKindOfClass:[FriendBlackData class]]) {
         FriendBlackData *data = (FriendBlackData *)object;
@@ -294,127 +302,123 @@
         NSFetchRequest *request = [FriendBlackEntity fetchRequest];
         request.predicate = [NSPredicate predicateWithFormat:@"userid == %@ && loginid == %@", data.userid, YUCLOUD_ACCOUNT_USERID];
         
-        FriendBlackEntity *item = [[managedObjectContex executeFetchRequest:request error:nil] firstObject];
+        FriendBlackEntity *item = [[self.privateContext executeFetchRequest:request error:nil] firstObject];
         if (item && !item.isDeleted) {
-            [managedObjectContex deleteObject:item];
+            [self.privateContext deleteObject:item];
         }
     }
 }
 
-- (ContactData *)contactAtIndexPath:(NSIndexPath *)indexPath forKey:(NSString *)key {
-    ContactEntity *item = [self objectAtIndexPath:indexPath forKey:key];
-    return [ContactData contactFromEntity:item];
-}
+#pragma mark - ContactData methods
 
-- (ContactData *)contactForEntity:(ContactEntity *)entity {
-    if(!entity) return nil;
+- (ContactData *)contactAtIndexPath:(NSIndexPath *)indexPath
+                         controller:(NSFetchedResultsController *)controller {
+    ContactEntity *item = [self objectAtIndexPath:indexPath
+                                       controller:controller];
     
-    ContactData *contact = [[ContactData alloc] init];
-    contact.uid = entity.uid;
-    contact.nickname = entity.nickname;
-    contact.portraitUri = entity.portraitUri;
-    contact.displayName = entity.displayName;
-    contact.phone = entity.phone;
-    contact.message = entity.message;
-    contact.sectionKey = entity.sectionKey;
-    
-    return contact;
+    return [ContactData contactForEntity:item];
 }
 
 - (ContactData *)contactWithUserid:(NSString *)userid {
-    NSFetchRequest *request = [ContactEntity fetchRequest];
-    request.predicate = [NSPredicate predicateWithFormat:@"uid == %@ && loginid == %@", userid, YUCLOUD_ACCOUNT_USERID];
+    NSArray *contacts = [self executeFetchRequest:[ContactEntity fetchRequest]
+                                            predicate:[NSPredicate predicateWithFormat:@"uid == %@ && loginid == %@", userid, YUCLOUD_ACCOUNT_USERID]];
     
-    ContactEntity *item = [self.managedObjectContext executeFetchRequest:request error:nil].firstObject;
-    
-    return [self contactForEntity:item];
+    return [ContactData contactForEntity:contacts.firstObject];
 }
 
 - (NSArray *)allContacts {
     NSFetchRequest *request = [ContactEntity fetchRequest];
     request.predicate = [NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID];
-    
-    NSArray *array = [self.managedObjectContext executeFetchRequest:request error:nil];
+    NSArray *array = [self.privateContext executeFetchRequest:request error:nil];
     NSMutableArray *mulArr = [NSMutableArray arrayWithCapacity:array.count];
     
     for(ContactEntity *entity in array) {
-        [mulArr addObject:[self contactForEntity:entity]];
+        [mulArr addObject:[ContactData contactForEntity:entity]];
     }
     
     return mulArr;
 }
 
-- (NSArray *)allContactsForKey:(NSString *)key {
-    NSArray *array = [self allObjectsForKey:key];
+- (NSArray *)allContactsForController:(NSFetchedResultsController *)controller {
+    NSArray *array = [self allObjects:controller];
     NSMutableArray *mulArr = [NSMutableArray arrayWithCapacity:array.count];
     
     for(ContactEntity *entity in array) {
-        [mulArr addObject:[self contactForEntity:entity]];
+        [mulArr addObject:[ContactData contactForEntity:entity]];
     }
     
     return mulArr;
 }
 
-- (FriendRequsetData *)requestForEntity:(FriendRequestEntity *)entity {
-    if(!entity) return nil;
-    
-    FriendRequsetData *data = [[FriendRequsetData alloc] init];
-    
-    data.userid = entity.userid;
-    data.nickname = entity.nickname;
-    data.displayName = entity.displayName;
-    data.portraitUri = entity.portraitUri;
-    data.updatedAt = entity.updateAt;
-    data.message = entity.message;
-    data.status = entity.status;
-    
-    return data;
-}
-
-- (FriendRequsetData *)requestAtIndexPath:(NSIndexPath *)indexPath forKey:(NSString *)key {
-    FriendRequestEntity *item = [self objectAtIndexPath:indexPath forKey:key];
-    return [self requestForEntity:item];
-}
-
-- (FriendRequsetData *)requestWithUserid:(NSString *)userid {
-    NSFetchRequest *request = [FriendRequestEntity fetchRequest];
-    request.predicate = [NSPredicate predicateWithFormat:@"userid == %@ && loginid == %@", userid, YUCLOUD_ACCOUNT_USERID];
-    FriendRequestEntity *item = [self.managedObjectContext executeFetchRequest:request error:nil].firstObject;
-    
-    return [self requestForEntity:item];
-}
+#pragma mark - FriendRequsetData methods
 
 - (BOOL)isFriendForUserid:(NSString *)userid {
     NSFetchRequest *request = [ContactEntity fetchRequest];
     request.predicate = [NSPredicate predicateWithFormat:@"uid == %@ && loginid == %@", userid, YUCLOUD_ACCOUNT_USERID];
-    NSArray *contacts = [self.managedObjectContext executeFetchRequest:request error:nil];
+    NSArray *contacts = [self.privateContext executeFetchRequest:request error:nil];
     
     return contacts.count;
 }
 
-- (FriendBlackData *)blackForEntity:(FriendBlackEntity *)entity {
-    if(!entity) return nil;
+- (FriendRequsetData *)requestAtIndexPath:(NSIndexPath *)indexPath
+                               controller:(nonnull NSFetchedResultsController *)controller {
+    FriendRequestEntity *item = [self objectAtIndexPath:indexPath controller:controller];
     
-    FriendBlackData *black = [[FriendBlackData alloc] init];
-    black.userid = entity.userid;
-    black.nickname = entity.nickname;
-    black.portraitUri = entity.portraitUri;
-    black.updatedAt = entity.updatedAt;
-    
-    return black;
+    return [FriendRequsetData requestForEntity:item];
 }
 
-- (FriendBlackData *)blackAtIndexPath:(NSIndexPath *)indexPath forKey:(NSString *)key {
-    FriendBlackEntity *item = [self objectAtIndexPath:indexPath forKey:key];
-    return [self blackForEntity:item];
+- (FriendRequsetData *)requestWithUserid:(NSString *)userid {
+    FriendRequestEntity *item = [self executeFetchRequest:[FriendRequestEntity fetchRequest]
+                                                predicate:[NSPredicate predicateWithFormat:@"userid == %@ && loginid == %@", userid, YUCLOUD_ACCOUNT_USERID]];
+    
+    return [FriendRequsetData requestForEntity:item];
+}
+
+#pragma mark - FriendBlackData methods
+
+- (FriendBlackData *)blackAtIndexPath:(NSIndexPath *)indexPath
+                           controller:(nonnull NSFetchedResultsController *)controller {
+    FriendBlackEntity *item = [self objectAtIndexPath:indexPath controller:controller];
+    
+    return [FriendBlackData blackForEntity:item];
 }
 
 - (FriendBlackData *)blackWithUserid:(NSString *)userid {
-    NSFetchRequest *request = [FriendBlackEntity fetchRequest];
-    request.predicate = [NSPredicate predicateWithFormat:@"userid == %@ && loginid == %@", userid, YUCLOUD_ACCOUNT_USERID];
-    FriendBlackEntity *item = [self.managedObjectContext executeFetchRequest:request error:nil].firstObject;
+    FriendBlackEntity *item = [self executeFetchRequest:[FriendBlackEntity fetchRequest]
+                                              predicate:[NSPredicate predicateWithFormat:@"userid == %@ && loginid == %@", userid, YUCLOUD_ACCOUNT_USERID]];
     
-    return [self blackForEntity:item];
+    return [FriendBlackData blackForEntity:item];
+}
+
+#pragma mark - private methods
+
+- (BOOL)hasChinesePrefix:(NSString *)str {
+    int utfCode = 0;
+    void *buffer = &utfCode;
+    NSRange range = NSMakeRange(0, 1);
+    BOOL b = [str getBytes:buffer
+                 maxLength:2
+                usedLength:NULL
+                  encoding:NSUTF16LittleEndianStringEncoding
+                   options:NSStringEncodingConversionExternalRepresentation
+                     range:range
+            remainingRange:NULL];
+    if (b && (utfCode >= 0x4e00 && utfCode <= 0x9fa5)) {
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (BOOL)hasEnglishPrefix:(NSString *)str {
+    NSString *regular = @"^[A-Za-z].+$";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regular];
+    
+    if ([predicate evaluateWithObject:str]) {
+        return YES;
+    }
+    
+    return NO;
 }
 
 @end

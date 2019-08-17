@@ -41,7 +41,7 @@
         
         self.user = user;
         
-        self.contact = [[ContactsDataSource sharedClient] contactWithUserid:self.userid];
+        self.contact = [[ContactsDataSource sharedInstance] contactWithUserid:self.userid];
         
         AccountInfo *info = [AccountManager manager].accountInfo;
         if ([userid isEqualToString:info.loginid]) {
@@ -53,7 +53,7 @@
         
         if(groupid) {
             self.groupid = groupid;
-            self.member = [[GroupDataSource sharedClient] groupMemberWithUserd:self.userid
+            self.member = [[GroupDataSource sharedInstance] groupMemberWithUserd:self.userid
                                                                        groupid:self.groupid];
         }
     }
@@ -103,7 +103,7 @@
         make.height.equalTo(@44);
     }];
     
-    GroupMemberData *curMember = [[GroupDataSource sharedClient] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
+    GroupMemberData *curMember = [[GroupDataSource sharedInstance] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
                                                                               groupid:self.groupid];
     // 非特殊会员不能加好友
     if(self.groupid && ![curMember.role isSpecialUser] && !self.contact) {
@@ -210,14 +210,12 @@
                                                          if(self.member) {
                                                              self.member.nickname = userData.nickname;
                                                              self.member.displayName = userData.displayName;
-                                                             [[GroupDataSource sharedClient] addObject:self.member
-                                                                                            entityName:[GroupMemberEntity entityName]];
+                                                             [[GroupDataSource sharedInstance] addObject:self.member];
                                                          }
                                                          if(self.contact) {
                                                              self.contact.nickname = userData.nickname;
                                                              self.contact.displayName = userData.displayName;
-                                                             [[ContactsDataSource sharedClient] addObject:self.contact
-                                                                                               entityName:[ContactEntity entityName]];
+                                                             [[ContactsDataSource sharedInstance] addObject:self.contact];
                                                          }
                                                          
                                                          self.platformName = userData.platformName;
@@ -258,8 +256,7 @@
                                 completion:^(BOOL success, NSDictionary * _Nullable info) {
                                     if(success) {
                                         self.member.isgag = YES;
-                                        [[GroupDataSource sharedClient] addObject:self.member
-                                                                       entityName:[GroupMemberEntity entityName]];
+                                        [[GroupDataSource sharedInstance] addObject:self.member];
                                         
                                         [self refreshBannedBtn];
                                     }
@@ -278,8 +275,7 @@
                                     completion:^(BOOL success, NSDictionary * _Nullable info) {
                                         if(success) {
                                             self.member.isgag = NO;
-                                            [[GroupDataSource sharedClient] addObject:self.member
-                                                                           entityName:[GroupMemberEntity entityName]];
+                                            [[GroupDataSource sharedInstance] addObject:self.member];
                                             
                                             [self refreshBannedBtn];
                                         }
@@ -319,9 +315,9 @@
     [[ContactsManager manager] deleteFriendWithUserid:self.userid
                                            completion:^(BOOL success, NSDictionary * _Nullable info) {
                                                if(success) {
-                                                   ContactData *contact = [[ContactsDataSource sharedClient] contactWithUserid:self.userid];
+                                                   ContactData *contact = [[ContactsDataSource sharedInstance] contactWithUserid:self.userid];
                                                    
-                                                   [[ContactsDataSource sharedClient] deleteObject:contact];
+                                                   [[ContactsDataSource sharedInstance] deleteObject:contact];
                                                    
                                                    [[UserManager manager] refreshRCUserInfoCacheWithUserid:self.userid
                                                                                                   userInfo:nil
@@ -349,16 +345,14 @@
                                                      black.userid = self.contact.uid;
                                                      black.nickname = self.contact.nickname;
                                                      black.portraitUri = self.contact.portraitUri;
-                                                     [[ContactsDataSource sharedClient] addObject:black
-                                                                                       entityName:[FriendBlackEntity entityName]];
+                                                     [[ContactsDataSource sharedInstance] addObject:black];
                                                      
                                                      // 消息能力
                                                      ConversationSettingData *setting = [ConversationSettingData conversationSettingWithType:ConversationType_PRIVATE
                                                                                                                                     targetId:self.userid];
                                                      setting.canMessage = NO;
                                                      setting.messageError = @"您已将对方列入黑名单";
-                                                     [[ConversationSettingDataSource sharedClient] addObject:setting
-                                                                                                  entityName:[ConversationSettingEntity entityName]];
+                                                     [[ConversationSettingDataSource sharedInstance] addObject:setting];
                                                  }
                                                  
                                                  [MBProgressHUD finishLoading:hud
@@ -373,15 +367,14 @@
     [[ContactsManager manager] deleteBlackListWithFriendid:self.userid
                                                 completion:^(BOOL success, NSDictionary * _Nullable info) {
                                                     if(success) {
-                                                        FriendBlackData *data = [[ContactsDataSource sharedClient] blackWithUserid:self.userid];
-                                                        [[ContactsDataSource sharedClient] deleteObject:data];
+                                                        FriendBlackData *data = [[ContactsDataSource sharedInstance] blackWithUserid:self.userid];
+                                                        [[ContactsDataSource sharedInstance] deleteObject:data];
                                                         
                                                         // 消息能力
                                                         ConversationSettingData *setting = [ConversationSettingData conversationSettingWithType:ConversationType_PRIVATE
                                                                                                                                        targetId:self.userid];
                                                         setting.canMessage = YES;
-                                                        [[ConversationSettingDataSource sharedClient] addObject:setting
-                                                                                                     entityName:[ConversationSettingEntity entityName]];
+                                                        [[ConversationSettingDataSource sharedInstance] addObject:setting];
 
                                                         
                                                     }
@@ -421,7 +414,7 @@
     [alert addAction:delete];
     
     UIAlertAction *black = nil;
-    FriendBlackData *data = [[ContactsDataSource sharedClient] blackWithUserid:self.userid];
+    FriendBlackData *data = [[ContactsDataSource sharedInstance] blackWithUserid:self.userid];
     if(data) {
         black = [UIAlertAction actionWithTitle:@"取消拉黑"
                                                         style:UIAlertActionStyleDefault
@@ -458,8 +451,7 @@
                                                        } else {
                                                            self.member.groupRole = @"1";
                                                        }
-                                                       [[GroupDataSource sharedClient] addObject:self.member
-                                                                                      entityName:[GroupMemberEntity entityName]];
+                                                       [[GroupDataSource sharedInstance] addObject:self.member];
                                                        
                                                        [self refreshAdminBtn];
                                                    }
@@ -504,8 +496,7 @@
                                                             [hud hideAnimated:YES];
                                                             
                                                             self.contact.displayName = displayName;
-                                                            [[ContactsDataSource sharedClient] addObject:self.contact
-                                                                                              entityName:[ContactEntity entityName]];
+                                                            [[ContactsDataSource sharedInstance] addObject:self.contact];
                                                             [self.tableView reloadData];
                                                             
                                                             // 刷新融云缓存

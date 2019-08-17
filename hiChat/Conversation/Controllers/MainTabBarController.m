@@ -93,7 +93,7 @@
             }
         }
         
-        unreadCount = [[NotificationDataSource sharedClient] unReadNotificationsCount];
+        unreadCount = [[NotificationDataSource sharedInstance] unReadNotificationsCount];
         desController = self.viewControllers.lastObject;
         desItem = desController.tabBarItem;
         if(unreadCount) {

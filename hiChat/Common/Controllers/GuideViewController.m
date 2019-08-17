@@ -74,9 +74,9 @@ extern NSString *defaultStartupKey;
     
     self.arrPages = [NSMutableArray array];
     
-    if ([NSUserDefaults firstTimeStartup] && (self.guideMask & GuideOpening)) {
-        [self.arrPages addObject:start];
-    }
+//    if ([NSUserDefaults firstTimeStartup] && (self.guideMask & GuideOpening)) {
+//        [self.arrPages addObject:start];
+//    }
     
     if (![[AccountManager manager] isServerSignin] && (self.guideMask & GuideLogin)) {
         LoginPageViewController *login = [LoginPageViewController new];
