@@ -10,6 +10,7 @@
 #import "GroupIconCell.h"
 #import "OnekeyImageCell.h"
 #import "OnkeyTextEditView.h"
+#import <LYCocoaDevKit/UICollectionViewCell+LYCocoaDevKit.h>
 
 @interface GroupOnekeyEditViewController () < OnekeyImageCellDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MessageSendManagerDelegate >
 

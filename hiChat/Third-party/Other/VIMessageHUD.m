@@ -9,7 +9,6 @@
 #import <Masonry/Masonry.h>
 #import "UIView+VI.h"
 #import "NSAttributedString+GF.h"
-#import "UIColor+GF.h"
 
 const NSTimeInterval MESSAGE_DELAY_INVERTAL = 1.5;
 

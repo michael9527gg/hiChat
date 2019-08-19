@@ -115,7 +115,7 @@
         }
         
         self.fetchedResultsController = [self.dataSource addDelegate:self
-                                                              entity:[ContactEntity entityName]
+                                                              entity:[GroupMemberEntity entityName]
                                                            predicate:predicate
                                                      sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sectionKey" ascending:YES],
                                                                        [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]

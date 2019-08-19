@@ -62,6 +62,29 @@ NSString *defaultStartupKey = @"1000";
     return YES;
 }
 
+- (void)setupBugly {
+    BuglyConfig * config = [[BuglyConfig alloc] init];
+    
+    config.blockMonitorEnable = NO;
+    
+    config.blockMonitorTimeout = 3.5;
+    
+    config.channel = @"Enterprise";
+    
+    config.consolelogEnable = NO;
+    
+    config.viewControllerTrackingEnable = NO;
+    
+    [Bugly startWithAppId:@"73ee2162f6"
+        developmentDevice:NO
+                   config:config];
+    
+    [Bugly setUserIdentifier:[NSString stringWithFormat:@"User: %@", [UIDevice currentDevice].name]];
+    
+    [Bugly setUserValue:[NSProcessInfo processInfo].processName forKey:@"Process"];
+}
+
+
 - (void)initCoreDataStack {
     sqlite3_config(SQLITE_CONFIG_SERIALIZED);
     
@@ -78,37 +101,6 @@ NSString *defaultStartupKey = @"1000";
     [[LYCoreDataManager manager] initCoreDataStackWithMOM:MOM
                                                    sqlite:sqlite
                                               databaseKey:databaseKey];
-}
-
-- (void)addObservers {
-    [[AccountManager manager] addObserver:self
-                               forKeyPath:ACCOUNT_STATUS_KEYPATH
-                                  options:NSKeyValueObservingOptionNew
-                                  context:nil];
-}
-
-- (void)initTheme {
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
-    if (@available(iOS 9.0, *)) {
-        [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UINavigationBar class]]] setTintColor:[UIColor whiteColor]];
-    }
-    else {
-        // Fallback on earlier versions
-    }
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorFromHex:0x0099ff]];
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"ic_navi_bg"]
-                                       forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
-    [[UINavigationBar appearance] setTranslucent:NO];
-}
-
-- (void)showLoginScreen:(BOOL)withStartup {
-    GuideViewController *guide = [[GuideViewController alloc] initWithMask:withStartup?GuideStartup:GuideLogin];
-    guide.delegate = self;
-    
-    self.window.rootViewController = guide;
-    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
 - (void)initRongCloud {
@@ -141,9 +133,40 @@ NSString *defaultStartupKey = @"1000";
     
     [RCIM sharedRCIM].groupMemberDataSource = RCCDataSource;
     
-    [RCIMClient sharedRCIMClient].logLevel = RC_Log_Level_None;
+    [RCIMClient sharedRCIMClient].logLevel = RC_Log_Level_Error;
     
     NSLog(@"RCIMClient version: %@", [[RCIMClient sharedRCIMClient] getSDKVersion]);
+}
+
+- (void)initTheme {
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    if (@available(iOS 9.0, *)) {
+        [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UINavigationBar class]]] setTintColor:[UIColor whiteColor]];
+    }
+    else {
+        // Fallback on earlier versions
+    }
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorFromHex:0x0099ff]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"ic_navi_bg"]
+                                       forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
+    [[UINavigationBar appearance] setTranslucent:NO];
+}
+
+- (void)showLoginScreen:(BOOL)withStartup {
+    GuideViewController *guide = [[GuideViewController alloc] initWithMask:withStartup?GuideStartup:GuideLogin];
+    guide.delegate = self;
+    
+    self.window.rootViewController = guide;
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+}
+
+- (void)addObservers {
+    [[AccountManager manager] addObserver:self
+                               forKeyPath:ACCOUNT_STATUS_KEYPATH
+                                  options:NSKeyValueObservingOptionNew
+                                  context:nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -166,8 +189,6 @@ NSString *defaultStartupKey = @"1000";
             }
             
             self.rcAccountInitFlag = NO;
-            
-            NSLog(@"------- %@", [AccountManager manager].rcToken);
             
             [[RCIM sharedRCIM] connectWithToken:[AccountManager manager].rcToken
                                         success:^(NSString *userId) {
@@ -195,42 +216,6 @@ NSString *defaultStartupKey = @"1000";
             [[RCIM sharedRCIM] disconnect:NO];
         }
     }
-}
-
-- (void)setupBugly {
-    BuglyConfig * config = [[BuglyConfig alloc] init];
-    
-    // Open the customized log record and report, BuglyLogLevelWarn will report Warn, Error log message.
-    // Default value is BuglyLogLevelSilent that means DISABLE it.
-    // You could change the value according to you need.
-    //    config.reportLogLevel = BuglyLogLevelWarn;
-    
-    // Open the STUCK scene data in MAIN thread record and report.
-    // Default value is NO
-    config.blockMonitorEnable = NO;
-    
-    // Set the STUCK THRESHOLD time, when STUCK time > THRESHOLD it will record an event and report data when the app launched next time.
-    // Default value is 3.5 second.
-    config.blockMonitorTimeout = 3.5;
-    
-#if APP_STORE
-    config.channel = @"App Store";
-#else
-    config.channel = @"Enterprise";
-#endif //
-    
-    config.consolelogEnable = NO;
-    config.viewControllerTrackingEnable = NO;
-    
-    // NOTE:Required
-    // Start the Bugly sdk with APP_ID and your config
-    [Bugly startWithAppId:@"73ee2162f6"
-        developmentDevice:NO
-                   config:config];
-    
-    [Bugly setUserIdentifier:[NSString stringWithFormat:@"User: %@", [UIDevice currentDevice].name]];
-    
-    [Bugly setUserValue:[NSProcessInfo processInfo].processName forKey:@"Process"];
 }
 
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
@@ -392,9 +377,6 @@ NSString *defaultStartupKey = @"1000";
             
             self.rcAccountInitFlag = YES;
         }
-    }
-    else {
-        
     }
 }
 

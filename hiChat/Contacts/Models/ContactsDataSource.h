@@ -67,7 +67,7 @@ typedef enum : NSUInteger {
 
 + (instancetype)contactFromData:(NSDictionary *)data;
 
-+ (instancetype)contactForEntity:(ContactEntity *)item;
++ (instancetype)contactForEntity:(ContactEntity *)entity;
 
 @end
 

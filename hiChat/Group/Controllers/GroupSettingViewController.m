@@ -16,6 +16,7 @@
 #import "ContactDetailViewController.h"
 #import "MessageHistoryViewController.h"
 #import "MessageSendManager.h"
+#import <LYCocoaDevKit/UICollectionViewCell+LYCocoaDevKit.h>
 
 @interface GroupSettingViewController () < UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, LYDataSourceDelegate, ContactsSelectDelegate, GroupMemberSelectDelegate, GroupAnnounceControllerDelegate >
 

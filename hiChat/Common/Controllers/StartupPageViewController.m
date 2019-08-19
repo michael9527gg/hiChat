@@ -5,6 +5,7 @@
 //
 
 #import "StartupPageViewController.h"
+#import <LYCocoaDevKit/UICollectionViewCell+LYCocoaDevKit.h>
 
 @interface StartupCell : UICollectionViewCell
 

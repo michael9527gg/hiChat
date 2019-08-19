@@ -43,6 +43,8 @@
         
         self.contact = [[ContactsDataSource sharedInstance] contactWithUserid:self.userid];
         
+        NSLog(@"%@", self.contact.portraitUri);
+        
         AccountInfo *info = [AccountManager manager].accountInfo;
         if ([userid isEqualToString:info.loginid]) {
             self.contact = [ContactData new];

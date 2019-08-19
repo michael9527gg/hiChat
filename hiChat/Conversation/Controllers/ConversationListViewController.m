@@ -8,7 +8,7 @@
 
 #import "ConversationListViewController.h"
 #import "ConversationViewController.h"
-#import "PopoverView.h"
+#import <LYPopoverView/PopoverView.h>
 #import "ContactsDataSource.h"
 #import "FriendSearchViewController.h"
 #import "ConversationSearchResultViewController.h"

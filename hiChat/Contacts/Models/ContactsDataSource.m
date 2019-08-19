@@ -111,8 +111,20 @@
     return [[self alloc] initWithData:data];
 }
 
-+ (instancetype)contactForEntity:(ContactEntity *)item {
-    return [[self alloc] initWithEntity:item];
++ (instancetype)contactForEntity:(ContactEntity *)entity {
+    if(!entity) return nil;
+    
+    ContactData *contact = [ContactData new];
+    contact.uid = entity.uid;
+    contact.account = entity.account;
+    contact.displayName = entity.displayName;
+    contact.nickname = entity.nickname;
+    contact.message = entity.message;
+    contact.phone = entity.phone;
+    contact.portraitUri = entity.portraitUri;
+    contact.sectionKey = entity.sectionKey;
+    
+    return contact;
 }
 
 - (instancetype)initWithData:(NSDictionary *)data {
@@ -128,21 +140,6 @@
         self.nickname = YUCLOUD_VALIDATE_STRING(user[@"nickname"]);
         self.phone = YUCLOUD_VALIDATE_STRING(user[@"phone"]);
         self.portraitUri = YUCLOUD_VALIDATE_STRING_WITH_DEFAULT(user[@"portraitUri"], [UIImage defaultAvatarUrl]);
-    }
-    
-    return self;
-}
-
-- (instancetype)initWithEntity:(ContactEntity *)entity {
-    if (self = [super init]) {
-        self.uid = entity.uid;
-        self.account = entity.account;
-        self.displayName = entity.displayName;
-        self.nickname = entity.nickname;
-        self.message = entity.message;
-        self.phone = entity.phone;
-        self.portraitUri = entity.portraitUri;
-        self.sectionKey = entity.sectionKey;
     }
     
     return self;
@@ -321,7 +318,7 @@
 
 - (ContactData *)contactWithUserid:(NSString *)userid {
     NSArray *contacts = [self executeFetchRequest:[ContactEntity fetchRequest]
-                                            predicate:[NSPredicate predicateWithFormat:@"uid == %@ && loginid == %@", userid, YUCLOUD_ACCOUNT_USERID]];
+                                        predicate:[NSPredicate predicateWithFormat:@"uid == %@ && loginid == %@", userid, YUCLOUD_ACCOUNT_USERID]];
     
     return [ContactData contactForEntity:contacts.firstObject];
 }
@@ -369,7 +366,7 @@
 
 - (FriendRequsetData *)requestWithUserid:(NSString *)userid {
     FriendRequestEntity *item = [self executeFetchRequest:[FriendRequestEntity fetchRequest]
-                                                predicate:[NSPredicate predicateWithFormat:@"userid == %@ && loginid == %@", userid, YUCLOUD_ACCOUNT_USERID]];
+                                                predicate:[NSPredicate predicateWithFormat:@"userid == %@ && loginid == %@", userid, YUCLOUD_ACCOUNT_USERID]].firstObject;
     
     return [FriendRequsetData requestForEntity:item];
 }
@@ -385,7 +382,7 @@
 
 - (FriendBlackData *)blackWithUserid:(NSString *)userid {
     FriendBlackEntity *item = [self executeFetchRequest:[FriendBlackEntity fetchRequest]
-                                              predicate:[NSPredicate predicateWithFormat:@"userid == %@ && loginid == %@", userid, YUCLOUD_ACCOUNT_USERID]];
+                                              predicate:[NSPredicate predicateWithFormat:@"userid == %@ && loginid == %@", userid, YUCLOUD_ACCOUNT_USERID]].firstObject;
     
     return [FriendBlackData blackForEntity:item];
 }

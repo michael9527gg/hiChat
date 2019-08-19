@@ -38,74 +38,34 @@
 		2B3588F721C624DA00AF117C /* GroupSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3588F621C624DA00AF117C /* GroupSettingViewController.m */; };
 		2B35D9C522B9FC1C00088F76 /* CheckinData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B35D9C422B9FC1C00088F76 /* CheckinData.m */; };
 		2B35D9C622B9FC1C00088F76 /* CheckinData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B35D9C422B9FC1C00088F76 /* CheckinData.m */; };
-		2B52279A2301270800EF941B /* UIDevice+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227162301270800EF941B /* UIDevice+GF.m */; };
-		2B52279B2301270800EF941B /* UIDevice+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227162301270800EF941B /* UIDevice+GF.m */; };
 		2B5227AA2301270800EF941B /* NSFileManager+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52271C2301270800EF941B /* NSFileManager+GF.m */; };
 		2B5227AB2301270800EF941B /* NSFileManager+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52271C2301270800EF941B /* NSFileManager+GF.m */; };
-		2B5227AE2301270800EF941B /* UIBarButtonItem+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227202301270800EF941B /* UIBarButtonItem+GF.m */; };
-		2B5227AF2301270800EF941B /* UIBarButtonItem+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227202301270800EF941B /* UIBarButtonItem+GF.m */; };
 		2B5227B62301270800EF941B /* NSAttributedString+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227242301270800EF941B /* NSAttributedString+GF.m */; };
 		2B5227B72301270800EF941B /* NSAttributedString+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227242301270800EF941B /* NSAttributedString+GF.m */; };
 		2B5227DA2301270800EF941B /* UIView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227332301270800EF941B /* UIView+VI.m */; };
 		2B5227DB2301270800EF941B /* UIView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227332301270800EF941B /* UIView+VI.m */; };
-		2B5227DE2301270800EF941B /* NSDate+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227342301270800EF941B /* NSDate+GF.m */; };
-		2B5227DF2301270800EF941B /* NSDate+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227342301270800EF941B /* NSDate+GF.m */; };
 		2B5227E22301270800EF941B /* NSBundle+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227352301270800EF941B /* NSBundle+GF.m */; };
 		2B5227E32301270800EF941B /* NSBundle+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227352301270800EF941B /* NSBundle+GF.m */; };
-		2B5227EA2301270800EF941B /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227392301270800EF941B /* KeychainItemWrapper.m */; };
-		2B5227EB2301270800EF941B /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227392301270800EF941B /* KeychainItemWrapper.m */; };
 		2B5227EE2301270800EF941B /* VIMessageHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273A2301270800EF941B /* VIMessageHUD.m */; };
 		2B5227EF2301270800EF941B /* VIMessageHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273A2301270800EF941B /* VIMessageHUD.m */; };
 		2B5227FE2301270800EF941B /* GFAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273F2301270800EF941B /* GFAlbumViewController.m */; };
 		2B5227FF2301270800EF941B /* GFAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52273F2301270800EF941B /* GFAlbumViewController.m */; };
-		2B52280A2301270800EF941B /* NSDateFormatter+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227422301270800EF941B /* NSDateFormatter+GF.m */; };
-		2B52280B2301270800EF941B /* NSDateFormatter+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227422301270800EF941B /* NSDateFormatter+GF.m */; };
 		2B5228122301270800EF941B /* VITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227462301270800EF941B /* VITableView.m */; };
 		2B5228132301270800EF941B /* VITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227462301270800EF941B /* VITableView.m */; };
 		2B5228162301270800EF941B /* GFPhotoBrowserNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227482301270800EF941B /* GFPhotoBrowserNavigationController.m */; };
 		2B5228172301270800EF941B /* GFPhotoBrowserNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227482301270800EF941B /* GFPhotoBrowserNavigationController.m */; };
-		2B52281E2301270800EF941B /* UIImage+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274C2301270800EF941B /* UIImage+GF.m */; };
-		2B52281F2301270800EF941B /* UIImage+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274C2301270800EF941B /* UIImage+GF.m */; };
-		2B5228222301270800EF941B /* UIImageView+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274D2301270800EF941B /* UIImageView+GF.m */; };
-		2B5228232301270800EF941B /* UIImageView+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274D2301270800EF941B /* UIImageView+GF.m */; };
-		2B52282A2301270800EF941B /* CommonInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274F2301270800EF941B /* CommonInterface.m */; };
-		2B52282B2301270800EF941B /* CommonInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52274F2301270800EF941B /* CommonInterface.m */; };
-		2B5228362301270800EF941B /* UITableViewHeaderFooterView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227522301270800EF941B /* UITableViewHeaderFooterView+VI.m */; };
-		2B5228372301270800EF941B /* UITableViewHeaderFooterView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227522301270800EF941B /* UITableViewHeaderFooterView+VI.m */; };
-		2B52283E2301270800EF941B /* UIScreen+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227552301270800EF941B /* UIScreen+GF.m */; };
-		2B52283F2301270800EF941B /* UIScreen+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227552301270800EF941B /* UIScreen+GF.m */; };
 		2B5228562301270800EF941B /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52275F2301270800EF941B /* UIView+Shake.m */; };
 		2B5228572301270800EF941B /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52275F2301270800EF941B /* UIView+Shake.m */; };
-		2B52285A2301270800EF941B /* PopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227602301270800EF941B /* PopoverAction.m */; };
-		2B52285B2301270800EF941B /* PopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227602301270800EF941B /* PopoverAction.m */; };
-		2B52285E2301270800EF941B /* UIColor+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227622301270800EF941B /* UIColor+GF.m */; };
-		2B52285F2301270800EF941B /* UIColor+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227622301270800EF941B /* UIColor+GF.m */; };
-		2B5228662301270800EF941B /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227652301270800EF941B /* PopoverView.m */; };
-		2B5228672301270800EF941B /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227652301270800EF941B /* PopoverView.m */; };
-		2B52286A2301270800EF941B /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227662301270800EF941B /* PopoverViewCell.m */; };
-		2B52286B2301270800EF941B /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227662301270800EF941B /* PopoverViewCell.m */; };
-		2B5228722301270800EF941B /* NSData+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227722301270800EF941B /* NSData+GF.m */; };
-		2B5228732301270800EF941B /* NSData+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227722301270800EF941B /* NSData+GF.m */; };
 		2B5228762301270800EF941B /* GFPhotoCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227732301270800EF941B /* GFPhotoCropViewController.m */; };
 		2B5228772301270800EF941B /* GFPhotoCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227732301270800EF941B /* GFPhotoCropViewController.m */; };
 		2B52287A2301270800EF941B /* GFPhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227752301270800EF941B /* GFPhotoBrowserViewController.m */; };
 		2B52287B2301270800EF941B /* GFPhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227752301270800EF941B /* GFPhotoBrowserViewController.m */; };
 		2B52287E2301270800EF941B /* GFPhotosDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227782301270800EF941B /* GFPhotosDataSource.m */; };
 		2B52287F2301270800EF941B /* GFPhotosDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227782301270800EF941B /* GFPhotosDataSource.m */; };
-		2B5228822301270800EF941B /* UITableViewCell+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52277A2301270800EF941B /* UITableViewCell+VI.m */; };
-		2B5228832301270800EF941B /* UITableViewCell+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52277A2301270800EF941B /* UITableViewCell+VI.m */; };
-		2B52288A2301270800EF941B /* UICollectionViewCell+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52277C2301270800EF941B /* UICollectionViewCell+GF.m */; };
-		2B52288B2301270800EF941B /* UICollectionViewCell+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52277C2301270800EF941B /* UICollectionViewCell+GF.m */; };
 		2B52288E2301270800EF941B /* NSBundle+GFPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227802301270800EF941B /* NSBundle+GFPhotoBrowser.m */; };
 		2B52288F2301270800EF941B /* NSBundle+GFPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227802301270800EF941B /* NSBundle+GFPhotoBrowser.m */; };
-		2B52289A2301270800EF941B /* NSString+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227832301270800EF941B /* NSString+GF.m */; };
-		2B52289B2301270800EF941B /* NSString+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227832301270800EF941B /* NSString+GF.m */; };
-		2B52289E2301270800EF941B /* UIButton+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227842301270800EF941B /* UIButton+GF.m */; };
-		2B52289F2301270800EF941B /* UIButton+GF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227842301270800EF941B /* UIButton+GF.m */; };
 		2B5228AA2301270800EF941B /* GFPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278A2301270800EF941B /* GFPhotoCell.m */; };
 		2B5228AB2301270800EF941B /* GFPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278A2301270800EF941B /* GFPhotoCell.m */; };
-		2B5228AE2301270800EF941B /* UICollectionReusableView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278B2301270800EF941B /* UICollectionReusableView+VI.m */; };
-		2B5228AF2301270800EF941B /* UICollectionReusableView+VI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278B2301270800EF941B /* UICollectionReusableView+VI.m */; };
 		2B5228B62301270800EF941B /* VIPinField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278D2301270800EF941B /* VIPinField.m */; };
 		2B5228B72301270800EF941B /* VIPinField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52278D2301270800EF941B /* VIPinField.m */; };
 		2B5228BE2301270800EF941B /* GFAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5227952301270800EF941B /* GFAlbumCell.m */; };
@@ -359,80 +319,40 @@
 		2B3588F621C624DA00AF117C /* GroupSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupSettingViewController.m; sourceTree = "<group>"; };
 		2B35D9C322B9FC1C00088F76 /* CheckinData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckinData.h; sourceTree = "<group>"; };
 		2B35D9C422B9FC1C00088F76 /* CheckinData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckinData.m; sourceTree = "<group>"; };
-		2B5227162301270800EF941B /* UIDevice+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+GF.m"; sourceTree = "<group>"; };
 		2B52271C2301270800EF941B /* NSFileManager+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+GF.m"; sourceTree = "<group>"; };
-		2B52271D2301270800EF941B /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
-		2B52271E2301270800EF941B /* PopoverViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCell.h; sourceTree = "<group>"; };
-		2B52271F2301270800EF941B /* UIColor+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GF.h"; sourceTree = "<group>"; };
-		2B5227202301270800EF941B /* UIBarButtonItem+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+GF.m"; sourceTree = "<group>"; };
 		2B5227212301270800EF941B /* UIView+Shake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Shake.h"; sourceTree = "<group>"; };
-		2B5227222301270800EF941B /* PopoverAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverAction.h; sourceTree = "<group>"; };
 		2B5227242301270800EF941B /* NSAttributedString+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+GF.m"; sourceTree = "<group>"; };
-		2B5227292301270800EF941B /* UICollectionViewCell+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+GF.h"; sourceTree = "<group>"; };
-		2B52272C2301270800EF941B /* UITableViewCell+VI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+VI.h"; sourceTree = "<group>"; };
 		2B52272F2301270800EF941B /* GFPhotosDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPhotosDataSource.h; sourceTree = "<group>"; };
 		2B5227312301270800EF941B /* GFPhotoBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPhotoBrowserViewController.h; sourceTree = "<group>"; };
 		2B5227332301270800EF941B /* UIView+VI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+VI.m"; sourceTree = "<group>"; };
-		2B5227342301270800EF941B /* NSDate+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+GF.m"; sourceTree = "<group>"; };
 		2B5227352301270800EF941B /* NSBundle+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+GF.m"; sourceTree = "<group>"; };
 		2B5227372301270800EF941B /* GFPhotoCropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPhotoCropViewController.h; sourceTree = "<group>"; };
-		2B5227382301270800EF941B /* NSData+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+GF.h"; sourceTree = "<group>"; };
-		2B5227392301270800EF941B /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		2B52273A2301270800EF941B /* VIMessageHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIMessageHUD.m; sourceTree = "<group>"; };
 		2B52273C2301270800EF941B /* GFPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPhotoCell.h; sourceTree = "<group>"; };
 		2B52273F2301270800EF941B /* GFAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFAlbumViewController.m; sourceTree = "<group>"; };
-		2B5227422301270800EF941B /* NSDateFormatter+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+GF.m"; sourceTree = "<group>"; };
-		2B5227432301270800EF941B /* UIButton+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+GF.h"; sourceTree = "<group>"; };
-		2B5227452301270800EF941B /* NSString+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GF.h"; sourceTree = "<group>"; };
 		2B5227462301270800EF941B /* VITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VITableView.m; sourceTree = "<group>"; };
 		2B5227472301270800EF941B /* NSBundle+GFPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+GFPhotoBrowser.h"; sourceTree = "<group>"; };
 		2B5227482301270800EF941B /* GFPhotoBrowserNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFPhotoBrowserNavigationController.m; sourceTree = "<group>"; };
 		2B5227492301270800EF941B /* VICollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VICollectionView.h; sourceTree = "<group>"; };
 		2B52274A2301270800EF941B /* GFAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFAlbumCell.h; sourceTree = "<group>"; };
-		2B52274C2301270800EF941B /* UIImage+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GF.m"; sourceTree = "<group>"; };
-		2B52274D2301270800EF941B /* UIImageView+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+GF.m"; sourceTree = "<group>"; };
-		2B52274F2301270800EF941B /* CommonInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonInterface.m; sourceTree = "<group>"; };
-		2B5227522301270800EF941B /* UITableViewHeaderFooterView+VI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+VI.m"; sourceTree = "<group>"; };
 		2B5227532301270800EF941B /* VIPinField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPinField.h; sourceTree = "<group>"; };
-		2B5227552301270800EF941B /* UIScreen+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+GF.m"; sourceTree = "<group>"; };
-		2B5227582301270800EF941B /* UICollectionReusableView+VI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionReusableView+VI.h"; sourceTree = "<group>"; };
 		2B52275E2301270800EF941B /* NSAttributedString+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+GF.h"; sourceTree = "<group>"; };
 		2B52275F2301270800EF941B /* UIView+Shake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shake.m"; sourceTree = "<group>"; };
-		2B5227602301270800EF941B /* PopoverAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverAction.m; sourceTree = "<group>"; };
-		2B5227622301270800EF941B /* UIColor+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GF.m"; sourceTree = "<group>"; };
-		2B5227632301270800EF941B /* UIBarButtonItem+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+GF.h"; sourceTree = "<group>"; };
-		2B5227652301270800EF941B /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
-		2B5227662301270800EF941B /* PopoverViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewCell.m; sourceTree = "<group>"; };
 		2B5227672301270800EF941B /* NSFileManager+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+GF.h"; sourceTree = "<group>"; };
-		2B52276C2301270800EF941B /* UIDevice+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+GF.h"; sourceTree = "<group>"; };
 		2B52276D2301270800EF941B /* VIMessageHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIMessageHUD.h; sourceTree = "<group>"; };
-		2B52276E2301270800EF941B /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
-		2B52276F2301270800EF941B /* NSDate+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+GF.h"; sourceTree = "<group>"; };
 		2B5227712301270800EF941B /* NSBundle+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+GF.h"; sourceTree = "<group>"; };
-		2B5227722301270800EF941B /* NSData+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+GF.m"; sourceTree = "<group>"; };
 		2B5227732301270800EF941B /* GFPhotoCropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFPhotoCropViewController.m; sourceTree = "<group>"; };
 		2B5227742301270800EF941B /* UIView+VI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+VI.h"; sourceTree = "<group>"; };
 		2B5227752301270800EF941B /* GFPhotoBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFPhotoBrowserViewController.m; sourceTree = "<group>"; };
 		2B5227762301270800EF941B /* VICocoaTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VICocoaTools.h; sourceTree = "<group>"; };
 		2B5227772301270800EF941B /* GFPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPhotoBrowser.h; sourceTree = "<group>"; };
 		2B5227782301270800EF941B /* GFPhotosDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFPhotosDataSource.m; sourceTree = "<group>"; };
-		2B52277A2301270800EF941B /* UITableViewCell+VI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+VI.m"; sourceTree = "<group>"; };
-		2B52277C2301270800EF941B /* UICollectionViewCell+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+GF.m"; sourceTree = "<group>"; };
 		2B52277F2301270800EF941B /* VITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VITableView.h; sourceTree = "<group>"; };
 		2B5227802301270800EF941B /* NSBundle+GFPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+GFPhotoBrowser.m"; sourceTree = "<group>"; };
-		2B5227832301270800EF941B /* NSString+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GF.m"; sourceTree = "<group>"; };
-		2B5227842301270800EF941B /* UIButton+GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+GF.m"; sourceTree = "<group>"; };
-		2B5227852301270800EF941B /* NSDateFormatter+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+GF.h"; sourceTree = "<group>"; };
 		2B5227882301270800EF941B /* GFAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFAlbumViewController.h; sourceTree = "<group>"; };
 		2B52278A2301270800EF941B /* GFPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFPhotoCell.m; sourceTree = "<group>"; };
-		2B52278B2301270800EF941B /* UICollectionReusableView+VI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionReusableView+VI.m"; sourceTree = "<group>"; };
 		2B52278D2301270800EF941B /* VIPinField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPinField.m; sourceTree = "<group>"; };
-		2B52278E2301270800EF941B /* UIScreen+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+GF.h"; sourceTree = "<group>"; };
-		2B5227902301270800EF941B /* UITableViewHeaderFooterView+VI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewHeaderFooterView+VI.h"; sourceTree = "<group>"; };
-		2B5227922301270800EF941B /* UIImageView+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+GF.h"; sourceTree = "<group>"; };
-		2B5227942301270800EF941B /* CommonInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonInterface.h; sourceTree = "<group>"; };
 		2B5227952301270800EF941B /* GFAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFAlbumCell.m; sourceTree = "<group>"; };
-		2B5227972301270800EF941B /* UIImage+GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GF.h"; sourceTree = "<group>"; };
 		2B5227982301270800EF941B /* GFPhotoBrowserNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPhotoBrowserNavigationController.h; sourceTree = "<group>"; };
 		2B5227992301270800EF941B /* VICollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VICollectionView.m; sourceTree = "<group>"; };
 		2B65993921DDB8060078C904 /* MessageSendManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageSendManager.h; sourceTree = "<group>"; };
@@ -667,8 +587,6 @@
 		2B5227152301270800EF941B /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				2B5227942301270800EF941B /* CommonInterface.h */,
-				2B52274F2301270800EF941B /* CommonInterface.m */,
 				2B52274A2301270800EF941B /* GFAlbumCell.h */,
 				2B5227952301270800EF941B /* GFAlbumCell.m */,
 				2B5227882301270800EF941B /* GFAlbumViewController.h */,
@@ -684,52 +602,14 @@
 				2B5227732301270800EF941B /* GFPhotoCropViewController.m */,
 				2B52272F2301270800EF941B /* GFPhotosDataSource.h */,
 				2B5227782301270800EF941B /* GFPhotosDataSource.m */,
-				2B52276E2301270800EF941B /* KeychainItemWrapper.h */,
-				2B5227392301270800EF941B /* KeychainItemWrapper.m */,
 				2B52275E2301270800EF941B /* NSAttributedString+GF.h */,
 				2B5227242301270800EF941B /* NSAttributedString+GF.m */,
 				2B5227712301270800EF941B /* NSBundle+GF.h */,
 				2B5227352301270800EF941B /* NSBundle+GF.m */,
 				2B5227472301270800EF941B /* NSBundle+GFPhotoBrowser.h */,
 				2B5227802301270800EF941B /* NSBundle+GFPhotoBrowser.m */,
-				2B5227382301270800EF941B /* NSData+GF.h */,
-				2B5227722301270800EF941B /* NSData+GF.m */,
-				2B52276F2301270800EF941B /* NSDate+GF.h */,
-				2B5227342301270800EF941B /* NSDate+GF.m */,
-				2B5227852301270800EF941B /* NSDateFormatter+GF.h */,
-				2B5227422301270800EF941B /* NSDateFormatter+GF.m */,
 				2B5227672301270800EF941B /* NSFileManager+GF.h */,
 				2B52271C2301270800EF941B /* NSFileManager+GF.m */,
-				2B5227452301270800EF941B /* NSString+GF.h */,
-				2B5227832301270800EF941B /* NSString+GF.m */,
-				2B5227222301270800EF941B /* PopoverAction.h */,
-				2B5227602301270800EF941B /* PopoverAction.m */,
-				2B52271D2301270800EF941B /* PopoverView.h */,
-				2B5227652301270800EF941B /* PopoverView.m */,
-				2B52271E2301270800EF941B /* PopoverViewCell.h */,
-				2B5227662301270800EF941B /* PopoverViewCell.m */,
-				2B5227632301270800EF941B /* UIBarButtonItem+GF.h */,
-				2B5227202301270800EF941B /* UIBarButtonItem+GF.m */,
-				2B5227432301270800EF941B /* UIButton+GF.h */,
-				2B5227842301270800EF941B /* UIButton+GF.m */,
-				2B5227582301270800EF941B /* UICollectionReusableView+VI.h */,
-				2B52278B2301270800EF941B /* UICollectionReusableView+VI.m */,
-				2B5227292301270800EF941B /* UICollectionViewCell+GF.h */,
-				2B52277C2301270800EF941B /* UICollectionViewCell+GF.m */,
-				2B52271F2301270800EF941B /* UIColor+GF.h */,
-				2B5227622301270800EF941B /* UIColor+GF.m */,
-				2B52276C2301270800EF941B /* UIDevice+GF.h */,
-				2B5227162301270800EF941B /* UIDevice+GF.m */,
-				2B5227972301270800EF941B /* UIImage+GF.h */,
-				2B52274C2301270800EF941B /* UIImage+GF.m */,
-				2B5227922301270800EF941B /* UIImageView+GF.h */,
-				2B52274D2301270800EF941B /* UIImageView+GF.m */,
-				2B52278E2301270800EF941B /* UIScreen+GF.h */,
-				2B5227552301270800EF941B /* UIScreen+GF.m */,
-				2B52272C2301270800EF941B /* UITableViewCell+VI.h */,
-				2B52277A2301270800EF941B /* UITableViewCell+VI.m */,
-				2B5227902301270800EF941B /* UITableViewHeaderFooterView+VI.h */,
-				2B5227522301270800EF941B /* UITableViewHeaderFooterView+VI.m */,
 				2B5227212301270800EF941B /* UIView+Shake.h */,
 				2B52275F2301270800EF941B /* UIView+Shake.m */,
 				2B5227742301270800EF941B /* UIView+VI.h */,
@@ -1447,10 +1327,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B52289A2301270800EF941B /* NSString+GF.m in Sources */,
 				69980B5A21C0ED4C00A48CCB /* GuidePageViewController.m in Sources */,
 				2B9C89522226831D00CD7A06 /* NotificationDataSource.m in Sources */,
-				2B52285E2301270800EF941B /* UIColor+GF.m in Sources */,
 				69FD7E2321C3BC1B00E994E3 /* TextEditCell.m in Sources */,
 				69BFD48C21C22BDB00E15E7F /* Model.xcdatamodeld in Sources */,
 				69CCEB5F21D09D3400CF8A43 /* MeAboutCell.m in Sources */,
@@ -1463,33 +1341,27 @@
 				2B5228162301270800EF941B /* GFPhotoBrowserNavigationController.m in Sources */,
 				695BB02921F59D5E0009D0C1 /* TSAuthViewController.m in Sources */,
 				2BC21FB5223E76410025E015 /* NotificationView.m in Sources */,
-				2B5228662301270800EF941B /* PopoverView.m in Sources */,
 				2B31FE8622547AE900CC5BF9 /* UINavigationController+PushPopCrashFix.m in Sources */,
-				2B5228722301270800EF941B /* NSData+GF.m in Sources */,
 				69980B6321C10E7500A48CCB /* ResetPasswordViewController.m in Sources */,
 				69980B2C21C0E88F00A48CCB /* MeViewController.m in Sources */,
 				2B52288E2301270800EF941B /* NSBundle+GFPhotoBrowser.m in Sources */,
 				2BC2789021D3BDB000E7EEB5 /* ConversationSearchResultViewController.m in Sources */,
 				69980B5721C0ED4C00A48CCB /* StartupPageViewController.m in Sources */,
-				2B52285A2301270800EF941B /* PopoverAction.m in Sources */,
 				2B52287A2301270800EF941B /* GFPhotoBrowserViewController.m in Sources */,
 				2BC2789C21D614DD00E7EEB5 /* MessageHistoryViewController.m in Sources */,
 				69980B5821C0ED4C00A48CCB /* GuideViewController.m in Sources */,
 				2BC2788021D399AA00E7EEB5 /* GroupOnekeyEditViewController.m in Sources */,
 				2B046AA221D09C32005356CF /* FillInfoViewController.m in Sources */,
-				2B52288A2301270800EF941B /* UICollectionViewCell+GF.m in Sources */,
 				2B7066A521C351FB00E6DD14 /* GroupManager.m in Sources */,
 				69980B1A21C0E60A00A48CCB /* CloudInterface.m in Sources */,
 				2B10610721C8C1D100E6F8E6 /* GroupListViewController.m in Sources */,
 				695BB02521F59D2A0009D0C1 /* PopupViewController.m in Sources */,
 				69A024B021C34CA000ABE387 /* InfoDetailCell.m in Sources */,
-				2B52282A2301270800EF941B /* CommonInterface.m in Sources */,
 				2B10611321CA118F00E6F8E6 /* ContactDetailViewController.m in Sources */,
 				2B5227AA2301270800EF941B /* NSFileManager+GF.m in Sources */,
 				2BC2788821D3AE3A00E7EEB5 /* RCManager.m in Sources */,
 				2B9C8945222670EB00CD7A06 /* NotificationCell.m in Sources */,
 				69A024AA21C28C1A00ABE387 /* WebViewController.m in Sources */,
-				2B5228362301270800EF941B /* UITableViewHeaderFooterView+VI.m in Sources */,
 				69980B5B21C0ED4C00A48CCB /* YuTextField.m in Sources */,
 				2BCB286C21EF52F1002AB6DB /* MessageForwardCell.m in Sources */,
 				2B5227B62301270800EF941B /* NSAttributedString+GF.m in Sources */,
@@ -1518,9 +1390,7 @@
 				69980B2121C0E7BF00A48CCB /* MainTabBarController.m in Sources */,
 				2B1060FB21C7887B00E6F8E6 /* GroupMemberSelectViewController.m in Sources */,
 				2B3588F421C620CE00AF117C /* GroupDataSource.m in Sources */,
-				2B52283E2301270800EF941B /* UIScreen+GF.m in Sources */,
 				69A0249A21C26E6D00ABE387 /* ContactCell.m in Sources */,
-				2B5228822301270800EF941B /* UITableViewCell+VI.m in Sources */,
 				2B31C70421D9C013000DC34B /* OnekeyImageCell.m in Sources */,
 				2B1060FE21C7892100E6F8E6 /* UserSelectHeader.m in Sources */,
 				2B9C894122266F9500CD7A06 /* NotificationCenterViewController.m in Sources */,
@@ -1533,7 +1403,6 @@
 				2BC2789821D600B900E7EEB5 /* HistorySearchCell.m in Sources */,
 				6951E02321CFA679002D422A /* ReactiveWebViewController.m in Sources */,
 				2B5228122301270800EF941B /* VITableView.m in Sources */,
-				2B52289E2301270800EF941B /* UIButton+GF.m in Sources */,
 				2BFBFA5C223242920094CB43 /* MessageForwardSearchResultViewController.m in Sources */,
 				69A0249E21C27C6A00ABE387 /* MeInfoCell.m in Sources */,
 				2B10611021C900F800E6F8E6 /* FriendSearchViewController.m in Sources */,
@@ -1550,16 +1419,13 @@
 				69980B5921C0ED4C00A48CCB /* LoginPageViewController.m in Sources */,
 				69980B2421C0E7E400A48CCB /* MainNavigationController.m in Sources */,
 				69BFD49121C22C9F00E15E7F /* ContactsDataSource.m in Sources */,
-				2B5227EA2301270800EF941B /* KeychainItemWrapper.m in Sources */,
 				69980B6021C10E4900A48CCB /* SignupViewController.m in Sources */,
 				2B9C894D2226821600CD7A06 /* NotificationDetailViewController.m in Sources */,
 				69784A8E21C384A300ED2E1A /* ContactsSelectViewController.m in Sources */,
 				2BAEBF4321C264DC0055AB13 /* RCDataSource.m in Sources */,
 				2B10610D21C8D85100E6F8E6 /* FriendsRequestViewController.m in Sources */,
-				2B52279A2301270800EF941B /* UIDevice+GF.m in Sources */,
 				2B5227E22301270800EF941B /* NSBundle+GF.m in Sources */,
 				691F761121C4A3A700FD5AFA /* PasswordViewController.m in Sources */,
-				2B5228AE2301270800EF941B /* UICollectionReusableView+VI.m in Sources */,
 				2B5228BE2301270800EF941B /* GFAlbumCell.m in Sources */,
 				6936868E21CCA91D003BBF66 /* UploadManager.m in Sources */,
 				2BC278A421D7590D00E7EEB5 /* VideoPlayerView.m in Sources */,
@@ -1567,19 +1433,13 @@
 				2BC2788C21D3BD6B00E7EEB5 /* VersionView.m in Sources */,
 				2B1060F821C740E900E6F8E6 /* GroupMemberCell.m in Sources */,
 				694C08EC21C0D0B900021B54 /* ConversationListViewController.m in Sources */,
-				2B5227DE2301270800EF941B /* NSDate+GF.m in Sources */,
 				2B10610121C78B8B00E6F8E6 /* GroupMemberListViewController.m in Sources */,
 				2B5228C22301270800EF941B /* VICollectionView.m in Sources */,
 				2BF5E10F22019AEA00C6D32C /* GroupSelectCell.m in Sources */,
-				2B52286A2301270800EF941B /* PopoverViewCell.m in Sources */,
-				2B52281E2301270800EF941B /* UIImage+GF.m in Sources */,
 				2BE2DFC522291974005FE1DC /* OneKeyAlertViewController.m in Sources */,
-				2B5228222301270800EF941B /* UIImageView+GF.m in Sources */,
 				69980B3D21C0EBAE00A48CCB /* UniManager.m in Sources */,
 				69980B1621C0E27400A48CCB /* BaseManager.m in Sources */,
 				69784A8821C3522200ED2E1A /* InfoPortraitCell.m in Sources */,
-				2B52280A2301270800EF941B /* NSDateFormatter+GF.m in Sources */,
-				2B5227AE2301270800EF941B /* UIBarButtonItem+GF.m in Sources */,
 				2B5228762301270800EF941B /* GFPhotoCropViewController.m in Sources */,
 				69980B5521C0ED4C00A48CCB /* NSUserDefaults+Kaixin.m in Sources */,
 				2BF5E10721FDCFAA00C6D32C /* UIImage+HiChat.m in Sources */,
@@ -1592,10 +1452,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B52289B2301270800EF941B /* NSString+GF.m in Sources */,
 				698C797521CA17EA00F96D88 /* GuidePageViewController.m in Sources */,
 				2B9C89532226831D00CD7A06 /* NotificationDataSource.m in Sources */,
-				2B52285F2301270800EF941B /* UIColor+GF.m in Sources */,
 				2B046A9B21CDCE91005356CF /* ContactDetailCell.m in Sources */,
 				698C797621CA17EA00F96D88 /* TextEditCell.m in Sources */,
 				69CCEB6021D09D3400CF8A43 /* MeAboutCell.m in Sources */,
@@ -1608,33 +1466,27 @@
 				2B5228172301270800EF941B /* GFPhotoBrowserNavigationController.m in Sources */,
 				695BB02A21F59D5E0009D0C1 /* TSAuthViewController.m in Sources */,
 				2BC21FB6223E76410025E015 /* NotificationView.m in Sources */,
-				2B5228672301270800EF941B /* PopoverView.m in Sources */,
 				2B31FE8722547AE900CC5BF9 /* UINavigationController+PushPopCrashFix.m in Sources */,
-				2B5228732301270800EF941B /* NSData+GF.m in Sources */,
 				698C797921CA17EA00F96D88 /* GroupInfoEditViewController.m in Sources */,
 				698C797A21CA17EA00F96D88 /* MeSettingsViewController.m in Sources */,
 				2B52288F2301270800EF941B /* NSBundle+GFPhotoBrowser.m in Sources */,
 				2BC2789121D3BDB000E7EEB5 /* ConversationSearchResultViewController.m in Sources */,
 				2BC2789D21D614DD00E7EEB5 /* MessageHistoryViewController.m in Sources */,
-				2B52285B2301270800EF941B /* PopoverAction.m in Sources */,
 				2B52287B2301270800EF941B /* GFPhotoBrowserViewController.m in Sources */,
 				698C797C21CA17EA00F96D88 /* ResetPasswordViewController.m in Sources */,
 				2BC2788121D399AA00E7EEB5 /* GroupOnekeyEditViewController.m in Sources */,
 				2B046AA321D09C32005356CF /* FillInfoViewController.m in Sources */,
 				698C797D21CA17EA00F96D88 /* MeViewController.m in Sources */,
-				2B52288B2301270800EF941B /* UICollectionViewCell+GF.m in Sources */,
 				698C797E21CA17EA00F96D88 /* StartupPageViewController.m in Sources */,
 				698C797F21CA17EA00F96D88 /* GuideViewController.m in Sources */,
 				698C798021CA17EA00F96D88 /* GroupManager.m in Sources */,
 				695BB02621F59D2A0009D0C1 /* PopupViewController.m in Sources */,
 				698C798121CA17EA00F96D88 /* CloudInterface.m in Sources */,
-				2B52282B2301270800EF941B /* CommonInterface.m in Sources */,
 				2BC2788921D3AE3A00E7EEB5 /* RCManager.m in Sources */,
 				2B5227AB2301270800EF941B /* NSFileManager+GF.m in Sources */,
 				698C798221CA17EA00F96D88 /* GroupListViewController.m in Sources */,
 				2B9C8946222670EB00CD7A06 /* NotificationCell.m in Sources */,
 				698C798321CA17EA00F96D88 /* InfoDetailCell.m in Sources */,
-				2B5228372301270800EF941B /* UITableViewHeaderFooterView+VI.m in Sources */,
 				698C798421CA17EA00F96D88 /* WebViewController.m in Sources */,
 				2BCB286D21EF52F1002AB6DB /* MessageForwardCell.m in Sources */,
 				2B5227B72301270800EF941B /* NSAttributedString+GF.m in Sources */,
@@ -1663,9 +1515,7 @@
 				698C798F21CA17EA00F96D88 /* ContactSelectCell.m in Sources */,
 				698C799021CA17EA00F96D88 /* MainTabBarController.m in Sources */,
 				698C799121CA17EA00F96D88 /* GroupMemberSelectViewController.m in Sources */,
-				2B52283F2301270800EF941B /* UIScreen+GF.m in Sources */,
 				698C799221CA17EA00F96D88 /* GroupDataSource.m in Sources */,
-				2B5228832301270800EF941B /* UITableViewCell+VI.m in Sources */,
 				2B31C70521D9C013000DC34B /* OnekeyImageCell.m in Sources */,
 				698C799321CA17EA00F96D88 /* ContactCell.m in Sources */,
 				2B9C894222266F9500CD7A06 /* NotificationCenterViewController.m in Sources */,
@@ -1678,7 +1528,6 @@
 				2BC2789921D600B900E7EEB5 /* HistorySearchCell.m in Sources */,
 				698C799721CA17EA00F96D88 /* MeInfoCell.m in Sources */,
 				2B5228132301270800EF941B /* VITableView.m in Sources */,
-				2B52289F2301270800EF941B /* UIButton+GF.m in Sources */,
 				2BFBFA5D223242920094CB43 /* MessageForwardSearchResultViewController.m in Sources */,
 				698C799821CA17EA00F96D88 /* PrivateUserInfoCell.m in Sources */,
 				698C799921CA17EA00F96D88 /* main.m in Sources */,
@@ -1695,16 +1544,13 @@
 				698C799F21CA17EA00F96D88 /* SignupViewController.m in Sources */,
 				698C79A021CA17EA00F96D88 /* ContactsSelectViewController.m in Sources */,
 				698C79A121CA17EA00F96D88 /* RCDataSource.m in Sources */,
-				2B5227EB2301270800EF941B /* KeychainItemWrapper.m in Sources */,
 				698C79A221CA17EA00F96D88 /* FriendsRequestViewController.m in Sources */,
 				2B9C894E2226821600CD7A06 /* NotificationDetailViewController.m in Sources */,
 				698C79A321CA17EA00F96D88 /* PasswordViewController.m in Sources */,
 				698C79A421CA17EA00F96D88 /* AccountManager.m in Sources */,
 				698C79A521CA17EA00F96D88 /* GroupMemberCell.m in Sources */,
-				2B52279B2301270800EF941B /* UIDevice+GF.m in Sources */,
 				2B5227E32301270800EF941B /* NSBundle+GF.m in Sources */,
 				6936868F21CCA91D003BBF66 /* UploadManager.m in Sources */,
-				2B5228AF2301270800EF941B /* UICollectionReusableView+VI.m in Sources */,
 				2B5228BF2301270800EF941B /* GFAlbumCell.m in Sources */,
 				698C79A621CA17EA00F96D88 /* ConversationListViewController.m in Sources */,
 				2BC278A521D7590D00E7EEB5 /* VideoPlayerView.m in Sources */,
@@ -1712,19 +1558,13 @@
 				2BC2788D21D3BD6B00E7EEB5 /* VersionView.m in Sources */,
 				698C79A721CA17EA00F96D88 /* GroupMemberListViewController.m in Sources */,
 				698C79A821CA17EA00F96D88 /* UniManager.m in Sources */,
-				2B5227DF2301270800EF941B /* NSDate+GF.m in Sources */,
 				2B046A9721CCABF6005356CF /* GroupAnnounceViewController.m in Sources */,
 				2B5228C32301270800EF941B /* VICollectionView.m in Sources */,
 				2BF5E11022019AEA00C6D32C /* GroupSelectCell.m in Sources */,
-				2B52286B2301270800EF941B /* PopoverViewCell.m in Sources */,
-				2B52281F2301270800EF941B /* UIImage+GF.m in Sources */,
 				2BE2DFC622291974005FE1DC /* OneKeyAlertViewController.m in Sources */,
-				2B5228232301270800EF941B /* UIImageView+GF.m in Sources */,
 				6951E02421CFA679002D422A /* ReactiveWebViewController.m in Sources */,
 				698C79A921CA17EA00F96D88 /* BaseManager.m in Sources */,
 				698C79AA21CA17EA00F96D88 /* InfoPortraitCell.m in Sources */,
-				2B52280B2301270800EF941B /* NSDateFormatter+GF.m in Sources */,
-				2B5227AF2301270800EF941B /* UIBarButtonItem+GF.m in Sources */,
 				2B5228772301270800EF941B /* GFPhotoCropViewController.m in Sources */,
 				698C79AB21CA17EA00F96D88 /* NSUserDefaults+Kaixin.m in Sources */,
 				2BF5E10821FDCFAA00C6D32C /* UIImage+HiChat.m in Sources */,

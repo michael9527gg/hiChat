@@ -12,14 +12,16 @@ def pods
   pod 'WebViewJavascriptBridge'
   pod 'RongCloudIM/IMKit', '~> 2.9.18'
   pod 'AliyunOSSiOS'
-  
-  pod 'LYCoreDataSource'
-  pod 'LYPopupTools'
-  
   pod 'NYXImagesKit'
   pod 'ZXingObjC'
   pod 'LBXScan/LBXZBar'
   pod 'STPopup'
+  
+  pod 'LYCocoaDevKit'
+  pod 'LYPopupTools'
+  pod 'LYCoreDataSource'
+  pod ‘LYPopoverView’
+  
 end
 
 target 'hiChat_enterprise_dev' do

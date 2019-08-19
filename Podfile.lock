@@ -19,16 +19,22 @@ PODS:
     - LBXScan/Types (~> 2.2)
     - ZBarSDK (~> 1.3.1)
   - LBXScan/Types (2.3)
+  - LYCocoaDevKit (0.0.3):
+    - AFNetworking
+    - Masonry
+    - NYXImagesKit
+    - SDWebImage
   - LYCoreDataSource (1.1.2)
+  - LYPopoverView (0.0.1)
   - LYPopupTools (1.0.2):
     - MBProgressHUD
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.2.0)
   - NYXImagesKit (2.3)
-  - RongCloudIM/IMKit (2.9.22):
+  - RongCloudIM/IMKit (2.9.18):
     - RongCloudIM/IMLib
-  - RongCloudIM/IMLib (2.9.22)
+  - RongCloudIM/IMLib (2.9.18)
   - SDWebImage (5.1.0):
     - SDWebImage/Core (= 5.1.0)
   - SDWebImage/Core (5.1.0)
@@ -44,7 +50,9 @@ DEPENDENCIES:
   - AFNetworking
   - AliyunOSSiOS
   - LBXScan/LBXZBar
+  - LYCocoaDevKit
   - LYCoreDataSource
+  - LYPopoverView
   - LYPopupTools
   - Masonry
   - MJRefresh
@@ -61,7 +69,9 @@ SPEC REPOS:
     - AFNetworking
     - AliyunOSSiOS
     - LBXScan
+    - LYCocoaDevKit
     - LYCoreDataSource
+    - LYPopoverView
     - LYPopupTools
     - Masonry
     - MBProgressHUD
@@ -79,13 +89,15 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   AliyunOSSiOS: 602b6a4e70e62a5f0a6431c20496343141d7e66f
   LBXScan: e51449f0832d1fe17da632af0d22adeb3cfa3543
+  LYCocoaDevKit: 11079fd7063b7cd95b0050487a51bd6d7ed64cc8
   LYCoreDataSource: e0cc696a4a5f9c22d71f9d10e0be37d707bc9235
+  LYPopoverView: a9d47f30ee27a876f61cf9f37d0e4b52a18fab71
   LYPopupTools: 3985903be37b7ad38886a8b30c881b642b6c1f8d
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   NYXImagesKit: 8163e3335a40eaa173ca5bbbf81fafb57d3947eb
-  RongCloudIM: c1a917d3f109122fe8fdd96f2784d81847a0fa94
+  RongCloudIM: 827c498ea45c93b389b4b57ececc528f2601ee1e
   SDWebImage: fb387001955223213dde14bc08c8b73f371f8d8f
   STPopup: a9045557bc48a0df51fbb7bf0544447c5fe84d34
   WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
@@ -93,6 +105,6 @@ SPEC CHECKSUMS:
   ZBarSDK: 4c1b5daeb7d6cc67dc9355e690af0230a661f6ec
   ZXingObjC: fdbb269f25dd2032da343e06f10224d62f537bdb
 
-PODFILE CHECKSUM: 852fdbfa59d18776843286fd719ad18984b6006c
+PODFILE CHECKSUM: ce2fcaaf5d8a5d7ac9f681809ea808aa4a23c539
 
 COCOAPODS: 1.7.5

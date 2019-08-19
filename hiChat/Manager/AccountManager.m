@@ -602,11 +602,6 @@ typedef NS_ENUM(NSUInteger, YuAccountStatus)
 }
 
 - (void)requestVersionWithCompletion:(CommonBlock)completion {
-#ifdef APP_STORE
-    if (completion) {
-        completion(NO, nil);
-    }
-#else
     [[CloudInterface sharedClient] doWithMethod:HttpPost
                                       urlString:@"Versions/checkVersions"
                                         headers:nil
@@ -632,7 +627,6 @@ typedef NS_ENUM(NSUInteger, YuAccountStatus)
                                                 completion(NO, @{@"msg": [error localizedDescription]?:@""});
                                             }
                                         }];
-#endif
 }
 
 - (void)resetPassword:(NSString *)phone
