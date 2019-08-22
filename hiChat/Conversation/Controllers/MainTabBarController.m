@@ -45,6 +45,26 @@
                                                    title:@"我"
                                                    image:[UIImage imageNamed:@"ic_tab_me_selected"]
                                            selectedImage:[UIImage imageNamed:@"ic_tab_me"]]];
+    
+//    NSString *url = @"https://kxl-001.oss-cn-beijing.aliyuncs.com/kxl/%E6%88%AA%E5%B1%8F2019-08-19%E4%B8%8B%E5%8D%883.53.43.png";
+//    [[AFHTTPSessionManager manager] HEAD:url
+//                              parameters:nil
+//                                 success:^(NSURLSessionDataTask * _Nonnull task) {
+//
+//                                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//                                     if ([AccountManager manager].accountInfo.platformUrl) {
+//                                         NSMutableArray *mulArray = self.viewControllers.mutableCopy;
+//
+//                                         MainNavigationController *navi = [self addViewController:[UIViewController new]
+//                                                                                            title:@"发现"
+//                                                                                            image:[UIImage imageNamed:@"ic_tab_explore"]
+//                                                                                    selectedImage:[UIImage imageNamed:@"ic_tab_explore"]];
+//
+//                                         [mulArray insertObject:navi atIndex:2];
+//
+//                                         self.viewControllers = mulArray;
+//                                     }
+//                                 }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

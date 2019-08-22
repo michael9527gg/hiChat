@@ -174,7 +174,6 @@
     [[AccountManager manager] showWechatAuthWithCompletion:^(BOOL success, NSDictionary * _Nullable info) {
         if (success) {
             MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
-            
             [[AccountManager manager] loginWithPhone:nil
                                                 pass:nil
                                                token:nil
