@@ -80,8 +80,6 @@ NSString *defaultStartupKey = @"1000";
                    config:config];
     
     [Bugly setUserIdentifier:[NSString stringWithFormat:@"User: %@", [UIDevice currentDevice].name]];
-    
-    [Bugly setUserValue:[NSProcessInfo processInfo].processName forKey:@"Process"];
 }
 
 
@@ -101,6 +99,13 @@ NSString *defaultStartupKey = @"1000";
     [[LYCoreDataManager manager] initCoreDataStackWithMOM:MOM
                                                    sqlite:sqlite
                                               databaseKey:databaseKey];
+    
+    // 主线程创建
+    [ContactsDataSource sharedInstance];
+    [GroupDataSource sharedInstance];
+    [ConversationSettingDataSource sharedInstance];
+    [UserDataSource sharedInstance];
+    [NotificationDataSource sharedInstance];
 }
 
 - (void)initRongCloud {
@@ -175,6 +180,10 @@ NSString *defaultStartupKey = @"1000";
                        context:(void *)context {
     if ([keyPath isEqualToString:ACCOUNT_STATUS_KEYPATH]) {
         if ([[AccountManager manager] isServerSignin]) {
+            
+            [Bugly setUserValue:[AccountManager manager].accountInfo.phone
+                         forKey:@"phone"];
+            
             [[ContactsManager manager] requestFriendBlackListWithCompletion:nil];
             
             UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge |
@@ -266,9 +275,9 @@ NSString *defaultStartupKey = @"1000";
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self checkVersion];
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self checkVersion];
+//    });
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

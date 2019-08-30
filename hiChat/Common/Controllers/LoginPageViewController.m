@@ -285,7 +285,8 @@
     
     [NSUserDefaults saveLastPassLoginDate:[NSDate date]];
     
-    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW];
+    MBProgressHUD *hud = [MBProgressHUD startLoading:APP_DELEGATE_WINDOW
+                                             message:@"登录中..."];
     
     [[AccountManager manager] loginWithPhone:phone
                                         pass:pass

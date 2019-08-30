@@ -126,19 +126,17 @@
 
 - (ConversationSettingData *)settingWithType:(RCConversationType)conversationType
                                     targetId:(NSString *)targetId {
-    NSFetchRequest *request = [ConversationSettingEntity fetchRequest];
-    request.predicate = [NSPredicate predicateWithFormat:@"loginid == %@ && type == %ld && targetid == %@", YUCLOUD_ACCOUNT_USERID, conversationType, targetId];
-    
-    ConversationSettingEntity *item = [self.privateContext executeFetchRequest:request error:nil].firstObject;
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"loginid == %@ && type == %ld && targetid == %@", YUCLOUD_ACCOUNT_USERID, conversationType, targetId];
+    ConversationSettingEntity *item = [self executeFetchOnEntity:[ConversationSettingEntity class]
+                                                       predicate:predicate].firstObject;
     
     return [self settingForEntity:item];
 }
 
 - (NSArray *)allSettings {
-    NSFetchRequest *request = [ConversationSettingEntity fetchRequest];
-    request.predicate = [NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID];
+    NSArray *items = [self executeFetchOnEntity:[ConversationSettingEntity class]
+                                      predicate:[NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID]];
     
-    NSArray *items = [self.privateContext executeFetchRequest:request error:nil];
     NSMutableArray *mulArr = [NSMutableArray arrayWithCapacity:items.count];
     
     for(ConversationSettingEntity *item in items) {

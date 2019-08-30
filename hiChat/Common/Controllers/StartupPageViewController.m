@@ -110,7 +110,7 @@
 }
 
 - (void)touchContinue {
-//    [NSUserDefaults saveFirstTimeStartup:NO];
+    [NSUserDefaults saveFirstTimeStartup:NO];
     
     [super touchContinue];
 }

@@ -260,10 +260,8 @@
 }
 
 - (GroupData *)groupWithGroupid:(NSString *)groupid {
-    NSFetchRequest *request = [GroupEntity fetchRequest];
-    request.predicate = [NSPredicate predicateWithFormat:@"uid == %@ && loginid == %@", groupid, YUCLOUD_ACCOUNT_USERID];
-    
-    GroupEntity *item = [self.privateContext executeFetchRequest:request error:nil].firstObject;
+    GroupEntity *item = [self executeFetchOnEntity:[GroupEntity class]
+                                         predicate:[NSPredicate predicateWithFormat:@"uid == %@ && loginid == %@", groupid, YUCLOUD_ACCOUNT_USERID]].firstObject;
     
     return [self groupForEntity:item];
 }
@@ -285,9 +283,8 @@
 }
 
 - (NSArray *)allGroups {
-    NSFetchRequest *request = [GroupEntity fetchRequest];
-    request.predicate = [NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID];
-    NSArray *array = [self.privateContext executeFetchRequest:request error:nil];
+    NSArray *array = [self executeFetchOnEntity:[GroupEntity class]
+                                      predicate:[NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID]];
     
     NSMutableArray *mulArr = [NSMutableArray arrayWithCapacity:array.count];
     for(GroupEntity *item in array) {
@@ -320,10 +317,8 @@
 
 - (GroupMemberData *)groupMemberWithUserd:(NSString *)memberid
                                   groupid:(NSString *)groupid {
-    NSFetchRequest *request = [GroupMemberEntity fetchRequest];
-    request.predicate = [NSPredicate predicateWithFormat:@"groupid == %@ && userid == %@ && loginid == %@", groupid, memberid, YUCLOUD_ACCOUNT_USERID];
-    
-    GroupMemberEntity *entity = [self.privateContext executeFetchRequest:request error:nil].firstObject;
+    GroupMemberEntity *entity = [self executeFetchOnEntity:[GroupMemberEntity class]
+                                                 predicate:[NSPredicate predicateWithFormat:@"groupid == %@ && userid == %@ && loginid == %@", groupid, memberid, YUCLOUD_ACCOUNT_USERID]].firstObject;
     
     return [self groupMemberForEntity:entity];
 }
@@ -335,10 +330,9 @@
 }
 
 - (NSArray *)allGroupMembersForGroupid:(NSString *)groupid {
-    NSFetchRequest *request = [GroupMemberEntity fetchRequest];
-    request.predicate = [NSPredicate predicateWithFormat:@"groupid == %@ && loginid == %@", groupid, YUCLOUD_ACCOUNT_USERID];
+    NSArray *array = [self executeFetchOnEntity:[GroupMemberEntity class]
+                                      predicate:[NSPredicate predicateWithFormat:@"groupid == %@ && loginid == %@", groupid, YUCLOUD_ACCOUNT_USERID]];
     
-    NSArray *array = [self.privateContext executeFetchRequest:request error:nil];
     NSMutableArray *mulArr = [NSMutableArray arrayWithCapacity:array.count];
     
     for(GroupMemberEntity *entity in array) {
@@ -359,19 +353,15 @@
 }
 
 - (GroupMemberData *)groupLordForGroupid:(NSString *)groupid {
-    NSFetchRequest *request = [GroupMemberEntity fetchRequest];
-    request.predicate = [NSPredicate predicateWithFormat:@"groupid == %@ && groupRole == %@ && loginid == %@", groupid, @"2", YUCLOUD_ACCOUNT_USERID];
-    
-    GroupMemberEntity *entity = [self.privateContext executeFetchRequest:request error:nil].firstObject;
+    GroupMemberEntity *entity = [self executeFetchOnEntity:[GroupMemberEntity class]
+                                                 predicate:[NSPredicate predicateWithFormat:@"groupid == %@ && groupRole == %@ && loginid == %@", groupid, @"2", YUCLOUD_ACCOUNT_USERID]].firstObject;
     
     return [self groupMemberForEntity:entity];
 }
 
 - (NSArray *)groupAdminsForGroupid:(NSString *)groupid {
-    NSFetchRequest *request = [GroupMemberEntity fetchRequest];
-    request.predicate = [NSPredicate predicateWithFormat:@"groupid == %@ && groupRole == %@ && loginid == %@", groupid, @"1", YUCLOUD_ACCOUNT_USERID];
-    
-    NSArray *array = [self.privateContext executeFetchRequest:request error:nil];
+    NSArray *array = [self executeFetchOnEntity:[GroupMemberEntity class]
+                                      predicate:[NSPredicate predicateWithFormat:@"groupid == %@ && groupRole == %@ && loginid == %@", groupid, @"1", YUCLOUD_ACCOUNT_USERID]];
     NSMutableArray *mulArr = [NSMutableArray arrayWithCapacity:array.count];
     
     for(GroupMemberEntity *entity in array) {

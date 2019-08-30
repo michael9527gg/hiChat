@@ -606,14 +606,15 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 #pragma mark - UICollectionViewDataSource, UICollectionViewDelegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSInteger num = [self.dataSource numberOfItems:self.fetchedResultsController inSection:section];
+    NSInteger num = [self.dataSource numberOfItems:self.fetchedResultsController
+                                         inSection:section];
     if(!num) {
         return num;
     }
     
     if(!self.currentMember) {
         self.currentMember = [[GroupDataSource sharedInstance] groupMemberWithUserd:YUCLOUD_ACCOUNT_USERID
-                                                                          groupid:self.groupId];
+                                                                            groupid:self.groupId];
     }
     
     if(self.currentMember.isLord || self.currentMember.isAdmin) {

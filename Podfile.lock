@@ -24,7 +24,7 @@ PODS:
     - Masonry
     - NYXImagesKit
     - SDWebImage
-  - LYCoreDataSource (1.1.2)
+  - LYCoreDataSource (1.1.4)
   - LYPopoverView (0.0.1)
   - LYPopupTools (1.0.2):
     - MBProgressHUD
@@ -90,7 +90,7 @@ SPEC CHECKSUMS:
   AliyunOSSiOS: 602b6a4e70e62a5f0a6431c20496343141d7e66f
   LBXScan: e51449f0832d1fe17da632af0d22adeb3cfa3543
   LYCocoaDevKit: 11079fd7063b7cd95b0050487a51bd6d7ed64cc8
-  LYCoreDataSource: e0cc696a4a5f9c22d71f9d10e0be37d707bc9235
+  LYCoreDataSource: f444f7fcaf528ebf223528a19810955f396f164b
   LYPopoverView: a9d47f30ee27a876f61cf9f37d0e4b52a18fab71
   LYPopupTools: 3985903be37b7ad38886a8b30c881b642b6c1f8d
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201

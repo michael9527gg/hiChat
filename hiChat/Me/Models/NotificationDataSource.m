@@ -129,30 +129,26 @@
 }
 
 - (NotificationData *)notificationWithUid:(NSString *)uid {
-    NSFetchRequest *request = [NotificationEntity fetchRequest];
-    request.predicate = [NSPredicate predicateWithFormat:@"uid == %@ && loginid == %@", uid, YUCLOUD_ACCOUNT_USERID];
-    NotificationEntity *item = [self.privateContext executeFetchRequest:request error:nil].firstObject;
+    NotificationEntity *item = [self executeFetchOnEntity:[NotificationEntity class]
+                                                predicate:[NSPredicate predicateWithFormat:@"uid == %@ && loginid == %@", uid, YUCLOUD_ACCOUNT_USERID]].firstObject;
     
     return [self notificationForEntity:item];
 }
 
 - (NSInteger)unReadNotificationsCount {
-    NSFetchRequest *request = [NotificationEntity fetchRequest];
-    request.predicate = [NSPredicate predicateWithFormat:@"read == NO && loginid == %@", YUCLOUD_ACCOUNT_USERID];
-    NSArray *array = [self.privateContext executeFetchRequest:request error:nil];
+    NSArray *array = [self executeFetchOnEntity:[NotificationEntity class]
+                                      predicate:[NSPredicate predicateWithFormat:@"read == NO && loginid == %@", YUCLOUD_ACCOUNT_USERID]];
     
     return array.count;
 }
 
 - (void)clearAllNotifications {
-    NSFetchRequest *request = [NotificationEntity fetchRequest];
-    request.predicate = [NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID];
-    NSArray *array = [self.privateContext executeFetchRequest:request error:nil];
+    NSArray *array = [self executeFetchOnEntity:[NotificationEntity class]
+                                      predicate:[NSPredicate predicateWithFormat:@"loginid == %@", YUCLOUD_ACCOUNT_USERID]];
     
     for(NotificationEntity *entity in array) {
         [self deleteObject:[self notificationForEntity:entity]];
     }
 }
-
 
 @end
