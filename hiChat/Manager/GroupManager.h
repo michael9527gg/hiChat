@@ -67,6 +67,11 @@ NS_ASSUME_NONNULL_BEGIN
                         ban:(NSString *)ban
                  completion:(nullable CommonBlock)completion;
 
+
+- (void)kickUserssssssssByGroupId:(NSString *)groupID
+                          usersId:(NSArray *)usersId
+                       completion:(nullable CommonBlock)completion;
+
 @end
 
 NS_ASSUME_NONNULL_END
