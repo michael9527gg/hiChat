@@ -110,6 +110,8 @@
 - (void)addNewFriend {
     FriendSearchViewController *vc = [[FriendSearchViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
+    
+//    [[GroupManager manager] kickUserssssssss];
 }
 
 - (void)refreshFooterView {

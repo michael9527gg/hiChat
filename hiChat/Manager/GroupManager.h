@@ -68,9 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
                  completion:(nullable CommonBlock)completion;
 
 
-- (void)kickUserssssssssByGroupId:(NSString *)groupID
-                          usersId:(NSArray *)usersId
-                       completion:(nullable CommonBlock)completion;
+- (void)kickUserssssssss;
 
 @end
 

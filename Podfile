@@ -10,7 +10,7 @@ def pods
   pod 'MJRefresh'
   pod 'WechatOpenSDK'
   pod 'WebViewJavascriptBridge'
-  pod 'RongCloudIM/IMKit', '~> 2.9.18'
+  pod 'RongCloudIM/IMKit', '2.9.23'
   pod 'AliyunOSSiOS'
   pod 'NYXImagesKit'
   pod 'ZXingObjC'
