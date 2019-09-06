@@ -138,7 +138,7 @@ NSString *defaultStartupKey = @"1000";
     
     [RCIM sharedRCIM].groupMemberDataSource = RCCDataSource;
     
-    [RCIMClient sharedRCIMClient].logLevel = RC_Log_Level_Error;
+    [RCIMClient sharedRCIMClient].logLevel = RC_Log_Level_None;
     
     NSLog(@"RCIMClient version: %@", [[RCIMClient sharedRCIMClient] getSDKVersion]);
 }
